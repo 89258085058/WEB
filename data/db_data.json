@@ -1,0 +1,184 @@
+{
+    "object": {
+        "name_object": "ДСК «Автобан»",
+        "number_object": "8844",
+        "Take_Delay": "21923",
+        "Input_Alarm_Delay": "23997",
+        "Auto_arm_time": "32974"
+    },
+    "Radio": {
+        "Resolution_time_for_adding_new_sensors": "162",
+        "Sensor_polling_period": "115"
+    },
+    "DateTime": {
+        "server_address": "dc7-serv.bolid.ru"
+    },
+    "GSM": {
+        "Resolution_time_for_adding_new_sensors": "6",
+        "Sensor_polling_period": "17290",
+        "SIM_1_USSD": "*8773#",
+        "SIM_2_USSD": "*7588#",
+        "SIM_1_PIN": "272291667",
+        "SIM_2_PIN": "596125508",
+        "APN_1": "dddddddddddddddddddddddddd",
+        "APN_2": "kkkkkkkkkkkkkkkkkkkkkkkkkk",
+        "login_sim_1": "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
+        "login_sim_2": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+        "password_sim_1": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+        "password_sim_2": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+    },
+    "Ethernet": {
+        "MAC_address": "99-aa-11-88-bb-22",
+        "Server_name": "KKKKKKKK33333333",
+        "Address_IPv4": "86.90.148.140",
+        "Subnet_mask": "41.154.18.220",
+        "Main_gate": "57.128.5.94",
+        "Preferred_DNS_Server": "49.9.12.59",
+        "Alternative_DNS_Server": "114.228.151.10",
+        "Local_IPv6_address": "a333:689d:9b85:d9d5:99c7:4a8:b2c:b604",
+        "Global_IPv6_address": "6eee:e0b1:281b:c0a4:6785:6f70:2a3a:8a31",
+        "Preferred_IPv6_DNS_Server": "28ed:1af3:dc87:cf2c:367a:47b5:91ce:d036",
+        "Alternative_IPv6_DNS_Server": "9117:3d4:b0e8:2ae8:6b7e:dbfc:d943:1f71"
+    },
+    "VolumIndication": {
+        "Signal_duration": "21284",
+        "Event_volume": "27",
+        "Alarm_volume": "63"
+    },
+    "Out": {
+        "Time_widget": "738",
+        "Tumbler_turn_on_when_finished": "OFF",
+        "Mask_random_out_1": "1",
+        "Mask_random_out_2": "29",
+        "Gisteresis_outs": "5",
+        "Internal_reference_signal": "89",
+        "Tumbler_inversion_of_control": "OFF",
+        "Out_name": "ттттттттттттттттттттттттттттттттттттттттттттттттттттттттттттттт",
+        "tumbler_1": "ON",
+        "tumbler_2": "ON"
+    },
+    "Path": {
+        "Name_path": "ГК \"Электрозавод\"",
+        "Number_path": "683",
+        "tumbler_1": "ON",
+        "tumbler_2": "ON",
+        "tumbler_3": "ON"
+    },
+    "Directions": {
+        "Name_direction": "Солнечные продукты",
+        "pathList": "Раздел № 09",
+        "Phone_cod": "+374",
+        "Phone_number": "(735)985-52-50",
+        "assert_Phone_number": "(603) 257-11-11",
+        "Lang": "Русский",
+        "Send_event_time": "ON",
+        "Send_event_date": "ON",
+        "Test_if": "Всегда",
+        "Test_method": "SMS Эгида",
+        "Timeout_on_error": "15:44",
+        "Test_interval": "17:39",
+        "Days_of_the_week": "Пт",
+        "Time": "16:00"
+    },
+    "User": {
+        "CB_egida": "OFF",
+        "user_name": "Leif",
+        "user_login": "Milford",
+        "user_password": "Leif",
+        "CB_Operator_message_forwarding": "ON",
+        "CB_Sending_out_of_broadcast": "ON",
+        "DL_Group_of_outputs_controlled_by_SMS": "6",
+        "DL_Group_of_outputs_with_call_control": "13",
+        "CB_Allow_withdrawal_by_SMS": "ON",
+        "CB_Allow_Pickup_by_SMS": "OFF",
+        "user_phone_cod": "+374",
+        "user_phone_number": "(735)985-52-50",
+        "user_sms_password": "38002",
+        "pathList": "Раздел № 09",
+        "CB_egida_2": "ON",
+        "user_name_2": "Leif",
+        "user_login_2": "Milford",
+        "user_password_2": "Leif",
+        "CB_Operator_message_forwarding_2": "ON",
+        "CB_Sending_out_of_broadcast_2": "ON",
+        "DL_Group_of_outputs_controlled_by_SMS_2": "7",
+        "DL_Group_of_outputs_with_call_control_2": "12",
+        "CB_Allow_withdrawal_by_SMS_2": "OFF",
+        "CB_Allow_Pickup_by_SMS_2": "OFF",
+        "user_phone_cod_2": "+374",
+        "user_phone_number_2": "(383)875-53-98",
+        "user_sms_password_2": "38914",
+        "pathList_2": "Раздел № 12"
+    },
+    "Key": {
+        "key_id": "304783506106",
+        "Permissions": "Взятие разделов",
+        "pathList": "Раздел № 09"
+    },
+    "Brelok": {
+        "brelok_CB_sensor_on": "ON",
+        "brelok_name": "85-86/44",
+        "brelok_path": "Раздел № 09",
+        "brelok_pathList_1": "Раздел № 09",
+        "brelok_pathList_2": "Раздел № 12",
+        "brelok_silent_larm_method": "Зажать на 3 сек, нажать 1 раз",
+        "brelok_button_output_group_1": "6",
+        "brelok_button_output_group_2": "13",
+        "brelok_CB_take_off": "ON",
+        "brelok_CB_take_on": "ON",
+        "brelok_CB_sirena_off": "OFF"
+    },
+    "C_2000P_IK": {
+        "c_2000p_ik_CB_sensor_on": "ON",
+        "c_2000p_ik_name": "85-86/44",
+        "c_2000p_ik_path": "Раздел № 09",
+        "c_2000p_ik_display_mode": "Индикация выключена",
+        "c_2000p_ik_CB_bell_mode": "ON",
+        "c_2000p_ik_CB_energy_saving_mode": "ON",
+        "c_2000p_ik_CB_test_mode": "OFF",
+        "c_2000p_ik_W_Sensitivity": "46"
+    },
+    "C_2000P_SMK": {
+        "c_2000p_smk_CB_sensor_on": "ON",
+        "c_2000p_smk_name": "85-86/44",
+        "c_2000p_smk_path": "Раздел № 09",
+        "c_2000p_smk_display_mode": "Индикация выключена",
+        "c_2000p_smk__CB_bell_mode": "ON",
+        "c_2000p_smk_CB_enabling_the_Anti_sabotage_mode": "OFF",
+        "c_2000p_smk_W_Sensitivity": "Геркон и шлейф"
+    },
+    "SENSOR_KC": {
+        "sensor_kc_DL_type_zone": "Тревожный",
+        "sensor_kc_CB_sensor_on": "ON",
+        "sensor_kc_name": "85-86/44",
+        "sensor_kc_path": "Раздел № 09",
+        "sensor_kc_CB_bell_mode": "OFF"
+    },
+    "C_2000P_SDVIG": {
+        "c_2000p_sdvig_CB_sensor_on": "ON",
+        "c_2000p_sdvig_name": "85-86/44",
+        "c_2000p_sdvig_path": "Раздел № 09",
+        "c_2000p_sdvig_display_mode": "Индикация выключена",
+        "c_2000p_sdvig_CB_bell_mode": "OFF",
+        "c_2000p_sdvig_CB_tilt_sdvig": "ON",
+        "c_2000p_sdvig_CB_tilt_control": "ON",
+        "c_2000p_sdvig_CB_fix_tilt_control": "OFF",
+        "c_2000p_sdvig_CB_energo_mode": "OFF",
+        "c_2000p_sdvig_CB_fix_position": "OFF",
+        "c_2000p_sdvig_CB_control_gerkon": "ON",
+        "c_2000p_DL_sdvig_tilt_alarm_threshold": "3",
+        "c_2000p_DL_sdvig_movement_alarm_threshold": "300"
+    },
+    "C_2000P_IP": {
+        "C_2000P_IP_CB_sensor_on": "ON",
+        "C_2000P_IP_name": "85-86/44",
+        "C_2000P_IP_path": "Раздел № 09",
+        "C_2000P_IP_display_mode": "Индикация выключена",
+        "C_2000P_IP_CB_bell_mode": "ON",
+        "C_2000P_IP_gisteresis": "21",
+        "C_2000P_IP_temp_min": "87",
+        "C_2000P_IP_temp_max": "2",
+        "C_2000P_IP_notification_mode": "Без уведомлений",
+        "C_2000P_IP_CB_open": "ON"
+    }
+}
