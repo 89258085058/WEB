@@ -78,10 +78,20 @@ class Application:
             capabilities = {"browserName": 'firefox', "browserVersion": "98.0", "platformName": "Linux"}
             self.wd = webdriver.Remote(command_executor=f"http://192.168.22.130:9844/wd/hub",
                                        desired_capabilities=capabilities)
-        elif browser == 'firefox_99':
-            capabilities = {"browserName": 'firefox', "browserVersion": "99.0", "platformName": "Linux"}
-            self.wd = webdriver.Remote(command_executor=f"http://192.168.22.130:9944/wd/hub",
-                                       desired_capabilities=capabilities)
+        elif browser == 'selenoid':
+
+            capabilities = {
+                "browserName": "chrome",
+                "browserVersion": "108.0",
+                "selenoid:options": {
+                    "enableVNC": True,
+                    "enableVideo": False
+                }
+            }
+
+            self.wd  = webdriver.Remote(
+                command_executor="http://134.0.115.66:4444/wd/hub",
+                desired_capabilities=capabilities)
         else:
             raise ValueError("Unrecognized browser %s" % browser)
         # self.wd.set_window_size(1920, 1080)
