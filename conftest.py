@@ -47,8 +47,8 @@ def app(request):
         browser = request.config.getoption("--browser")
         web_config = load_config(request.config.getoption("--target"))["web_remote"]
         logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
-        if fixture is None or not fixture.is_valid():
-            fixture = Application(browser=browser, base_url=web_config["baseUrl_remote"],
+
+        fixture = Application(browser=browser, base_url=web_config["baseUrl_remote"],
                                   base_url_for_check=web_config["baseUrl_remote_signal"])
         fixture.session.ensure_login_remote(username=logAndPas["username"], password=logAndPas["password"])
         return fixture
@@ -67,6 +67,7 @@ def app(request):
 @pytest.fixture(scope="session", autouse=True)
 def stop(request):
     def fin():
+        fixture.destroy()
         fixture.destroy()
 
     request.addfinalizer(fin)
