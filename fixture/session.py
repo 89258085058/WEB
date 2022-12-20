@@ -38,19 +38,30 @@ class SessionHelper:
 
     def login_remote(self, username, password):
         with allure.step("Авторизация пользователя"):
-            wd = self.app.wd
-            wd.get(self.app.base_url)
-            self.app.method.inputValues('antipov8v@gmail.com', '//*[@id="email"]')
-            self.app.method.inputValues('ant2001daniil', '//*[@id="password"]')
-            self.app.method.click((By.XPATH, '//*[@id="app"]/main//span[.="Войти"]'))
-            time.sleep(0.5)
-            self.app.method.click((By.XPATH, '//*[@id="app"]//button[.=" Перейти "]'))
-            time.sleep(1)
-            window_after = wd.window_handles[1]
-            wd.switch_to.window(window_after)
-            self.app.method.inputValues(username, '//*[@id="username"]')
-            self.app.method.inputValues(password, '//*[@id="password"]')
-            self.app.method.click((By.XPATH, entry_button))
+            try:
+                wd = self.app.wd
+                wd.get(self.app.base_url)
+                self.app.method.inputValues('antipov8v@gmail.com', '//*[@id="email"]')
+                self.app.method.inputValues('ant2001daniil', '//*[@id="password"]')
+                self.app.method.click((By.XPATH, '//*[@id="app"]/main//span[.="Войти"]'))
+                time.sleep(0.5)
+                self.app.method.click((By.XPATH, '//*[@id="app"]//button[.=" Перейти "]'))
+                time.sleep(1)
+                window_after = wd.window_handles[1]
+                wd.switch_to.window(window_after)
+                self.app.method.inputValues(username, '//*[@id="username"]')
+                self.app.method.inputValues(password, '//*[@id="password"]')
+                self.app.method.click((By.XPATH, entry_button))
+            except:
+                time.sleep(0.5)
+                self.app.method.click((By.XPATH, '//*[@id="app"]//button[.=" Перейти "]'))
+                time.sleep(1)
+                window_after = wd.window_handles[1]
+                wd.switch_to.window(window_after)
+                self.app.method.inputValues(username, '//*[@id="username"]')
+                self.app.method.inputValues(password, '//*[@id="password"]')
+                self.app.method.click((By.XPATH, entry_button))
+
 
 
 
