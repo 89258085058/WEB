@@ -26,17 +26,42 @@ def config(request):
     return load_config(request.config.getoption("--target"))
 
 
+# @pytest.fixture(scope='class')
+# def app(request):
+#     global fixture
+#     browser = request.config.getoption("--browser")
+#     web_config = load_config(request.config.getoption("--target"))["web"]
+#     logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
+#
+#     if fixture is None or not fixture.is_valid():
+#         fixture = Application(browser=browser, base_url=web_config["baseUrl"])
+#     fixture.session.ensure_login(username=logAndPas["username"], password=logAndPas["password"])
+#     return fixture
+
+
 @pytest.fixture(scope='class')
 def app(request):
     global fixture
-    browser = request.config.getoption("--browser")
-    web_config = load_config(request.config.getoption("--target"))["web"]
-    logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
 
-    if fixture is None or not fixture.is_valid():
-        fixture = Application(browser=browser, base_url=web_config["baseUrl"])
-    fixture.session.ensure_login(username=logAndPas["username"], password=logAndPas["password"])
-    return fixture
+    if request.config.getoption("--device") == 'remote':
+        browser = request.config.getoption("--browser")
+        web_config = load_config(request.config.getoption("--target"))["web_remote"]
+        logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
+        if fixture is None or not fixture.is_valid():
+            fixture = Application(browser=browser, base_url=web_config["baseUrl_remote"],
+                                  base_url_for_check=web_config["baseUrl_remote_signal"])
+        fixture.session.ensure_login_remote(username=logAndPas["username"], password=logAndPas["password"])
+        return fixture
+
+    if request.config.getoption("--device") == 'local':
+        browser = request.config.getoption("--browser")
+        web_config = load_config(request.config.getoption("--target"))["web"]
+        logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
+        if fixture is None or not fixture.is_valid():
+            fixture = Application(browser=browser, base_url=web_config["baseUrl"],
+                                  base_url_for_check=web_config["baseUrl"])
+        fixture.session.ensure_login(username=logAndPas["username"], password=logAndPas["password"])
+        return fixture
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -49,10 +74,11 @@ def stop(request):
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", action='store', default="selenoid")
+    # parser.addoption("--browser", action='store', default="selenoid")
+    parser.addoption("--browser", action='store', default="chrome")
     # parser.addoption("--browser", action='store', default="Firefox")
-    # parser.addoption("--target", action='store', default="target.json")
-    parser.addoption("--target", action='store', default="target_local.json")
+    parser.addoption("--target", action='store', default="target.json")
+    parser.addoption("--device", action='store', default="remote")
 
 
 @pytest.hookimpl(hookwrapper=True)

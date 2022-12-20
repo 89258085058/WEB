@@ -28,7 +28,7 @@ from pages.PO_Update import UpdateHelper
 class Application:
 
     # Настройка браузеров и взаимодействие с классами помошниками
-    def __init__(self, browser, base_url):
+    def __init__(self, browser, base_url, base_url_for_check):
         if browser == 'firefox':
             self.wd = webdriver.Firefox()
         elif browser == 'chrome':
@@ -79,7 +79,6 @@ class Application:
             self.wd = webdriver.Remote(command_executor=f"http://192.168.22.130:9844/wd/hub",
                                        desired_capabilities=capabilities)
         elif browser == 'selenoid':
-
             capabilities = {
                 "browserName": "chrome",
                 "browserVersion": "108.0",
@@ -88,10 +87,10 @@ class Application:
                     "enableVideo": False
                 }
             }
-
-            self.wd  = webdriver.Remote(
+            self.wd = webdriver.Remote(
                 command_executor="http://134.0.115.66:4444/wd/hub",
-                desired_capabilities=capabilities)
+                desired_capabilities=capabilities,
+            )
         else:
             raise ValueError("Unrecognized browser %s" % browser)
         # self.wd.set_window_size(1920, 1080)
@@ -113,6 +112,7 @@ class Application:
         self.read_data = DataHelper(self)
         self.ganerate_data = Ganerate(self)
         self.base_url = base_url
+        self.base_url_for_check = base_url_for_check
 
     # Проверка на валидный URL
     def is_valid(self):
@@ -130,7 +130,7 @@ class Application:
 
     # Выход из браузера
     def destroy(self):
-        wd = self.wd
+        self.wd.quit()
         self.wd.quit()
 
     # Выполнение скриншота для отчета Allure

@@ -1,7 +1,12 @@
 {
   "web": {
-    "baseUrl": "http://192.168.22.130:8080",
-    "host": "http://192.168.22.130:8080"
+    "baseUrl": "http://192.168.22.159/#",
+    "host": "http://192.168.22.159"
+  },
+  "web_remote": {
+    "baseUrl_remote_signal": "http://84.201.143.9/signal",
+    "baseUrl_remote": "http://84.201.143.9/",
+    "host_remote": "http://84.201.143.9/signal"
   },
   "webadmin": {
     "username": "admin",
