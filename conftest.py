@@ -26,19 +26,6 @@ def config(request):
     return load_config(request.config.getoption("--target"))
 
 
-# @pytest.fixture(scope='class')
-# def app(request):
-#     global fixture
-#     browser = request.config.getoption("--browser")
-#     web_config = load_config(request.config.getoption("--target"))["web"]
-#     logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
-#
-#     if fixture is None or not fixture.is_valid():
-#         fixture = Application(browser=browser, base_url=web_config["baseUrl"])
-#     fixture.session.ensure_login(username=logAndPas["username"], password=logAndPas["password"])
-#     return fixture
-
-
 @pytest.fixture(scope='class')
 def app(request):
     global fixture
