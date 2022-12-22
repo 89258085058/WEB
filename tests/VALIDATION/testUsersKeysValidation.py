@@ -76,6 +76,7 @@ class TestUsersKeysValidation():
         with allure.step("Проверка валидации поля"):
             app.PO_Users_Keys.input_name_user()
 
+
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Имя пользователя'(Добавить пользователя)")
     def test_user_input_name_user_negativ(self, app, users, close_modal):

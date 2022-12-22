@@ -188,8 +188,8 @@ Alarm_enter_click = '(//*[.="Тревога входа"]//label/span)[1]'
 Alarm_enter_status = '(//*[.="Тревога входа"]//label/input)[1]'
 
 # Питание прибора
-Take_all_power_device_click = '(//*[.="Выбрать все"]//label/span)[3]'
-Take_all_power_device_status = '(//*[.="Выбрать все"]//label/input)[3]'
+Take_all_power_device_click = '(//*[.="Выбрать все"]//label/span)[1]'
+Take_all_power_device_status = '(//*[.="Выбрать все"]//label/input)[1]'
 Battery_is_OK_click = '(//*[.="Аккумулятор в норме"]//label/span)[1]'
 Battery_is_OK_status = '(//*[.="Аккумулятор в норме"]//label/input)[1]'
 The_battery_is_charging_click = '(//*[.="Аккумулятор заряжается"]//label/span)[1]'
@@ -208,8 +208,8 @@ Mains_power_off_click = '(//*[.="Сетевое питание отключен�
 Mains_power_off_status = '(//*[.="Сетевое питание отключено"]//label/input)[1]'
 
 # События зон
-zone_events_device_click = '(//*[.="Выбрать все"]//label/span)[2]'
-zone_events_device_status = '(//*[.="Выбрать все"]//label/input)[2]'
+zone_events_device_click = '(//*[.="Выбрать все"]//label/span)[1]'
+zone_events_device_status = '(//*[.="Выбрать все"]//label/input)[1]'
 Battery_OK_zone_events_device_click = '(//*[.="Батарея в норме"]//label/span)[1]'
 Battery_OK_zone_events_device_status = '(//*[.="Батарея в норме"]//label/input)[1]'
 ready_click = '(//*[.="Готов"]//label/span)[1]'
@@ -252,8 +252,8 @@ AL_interrupted_zone_events_click = '(//*[.="ШС оборван"]//label/span)[1
 AL_interrupted_zone_events_status = '(//*[.="ШС оборван"]//label/input)[1]'
 
 # Системные события прибора
-instrument_system_events_click = '(//*[.="Выбрать все"]//label/span)[4]'
-instrument_system_events_status = '(//*[.="Выбрать все"]//label/input)[4]'
+instrument_system_events_click = '(//*[.="Выбрать все"]//label/span)[1]'
+instrument_system_events_status = '(//*[.="Выбрать все"]//label/input)[1]'
 Opening_the_case_of_the_device_click = '(//*[.="Вскрытие корпуса прибора"]//label/span)[1]'
 Opening_the_case_of_the_device_status = '(//*[.="Вскрытие корпуса прибора"]//label/input)[1]'
 Closing_the_instrument_housing_click = '(//*[.="Закрытие корпуса прибора"]//label/span)[1]'

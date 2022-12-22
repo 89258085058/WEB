@@ -16,6 +16,8 @@ class Ganerate:
     def createData():
         f = "data/db_data.json"
 
+        name = 'a' * 31
+
         # Настройки/Дата время
         random_1 = random.choice([".", '-'])
         random_2 = random.choice(string.ascii_lowercase)
@@ -24,7 +26,7 @@ class Ganerate:
         server_address_work = 'dc7-serv.bolid.ru'
 
         # Настройки/Объект
-        name_object = mimesis.Finance("ru").company()
+        name_object = 'a' * 31
         number_object = random.randint(1, 9999)
         Take_Delay = random.randint(5, 65535)
         Input_Alarm_Delay = random.randint(5, 65535)
@@ -97,10 +99,10 @@ class Ganerate:
 
         # Разделы
         Number_path = random.randint(1, 999)
-        Name_path = mimesis.Finance("ru").company()
+        Name_path = 'a' * 31
 
         # Направления
-        Name_direction = mimesis.Finance("ru").company()
+        Name_direction = 'a' * 31
         path = ['Раздел № 01', 'Раздел № 02', 'Раздел № 03', 'Раздел № 04', 'Раздел № 05', 'Раздел № 06',
                 'Раздел № 07', 'Раздел № 08', 'Раздел № 09', 'Раздел № 10', 'Раздел № 11', 'Раздел № 12',
                 'Раздел № 13', 'Раздел № 14', 'Раздел № 15', 'Раздел № 16']
@@ -148,7 +150,7 @@ class Ganerate:
                                      'Взятие разделов', 'Снятие разделов', 'Отметка наряда'])
 
         # Брелок
-        brelok_name = mimesis.Person("ru").identifier()
+        brelok_name = name
         brelok_silent_larm_method_list = random.choice(['Зажать на 3-10 сек', 'Зажать на 3 сек, нажать 1 раз'])
 
         # c 2000p ik
@@ -239,7 +241,7 @@ class Ganerate:
             },
 
             'Path': {
-                'Name_path': str(Name_path),
+                'Name_path': str(name),
                 'Number_path': str(Number_path),
                 'tumbler_1': str(Tumbler_random_1),
                 'tumbler_2': str(Tumbler_random_2),
@@ -247,7 +249,7 @@ class Ganerate:
             },
 
             'Directions': {
-                'Name_direction': str(Name_direction),
+                'Name_direction': str(name),
                 'pathList': str(pathList),
                 'Phone_cod': str(Phone_cod),
                 'Phone_number': str(Phone_number),
@@ -304,7 +306,7 @@ class Ganerate:
 
             'Brelok': {
                 'brelok_CB_sensor_on': "ON",
-                'brelok_name': str(brelok_name),
+                'brelok_name': str(name),
                 'brelok_path': str(pathList),
                 'brelok_pathList_1': str(pathList),
                 'brelok_pathList_2': str(pathList_2),
@@ -318,7 +320,7 @@ class Ganerate:
 
             'C_2000P_IK': {
                 'c_2000p_ik_CB_sensor_on': "ON",
-                'c_2000p_ik_name': str(brelok_name),
+                'c_2000p_ik_name': str(name),
                 'c_2000p_ik_path': str(pathList),
                 'c_2000p_ik_display_mode': str(c_2000p_ik_display_mode),
                 'c_2000p_ik_CB_bell_mode': str(random.choice(tumbler)),
@@ -329,7 +331,7 @@ class Ganerate:
 
             'C_2000P_SMK': {
                 'c_2000p_smk_CB_sensor_on': "ON",
-                'c_2000p_smk_name': str(brelok_name),
+                'c_2000p_smk_name': str(name),
                 'c_2000p_smk_path': str(pathList),
                 'c_2000p_smk_display_mode': str(c_2000p_ik_display_mode),
                 'c_2000p_smk__CB_bell_mode': str(random.choice(tumbler)),
@@ -340,14 +342,14 @@ class Ganerate:
             'SENSOR_KC': {
                 'sensor_kc_DL_type_zone': str(kc_type_zone),
                 'sensor_kc_CB_sensor_on': str(random.choice(tumbler_3)),
-                'sensor_kc_name': str(brelok_name),
+                'sensor_kc_name': str(name),
                 'sensor_kc_path': str(pathList),
                 'sensor_kc_CB_bell_mode': str(random.choice(tumbler))
             },
 
             'C_2000P_SDVIG': {
                 'c_2000p_sdvig_CB_sensor_on': "ON",
-                'c_2000p_sdvig_name': str(brelok_name),
+                'c_2000p_sdvig_name': str(name),
                 'c_2000p_sdvig_path': str(pathList),
                 'c_2000p_sdvig_display_mode': str(c_2000p_ik_display_mode),
                 'c_2000p_sdvig_CB_bell_mode': str(random.choice(tumbler)),
@@ -363,7 +365,7 @@ class Ganerate:
 
             'C_2000P_IP': {
                 'C_2000P_IP_CB_sensor_on': "ON",
-                'C_2000P_IP_name': str(brelok_name),
+                'C_2000P_IP_name': str(name),
                 'C_2000P_IP_path': str(pathList),
                 'C_2000P_IP_display_mode': str(c_2000p_ik_display_mode),
                 'C_2000P_IP_CB_bell_mode': str(random.choice(tumbler_1)),

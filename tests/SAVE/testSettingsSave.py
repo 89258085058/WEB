@@ -153,7 +153,7 @@ class TestSaveSettings:
     @pytest.mark.parametrize(
         "name, number, delay_take, delay_alarm, time_take_on, randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5",
         [
-            (('a' * 32), '9999', '65535', '65535', '65535', 'ON', 'ON', 'ON', 'ON', 'ON'),
+            (('a' * 31), '9999', '65535', '65535', '65535', 'ON', 'ON', 'ON', 'ON', 'ON'),
             ('1', '1', '5', '5', '5', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF')
         ])
     def test_data_save_object_limit_values(self, app, object, name, number, delay_take, delay_alarm, time_take_on,

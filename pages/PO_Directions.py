@@ -460,7 +460,21 @@ class DirectionsHelper:
 
     # Раскрытие настроек канала
     def openChanel(self, name):
-        self.app.method.click_element_locate(f'//*[@class="b-panel__header-text"][.="{name}"]')
+        wd = self.app.wd
+        if name == 'Основной':
+            text = wd.find_element(By.XPATH, '//*[@id="modalSettings"]/div/div[2]/div[1]/div[3]/div[1]/div/div')
+            if text.get_attribute('class') != "b-panel__header b-panel__header--open":
+                self.app.method.click_element_locate(f'//*[@class="b-panel__header-text"][.="{name}"]')
+        if name == 'Резерв 1':
+            text = wd.find_element(By.XPATH, '//*[@id="modalSettings"]/div/div[2]/div[1]/div[3]/div[2]/div/div')
+            if text.get_attribute('class') != "b-panel__header b-panel__header--open":
+                self.app.method.click_element_locate(f'//*[@class="b-panel__header-text"][.="{name}"]')
+        if name == 'Резерв 2':
+            text = wd.find_element(By.XPATH, '//*[@id="modalSettings"]/div/div[2]/div[1]/div[3]/div[3]/div/div')
+            if text.get_attribute('class') != "b-panel__header b-panel__header--open":
+                self.app.method.click_element_locate(f'//*[@class="b-panel__header-text"][.="{name}"]')
+
+
 
     def checkChanel(self, name):
         self.app.method.click_element_locate(f'//*[@class="b-panel__header-text"][.="{name}"]')
