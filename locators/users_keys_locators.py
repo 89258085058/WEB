@@ -22,13 +22,17 @@ password = '//*[.="Пароль"]/following::input[1]'
 # Подтвердите пароль
 re_password = '//*[.="Повторите пароль"]/following::input[1]'
 # Телефон (код)
-phone_cod = '/html/body//input[@placeholder="Код"]'
+phone_cod_add = '//*[.="Телефон"]//input[1]'
+phone_cod = '//*[.="Телефон"]/following::input[1]'
+
 # Телефон (номер)
-phone_number = '/html/body//input[2]'
+phone_number_add = '//*[.="Телефон"]//input[2]'
+phone_number = '//*[.="Телефон"]/following::input[2]'
 # Пароль SMS
-password_sms_user = '(/html/body//div/input)[10]'
+password_sms_user_add = '//*[.="Пароль SMS"]//input[1]'
+password_sms_user = '//*[.="Пароль SMS"]/following::input[1]'
 # Повторите пароль
-re_password_sms_user = '(/html/body//div/input)[11]'
+re_password_sms_user = '//*[.="Повторите пароль SMS"]/following::input[1]'
 # ------------ВЫПАДАЮЩИЙ СПИСОК-----
 # Кнопка выпадающего списка Группа выходов с управлением звонком
 Group_of_outputs_with_call_control = '/html/body//span[@class="label"]'

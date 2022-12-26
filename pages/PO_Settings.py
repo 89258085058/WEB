@@ -225,15 +225,15 @@ class SettingsHelper:
             self.app.method.assertEqual('1 2 3', '1 2 3', locator)
         with allure.step("Проверка ввода граничных значений внутри диапазона"):
             self.app.method.assertEqual(1, 1, locator)
+            self.app.method.assertEqual('1' * 30, '1' * 30, locator)
             self.app.method.assertEqual('1' * 31, '1' * 31, locator)
-            self.app.method.assertEqual('1' * 32, '1' * 32, locator)
 
     # Проверка ввода поле Название объекта
     def input_object_name_negativ(self, locator=object_name):
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода граничных значений внутри диапазона"):
-            self.app.method.assertEqual('1' * 33, '1' * 32, locator)
+            self.app.method.assertEqual('1' * 33, '1' * 31, locator)
 
     # Проверка ввода поле Название сервера
     def input_server_name(self, locator):

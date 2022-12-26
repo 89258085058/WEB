@@ -4,7 +4,7 @@ import time
 import allure
 import pytest
 
-reruns = 1
+reruns = 0
 
 outs_test_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 
@@ -46,7 +46,7 @@ def settings_path(app):
 @pytest.mark.flaky(reruns=reruns)
 class TestZonePathOutsSave:
 
-    @pytest.mark.skip("БАГ http://redmine.bolid.ru/issues/125176?issue_count=30&issue_position=1&next_issue_id=125166")
+
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения наименования - ВЫХОД №1")
     def test_out_1_save_name(self, app, outs):
@@ -65,7 +65,7 @@ class TestZonePathOutsSave:
             app.PO_Zone_Path.assert_input_name_out_1_for_save()
 
 
-    @pytest.mark.skip("БАГ http://redmine.bolid.ru/issues/125176?issue_count=30&issue_position=1&next_issue_id=125166")
+
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения наименования - ВЫХОД №2")
     def test_out_2_save_name(self, app, outs):
@@ -352,11 +352,11 @@ class TestZonePathOutsPATHSave:
         with allure.step("Переход на вкладку 'Разделы'"):
             app.PO_Navigations.goToPathPage()
         with allure.step("Проверка добавления разделов"):
-            app.PO_Zone_Path.assert_add_pat_1()
+            app.PO_Zone_Path.assert_add_path_1()
 
     @allure.story("РАЗДЕЛЫ")
     @allure.title("Проверка добавления максимального количества разделов c заполнением данных")
-    def test_path_add_max_path_1(self, app):
+    def test_path_add_max_path_2(self, app):
         with allure.step("Переход на страницу Зоны Разделы"):
             app.PO_Navigations.goToZonePathPage()
         with allure.step("Переход на вкладку 'Разделы'"):

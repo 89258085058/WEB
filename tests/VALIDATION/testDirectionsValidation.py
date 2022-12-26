@@ -574,6 +574,8 @@ class TestValidationDestinationMainChanel:
             app.PO_Directions.openChanel('Основной')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_main('DC09')
+        with allure.step("Включения Шифрование"):
+            app.PO_Directions.enableEncryption_main()
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_encryption_key_posutiv_dc09_main()
 
@@ -588,6 +590,8 @@ class TestValidationDestinationMainChanel:
             app.PO_Directions.openChanel('Основной')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_main('DC09')
+        with allure.step("Включения Шифрование"):
+            app.PO_Directions.enableEncryption_main()
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_encryption_key_negativ_dc09_main()
 
@@ -637,7 +641,7 @@ class TestValidationDestinationMainChanel:
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Выбор: тестировать с интервалом"):
-            app.PO_Directions.Test_at_intervals_main_sms_egida('С интервалом')
+            app.PO_Directions.Test_at_intervals_main_dc09('С интервалом')
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_test_interval_posutiv_sms_user_main()
 
@@ -655,7 +659,7 @@ class TestValidationDestinationMainChanel:
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Выбор: тестировать с интервалом"):
-            app.PO_Directions.Test_at_intervals_main_sms_egida('С интервалом')
+            app.PO_Directions.Test_at_intervals_main_dc09('С интервалом')
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_test_interval_posutiv_sms_user_main()
 
@@ -1336,10 +1340,14 @@ class TestValidationDestinationRezerv1Chanel:
         with allure.step("Предусловия раскрытие настроек канала"):
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('DC09')
+        with allure.step("Включения Шифрование"):
+            app.PO_Directions.enableEncryption_main()
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 1')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_rezerv_1('DC09')
+        with allure.step("Включения Шифрование"):
+            app.PO_Directions.enableEncryption_rezerv_1()
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_encryption_key_posutiv_dc09_reserv_1()
 
@@ -1353,10 +1361,14 @@ class TestValidationDestinationRezerv1Chanel:
         with allure.step("Предусловия раскрытие настроек канала"):
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('DC09')
+        with allure.step("Включения Шифрование"):
+            app.PO_Directions.enableEncryption_main()
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 1')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_rezerv_1('DC09')
+        with allure.step("Включения Шифрование"):
+            app.PO_Directions.enableEncryption_rezerv_1()
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_encryption_key_negativ_dc09_reserv_1()
 
@@ -1414,7 +1426,7 @@ class TestValidationDestinationRezerv1Chanel:
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('DC09')
             app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.Test_at_intervals_main_sms_egida('С интервалом')
+            app.PO_Directions.Test_at_intervals_main_dc09('С интервалом')
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 1')
         with allure.step("Выбор типа управления"):
@@ -1422,7 +1434,7 @@ class TestValidationDestinationRezerv1Chanel:
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Выбор: тестировать с интервалом"):
-            app.PO_Directions.Test_at_intervals_sms_egida_reserv_1('С интервалом')
+            app.PO_Directions.Test_at_intervals_reserv_1_dc09('С интервалом')
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_test_interval_posutiv_sms_user_rezerv_1()
 
@@ -1438,7 +1450,7 @@ class TestValidationDestinationRezerv1Chanel:
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('DC09')
             app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.Test_at_intervals_main_sms_egida('С интервалом')
+            app.PO_Directions.Test_at_intervals_main_dc09('С интервалом')
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 1')
         with allure.step("Выбор типа управления"):
@@ -1446,7 +1458,7 @@ class TestValidationDestinationRezerv1Chanel:
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Выбор: тестировать с интервалом"):
-            app.PO_Directions.Test_at_intervals_sms_egida_reserv_1('С интервалом')
+            app.PO_Directions.Test_at_intervals_reserv_1_dc09('С интервалом')
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_test_interval_posutiv_sms_user_rezerv_1()
 
@@ -2213,12 +2225,15 @@ class TestValidationDestinationRezerv2Chanel:
         with allure.step("Предусловия раскрытие настроек канала"):
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('DC09')
+            app.PO_Directions.enableEncryption_main()
             app.PO_Directions.openChanel('Резерв 1')
             app.PO_Directions.openType_rezerv_1('DC09')
+            app.PO_Directions.enableEncryption_rezerv_1()
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 2')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_rezerv_2('DC09')
+            app.PO_Directions.enableEncryption_rezerv_2()
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_encryption_key_posutiv_dc09_reserv_2()
 
@@ -2232,12 +2247,15 @@ class TestValidationDestinationRezerv2Chanel:
         with allure.step("Предусловия раскрытие настроек канала"):
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('DC09')
+            app.PO_Directions.enableEncryption_main()
             app.PO_Directions.openChanel('Резерв 1')
             app.PO_Directions.openType_rezerv_1('DC09')
+            app.PO_Directions.enableEncryption_rezerv_1()
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 2')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_rezerv_2('DC09')
+            app.PO_Directions.enableEncryption_rezerv_2()
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_encryption_key_negativ_dc09_reserv_2()
 
@@ -2301,11 +2319,11 @@ class TestValidationDestinationRezerv2Chanel:
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('DC09')
             app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.Test_at_intervals_main_sms_egida('С интервалом')
+            app.PO_Directions.Test_at_intervals_main_dc09('С интервалом')
             app.PO_Directions.openChanel('Резерв 1')
             app.PO_Directions.openType_rezerv_1('DC09')
             app.PO_Directions.enableChannelTesting_rezerv_1()
-            app.PO_Directions.Test_at_intervals_sms_egida_reserv_1('С интервалом')
+            app.PO_Directions.Test_at_intervals_reserv_1_dc09('С интервалом')
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 2')
         with allure.step("Выбор типа управления"):
@@ -2313,7 +2331,7 @@ class TestValidationDestinationRezerv2Chanel:
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_2()
         with allure.step("Выбор: тестировать с интервалом"):
-            app.PO_Directions.Test_at_intervals_sms_egida_reserv_2('С интервалом')
+            app.PO_Directions.Test_at_intervals_reserv_2_dc09('С интервалом')
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_test_interval_posutiv_sms_user_rezerv_2()
 
@@ -2329,11 +2347,11 @@ class TestValidationDestinationRezerv2Chanel:
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('DC09')
             app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.Test_at_intervals_main_sms_egida('С интервалом')
+            app.PO_Directions.Test_at_intervals_main_dc09('С интервалом')
             app.PO_Directions.openChanel('Резерв 1')
             app.PO_Directions.openType_rezerv_1('DC09')
             app.PO_Directions.enableChannelTesting_rezerv_1()
-            app.PO_Directions.Test_at_intervals_sms_egida_reserv_1('С интервалом')
+            app.PO_Directions.Test_at_intervals_reserv_1_dc09('С интервалом')
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 2')
         with allure.step("Выбор типа управления"):
@@ -2341,6 +2359,6 @@ class TestValidationDestinationRezerv2Chanel:
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_2()
         with allure.step("Выбор: тестировать с интервалом"):
-            app.PO_Directions.Test_at_intervals_sms_egida_reserv_2('С интервалом')
+            app.PO_Directions.Test_at_intervals_reserv_2_dc09('С интервалом')
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_test_interval_posutiv_sms_user_rezerv_2()

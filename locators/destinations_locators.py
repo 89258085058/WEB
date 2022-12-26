@@ -70,9 +70,13 @@ Test_at_intervals_main = '((//div[@class="channel-settings"])[1]//span[@class="l
 Test_at_intervals_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[6]'
 Test_at_intervals_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[6]'
 # Тестировать
-Test_at_intervals_sms_egida_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[5]'
-Test_at_intervals_sms_egida_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[5]'
-Test_at_intervals_sms_egida_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[5]'
+Test_at_intervals_sms_egida_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[6]'
+Test_at_intervals_sms_egida_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[6]'
+Test_at_intervals_sms_egida_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[6]'
+# Тестировать
+Test_at_intervals_dc_09_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[4]'
+Test_at_intervals_dc_09_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[4]'
+Test_at_intervals_dc_09_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[4]'
 # Язык
 lang_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[3]'
 lang_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[3]'
@@ -133,7 +137,13 @@ rezerv_1_Enable_channel_testing_click = '(//*[.="Включить тестиро
 rezerv_1_Enable_channel_testing_status = '(//*[.="Включить тестирование канала"]//label/input)[2]'
 rezerv_2_Enable_channel_testing_click = '(//*[.="Включить тестирование канала"]//label/span)[3]'
 rezerv_2_Enable_channel_testing_status = '(//*[.="Включить тестирование канала"]//label/input)[3]'
-
+# Включить Шифрование
+main_Encryption_click = '(//*[.="Шифрование"]//label/span)[1]'
+main_Encryption_status = '(//*[.="Шифрование"]//label/input)[1]'
+rezerv_1_Encryption_click = '(//*[.="Шифрование"]//label/span)[2]'
+rezerv_1_Encryption_status = '(//*[.="Шифрование"]//label/input)[2]'
+rezerv_2_Encryption_click = '(//*[.="Шифрование"]//label/span)[3]'
+rezerv_2_Encryption_status = '(//*[.="Шифрование"]//label/input)[3]'
 # Отправлять время события
 main_Send_event_time_click = '(//*[.="Отправлять время события"]//label/span)[1]'
 main_Send_event_time_status = '(//*[.="Отправлять время события"]//label/input)[1]'

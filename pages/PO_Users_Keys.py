@@ -109,15 +109,16 @@ class UsersKeysHelper:
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual('0', '0', locator)
             self.app.method.assertEqual('1', '1', locator)
-            self.app.method.assertEqual('1' * 127, '1' * 127, locator)
-            self.app.method.assertEqual('1' * 128, '1' * 128, locator)
+            self.app.method.assertEqual('1' * 62, '1' * 62, locator)
+            self.app.method.assertEqual('1' * 63, '1' * 63, locator)
 
     # Проверка имя пользователя негативные тесты
     def input_name_user_negativ(self, locator=name_user):
         with allure.step("Проверка ввода очень большого числа"):
-            self.app.method.assertEqual('1' * 10000, '1' * 128, locator)
+            self.app.method.assertEqual('1' * 10000, '1' * 63, locator)
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual('1' * 129, '1' * 128, locator)
+            self.app.method.assertEqual('1' * 64, '1' * 63, locator)
+
 
     # Проверка ЛОГИН/ПАРОЛЬ/ПОДТВЕРЖДЕНИЕ ПАРОЛЯ
     def input_data_63(self, locator):
@@ -344,6 +345,8 @@ class UsersKeysHelper:
     # Проверка вволда в поле Повторите пароль
     def input_re_password_sms_user_negativ(self, locator=re_password_sms_user):
         self.input_sms_password_negativ(locator)
+
+
 
     # Проверка ввода поле принимает все символы
     def input_key_posutiv(self, locator):

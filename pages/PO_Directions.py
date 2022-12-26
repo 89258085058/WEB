@@ -40,15 +40,15 @@ class DirectionsHelper:
             self.app.method.assertEqual('1 2 3', '1 2 3', locator)
         with allure.step("Проверка ввода граничных значений внутри диапазона"):
             self.app.method.assertEqual(1, 1, locator)
-            self.app.method.assertEqual('1' * 62, '1' * 62, locator)
-            self.app.method.assertEqual('1' * 63, '1' * 63, locator)
+            self.app.method.assertEqual('1' * 30, '1' * 30, locator)
+            self.app.method.assertEqual('1' * 31, '1' * 31, locator)
 
     # Проверка ввода поле Название
     def input_destination_name_negativ(self, locator=destination_name):
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода граничных значений внутри диапазона"):
-            self.app.method.assertEqual('1' * 64, '1' * 63, locator)
+            self.app.method.assertEqual('1' * 32, '1' * 31, locator)
 
     # Проверка ввода Код настройки
     def input_cod_posutiv(self, locator):
@@ -438,13 +438,22 @@ class DirectionsHelper:
     def Test_at_intervals_main_sms_egida(self, name):
         self.app.method.selectDropdownListByName(Test_at_intervals_sms_egida_main, name)
 
+    # Выбор из выпадающего списка Тестировать - dc09
+    def Test_at_intervals_main_dc09(self, name):
+        self.app.method.selectDropdownListByName(Test_at_intervals_dc_09_main, name)
+
     # Выбор из выпадающего списка Тестировать - смс эгида
     def Test_at_intervals_sms_egida_reserv_1(self, name):
         self.app.method.selectDropdownListByName(Test_at_intervals_sms_egida_rezerv_1, name)
+    def Test_at_intervals_reserv_1_dc09(self, name):
+        self.app.method.selectDropdownListByName(Test_at_intervals_dc_09_rezerv_1, name)
 
     # Выбор из выпадающего списка Тестировать - смс эгида
     def Test_at_intervals_sms_egida_reserv_2(self, name):
         self.app.method.selectDropdownListByName(Test_at_intervals_sms_egida_rezerv_2, name)
+
+    def Test_at_intervals_reserv_2_dc09(self, name):
+        self.app.method.selectDropdownListByName(Test_at_intervals_dc_09_rezerv_2, name)
 
     # Выбор из выпадающего списка Тестировать
     def Test_at_intervals_rezerv_1(self, name):
@@ -496,10 +505,26 @@ class DirectionsHelper:
     def openType_rezerv_2(self, name):
         self.app.method.selectDropdownListByName(type_rezerv_2, name)
 
+    # Включить Шифрование - Основной
+    def enableEncryption_main(self):
+        self.app.method.checkBox("ON", main_Encryption_click, main_Encryption_status)
+        self.app.method.assertCheckBox("ON", main_Encryption_status)
+
+    # Включить Шифрование - Основной
+    def enableEncryption_rezerv_1(self):
+        self.app.method.checkBox("ON", rezerv_1_Encryption_click, rezerv_1_Encryption_status)
+        self.app.method.assertCheckBox("ON", rezerv_1_Encryption_status)
+
+    # Включить Шифрование - Основной
+    def enableEncryption_rezerv_2(self):
+        self.app.method.checkBox("ON", rezerv_2_Encryption_click, rezerv_2_Encryption_status)
+        self.app.method.assertCheckBox("ON", rezerv_2_Encryption_status)
+
     # Включить тестирование канала - Основной
     def enableChannelTesting_main(self):
         self.app.method.checkBox("ON", main_Enable_channel_testing_click, main_Enable_channel_testing_status)
         self.app.method.assertCheckBox("ON", main_Enable_channel_testing_status)
+
 
     # Включить тестирование канала - Резерв 1
     def enableChannelTesting_rezerv_1(self):

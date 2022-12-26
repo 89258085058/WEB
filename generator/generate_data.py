@@ -17,6 +17,7 @@ class Ganerate:
         f = "data/db_data.json"
 
         name = 'a' * 31
+        name_path = random.randint(1111111111, 9999999999)
 
         # Настройки/Дата время
         random_1 = random.choice([".", '-'])
@@ -241,7 +242,7 @@ class Ganerate:
             },
 
             'Path': {
-                'Name_path': str(name),
+                'Name_path': str(name_path),
                 'Number_path': str(Number_path),
                 'tumbler_1': str(Tumbler_random_1),
                 'tumbler_2': str(Tumbler_random_2),

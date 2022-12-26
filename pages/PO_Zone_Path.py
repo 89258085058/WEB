@@ -338,13 +338,13 @@ class ZonePathHelper:
         self.input_all(locator)
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual(1, 1, locator)
-            self.app.method.assertEqual('1' * 94, '1' * 94, locator)
-            self.app.method.assertEqual('1' * 95, '1' * 95, locator)
+            self.app.method.assertEqual('1' * 30, '1' * 30, locator)
+            self.app.method.assertEqual('1' * 31, '1' * 31, locator)
 
     # Название - Разделы
     def input_data_name_path_negativ(self, locator=name_path):
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual('1' * 96, '1' * 95, locator)
+            self.app.method.assertEqual('1' * 32, '1' * 31, locator)
 
     # ---------------------- ВЫХОДЫ ----------------------------------------------------------------------
 
@@ -1453,10 +1453,13 @@ class ZonePathHelper:
                     _path = self.app.read_data.data_path()
                     old_path_list = self.app.method.getElementsLen(path_row)
                     self.app.method.click((By.XPATH, add_path_button))
-                    self.app.method.inputValues(value=_path['Number_path'], locator=namber_path)
+                    # self.app.method.inputValues(value=_path['Number_path'], locator=namber_path)
                     self.app.method.inputValues(value=_path['Name_path'], locator=name_path)
                     self.app.method.click((By.XPATH, save_button_path))
-                    time.sleep(2)
+                    with allure.step("Проверка всплывающего окна сохранено"):
+                        self.app.method.click(
+                            (By.XPATH, '/html/body//button[@class="toast-message-btn-close close-icon"]'))
+                    time.sleep(1)
                     new_path_list = self.app.method.getElementsLen(path_row)
                     assert str(old_path_list + 1) == str(new_path_list), \
                         f"Раздел не добавлен!\n" \
@@ -1470,11 +1473,14 @@ class ZonePathHelper:
             for i in range(path_list, 17):
                 with allure.step(f"Добавление раздела №{i}"):
                     self.app.ganerate_data.createData()
-                    _path = self.app.read_data.data_path()
+                    # _path = self.app.read_data.data_path()
                     self.app.method.click((By.XPATH, add_path_button))
-                    self.app.method.inputValues(value=_path['Number_path'], locator=namber_path)
-                    self.app.method.inputValues(value=_path['Name_path'], locator=name_path)
+                    # self.app.method.inputValues(value=_path['Number_path'], locator=namber_path)
+                    # self.app.method.inputValues(value=_path['Name_path'], locator=name_path)
                     self.app.method.click((By.XPATH, save_button_path))
+                    with allure.step("Проверка всплывающего окна сохранено"):
+                        self.app.method.click(
+                            (By.XPATH, '/html/body//button[@class="toast-message-btn-close close-icon"]'))
                     time.sleep(1)
 
         with allure.step("Проверка всплывающей подсказки"):
