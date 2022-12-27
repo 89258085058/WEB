@@ -31,6 +31,7 @@ def close_modal(request, app):
 
     request.addfinalizer(fin)
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ПОЛЬЗОВАТЕЛИ И КЛЮЧИ")
 @allure.feature("Сохранение данных")
@@ -39,7 +40,7 @@ class TestSaveKeys:
 
     @allure.story("КЛЮЧИ")
     @allure.title("Проверка сохранения добавления ключа")
-    def test_users_keys_save_data_key(self, app, goToKeys):
+    def test_users_keys_save_data_key(self, app, goToKeys, close_modal):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Предусловия добавления ключа"):
@@ -91,6 +92,7 @@ class TestSaveKeys:
                                                        f'Список ключей до удаления="{old_keys_list}"\n' \
                                                        f'Список ключей после удаления="{new_keys_list}"'
 
+    @pytest.mark.skip("Длинный тест")
     @allure.story("КЛЮЧИ")
     @allure.title("Проверка добавления максимального количества ключей")
     def test_users_keys_add_save_key_64(self, app, goToKeys):
@@ -106,6 +108,7 @@ class TestSaveKeys:
             for i in range(64):
                 app.PO_Users_Keys.delete_key()
 
+    @pytest.mark.skip("Длинный тест")
     @allure.story("КЛЮЧИ")
     @allure.title("Проверка всплывающей подсказки при добавлении максимального количества ключей")
     def test_users_keys_add_save_key_64_tooltip(self, app, goToKeys):
@@ -208,6 +211,7 @@ class TestSaveUsers:
                                                        f'Список пользователей до удаления="{old_user_list}"\n' \
                                                        f'Список пользователей после удаления="{new_user_list}"'
 
+    @pytest.mark.skip("Длинный тест")
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Проверка добавления максимального количества пользователей")
     def test_users_keys_add_save_user_64(self, app, goToUsers):
@@ -223,6 +227,7 @@ class TestSaveUsers:
             for i in range(62):
                 app.PO_Users_Keys.delete_user()
 
+    @pytest.mark.skip("Длинный тест")
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Проверка всплывающей подсказки при добавлении максимального количества пользователей")
     def test_users_keys_add_save_user_64_tooltip(self, app, goToUsers):

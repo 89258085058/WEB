@@ -119,7 +119,6 @@ class UsersKeysHelper:
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual('1' * 64, '1' * 63, locator)
 
-
     # Проверка ЛОГИН/ПАРОЛЬ/ПОДТВЕРЖДЕНИЕ ПАРОЛЯ
     def input_data_63(self, locator):
         with allure.step("Проверка ввода цифр"):
@@ -346,8 +345,6 @@ class UsersKeysHelper:
     def input_re_password_sms_user_negativ(self, locator=re_password_sms_user):
         self.input_sms_password_negativ(locator)
 
-
-
     # Проверка ввода поле принимает все символы
     def input_key_posutiv(self, locator):
         with allure.step("Проверка ввода цифр"):
@@ -526,7 +523,6 @@ class UsersKeysHelper:
             self.app.method.assertSelectionDropdownListCheckBox('Раздел № ' + str(x + 1), button)
             print(x)
 
-
     # Форма настроек ключа
     def key_form(self, ids=None, user="Администратор", permissions=None, path=None):
         self.app.method.inputValues(value=ids, locator=key_id)
@@ -568,12 +564,12 @@ class UsersKeysHelper:
     # Подсчет ключей
     def count_key(self):
         wd = self.app.wd
-        return len(wd.find_elements_by_xpath(key))
+        return len(wd.find_elements(By.XPATH, key))
 
     # Подсчет пользователей
     def count_user(self):
         wd = self.app.wd
-        return len(wd.find_elements_by_xpath(user))
+        return len(wd.find_elements(By.XPATH, user))
 
     # Добавление ключa
     def add_key(self):
@@ -668,12 +664,31 @@ class UsersKeysHelper:
             self.app.method.inputValues(_user['user_password'], password)
         with allure.step("Ввод значений в поле Повторите пароль  "):
             self.app.method.inputValues(_user['user_password'], re_password)
+        with allure.step("Ввод значений в поле Телефон - код"):
+            self.app.method.inputValues(_user['user_phone_cod'], phone_cod)
+        with allure.step("Ввод значений в поле Телефон - номер"):
+            self.app.method.inputValues(_user['user_phone_number'], phone_number)
         with allure.step("Выбор чекбокса Перенаправление сообщений оператора"):
             self.app.method.checkBox(_user['CB_Operator_message_forwarding'], Operator_message_forwarding_click,
                                      Operator_message_forwarding_status)
         with allure.step("Выбор чекбокса Отправка вне трансляции"):
             self.app.method.checkBox(_user['CB_Sending_out_of_broadcast'], CB_Sending_out_of_broadcast,
                                      Sending_outside_broadcasts_status)
+        with allure.step("Выбор чекбокса Разрешить снятие"):
+            self.app.method.checkBox(_user['CB_Allow_withdrawal_by_SMS'], Allow_take_off_by_SMS_click,
+                                     Allow_take_off_by_SMS_status)
+        with allure.step("Выбор чекбокса Разрешить взятие"):
+            self.app.method.checkBox(_user['CB_Allow_Pickup_by_SMS'], Allow_take_by_SMS_click,
+                                     Allow_take_by_SMS_status)
+        with allure.step("Ввод значений в поле Пароль SMS"):
+            self.app.method.inputValues(_user['user_sms_password'], password_sms_user)
+        with allure.step("Ввод значений в поле Повторите пароль SMS"):
+            self.app.method.inputValues(_user['user_sms_password'], re_password_sms_user)
+        with allure.step("Выбор из выпадающего списка Управляемые разделы"):
+            path = _user['pathList']
+            self.app.method.close_cross(DL_controlled_sections)
+            self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{path}"]'))
+            self.app.method.click((By.XPATH, DL_controlled_sections))
         with allure.step("Выбор из выпадающего списка Группа выходов с управлением по SMS"):
             path = _user['DL_Group_of_outputs_controlled_by_SMS']
             self.app.method.close_cross(Group_of_outputs_controlled_by_SMS)
@@ -682,25 +697,6 @@ class UsersKeysHelper:
         with allure.step("Выбор из выпадающего списка Группа выходов с управлением звонком"):
             self.app.method.selectDropdownListByName(Group_of_outputs_with_call_control,
                                                      _user['DL_Group_of_outputs_with_call_control'])
-        with allure.step("Выбор чекбокса Разрешить снятие по SMS"):
-            self.app.method.checkBox(_user['CB_Allow_withdrawal_by_SMS'], Allow_take_off_by_SMS_click,
-                                     Allow_take_off_by_SMS_status)
-        with allure.step("Выбор чекбокса Разрешить взятие по SMS"):
-            self.app.method.checkBox(_user['CB_Allow_Pickup_by_SMS'], Allow_take_by_SMS_click,
-                                     Allow_take_by_SMS_status)
-        with allure.step("Ввод значений в поле Телефон - код"):
-            self.app.method.inputValues(_user['user_phone_cod'], phone_cod)
-        with allure.step("Ввод значений в поле Телефон - номер"):
-            self.app.method.inputValues(_user['user_phone_number'], phone_number)
-        with allure.step("Ввод значений в поле Пароль SMS"):
-            self.app.method.inputValues(_user['user_sms_password'], password_sms_user)
-        with allure.step("Ввод значений в поле Повторите пароль SMS"):
-            self.app.method.inputValues(_user['user_sms_password'], re_password_sms_user)
-        with allure.step("Выбор из выпадающего списка Группа выходов с управлением по SMS"):
-            path = _user['pathList']
-            self.app.method.close_cross(DL_SMS_controlled_sections)
-            self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{path}"]'))
-            self.app.method.click((By.XPATH, DL_SMS_controlled_sections))
         with allure.step("Клик по кнопке сохранить"):
             self.User_save_button()
 
@@ -749,7 +745,7 @@ class UsersKeysHelper:
         with allure.step("Проверка выбора из выпадающего списка Группа выходов с управлением по SMS"):
             path = _user['pathList']
             wd = self.app.wd
-            element = wd.find_element(By.XPATH, DL_SMS_controlled_sections).get_property("textContent")
+            element = wd.find_element(By.XPATH, DL_controlled_sections).get_property("textContent")
             assert str(path) in str(
                 element), f"\nОжидаемое значение в выпадающем списке: '{path}'\nФактическое: '{element}'"
 

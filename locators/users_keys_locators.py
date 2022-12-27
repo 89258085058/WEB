@@ -37,10 +37,12 @@ re_password_sms_user = '//*[.="Повторите пароль SMS"]/following::
 # Кнопка выпадающего списка Группа выходов с управлением звонком
 Group_of_outputs_with_call_control = '/html/body//span[@class="label"]'
 # Кнопка выпадающего списка Группа выходов с управлением по SMS
-Group_of_outputs_controlled_by_SMS = '(/html/body//div[@class="b-multiselect-label"])[1]'
+Group_of_outputs_controlled_by_SMS = '(/html/body//div[@class="b-multiselect-label"])[2]'
 # Кнопка выпадающего списка Управляемые по SMS разделы
 SMS_controlled_sections = '(/html/body//div[@class="b-multiselect-label"])[1]'
-DL_SMS_controlled_sections = '(/html/body//div[@class="b-multiselect-label"])[2]'
+DL_SMS_controlled_sections = '(/html/body//div[@class="b-multiselect-label"])[1]'
+# Кнопка выпадающего списка Управляемые разделы
+DL_controlled_sections = '(/html/body//div[@class="b-multiselect-label"])[1]'
 
 """Ключи"""
 # список ключей
@@ -72,23 +74,23 @@ open_last_user = '(//*[@id="app"]//button//*[.="Настройки"])[last()]'
 
 # ------------ЧЕКБОКСЫ-------------
 # Администратор
-Administrator_click = '(/html/body//label/span)[1]'
-Administrator_status = '(/html/body//label/input)[1]'
+Administrator_click = '//*[.="Администратор"]//label/span'
+Administrator_status = '//*[.="Администратор"]//label/input'
 # Режим Эгида3
-Egida3_Mode_click = '(/html/body//label/span)[2]'
-Egida3_Mode_status = '(/html/body//label/input)[2]'
+Egida3_Mode_click = '//*[.="Режим Эгида3"]//label/span'
+Egida3_Mode_status = '//*[.="Режим Эгида3"]//label/input'
 # Перенаправление сообщений оператора
-Operator_message_forwarding_click = '(/html/body//label/span)[3]'
-Operator_message_forwarding_status = '(/html/body//label/input)[3]'
+Operator_message_forwarding_click = '//*[.="Перенаправление сообщений оператора"]//label/span'
+Operator_message_forwarding_status = '//*[.="Перенаправление сообщений оператора"]//label/input'
 # Отправка вне трансляций
-CB_Sending_out_of_broadcast = '(/html/body//label/span)[4]'
-Sending_outside_broadcasts_status = '(/html/body//label/input)[4]'
+CB_Sending_out_of_broadcast = '//*[.="Отправка вне трансляции"]//label/span'
+Sending_outside_broadcasts_status = '//*[.="Отправка вне трансляции"]//label/input'
 # Разрешить снятие по SMS
-Allow_take_off_by_SMS_click = '(/html/body//label/span)[5]'
-Allow_take_off_by_SMS_status = '(/html/body//label/input)[5]'
+Allow_take_off_by_SMS_click = '//*[.="Разрешить снятие"]//label/span'
+Allow_take_off_by_SMS_status = '//*[.="Разрешить снятие"]//label/input'
 # Разрешить взятие по SMS
-Allow_take_by_SMS_click = '(/html/body//label/span)[6]'
-Allow_take_by_SMS_status = '(/html/body//label/input)[6]'
+Allow_take_by_SMS_click = '//*[.="Разрешить взятие"]//label/span'
+Allow_take_by_SMS_status = '//*[.="Разрешить взятие"]//label/input'
 
 # ------------ВЫПАДАЮЩИЙ СПИСОК-----
 # Выбор опции

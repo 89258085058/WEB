@@ -93,6 +93,9 @@ def GSM(app):
         app.PO_Navigations.goToGSMPage()
     with allure.step("Клик по кнопке 'Редактировать'"):
         app.PO_Settings.edit_button_click()
+    with allure.step("Включить модуль GSM"):
+        app.PO_Settings.modul_settings_gsm_on()
+
 
 
 @pytest.fixture

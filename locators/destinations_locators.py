@@ -70,9 +70,9 @@ Test_at_intervals_main = '((//div[@class="channel-settings"])[1]//span[@class="l
 Test_at_intervals_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[6]'
 Test_at_intervals_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[6]'
 # Тестировать
-Test_at_intervals_sms_egida_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[6]'
-Test_at_intervals_sms_egida_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[6]'
-Test_at_intervals_sms_egida_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[6]'
+Test_at_intervals_sms_egida_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[5]'
+Test_at_intervals_sms_egida_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[5]'
+Test_at_intervals_sms_egida_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[5]'
 # Тестировать
 Test_at_intervals_dc_09_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[4]'
 Test_at_intervals_dc_09_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[4]'

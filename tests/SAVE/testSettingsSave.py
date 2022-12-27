@@ -93,6 +93,9 @@ def GSM(app):
         app.PO_Navigations.goToGSMPage()
     with allure.step("Клик по кнопке 'Редактировать'"):
         app.PO_Settings.edit_button_click()
+    with allure.step("Включить модуль GSM"):
+        app.PO_Settings.modul_settings_gsm_on()
+
 
 
 @pytest.fixture
@@ -536,14 +539,15 @@ class TestSaveSettings:
         with allure.step("Завершение настроек"):
             app.PO_Settings.finish_setting()
 
+    @pytest.mark.skip('Не менять IP')
     @allure.story("ETHERNET")
     @allure.title("Проверка сохранения настроек ethernet: параметризованный тест")
     @pytest.mark.parametrize(
         "randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5, randomCB_6, Establish_network_connections",
         [
-            ('ON', 'ON', 'ON', 'ON', 'ON', 'ON', 'Авто'),
-            ('OFF', 'ON', 'ON', 'ON', 'ON', 'ON', 'Авто'),
-            ('ON', 'OFF', 'ON', 'ON', 'ON', 'ON', 'Авто'),
+            ('ON', 'ON', 'ON', 'ON', 'ON', 'ON', 'Отсутствует'),
+            ('OFF', 'ON', 'ON', 'ON', 'ON', 'ON', 'Отсутствует'),
+            ('ON', 'OFF', 'ON', 'ON', 'ON', 'ON', 'Отсутствует'),
             ('ON', 'ON', 'OFF', 'ON', 'ON', 'ON', 'Авто'),
             ('ON', 'ON', 'ON', 'OFF', 'ON', 'ON', 'Авто'),
             ('ON', 'ON', 'ON', 'ON', 'OFF', 'ON', 'Авто'),

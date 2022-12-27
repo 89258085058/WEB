@@ -369,7 +369,7 @@ class MethodsHelper:
     # Подсчет элементов
     def elements_count(self, locator):
         wd = self.app.wd
-        return len(wd.find_elements_by_xpath(locator))
+        return len(wd.find_elements(By.XPATH, locator))
 
     # Выбор из выпадающего списка без проверки
     def dropdown_select(self, button, name):

@@ -1505,10 +1505,12 @@ class SettingsHelper:
     def drop_list_ethernet(self, button=ethernet_network_connections_button,
                            possition=ethernet_network_connection_positions):
         self.app.method.selectDropdownList(button, possition + '[1]')
-        self.app.method.assertSelectionDropdownList("Авто", button)
+        self.app.method.assertSelectionDropdownList("Отсутствует", button)
         self.app.method.selectDropdownList(button, possition + '[2]')
-        self.app.method.assertSelectionDropdownList("Ethernet", button)
+        self.app.method.assertSelectionDropdownList("Авто", button)
         self.app.method.selectDropdownList(button, possition + '[3]')
+        self.app.method.assertSelectionDropdownList("Ethernet", button)
+        self.app.method.selectDropdownList(button, possition + '[4]')
         self.app.method.assertSelectionDropdownList("GPRS", button)
 
     # Включение чекбоксов прибора
@@ -2512,3 +2514,7 @@ class SettingsHelper:
             self.app.method.assertValues(value=_gsm['password_sim_1'], locator=PASSWORD_SIM_1)
         with allure.step("Поле ввода: Пароль"):
             self.app.method.assertValues(value=_gsm['password_sim_2'], locator=PASSWORD_SIM_2)
+
+
+    def modul_settings_gsm_on(self):
+        self.app.method.checkBox("ON", gsm_Enable_GSM_module_click, gsm_Enable_GSM_module_status)

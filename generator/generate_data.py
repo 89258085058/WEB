@@ -96,7 +96,7 @@ class Ganerate:
         Mask_random_out_2 = random.choice(mask_out_2)
         Gisteresis_outs = random.randint(1, 10)
         Internal_reference_signal = random.randint(1, 100)
-        Out_name = (random.choice(rus) * 63)
+        Out_name = (random.choice(rus) * 31)
 
         # Разделы
         Number_path = random.randint(1, 999)
