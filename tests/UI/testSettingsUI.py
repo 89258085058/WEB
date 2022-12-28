@@ -220,6 +220,8 @@ class TestUiSettings:
     @allure.story("ДАТА И ВРЕМЯ")
     @allure.title("Проверка чекбоксов выпадающего списка Использовать время GSM сети")
     def test_checkbox_data_time_Use_GSM_network_time(self, app, date_time):
+        with allure.step("Выбор: Использовать время GSM сети"):
+            app.PO_Settings.Use_GSM_network_time_click()
         with allure.step("Проверка включения чекбоксов"):
             app.PO_Settings.check_box_data_time_on()
         with allure.step("Проверка выключения чекбоксов"):

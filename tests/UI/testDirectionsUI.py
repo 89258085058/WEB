@@ -5,7 +5,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 1
+reruns = 0
 
 # directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 directions_list = ['1']
@@ -483,21 +483,6 @@ class TestUIDestinationMainChanel:
         with allure.step("Проверка выбора из выпадающего списка"):
             app.PO_Directions.check_test_if_sms_egida_main()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Основной канал")
-    @allure.title("Основной канал - DC09 проверка выпадающего списка: Метод тестирования")
-    def test_checking_drop_down_list_DC09_test_method_channel_main(self, app, destinations, close_modal,
-                                                                   directions: str):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('DC09')
-        with allure.step("Включения тестирования канала"):
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Проверка выбора из выпадающего списка"):
-            app.PO_Directions.check_test_method_sms_egida_main()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
@@ -513,7 +498,8 @@ class TestUIDestinationMainChanel:
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Проверка выбора из выпадающего списка"):
-            app.PO_Directions.check_testing_sms_egida_main()
+            app.PO_Directions.check_testing_dc09_main()
+
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
@@ -996,25 +982,6 @@ class TestUIDestinationRezerv1Chanel:
         with allure.step("Проверка выбора из выпадающего списка"):
             app.PO_Directions.check_test_if_sms_egida_rezerv_1()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Резервный канал 1")
-    @allure.title("Резервный канал 1 - DC09 проверка выпадающего списка: Метод тестирования")
-    def test_checking_drop_down_list_DC09_test_method_channel_rezerv_1(self, app, destinations, close_modal,
-                                                                       directions: str):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('DC09')
-        with allure.step("Включения тестирования канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Проверка выбора из выпадающего списка"):
-            app.PO_Directions.check_test_method_sms_egida_rezerv_1()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
@@ -1034,7 +1001,7 @@ class TestUIDestinationRezerv1Chanel:
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Проверка выбора из выпадающего списка"):
-            app.PO_Directions.check_testing_sms_egida_rezerv_1()
+            app.PO_Directions.check_testing_dc09_rezerv_1()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
@@ -1591,28 +1558,6 @@ class TestUIDestinationRezerv2Chanel:
         with allure.step("Проверка выбора из выпадающего списка"):
             app.PO_Directions.check_test_if_sms_egida_rezerv_2()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Резервный канал 2")
-    @allure.title("Резервный канал 2 - DC09 проверка выпадающего списка: Метод тестирования")
-    def test_checking_drop_down_list_DC09_test_method_channel_rezerv_2(self, app, destinations, close_modal,
-                                                                       directions: str):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-            app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('DC09')
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('DC09')
-        with allure.step("Включения тестирования канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_2()
-        with allure.step("Проверка выбора из выпадающего списка"):
-            app.PO_Directions.check_test_method_sms_egida_rezerv_2()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
@@ -1635,7 +1580,7 @@ class TestUIDestinationRezerv2Chanel:
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_2()
         with allure.step("Проверка выбора из выпадающего списка"):
-            app.PO_Directions.check_testing_sms_egida_rezerv_2()
+            app.PO_Directions.check_testing_dc09_rezerv_2()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")

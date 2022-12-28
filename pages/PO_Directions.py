@@ -2,6 +2,7 @@
 import time
 
 import allure
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
 from locators.destinations_locators import *
@@ -1278,17 +1279,17 @@ class DirectionsHelper:
 
     # Проверка выпадающего списка Тип управления - ОСНОВНОЙ
     def check_openType_main(self):
-        nameTypeList = ['Отключено', 'SMS пользователю', 'SMS Эгида', 'Звонок', 'DC09']
+        nameTypeList = ['SMS пользователю', 'SMS Эгида', 'Звонок', 'DC09']
         self.app.method.check_dropdown_list(type_main, nameTypeList)
 
     # Проверка выпадающего списка Тип управления - Резерв 1
     def check_openType_rezerv_1(self):
-        nameTypeList = ['Отключено', 'SMS пользователю', 'SMS Эгида', 'Звонок', 'DC09']
+        nameTypeList = ['SMS пользователю', 'SMS Эгида', 'Звонок', 'DC09']
         self.app.method.check_dropdown_list(type_rezerv_1, nameTypeList)
 
     # Проверка выпадающего списка Тип управления - Резерв 2
     def check_openType_rezerv_2(self):
-        nameTypeList = ['Отключено', 'SMS пользователю', 'SMS Эгида', 'Звонок', 'DC09']
+        nameTypeList = ['SMS пользователю', 'SMS Эгида', 'Звонок', 'DC09']
         self.app.method.check_dropdown_list(type_rezerv_2, nameTypeList)
 
     # Проверка выпадающего списка Язык - ОСНОВНОЙ
@@ -1386,15 +1387,31 @@ class DirectionsHelper:
         testMethodList = ['С интервалом', 'По расписанию']
         self.app.method.check_dropdown_list(testing_sms_egida_main, testMethodList)
 
+    # Проверка выпадающего списка Тестировать dc09 - ОСНОВНОЙ
+    def check_testing_dc09_main(self):
+        testMethodList = ['С интервалом', 'По расписанию']
+        self.app.method.check_dropdown_list(testing_dco9_main, testMethodList)
+
     # Проверка выпадающего списка Тестировать SMS ЭГИДА - Резерв 1
     def check_testing_sms_egida_rezerv_1(self):
         testMethodList = ['С интервалом', 'По расписанию']
         self.app.method.check_dropdown_list(testing_sms_egida_rezerv_1, testMethodList)
 
+    def check_testing_dc09_rezerv_1(self):
+        testMethodList = ['С интервалом', 'По расписанию']
+        self.app.method.check_dropdown_list(testing_sdco9_rezerv_1, testMethodList)
+
+
     # Проверка выпадающего списка Тестировать SMS ЭГИДА - Резерв 2
     def check_testing_sms_egida_rezerv_2(self):
         testMethodList = ['С интервалом', 'По расписанию']
         self.app.method.check_dropdown_list(testing_sms_egida_rezerv_2, testMethodList)
+
+    # Проверка выпадающего списка Тестировать SMS ЭГИДА - dc09
+    def check_testing_dc09_rezerv_2(self):
+        testMethodList = ['С интервалом', 'По расписанию']
+        self.app.method.check_dropdown_list(testing_dco9_rezerv_2, testMethodList)
+
 
     # Проверка выпадающего списка Дни недели - ОСНОВНОЙ
     def check_days_of_the_week_sms_user_main(self):
@@ -1406,10 +1423,18 @@ class DirectionsHelper:
         daysList = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
         self.app.method.check_dropdown_list_with_check_box(days_of_the_week_rezerv_1, daysList)
 
+    def scrol(self):
+        wd = self.app.wd
+        target = wd.find_element(By.XPATH, '//*[@id="modalSettings"]/div/div[2]/div[2]/button[1]')
+        actions = ActionChains(wd)
+        actions.move_to_element(target)
+        actions.perform()
+
     # Проверка выпадающего списка Дни недели - Резерв 2
     def check_days_of_the_week_sms_user_rezerv_2(self):
+        self.scrol()
         daysList = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
-        self.app.method.check_dropdown_list_with_check_box(days_of_the_week_rezerv_2, daysList)
+        self.app.method.check_dropdown_list_with_check_box_double_click(days_of_the_week_rezerv_2, daysList)
 
     # Проверка выпадающего списка Дни недели - ОСНОВНОЙ
     def check_days_of_the_week_sms_user_all_main(self):

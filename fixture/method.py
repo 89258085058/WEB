@@ -338,6 +338,20 @@ class MethodsHelper:
         except TimeoutException as exc:
             assert exc == TimeoutException, f"Ошибка выбора из выпадающего списка"
 
+
+    def check_dropdown_list_with_check_box_double_click(self, button: str, name: str):
+        try:
+            wd = self.app.wd
+            for x in name:
+                self.close_cross(button)
+                self.app.method.click((By.XPATH, f'/html/body//span[.="{x}"]'))
+                self.app.method.click((By.XPATH, button))
+                element = wd.find_element(By.XPATH, button).get_property("textContent")
+                assert str(element) == str(
+                    x), f"\nОжидаемое значение в выпадающем списке: '{x}'\nФактическое: '{element}'"
+        except TimeoutException as exc:
+            assert exc == TimeoutException, f"Ошибка выбора из выпадающего списка"
+
     # Сброс выпадающего списка при нажатии крестика
     def close_cross(self, locator):
         try:

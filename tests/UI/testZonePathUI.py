@@ -3,7 +3,7 @@
 import allure
 import pytest
 
-reruns = 1
+reruns = 0
 
 
 @pytest.fixture()
@@ -158,6 +158,7 @@ class TestZonePathOutsUI:
         with allure.step("Проверка активации кнопки событий при клике"):
             app.PO_Zone_Path.check_event_selection_on()
 
+    @pytest.mark.skip("Требуется уточнение")
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка отсутствия возможности внести настройки при деактивированном состоянии - Выходы - 1/2")
     def test_event_settings_operating_mode_event_disactivate(self, app, outs):
@@ -292,6 +293,7 @@ class TestZonePathOutsUI:
         with allure.step("Выбор режима работы"):
             app.PO_Zone_Path.select_working_mode("Управляемый")
         with allure.step("Раскрытие модуля: Маска выключения Выход 1"):
+            app.PO_Zone_Path.open_mask_on_out_1()
             app.PO_Zone_Path.open_mask_off_out_1()
         with allure.step("Проверка изменения настроек"):
             app.PO_Zone_Path.out_2_inclusion_mask()
@@ -302,6 +304,8 @@ class TestZonePathOutsUI:
         with allure.step("Выбор режима работы"):
             app.PO_Zone_Path.select_working_mode("Управляемый")
         with allure.step("Раскрытие модуля: Маска включения Выход 2"):
+            app.PO_Zone_Path.open_mask_on_out_1()
+            app.PO_Zone_Path.open_mask_off_out_1()
             app.PO_Zone_Path.open_mask_on_out_2()
         with allure.step("Проверка изменения настроек"):
             app.PO_Zone_Path.settings_inclusion_masks_out_2_on()
@@ -312,7 +316,10 @@ class TestZonePathOutsUI:
         with allure.step("Выбор режима работы"):
             app.PO_Zone_Path.select_working_mode("Управляемый")
         with allure.step("Раскрытие модуля: Маска выключения Выход 2"):
+            app.PO_Zone_Path.open_mask_off_out_1()
             app.PO_Zone_Path.open_mask_off_out_2()
+            app.PO_Zone_Path.open_mask_on_out_1()
+            app.PO_Zone_Path.open_mask_on_out_2()
         with allure.step("Проверка изменения настроек"):
             app.PO_Zone_Path.settings_inclusion_masks_out_2_off()
 

@@ -115,6 +115,9 @@ testing_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"]
 testing_sms_egida_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[5]'
 testing_sms_egida_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[5]'
 testing_sms_egida_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[5]'
+testing_dco9_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[4]'
+testing_sdco9_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[4]'
+testing_dco9_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[4]'
 
 # Дни недели
 days_of_the_week_main = '(//div[@class="b-multiselect-label"])[2]'
