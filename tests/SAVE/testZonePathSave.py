@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import time
 
 import allure
 import pytest
@@ -40,12 +39,12 @@ def settings_path(app):
     with allure.step("Нажать на кнопку 'Настройки первого раздела'"):
         app.PO_Zone_Path.settings_first_path_button()
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ЗОНЫ/РАЗДЕЛЫ")
 @allure.feature("Сохранение данных")
 @pytest.mark.flaky(reruns=reruns)
 class TestZonePathOutsSave:
-
 
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения наименования - ВЫХОД №1")
@@ -63,8 +62,6 @@ class TestZonePathOutsSave:
             app.PO_Navigations.edit_button_click()
         with allure.step("Проверка сохраненных данных"):
             app.PO_Zone_Path.assert_input_name_out_1_for_save()
-
-
 
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения наименования - ВЫХОД №2")
@@ -310,6 +307,7 @@ class TestZonePathOutsSave:
             app.PO_Zone_Path.open_mask_off_out_1()
         with allure.step("Проверка сохраненных данных"):
             app.PO_Zone_Path.assert_save_out_2_data_managed(Output_group_number)
+
 
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ЗОНЫ/РАЗДЕЛЫ")

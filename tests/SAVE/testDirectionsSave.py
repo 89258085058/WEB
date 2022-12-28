@@ -4,7 +4,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 1
+reruns = 0
 
 # directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 
@@ -798,3 +798,5 @@ class TestSaveDestinationChanels:
             app.PO_Directions.enableChannelTesting_rezerv_2()
         with allure.step("Проверка сохранения поля"):
             app.PO_Directions.assert_save_sms_user_timetable_rezerv_2_max()
+
+

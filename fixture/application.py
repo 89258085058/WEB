@@ -3,9 +3,7 @@
 import allure
 from allure_commons.types import AttachmentType
 from selenium import webdriver
-from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.options import Options as CHROME
-from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options as FIREFOX
 
 from fixture.method import MethodsHelper
@@ -18,11 +16,11 @@ from pages.PO_Journal import JournalHelper
 from pages.PO_Navigations import NavigationsHelper
 from pages.PO_Sensors import SensorsHelper
 from pages.PO_Settings import SettingsHelper
+from pages.PO_Status import StatusHelper
 from pages.PO_Tooltips import TooltipsHelper
+from pages.PO_Update import UpdateHelper
 from pages.PO_Users_Keys import UsersKeysHelper
 from pages.PO_Zone_Path import ZonePathHelper
-from pages.PO_Status import StatusHelper
-from pages.PO_Update import UpdateHelper
 
 
 class Application:
@@ -37,7 +35,6 @@ class Application:
             options = CHROME()
             options.headless = True
             self.wd = webdriver.Chrome(options=options)
-            self.wd.set_window_size(1920, 1080)
         elif browser == 'chrome_no_logs':
             options = CHROME()
             options.add_experimental_option("excludeSwitches", ["enable-logging"])
@@ -49,34 +46,6 @@ class Application:
         elif browser == 'chrome_latest':
             capabilities = {"browserName": 'chrome', "browserVersion": "105.0", "platformName": "Linux"}
             self.wd = webdriver.Remote(command_executor=f"http://192.168.22.130:4444/wd/hub",
-                                       desired_capabilities=capabilities)
-        elif browser == 'chrome_99':
-            capabilities = {"browserName": 'chrome', "browserVersion": "99.0", "platformName": "Linux"}
-            self.wd = webdriver.Remote(command_executor=f"http://192.168.22.130:4499/wd/hub",
-                                       desired_capabilities=capabilities)
-        elif browser == 'chrome_100':
-            capabilities = {"browserName": 'chrome', "browserVersion": "100.0", "platformName": "Linux"}
-            self.wd = webdriver.Remote(command_executor=f"http://192.168.22.130:4100/wd/hub",
-                                       desired_capabilities=capabilities)
-        elif browser == 'chrome_101':
-            capabilities = {"browserName": 'chrome', "browserVersion": "101.0", "platformName": "Linux"}
-            self.wd = webdriver.Remote(command_executor=f"http://selenium:4444/wd/hub",
-                                       desired_capabilities=capabilities)
-        elif browser == 'chrome_102':
-            capabilities = {"browserName": 'chrome', "browserVersion": "102.0", "platformName": "Linux"}
-            self.wd = webdriver.Remote(command_executor="http:/192.168.22.130:4102/wd/hub",
-                                       desired_capabilities=capabilities)
-        elif browser == 'firefox_101':
-            capabilities = {"browserName": 'firefox', "browserVersion": "101.0", "platformName": "Linux"}
-            self.wd = webdriver.Remote(command_executor=f"http://192.168.22.130:1014/wd/hub",
-                                       desired_capabilities=capabilities)
-        elif browser == 'firefox_100':
-            capabilities = {"browserName": 'firefox', "browserVersion": "100.0", "platformName": "Linux"}
-            self.wd = webdriver.Remote(command_executor=f"http://192.168.22.130:1004/wd/hub",
-                                       desired_capabilities=capabilities)
-        elif browser == 'firefox_98':
-            capabilities = {"browserName": 'firefox', "browserVersion": "98.0", "platformName": "Linux"}
-            self.wd = webdriver.Remote(command_executor=f"http://192.168.22.130:9844/wd/hub",
                                        desired_capabilities=capabilities)
         elif browser == 'selenoid':
             capabilities = {
@@ -93,9 +62,8 @@ class Application:
             )
         else:
             raise ValueError("Unrecognized browser %s" % browser)
-        # self.wd.set_window_size(1920, 1080)
+        self.wd.set_window_size(1920, 1080)
         self.wd.implicitly_wait(10)
-        self.wd.maximize_window()
         self.PO_Auth = AuthHelper(self)
         self.PO_Directions = DirectionsHelper(self)
         self.PO_Journal = JournalHelper(self)
