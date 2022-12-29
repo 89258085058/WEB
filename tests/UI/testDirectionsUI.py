@@ -5,7 +5,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 0
+reruns = 2
 
 # directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 directions_list = ['1']
@@ -120,18 +120,22 @@ class TestUIDestinationMainChanel:
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Проверка переключения тумблеров"):
             app.PO_Directions.tumblers_event_path_on_main()
+            app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Раскрытие настроек Питание прибора"):
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Проверка включения тумблеров"):
             app.PO_Directions.tumblers_instrument_power_supply_on_main()
+            app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Раскрытие настроек События зон"):
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Проверка включения тумблеров"):
             app.PO_Directions.tumblers_zone_events_on_main()
+            app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Раскрытие настроек Системные события прибора"):
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Проверка включения тумблеров"):
             app.PO_Directions.tumblers_instrument_system_events_on_main()
+            app.PO_Directions.openSettingsTumblers('Системные события прибора')
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")

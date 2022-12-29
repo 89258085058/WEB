@@ -129,7 +129,7 @@ main_check_box_drop_down_days = '(/html/body/div[3]/div[1]/label/span)[1]'
 reset_path_main = '/html//div[@class="b-multiselect-header"]/button'
 path_main = '(//div[@class="b-multiselect-label"])[1]'
 main_check_box_drop_down = '(/html/body//span[@class="checkmark-container"])[1]'
-main_check_box_drop_down_path = '(//span[@class="checkmark"])[4]'
+main_check_box_drop_down_path = '/html/body/div[3]/div[1]/label/span'
 status_path_check_box = '(//*[@class="b-multiselect-items-wrapper scrollable"]//label/input)'
 
 # ------------ЧЕКБОКСЫ-------------
@@ -267,6 +267,8 @@ AL_interrupted_zone_events_status = '(//*[.="ШС оборван"]//label/input)
 # Системные события прибора
 instrument_system_events_click = '(//*[.="Выбрать все"]//label/span)[1]'
 instrument_system_events_status = '(//*[.="Выбрать все"]//label/input)[1]'
+instrument_system_events_click_main = '(//*[.="Выбрать все"]//label/span)[4]'
+instrument_system_events_status_main = '(//*[.="Выбрать все"]//label/input)[4]'
 Opening_the_case_of_the_device_click = '(//*[.="Вскрытие корпуса прибора"]//label/span)[1]'
 Opening_the_case_of_the_device_status = '(//*[.="Вскрытие корпуса прибора"]//label/input)[1]'
 Closing_the_instrument_housing_click = '(//*[.="Закрытие корпуса прибора"]//label/span)[1]'

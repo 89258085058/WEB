@@ -2,7 +2,7 @@
 import allure
 import pytest
 
-reruns = 1
+reruns = 2
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАВИГАЦИЯ")
 @pytest.mark.flaky(reruns=reruns)

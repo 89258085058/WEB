@@ -3,7 +3,7 @@
 import allure
 import pytest
 
-reruns = 1
+reruns = 2
 
 
 @pytest.fixture
