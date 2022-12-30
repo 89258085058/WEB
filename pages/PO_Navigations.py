@@ -7,13 +7,10 @@ from selenium.webdriver.common.by import By
 from locators.navigations_locators import *
 
 
-
 class NavigationsHelper:
 
     def __init__(self, app):
         self.app = app
-
-
 
     def goToZonePathPage(self):
         self.app.method.pageEndpoint(self.app.base_url_for_check, f'/zones-and-parts/partitions', ZonePathButton)
@@ -73,7 +70,8 @@ class NavigationsHelper:
         self.app.method.pageEndpoint(self.app.base_url_for_check, f'/zones-and-parts/outs', ZonePathOutsButton)
 
     def goToZonePathSensorsZone(self):
-        self.app.method.pageEndpoint(self.app.base_url_for_check, f'/zones-and-parts/sensors-and-zones', ZonePathSensorsZoneButton)
+        self.app.method.pageEndpoint(self.app.base_url_for_check, f'/zones-and-parts/sensors-and-zones',
+                                     ZonePathSensorsZoneButton)
 
     def goToZonePathRelaySiren(self):
         self.app.method.pageEndpoint(self.app.base_url_for_check, f'/zones-and-parts/sirens', ZonePathRelaySirensButton)
@@ -84,13 +82,18 @@ class NavigationsHelper:
     def assert_main_page_journal(self):
         wd = self.app.wd
         time.sleep(1)
-        assert str(wd.current_url) == str(self.app.base_url_for_check + f'/journal'), f" \n***Ошибка перехода на сраницу! " \
-                                                              f"Ожидаемый эндпоинт:{str(self.app.base_url + '/journal')}" \
-                                                              f" фактический адрес:'{wd.current_url}'***"
+        assert str(wd.current_url) == str(
+            self.app.base_url_for_check + f'/journal'), f" \n***Ошибка перехода на сраницу! " \
+                                                        f"Ожидаемый эндпоинт:{str(self.app.base_url + '/journal')}" \
+                                                        f" фактический адрес:'{wd.current_url}'***"
 
     def ExitAndEnter(self):
-            self.app.session.logout()
-            self.app.session.login_enter("admin", "admin")
+        self.app.session.logout()
+        self.app.session.login_enter("admin", "admin")
+
+    def ExitAndEnter_no_admin(self):
+        self.app.session.logout()
+        self.app.session.login_enter("test", "test")
 
     def edit_button_click(self):
         with allure.step("Клик по кнопке Редактировать"):
@@ -110,5 +113,3 @@ class NavigationsHelper:
             time.sleep(0.1)
             self.app.method.click((By.XPATH, '//*[@id="app"]//button[.=" Сбросить "]'))
             time.sleep(0.1)
-
-

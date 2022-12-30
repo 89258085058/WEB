@@ -5,7 +5,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 2
+reruns = 0
 
 
 @pytest.fixture
@@ -195,6 +195,7 @@ class TestSaveUsers:
 
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Проверка удаления пользователя")
+
     def test_users_keys_delete_save_user(self, app, goToUsers):
         with allure.step("Добавления пользователя при его отсутствии"):
             count = app.PO_Users_Keys.count_user()
@@ -243,3 +244,21 @@ class TestSaveUsers:
             assert text == actual_text, f"\nОшибка при проверке всплывающей подсказки!" \
                                         f"\nОжидаемый текст: '{text}'" \
                                         f"\nФактический текст: '{actual_text}'"
+
+    @allure.story("ПОЛЬЗОВАТЕЛИ")
+    @allure.title("Проверка отображения вкладок при входе не под администратором")
+    def test_users_keys_not_admin_user(self, app, goToUsers):
+        with allure.step("Добавления нового пользователя"):
+            count = app.PO_Users_Keys.count_user()
+            if count == 64:
+                app.PO_Users_Keys.delete_user()
+            app.PO_Users_Keys.add_user_for_test()
+        with allure.step("Выход и повторный вход"):
+            app.PO_Navigations.ExitAndEnter_no_admin()
+        with allure.step("Проверка отображения вкладок"):
+            app.PO_Users_Keys.assert_header()
+        with allure.step("Удаление пользователя"):
+            app.PO_Navigations.ExitAndEnter()
+            app.PO_Navigations.goToUsersKeysPage()
+            app.PO_Navigations.goToUsersPage()
+            app.PO_Users_Keys.delete_user()

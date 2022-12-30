@@ -4,6 +4,8 @@ import time
 import allure
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 from data.pages_text import *
 from locators.users_keys_locators import *
@@ -607,6 +609,23 @@ class UsersKeysHelper:
         self.assert_save_text()
         time.sleep(1)
 
+        # Добавление пользователя
+
+    def add_user_for_test(self):
+        self.PushAddUserButton()
+        self.user_form(input_user_name='test',
+                       input_user_login='test',
+                       input_user_password='test',
+                       input_user_password_rep='test',
+                       input_phone_cod='+7',
+                       input_phone_number='9999999999999999999',
+                       input_sms_password='12345',
+                       input_sms_password_rep='12345'
+                       )
+        self.app.method.click((By.XPATH, save_button_key))
+        self.assert_save_text()
+        time.sleep(1)
+
     # Добавление ключа для проверки подсказки
     def add_key_for_tooltip(self):
         self.PushAddKeyButton()
@@ -885,3 +904,11 @@ class UsersKeysHelper:
             element = wd.find_element(By.XPATH, path_key_dropdown).get_property("textContent")
             assert str(path) in str(
                 element), f"\nОжидаемое значение в выпадающем списке: '{path}'\nФактическое: '{element}'"
+
+    # проверка доступных вкладок
+    def assert_header(self):
+        wd = self.app.wd
+        element = wd.find_element(By.XPATH, '//*[@id="app"]/header')
+        list_header = ['Направления', 'Настройки', 'Обновления', 'Пользователи и ключи']
+        for i in list_header:
+            assert i not in element.text

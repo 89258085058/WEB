@@ -20,7 +20,6 @@ class SessionHelper:
             try:
                 wd = self.app.wd
                 wd.get(self.app.base_url)
-                # time.sleep(1)
                 self.display_and_hide((By.XPATH, authorization_window))
                 self.app.method.inputValues(username, '//*[@id="username"]')
                 self.app.method.inputValues(password, '//*[@id="password"]')
