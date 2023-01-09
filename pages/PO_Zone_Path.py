@@ -362,12 +362,7 @@ class ZonePathHelper:
         with allure.step("Проверка названий полей Выход 2"):
             self.app.method.assertTextOnPage(locator_out_2_text, data_out_event)
 
-    # Проверка полей выходы - Событийный
-    def text_event_out(self):
-        with allure.step("Проверка названий полей Выход 1"):
-            self.app.method.assertTextOnPage(locator_out_1_text, data_out_event)
-        with allure.step("Проверка названий полей Выход 2"):
-            self.app.method.assertTextOnPage(locator_out_2_text, data_out_event)
+
 
     # Проверка полей выходы - Температурный
     def text_temp_out(self):
