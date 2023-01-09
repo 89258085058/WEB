@@ -4,7 +4,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 1
+reruns = 0
 
 
 @pytest.fixture()

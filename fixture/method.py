@@ -2,7 +2,7 @@
 import time
 
 from selenium.common.exceptions import *
-from selenium.webdriver import ActionChains
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -36,8 +36,8 @@ class MethodsHelper:
             element = WebDriverWait(wd, 10).until(
                 EC.element_to_be_clickable((By.XPATH, ('%s' % locator))))
             element.clear()
+            element.clear()
             element.send_keys(value)
-            # element.click()
         except Exception as e:
             assert e == TimeoutException, f"Ошибка локатор поля ввода '{locator}' - не найден"
 

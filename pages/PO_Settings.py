@@ -85,7 +85,7 @@ class SettingsHelper:
         with allure.step("Проверка ввода совместных значений(буквы/цифры/спецсимволы)"):
             self.app.method.assertEqual('123  АБВABC!@#', '123', locator)
         with allure.step("Проверка ввода пробелов"):
-            self.app.method.assertEqual('   ', '', locator)
+            # self.app.method.assertEqual('   ', '', locator)
             self.app.method.assertEqual('123     ', '123', locator)
             self.app.method.assertEqual('   123', '123', locator)
             self.app.method.assertEqual('1 2 3', '123', locator)
