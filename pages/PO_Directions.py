@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
+from dataclasses import dataclass
 
 import allure
 from selenium.webdriver import ActionChains
@@ -8,10 +9,9 @@ from selenium.webdriver.common.by import By
 from locators.destinations_locators import *
 
 
+@dataclass
 class DirectionsHelper:
-
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     # Проверка ввода поле Название
     def input_destination_name(self, locator=destination_name):
@@ -446,6 +446,7 @@ class DirectionsHelper:
     # Выбор из выпадающего списка Тестировать - смс эгида
     def Test_at_intervals_sms_egida_reserv_1(self, name):
         self.app.method.selectDropdownListByName(Test_at_intervals_sms_egida_rezerv_1, name)
+
     def Test_at_intervals_reserv_1_dc09(self, name):
         self.app.method.selectDropdownListByName(Test_at_intervals_dc_09_rezerv_1, name)
 
@@ -483,8 +484,6 @@ class DirectionsHelper:
             text = wd.find_element(By.XPATH, '//*[@id="modalSettings"]/div/div[2]/div[1]/div[3]/div[3]/div/div')
             if text.get_attribute('class') != "b-panel__header b-panel__header--open":
                 self.app.method.click_element_locate(f'//*[@class="b-panel__header-text"][.="{name}"]')
-
-
 
     def checkChanel(self, name):
         self.app.method.click_element_locate(f'//*[@class="b-panel__header-text"][.="{name}"]')
@@ -525,7 +524,6 @@ class DirectionsHelper:
     def enableChannelTesting_main(self):
         self.app.method.checkBox("ON", main_Enable_channel_testing_click, main_Enable_channel_testing_status)
         self.app.method.assertCheckBox("ON", main_Enable_channel_testing_status)
-
 
     # Включить тестирование канала - Резерв 1
     def enableChannelTesting_rezerv_1(self):
@@ -1401,7 +1399,6 @@ class DirectionsHelper:
         testMethodList = ['С интервалом', 'По расписанию']
         self.app.method.check_dropdown_list(testing_sdco9_rezerv_1, testMethodList)
 
-
     # Проверка выпадающего списка Тестировать SMS ЭГИДА - Резерв 2
     def check_testing_sms_egida_rezerv_2(self):
         testMethodList = ['С интервалом', 'По расписанию']
@@ -1411,7 +1408,6 @@ class DirectionsHelper:
     def check_testing_dc09_rezerv_2(self):
         testMethodList = ['С интервалом', 'По расписанию']
         self.app.method.check_dropdown_list(testing_dco9_rezerv_2, testMethodList)
-
 
     # Проверка выпадающего списка Дни недели - ОСНОВНОЙ
     def check_days_of_the_week_sms_user_main(self):
@@ -2204,9 +2200,11 @@ class DirectionsHelper:
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
-            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00',
-                     '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00',
-                     '22:00', '23:00']
+            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+                        '10:00',
+                        '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                        '21:00',
+                        '22:00', '23:00']
             for i in time_off:
                 self.app.method.TimeBox("OFF", i, '1')
             self.app.method.TimeBox("ON", _directions['Time'], '1')
@@ -2396,9 +2394,11 @@ class DirectionsHelper:
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_rezerv_1))
         with allure.step("Выбор времени"):
-            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00',
-                     '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00',
-                     '22:00', '23:00']
+            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+                        '10:00',
+                        '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                        '21:00',
+                        '22:00', '23:00']
             for i in time_off:
                 self.app.method.TimeBox("OFF", i, '2')
             self.app.method.TimeBox("ON", _directions['Time'], '2')
@@ -2490,9 +2490,11 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             self.choice_all_days(days_of_the_week_rezerv_2)
         with allure.step("Выбор времени"):
-            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00',
-                     '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00',
-                     '22:00', '23:00']
+            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+                        '10:00',
+                        '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                        '21:00',
+                        '22:00', '23:00']
             for i in time_off:
                 self.app.method.TimeBox("OFF", i, '3')
             time2 = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00']
@@ -2651,9 +2653,11 @@ class DirectionsHelper:
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_rezerv_2))
         with allure.step("Выбор времени"):
-            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00',
-                     '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00',
-                     '22:00', '23:00']
+            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+                        '10:00',
+                        '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                        '21:00',
+                        '22:00', '23:00']
             for i in time_off:
                 self.app.method.TimeBox("OFF", i, '3')
             self.app.method.TimeBox("ON", _directions['Time'], '3')

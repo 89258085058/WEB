@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import time
+
+from dataclasses import dataclass
 
 from selenium.common import TimeoutException
 
@@ -8,10 +9,9 @@ from locators.auth_locators import *
 from locators.tooltips_locators import *
 
 
+@dataclass
 class TooltipsHelper:
-
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     # Метод проверка вспывающей подсказки
     def assert_tooltip_messege(self, locator, text):

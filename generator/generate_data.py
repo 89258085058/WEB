@@ -2,15 +2,15 @@
 import os.path
 import random
 import string
+from dataclasses import dataclass
 
 import jsonpickle
 import mimesis
 
 
+@dataclass
 class Ganerate:
-
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     @staticmethod
     def createData():

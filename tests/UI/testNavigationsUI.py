@@ -3,6 +3,8 @@ import allure
 import pytest
 
 reruns = 2
+
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАВИГАЦИЯ")
 @pytest.mark.flaky(reruns=reruns)

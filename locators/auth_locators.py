@@ -13,6 +13,3 @@ entry_button = '//*[@id="app"]//button[@type="submit"]'
 # ------------ТЕКСТ-------------------
 auth_text = '//div[@class="auth"]'
 
-
-import requests
-

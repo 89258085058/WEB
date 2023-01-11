@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
+from dataclasses import dataclass
 
 import allure
 from selenium.common import TimeoutException, ElementClickInterceptedException
@@ -10,10 +11,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from locators.session_locators import *
 
 
+@dataclass
 class SessionHelper:
-
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     def login(self, username, password):
         with allure.step("Авторизация пользователя"):
@@ -76,7 +76,6 @@ class SessionHelper:
         if self.is_logged_in():
             self.logout()
 
-
     def is_logged_in(self):
         wd = self.app.wd
         return len(wd.find_elements_by_link_text("Журнал"))
@@ -86,7 +85,6 @@ class SessionHelper:
 
     def ensure_login_remote(self, username, password):
         self.login_remote(username, password)
-
 
     def display_and_hide(self, locator):
         try:

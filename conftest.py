@@ -3,7 +3,6 @@ import json
 import logging
 import os.path
 
-import allure
 import pytest
 
 from fixture.application import Application
@@ -36,7 +35,7 @@ def app(request):
         logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
 
         fixture = Application(browser=browser, base_url=web_config["baseUrl_remote"],
-                                  base_url_for_check=web_config["baseUrl_remote_signal"])
+                              base_url_for_check=web_config["baseUrl_remote_signal"])
         fixture.session.ensure_login_remote(username=logAndPas["username"], password=logAndPas["password"])
         return fixture
 

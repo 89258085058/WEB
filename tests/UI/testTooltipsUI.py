@@ -3,7 +3,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 1
+reruns = 2
 
 # directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 directions_list = ['1']
@@ -51,6 +51,7 @@ def close_modal(request, app):
         app.method.click((By.XPATH, '(//*[.=" Отменить "]//div)[last()]'))
 
     request.addfinalizer(fin)
+
 
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")

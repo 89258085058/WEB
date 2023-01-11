@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import json
 import os
+from dataclasses import dataclass
 
 
+@dataclass
 class DataHelper:
-
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     def data_all(self):
         f = "data/db_data.json"

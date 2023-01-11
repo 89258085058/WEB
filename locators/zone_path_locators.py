@@ -66,7 +66,6 @@ code_setting_out_2 = '(//*[.="Код настройки"]//input[1])[2]'
 code_setting_out_mask_2_on = '(//*[.="Код настройки"]//input[1])[3]'
 code_setting_out_mask_2_off = '(//*[.="Код настройки"]//input[1])[4]'
 
-
 # ------------КНОПКИ------------
 # Список событий Выходы - 1/2
 list_of_events_1 = '(//*[.="Список событий"]/i)[1]'
@@ -173,11 +172,7 @@ Allow_key_control_1_status = '(//*[.="Разрешить управление б
 Allow_key_control_2_click = '(//*[.="Разрешить управление брелоком"]//label/span)[2]'
 Allow_key_control_2_status = '(//*[.="Разрешить управление брелоком"]//label/input)[2]'
 
-
 # ------------Маска------------
 mask_out = '(//*[@id="app"]/main//label[@class="checkbox small"]/input)'
 mask_settings_click = '(//*[.="Маска"]//label/span)'
 mask_settings_status = '(//*[.="Маска"]//label/input)'
-
-
-

@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 import time
+from dataclasses import dataclass
 
 from selenium.common.exceptions import *
-from selenium.webdriver import ActionChains, Keys
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
+@dataclass
 class MethodsHelper:
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     # Проверка перехода на нудную ручку
     def pageEndpoint(self, host: str, endpoint: str, locator: str):
@@ -337,7 +338,6 @@ class MethodsHelper:
                     x), f"\nОжидаемое значение в выпадающем списке: '{x}'\nФактическое: '{element}'"
         except TimeoutException as exc:
             assert exc == TimeoutException, f"Ошибка выбора из выпадающего списка"
-
 
     def check_dropdown_list_with_check_box_double_click(self, button: str, name: str):
         try:

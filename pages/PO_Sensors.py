@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
+from dataclasses import dataclass
 
 import allure
 from selenium.common import TimeoutException
@@ -9,10 +10,9 @@ from data.pages_text import *
 from locators.sensors_locators import *
 
 
-class SensorsHelper():
-
-    def __init__(self, app):
-        self.app = app
+@dataclass
+class SensorsHelper:
+    app: any
 
     # Проверка выпадающего списка Раздел
     def drop_list_path(self, locator):
@@ -1454,10 +1454,12 @@ class SensorsHelper():
                                            c_2000p_sdvig_reed_switch_control_status)
         with allure.step(
                 f"Проверка выпадающего списка - 'Порог тревоги по наклону' проверка выбора позиции: {_c_2000p_sdvig['c_2000p_DL_sdvig_tilt_alarm_threshold']}"):
-            self.app.method.assertSelectionDropdownList(_c_2000p_sdvig['c_2000p_DL_sdvig_tilt_alarm_threshold'], c_2000p_sdvig_DL_tilt_alarm_threshold)
+            self.app.method.assertSelectionDropdownList(_c_2000p_sdvig['c_2000p_DL_sdvig_tilt_alarm_threshold'],
+                                                        c_2000p_sdvig_DL_tilt_alarm_threshold)
         with allure.step(
                 f"Проверка выпадающего списка - 'Порог тревоги по перемещению' проверка выбора позиции: {_c_2000p_sdvig['c_2000p_DL_sdvig_movement_alarm_threshold']}"):
-            self.app.method.assertSelectionDropdownList(_c_2000p_sdvig['c_2000p_DL_sdvig_movement_alarm_threshold'], c_2000p_sdvig_DL_movement_alarm_threshold)
+            self.app.method.assertSelectionDropdownList(_c_2000p_sdvig['c_2000p_DL_sdvig_movement_alarm_threshold'],
+                                                        c_2000p_sdvig_DL_movement_alarm_threshold)
 
     # Проверка чек-боксов - c_2000p ИП
     def check_box_c_2000p_ip_on(self):

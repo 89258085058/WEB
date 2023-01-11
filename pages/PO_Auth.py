@@ -1,22 +1,16 @@
 # -*- coding: utf-8 -*-
-import string
-import time
+
+from dataclasses import dataclass
 
 import allure
 
-from locators.auth_locators import *
 from data.pages_text import data_auth
-from selenium.webdriver.common.by import By
+from locators.auth_locators import *
 
 
+@dataclass
 class AuthHelper:
-
-    def __init__(self, app):
-        self.app = app
-
-
-
-
+    app: any
 
     # Проверка полей на странице Авторизации
     def text_auth_page(self):
@@ -38,7 +32,6 @@ class AuthHelper:
             self.app.method.assertEqual(1, 1, locator)
             self.app.method.assertEqual('1' * 62, '1' * 62, locator)
             self.app.method.assertEqual('1' * 63, '1' * 63, locator)
-
 
     # Проверка ввода поле Логин
     def input_login_negativ(self, locator=login_input):
@@ -62,8 +55,6 @@ class AuthHelper:
                 self.app.method.assertEqual('1 2 3', '123', locator)
             with allure.step("Проверка ввода граничных значений внутри диапазона"):
                 self.app.method.assertEqual('1' * 64, '1' * 63, locator)
-
-
 
     # Проверка ввода поле Пароль
     def input_password(self, locator=password_input):
@@ -108,6 +99,3 @@ class AuthHelper:
                 self.app.method.assertEqual('1 2 3', '123', locator)
             with allure.step("Проверка ввода граничных значений внутри диапазона"):
                 self.app.method.assertEqual('1' * 64, '1' * 63, locator)
-
-
-

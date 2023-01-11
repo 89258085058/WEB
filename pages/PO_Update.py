@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
+from dataclasses import dataclass
+
 from data.pages_text import *
 from locators.update_locators import *
 
 
+@dataclass
 class UpdateHelper:
-
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     # Проверка полей на странице блок: Сигнал GSM Р исп. 0 изм.7
     def text_update_device(self):

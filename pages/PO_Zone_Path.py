@@ -1,20 +1,19 @@
 # -*- coding: utf-8 -*-
 import random
 import time
+from dataclasses import dataclass
 
 import allure
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 
 from data.pages_text import *
 from locators.zone_path_locators import *
 
 
+@dataclass
 class ZonePathHelper:
-
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     # ---------------------- ОБЩИЕ МЕТОДЫ ----------------------------------------------------------------------
 
@@ -361,8 +360,6 @@ class ZonePathHelper:
             self.app.method.assertTextOnPage(locator_out_1_text, data_out_event)
         with allure.step("Проверка названий полей Выход 2"):
             self.app.method.assertTextOnPage(locator_out_2_text, data_out_event)
-
-
 
     # Проверка полей выходы - Температурный
     def text_temp_out(self):

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # выбор первого пункта настроек
 settings_button_first = '(//button[@class="BTN-secondary block BTN-auto-icon"])[1]'
 

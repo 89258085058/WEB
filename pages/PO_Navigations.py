@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
+from dataclasses import dataclass
 
 import allure
 from selenium.webdriver.common.by import By
@@ -7,10 +8,9 @@ from selenium.webdriver.common.by import By
 from locators.navigations_locators import *
 
 
+@dataclass
 class NavigationsHelper:
-
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     def goToZonePathPage(self):
         self.app.method.pageEndpoint(self.app.base_url_for_check, f'/zones-and-parts/partitions', ZonePathButton)

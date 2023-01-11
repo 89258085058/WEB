@@ -1,22 +1,19 @@
 import random
 import time
+from dataclasses import dataclass
 
 import allure
-from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 
 from data.pages_text import *
 from locators.users_keys_locators import *
 
 
+@dataclass
 class UsersKeysHelper:
+    app: any
 
-    def __init__(self, app):
-        self.app = app
-
-    # Клик по кнопке Добавить пользователя
+    # Клик по кнопке добавить пользователя
     def PushAddUserButton(self, locator=add_user):
         self.app.method.click((By.XPATH, locator))
 
@@ -25,7 +22,7 @@ class UsersKeysHelper:
         time.sleep(0.3)
         self.app.method.click((By.XPATH, locator))
 
-    # Клик по кнопке Добавить ключ
+    # Клик по кнопке добавить ключ
     def PushAddKeyButton(self, locator=add_key):
         self.app.method.click((By.XPATH, locator))
 

@@ -9,4 +9,3 @@ main_icon_button = '//*[@id="app"]//div[@class="auth"]//button[@class="BTN-secon
 exit_button = '/html//button[@class="BTN-secondary-text block"]'
 # Прелоудер втоизации
 authorization_window = '(//*[@class="b-inner"])[1]'
-

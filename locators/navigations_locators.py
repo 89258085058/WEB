@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 """Главные кнопки"""
 ZonePathButton = '//*[@id="app"]//button[.="Зоны/Разделы"]'
 SettingsButton = '//*[@id="app"]//button[.="Настройки"]'
@@ -23,7 +22,6 @@ EthernetButton = '//*[@id="app"]//button[.="Ethernet"]'
 """Кнопки Пользователи и ключи"""
 UsersButton = '//*[@id="app"]//button[.="Пользователи"]'
 KeysButton = '//*[@id="app"]//button[.="Ключи"]'
-
 
 """Кнопки Зоны/Разделы"""
 PathButton = '//*[@id="app"]//button[.="Разделы"]'

@@ -104,8 +104,13 @@ class Application:
     # Выполнение скриншота для отчета Allure
     def get_screen(self):
         wd = self.wd
-        # target = wd.find_element(By.XPATH, '//*[@id="modalSettings"]/div/div[2]/div[2]/button[1]')
-        # actions = ActionChains(wd)
-        # actions.move_to_element(target)
-        # actions.perform()
         allure.attach(wd.get_screenshot_as_png(), name="↓ СКРИНШОТ ↓", attachment_type=AttachmentType.PNG)
+
+    # # Выполнение скриншота для отчета Allure c скролом в самый низ
+    # def get_screen(self):
+    #     wd = self.wd
+    #     target = wd.find_element(By.XPATH, '//*[@id="modalSettings"]/div/div[2]/div[2]/button[1]')
+    #     actions = ActionChains(wd)
+    #     actions.move_to_element(target)
+    #     actions.perform()
+    #     allure.attach(wd.get_screenshot_as_png(), name="↓ СКРИНШОТ ↓", attachment_type=AttachmentType.PNG)

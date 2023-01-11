@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import random
 import time
+from dataclasses import dataclass
 
 import allure
 from selenium.webdriver import Keys
@@ -10,10 +11,9 @@ from data.pages_text import *
 from locators.settings_locators import *
 
 
+@dataclass
 class SettingsHelper:
-
-    def __init__(self, app):
-        self.app = app
+    app: any
 
     # Ограничение 9999
     def input_number_9999(self, locator):
@@ -521,8 +521,6 @@ class SettingsHelper:
         self.SIM_2_goToSendSMS()
         self.app.method.assertTextOnPage(GSM_SMS_modal_text, data_gsm_sms)
 
-
-
     # Выбор позиции: Использовать время GSM сети ДАТА И ВРЕМЯ
     def Use_GSM_network_time_click(self):
         self.app.method.selectDropdownList(date_time_dropdown_1, Use_GSM_network_time)
@@ -847,7 +845,6 @@ class SettingsHelper:
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual('ffffffffffffffffffffffffffffffff',
                                         'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff', locator)
-
 
     # Проверка ввода поле
     def input_number_32768(self, locator):
@@ -1957,7 +1954,6 @@ class SettingsHelper:
             self.app.method.click((By.XPATH, reset_button))
             time.sleep(0.1)
 
-
     def finish_setting(self):
         try:
             with allure.step("Клик по кнопке 'Сбросить'"):
@@ -2514,7 +2510,6 @@ class SettingsHelper:
             self.app.method.assertValues(value=_gsm['password_sim_1'], locator=PASSWORD_SIM_1)
         with allure.step("Поле ввода: Пароль"):
             self.app.method.assertValues(value=_gsm['password_sim_2'], locator=PASSWORD_SIM_2)
-
 
     def modul_settings_gsm_on(self):
         self.app.method.checkBox("ON", gsm_Enable_GSM_module_click, gsm_Enable_GSM_module_status)

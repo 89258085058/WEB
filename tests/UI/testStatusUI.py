@@ -11,6 +11,7 @@ def StatusPage(app):
     with allure.step("Переход на страницу Статус"):
         app.PO_Navigations.goToStatusPage()
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты СТАТУС")
 @allure.feature("Проверки UI")
