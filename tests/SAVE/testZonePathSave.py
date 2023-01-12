@@ -5,10 +5,10 @@ import pytest
 
 reruns = 2
 
-# outs_test_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+outs_test_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 
 
-outs_test_list = ['1']
+# outs_test_list = ['1']
 
 @pytest.fixture()
 def close_modal(request, app):

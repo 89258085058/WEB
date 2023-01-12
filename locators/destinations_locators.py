@@ -12,13 +12,13 @@ TEL_NUM_rezerv_1 = '((//div[@class="channel-settings"])[2]//input[2])'
 TEL_COD_rezerv_2 = '(//div[@class="channel-settings"])[3]//input[@placeholder="Код"]'
 TEL_NUM_rezerv_2 = '((//div[@class="channel-settings"])[3]//input[2])'
 # Количество повторов
-count_reset_main = '(//*[.="Количество повторов"]//input)[1]'
-count_reset_rezerv_1 = '(//*[.="Количество повторов"]//input)[2]'
-count_reset_rezerv_2 = '(//*[.="Количество повторов"]//input)[3]'
+count_reset_main = '(//*[.="Количество повторов *"]//input)[1]'
+count_reset_rezerv_1 = '(//*[.="Количество повторов *"]//input)[2]'
+count_reset_rezerv_2 = '(//*[.="Количество повторов *"]//input)[3]'
 # Таймаут при ошибке
-Timeout_on_error_main = '(//*[.="Таймаут при ошибке"]//input)[1]'
-Timeout_on_error_rezerv_1 = '(//*[.="Таймаут при ошибке"]//input)[2]'
-Timeout_on_error_rezerv_2 = '(//*[.="Таймаут при ошибке"]//input)[3]'
+Timeout_on_error_main = '(//*[.="Таймаут при ошибке *"]//input)[1]'
+Timeout_on_error_rezerv_1 = '(//*[.="Таймаут при ошибке *"]//input)[2]'
+Timeout_on_error_rezerv_2 = '(//*[.="Таймаут при ошибке *"]//input)[3]'
 
 # Интервал тестирования
 Test_interval_main = '(//*[.="Интервал тестирования"]//input)[1]'
@@ -26,29 +26,29 @@ Test_interval_rezerv_1 = '(//*[.="Интервал тестирования"]//i
 Test_interval_rezerv_2 = '(//*[.="Интервал тестирования"]//input)[3]'
 
 # Адрес
-address_DC09_main = '(//*[.="Адрес"]//input)[1]'
-address_DC09_reserv_1 = '(//*[.="Адрес"]//input)[2]'
-address_DC09_reserv_2 = '(//*[.="Адрес"]//input)[3]'
+address_DC09_main = '(//*[.="Адрес *"]//input)[1]'
+address_DC09_reserv_1 = '(//*[.="Адрес *"]//input)[2]'
+address_DC09_reserv_2 = '(//*[.="Адрес *"]//input)[3]'
 
 # Порт
-port_DC09_main = '(//*[.="Порт"]//input)[1]'
-port_DC09_reserv_1 = '(//*[.="Порт"]//input)[2]'
-port_DC09_reserv_2 = '(//*[.="Порт"]//input)[3]'
+port_DC09_main = '(//*[.="Порт *"]//input)[1]'
+port_DC09_reserv_1 = '(//*[.="Порт *"]//input)[2]'
+port_DC09_reserv_2 = '(//*[.="Порт *"]//input)[3]'
 
 # Таймаут подтверждения, сек
-confirmation_timeout_DC09_main = '(//*[.="Таймаут подтверждения, сек"]//input)[1]'
-confirmation_timeout_DC09_reserv_1 = '(//*[.="Таймаут подтверждения, сек"]//input)[2]'
-confirmation_timeout_DC09_reserv_2 = '(//*[.="Таймаут подтверждения, сек"]//input)[3]'
+confirmation_timeout_DC09_main = '(//*[.="Таймаут подтверждения, сек *"]//input)[1]'
+confirmation_timeout_DC09_reserv_1 = '(//*[.="Таймаут подтверждения, сек *"]//input)[2]'
+confirmation_timeout_DC09_reserv_2 = '(//*[.="Таймаут подтверждения, сек *"]//input)[3]'
 
 # Количество повторов
-number_of_repetitions_DC09_main = '(//*[.="Количество повторов"]//input)[1]'
-number_of_repetitions_DC09_reserv_1 = '(//*[.="Количество повторов"]//input)[2]'
-number_of_repetitions_DC09_reserv_2 = '(//*[.="Количество повторов"]//input)[3]'
+number_of_repetitions_DC09_main = '(//*[.="Количество повторов *"]//input)[1]'
+number_of_repetitions_DC09_reserv_1 = '(//*[.="Количество повторов *"]//input)[2]'
+number_of_repetitions_DC09_reserv_2 = '(//*[.="Количество повторов *"]//input)[3]'
 
 # Ключ шифрования
-encryption_key_DC09_main = '(//*[.="Ключ шифрования"]//input)[1]'
-encryption_key_DC09_reserv_1 = '(//*[.="Ключ шифрования"]//input)[2]'
-encryption_key_DC09_reserv_2 = '(//*[.="Ключ шифрования"]//input)[3]'
+encryption_key_DC09_main = '(//*[.="Ключ шифрования *"]//input)[1]'
+encryption_key_DC09_reserv_1 = '(//*[.="Ключ шифрования *"]//input)[2]'
+encryption_key_DC09_reserv_2 = '(//*[.="Ключ шифрования *"]//input)[3]'
 
 # ------------ КНОПКИ ------------
 # Настройки

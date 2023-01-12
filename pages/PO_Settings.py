@@ -47,9 +47,9 @@ class SettingsHelper:
             self.app.method.assertEqual('1 2 3', '123', locator)
         with allure.step("Проверка ввода дробного числа "):
             self.app.method.assertEqual('11.11', '1111', locator)
-            self.app.method.assertEqual('000.1', '0001', locator)
+            self.app.method.assertEqual('000.1', '1', locator)
             self.app.method.assertEqual('11,11', '1111', locator)
-            self.app.method.assertEqual('000,1', '0001', locator)
+            self.app.method.assertEqual('000,1', '1', locator)
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода очень большого числа"):
@@ -91,9 +91,9 @@ class SettingsHelper:
             self.app.method.assertEqual('1 2 3', '123', locator)
         with allure.step("Проверка ввода дробного числа "):
             self.app.method.assertEqual('11.11', '1111', locator)
-            self.app.method.assertEqual('000.1', '0001', locator)
+            self.app.method.assertEqual('000.1', '1', locator)
             self.app.method.assertEqual('11,11', '1111', locator)
-            self.app.method.assertEqual('000,1', '0001', locator)
+            self.app.method.assertEqual('000,1', '1', locator)
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода очень большого числа"):
@@ -185,9 +185,9 @@ class SettingsHelper:
             self.app.method.assertEqual('1 2 3', '123', locator)
         with allure.step("Проверка ввода дробного числа "):
             self.app.method.assertEqual('11.1', '111', locator)
-            self.app.method.assertEqual('00.1', '001', locator)
+            self.app.method.assertEqual('00.1', '1', locator)
             self.app.method.assertEqual('11,1', '111', locator)
-            self.app.method.assertEqual('00,1', '001', locator)
+            self.app.method.assertEqual('00,1', '1', locator)
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода очень большого числа"):
@@ -883,9 +883,9 @@ class SettingsHelper:
             self.app.method.assertEqual('1 2 3', '123', locator)
         with allure.step("Проверка ввода дробного числа "):
             self.app.method.assertEqual('11.11', '1111', locator)
-            self.app.method.assertEqual('000.1', '0001', locator)
+            self.app.method.assertEqual('000.1', '1', locator)
             self.app.method.assertEqual('11,11', '1111', locator)
-            self.app.method.assertEqual('000,1', '0001', locator)
+            self.app.method.assertEqual('000,1', '1', locator)
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода очень большого числа"):
@@ -990,9 +990,9 @@ class SettingsHelper:
             self.app.method.assertEqual('1 2 ', '12', locator)
         with allure.step("Проверка ввода дробного числа "):
             self.app.method.assertEqual('1.1', '11', locator)
-            self.app.method.assertEqual('0.1', '01', locator)
+            self.app.method.assertEqual('0.1', '1', locator)
             self.app.method.assertEqual('1,1', '11', locator)
-            self.app.method.assertEqual('0,1', '01', locator)
+            self.app.method.assertEqual('0,1', '1', locator)
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода очень большого числа"):

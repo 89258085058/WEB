@@ -92,9 +92,9 @@ class ZonePathHelper:
             self.app.method.assertEqual('1 2 3', '123', locator)
         with allure.step("Проверка ввода дробного числа "):
             self.app.method.assertEqual('11.11', '1111', locator)
-            self.app.method.assertEqual('000.1', '0001', locator)
+            self.app.method.assertEqual('000.1', '1', locator)
             self.app.method.assertEqual('11,11', '1111', locator)
-            self.app.method.assertEqual('000,1', '0001', locator)
+            self.app.method.assertEqual('000,1', '1', locator)
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
             self.app.method.assertEqual('', '', locator)

@@ -4,11 +4,11 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 1
+reruns = 0
 
-#directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 
-directions_list = ['1']
+# directions_list = ['1']
 
 
 @pytest.fixture()
@@ -491,14 +491,14 @@ class TestSaveDestinationChanels:
     @allure.story("Основной канал")
     @allure.title("Основной канал - SMS пользователю - тестировать интервалом")
     def test_checking_save_sms_user_interval_main(self, app, destinations, close_modal, directions: str):
-        with allure.step("Генерирование тестовых данных"):
-            app.ganerate_data.createData()
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_main('SMS пользователю')
+            app.PO_Directions.openType_rezerv_1('Отключено')
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Ввод данных для сохранения"):
@@ -519,14 +519,14 @@ class TestSaveDestinationChanels:
     @allure.story("Основной канал")
     @allure.title("Основной канал - SMS пользователю - тестировать по расписанию")
     def test_checking_save_sms_user_time_table_main(self, app, destinations, close_modal, directions: str):
-        with allure.step("Генерирование тестовых данных"):
-            app.ganerate_data.createData()
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_main('SMS пользователю')
+            app.PO_Directions.openType_rezerv_1('Отключено')
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Ввод данных для сохранения"):
@@ -551,8 +551,10 @@ class TestSaveDestinationChanels:
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_main('SMS пользователю')
+            app.PO_Directions.openType_rezerv_1('Отключено')
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Ввод данных для сохранения"):
@@ -583,8 +585,10 @@ class TestSaveDestinationChanels:
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 1')
+            app.PO_Directions.openChanel('Резерв 2')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_rezerv_1('SMS пользователю')
+            app.PO_Directions.openType_rezerv_2('Отключено')
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Ввод данных для сохранения"):
@@ -618,8 +622,10 @@ class TestSaveDestinationChanels:
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 1')
+            app.PO_Directions.openChanel('Резерв 2')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_rezerv_1('SMS пользователю')
+            app.PO_Directions.openType_rezerv_2('Отключено')
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Ввод данных для сохранения"):
@@ -654,8 +660,10 @@ class TestSaveDestinationChanels:
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 1')
+            app.PO_Directions.openChanel('Резерв 2')
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_rezerv_1('SMS пользователю')
+            app.PO_Directions.openType_rezerv_2('Отключено')
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Ввод данных для сохранения"):
@@ -687,13 +695,12 @@ class TestSaveDestinationChanels:
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('SMS пользователю')
             app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Резерв 1')
             app.PO_Directions.openChanel('Резерв 2')
         with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('SMS пользователю')
+            app.PO_Directions.openType_rezerv_1('SMS пользователю')
+            app.PO_Directions.openType_rezerv_2('Отключено')
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_2()
         with allure.step("Ввод данных для сохранения"):
