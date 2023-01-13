@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import time
 
 import allure
 import pytest
@@ -31,6 +32,7 @@ def date_time(app):
     with allure.step("Переход на страницу Настройки"):
         app.PO_Navigations.goToSettingsPage()
     with allure.step("Переход на вкладку 'Дата и время'"):
+        time.sleep(1)
         app.PO_Navigations.goToDateTimePage()
     with allure.step("Клик по кнопке 'Редактировать'"):
         app.PO_Settings.edit_button_click()

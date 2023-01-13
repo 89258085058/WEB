@@ -4,7 +4,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 0
+reruns = 1
 
 directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 
@@ -695,12 +695,13 @@ class TestSaveDestinationChanels:
             app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openType_main('SMS пользователю')
             app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 1')
+            app.PO_Directions.openType_rezerv_1('SMS пользователю')
+            app.PO_Directions.enableChannelTesting_rezerv_1()
+        with allure.step("Раскрытие настроек канала"):
             app.PO_Directions.openChanel('Резерв 2')
         with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-            app.PO_Directions.openType_rezerv_2('Отключено')
+            app.PO_Directions.openType_rezerv_2('SMS пользователю')
         with allure.step("Включения тестирования канала"):
             app.PO_Directions.enableChannelTesting_rezerv_2()
         with allure.step("Ввод данных для сохранения"):
