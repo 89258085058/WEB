@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import allure
-from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as CHROME
 from selenium.webdriver.firefox.options import Options as FIREFOX
 
+from fixture.attach import Attachments
 from fixture.method import MethodsHelper
 from fixture.session import SessionHelper
 from generator.generate_data import Ganerate
@@ -79,6 +78,7 @@ class Application:
         self.session = SessionHelper(self)
         self.read_data = DataHelper(self)
         self.ganerate_data = Ganerate(self)
+        self.attach = Attachments(self)
         self.base_url = base_url
         self.base_url_for_check = base_url_for_check
 
@@ -99,15 +99,13 @@ class Application:
     # Выход из браузера
     def destroy(self):
         self.wd.quit()
-        self.wd.quit()
 
     # Выполнение скриншота для отчета Allure
-    def get_screen(self):
-        wd = self.wd
-        allure.attach(wd.get_screenshot_as_png(), name="↓ СКРИНШОТ ↓", attachment_type=AttachmentType.PNG)
+    def get_attach(self):
+        self.attach.add_screenshot()
 
     # # Выполнение скриншота для отчета Allure c скролом в самый низ
-    # def get_screen(self):
+    # def get_attach(self):
     #     wd = self.wd
     #     target = wd.find_element(By.XPATH, '//*[@id="modalSettings"]/div/div[2]/div[2]/button[1]')
     #     actions = ActionChains(wd)

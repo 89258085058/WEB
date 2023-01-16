@@ -54,7 +54,6 @@ def app(request):
 def stop(request):
     def fin():
         fixture.destroy()
-        fixture.destroy()
 
     request.addfinalizer(fin)
     return fixture
@@ -77,11 +76,8 @@ def pytest_runtest_makereport(item, call):
     else:
         logging.info('Did not fail...')
     if report.outcome == 'failed':
-        fixture.get_screen()
+        fixture.get_attach()
         logging.error('FAILED: %s', report.longrepr)
-        # with allure.step('Скриншот браузера при падении теста'):
-        #     fixture.get_screen()
-        #     logging.error('FAILED: %s', report.longrepr)
     elif report.outcome == 'skipped':
         logging.info('Skipped')
     else:
