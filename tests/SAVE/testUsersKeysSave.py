@@ -5,7 +5,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 1
+reruns = 0
 
 @pytest.fixture
 def goToUsers(app):
@@ -39,7 +39,7 @@ class TestSaveKeys:
 
     @allure.story("КЛЮЧИ")
     @allure.title("Проверка сохранения добавления ключа")
-    def test_users_keys_save_data_key(self, app, goToKeys, close_modal):
+    def test_01_users_keys_save_data_key(self, app, goToKeys, close_modal):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Предусловия добавления ключа"):
@@ -57,7 +57,7 @@ class TestSaveKeys:
 
     @allure.story("КЛЮЧИ")
     @allure.title("Проверка добавления ключа")
-    def test_users_keys_add_save_key(self, app, goToKeys):
+    def test_02_users_keys_add_save_key(self, app, goToKeys):
         with allure.step("Удаление ключа при условии отображения 64х ключей"):
             count = app.PO_Users_Keys.count_key()
             if count == 64:
@@ -75,7 +75,7 @@ class TestSaveKeys:
 
     @allure.story("КЛЮЧИ")
     @allure.title("Проверка удаления ключа")
-    def test_users_keys_delete_save_key(self, app, goToKeys):
+    def test_03_users_keys_delete_save_key(self, app, goToKeys):
         with allure.step("Добавления ключа при его отсутствии"):
             count = app.PO_Users_Keys.count_key()
             if count == 0:
@@ -94,7 +94,7 @@ class TestSaveKeys:
     @pytest.mark.skip("Длинный тест")
     @allure.story("КЛЮЧИ")
     @allure.title("Проверка добавления максимального количества ключей")
-    def test_users_keys_add_save_key_64(self, app, goToKeys):
+    def test_04_users_keys_add_save_key_64(self, app, goToKeys):
         with allure.step("Добавления максимального количества ключей"):
             count = app.PO_Users_Keys.count_key()
             for i in range(count, 64):
@@ -110,7 +110,7 @@ class TestSaveKeys:
     @pytest.mark.skip("Длинный тест")
     @allure.story("КЛЮЧИ")
     @allure.title("Проверка всплывающей подсказки при добавлении максимального количества ключей")
-    def test_users_keys_add_save_key_64_tooltip(self, app, goToKeys):
+    def test_05_users_keys_add_save_key_64_tooltip(self, app, goToKeys):
         with allure.step("Добавления максимального количества ключей"):
             count = app.PO_Users_Keys.count_key()
             for i in range(count, 64):

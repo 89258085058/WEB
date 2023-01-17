@@ -24,7 +24,9 @@ class UsersKeysHelper:
 
     # Клик по кнопке добавить ключ
     def PushAddKeyButton(self, locator=add_key):
+        time.sleep(1)
         self.app.method.click((By.XPATH, locator))
+
 
     # Клик по кнопке Пользователь/Настройки
     def PushUserSettingsButton(self, locator=user_settings_button):
@@ -625,6 +627,7 @@ class UsersKeysHelper:
 
     # Добавление ключа для проверки подсказки
     def add_key_for_tooltip(self):
+        time.sleep(0.3)
         self.PushAddKeyButton()
         self.key_form(
             ids=random.randint(11111, 99999),
