@@ -2,7 +2,7 @@
 import allure
 import pytest
 
-reruns = 2
+reruns = 1
 
 
 @allure.label("owner", 'Александр Горелов')

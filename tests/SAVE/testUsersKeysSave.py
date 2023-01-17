@@ -5,8 +5,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 2
-
+reruns = 1
 
 @pytest.fixture
 def goToUsers(app):
