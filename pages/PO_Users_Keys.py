@@ -28,6 +28,9 @@ class UsersKeysHelper:
         self.app.method.click((By.XPATH, locator))
 
 
+
+
+
     # Клик по кнопке Пользователь/Настройки
     def PushUserSettingsButton(self, locator=user_settings_button):
         time.sleep(1)
@@ -36,7 +39,9 @@ class UsersKeysHelper:
 
     # Клик по кнопке Ключи/Настройки
     def PushKeysSettingsButton(self, locator=user_settings_button):
+        time.sleep(1)
         self.app.method.click((By.XPATH, locator))
+        time.sleep(1)
 
     # Добавить ключ если его нет
     def Add_key_if_not(self):
@@ -44,6 +49,7 @@ class UsersKeysHelper:
             key = self.app.method.getElementsLen(key_row)
             if key < 3:
                 with allure.step("Добавление ключа"):
+                    time.sleep(1)
                     self.app.method.click((By.XPATH, add_key))
                     time.sleep(1)
                     self.app.method.inputValues((random.randint(11111, 99999)), key_id)

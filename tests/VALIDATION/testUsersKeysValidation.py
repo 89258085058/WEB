@@ -14,7 +14,7 @@ def users(app):
     with allure.step("Переход на вкладку 'Пользователи'"):
         app.PO_Navigations.goToUsersPage()
     with allure.step("Нажать на кнопку 'Добавить пользователя'"):
-        app.PO_Users_Keys.PushAddKeyButton()
+        app.PO_Users_Keys.PushAddUserButton()
 
 
 @pytest.fixture

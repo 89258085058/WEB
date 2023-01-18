@@ -62,6 +62,7 @@ class NavigationsHelper:
 
     def goToKeysPage(self):
         self.app.method.pageEndpoint(self.app.base_url_for_check, f'/users-and-keys/keys', KeysButton)
+        time.sleep(1)
 
     def goToPathPage(self):
         self.app.method.pageEndpoint(self.app.base_url_for_check, f'/zones-and-parts/partitions', PathButton)
