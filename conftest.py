@@ -68,7 +68,7 @@ def pytest_addoption(parser):
 
 
 @pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_makereport(item, call):
+def pytest_runtest_makereport():
     result = yield
     report = result.get_result()
     if report.longrepr:

@@ -56,7 +56,7 @@ key_id = '//*[.="Идентификатор"]/following::input[1]'
 # Добавить пользователя
 add_user = '//*[@id="app"]//div[@class="control-container"]'
 # Добавить ключ
-add_key = '//*[@id="app"]//div[@class="control-container"]'
+add_key = '(//*[.="Добавить ключ"])[1]'
 # Настройки пользователя
 user_settings_button = '(//*[@id="app"]//button[@class="BTN-secondary block BTN-auto-icon"])[1]'
 # Настройки ключа
