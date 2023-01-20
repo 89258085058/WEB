@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36ee40cc-6e65-4ca3-b52d-12afd82b6842" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Directions.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Settings.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Usets_keys.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/bolid.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zone_path.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Zone_path.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start_validation.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start_validation.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
