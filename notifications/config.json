@@ -1,0 +1,17 @@
+{
+  "base": {
+    "logo": "notifications/bolid.png",
+    "project": "some project",
+    "environment": "some env",
+    "comment": "some comment",
+    "reportLink": "",
+    "language": "en",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "5949556914:AAH5PP6FOQYIYWHzBjRtPM16OWqAQ95dhco",
+    "chat": "-1001819814165",
+    "replyTo": ""
+  }
+}
