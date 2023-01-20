@@ -5,8 +5,9 @@
       <change afterPath="$PROJECT_DIR$/Directions.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Settings.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Usets_keys.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Zone_path.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/images/bolid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zone_path.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Zone_path.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/start_validation.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start_validation.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
