@@ -56,6 +56,7 @@ def close_modal(request, app):
 
     request.addfinalizer(fin)
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ПОЛЬЗОВАТЕЛИ И КЛЮЧИ")
 @allure.feature("Проверки UI")
