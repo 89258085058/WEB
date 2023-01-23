@@ -11,7 +11,11 @@
 # Проект по автоматизации тестирования
 ## [Документация](http://confluence.bolid.ru/pages/viewpage.action?pageId=60820024)
 
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:heavy_check_mark: [вход в Систему](http://192.168.22.159/)
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:heavy_check_mark: [вход в Систему - REMOTE](http://84.201.143.9/login)
+
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:heavy_check_mark: [вход в Selenoid](http://134.0.115.66:8080/#/)
+
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:heavy_check_mark: [вход в Jenkins](http://194.67.118.210:8080/)
 
 ## :rocket: Технологии и инструменты
 
@@ -27,7 +31,7 @@
 <code><img width="5%" title="TeamCity" src="images/TC.svg"></code>
 </p>
 
-> *В данном проекте автотесты написаны на <code><strong>*Python*</strong></code> с использованием фреймворка <code><strong>*PyTest*</strong></code> для UI-тестов и <code><strong>*requests*</strong></code> для API-тестов.*
+> *В данном проекте автотесты написаны на <code><strong>*Python*</strong></code> с использованием фреймворка <code><strong>*PyTest*</strong></code>*
 >
 >*Запуск тестов выполняется из <code><strong>*TeamCity*</strong></code>.*
 >
@@ -40,13 +44,6 @@
 > - [x] *Тесты на валидацию полей ввода*
 > - [x] *Тесты на проверку Ui элементов*
 > - [x] *Тесты на проверку сохранения*
-
-
-
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; API
-
-> - [x] *Тесты на проверку ответов от сервера*
-
 
 
 
@@ -65,17 +62,24 @@ pip install --proxy http://<username>:<password>@proxy.bolid.ru:3128 -r requirem
 python -m pytest tests/
 ```
 
-&nbsp;*Запуск тестов с отчетом Allure:*
+&nbsp;*Запуск тестов делится на 3 категории:*
+&nbsp;*1 - запуск тестов на локальном устройстве*
+&nbsp;*2 - запуск тестов на удаленном устройстве*
+&nbsp;*3 - Запуск тестов на selenoid - сервере*
 
 ```bash
-python -m pytest --browser=chrome --alluredir=allure_reports/  tests/<нужный тест>
+python -m pytest --device=remote --browser=chrome --alluredir=allure_reports/  tests/<нужный тест>
+python -m pytest --device=local --browser=chrome --alluredir=allure_reports/  tests/<нужный тест>
+python -m pytest --device=remote --browser=selenoid --alluredir=allure_reports/ tests/<нужный тест>
 
 ```
 
 где:
->- [x] *--browser - браузер, в котором будут выполняться тесты (по умолчанию chrome)*
+>- [x] *--browser - браузер, в котором будут выполняться тесты (по умолчанию chrome) при вводе selenoid - прогоняется на сервере*
 >- [x] *--alluredir - папка в которую будут складываться отчеты*
+>- [x] *--device - указывается нужное устройство удаленное или локальное*
 >- [x] *tests/<нужный тест> - указывается нужный тест для запуска, либо указывается просто "tests/" для прогона всех тестов*
+
 
 
 &nbsp;*Сформировать allure отчет:*
@@ -84,7 +88,7 @@ python -m pytest --browser=chrome --alluredir=allure_reports/  tests/<нужны
 allure serve allure_reports/
 ```
 
-## <img width="4%" title="Jenkins" src="images/TC.svg"> Запуск тестов в [TeamCity](http://192.168.22.130:8112/)
+## <img width="4%" title="Jenkins" src="images/TC.svg"> Запуск тестов в [TeamCity](http://194.67.118.210:8080/)
 
 
 *Для запуска сборки необходимо выбрать интересующий build и нажать кнопку <code><strong>*RUN*</strong></code>.*
@@ -101,7 +105,7 @@ Report*</strong></code>, кликнув по которому, откроетс�
   <img src="images/Allure_history.png" alt="job" width="1000">
 </p>
 
-## <img width="4%" title="Allure Report" src="images/allure-Report-logo.svg"> Отчет о результатах тестирования в [Allure Report](http://192.168.22.130:8112/viewLog.html?buildId=3207&buildTypeId=Signal_SeleniumTests&tab=report_project8_ALLURE)
+## <img width="4%" title="Allure Report" src="images/allure-Report-logo.svg"> Отчет о результатах тестирования в [Allure Report](http://194.67.118.210:8080/)
 
 ### :pushpin: Общая информация
 
