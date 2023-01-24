@@ -232,7 +232,7 @@ class MethodsHelper:
             self.app.method.click((By.XPATH, button))
             time.sleep(0.3)
             self.app.method.click((By.XPATH, f'/html/body//div[@class="option"][.="{name}"]'))
-            time.sleep(0.1)
+            time.sleep(0.3)
         except TimeoutException as exc:
             assert exc == TimeoutException, f"Ошибка!!! Локатор выпадающего списка не найден"
 

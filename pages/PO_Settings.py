@@ -583,48 +583,52 @@ class SettingsHelper:
 
     # Проверка кнопки сохранить при вводе данных в обязательные поля
     def data_in_all_entry_field_object(self):
-        self.app.method.inputValues(('111'), object_number)
-        self.app.method.inputValues(('111'), object_delay_take_on)
-        self.app.method.inputValues(('111'), object_delay_alarm_enter)
-        self.app.method.inputValues(('111'), object_time_auto_take_on)
+        self.app.method.inputValues('111', object_number)
+        self.app.method.inputValues('111', object_delay_take_on)
+        self.app.method.inputValues('111', object_delay_alarm_enter)
+        self.app.method.inputValues('111', object_time_auto_take_on)
         status = self.app.method.attributeStatusButton(save_button)
-        assert status == None, f"\nОшибка Кнопка 'Сохранить' должна быть кликабельной!\nФактический статус кнопки:{status}"
+        assert status is None, f"\nОшибка Кнопка 'Сохранить' должна быть кликабельной!\nФактический статус кнопки:{status}"
 
     # Проверка кнопки сохранить при вводе данных в обязательные поля
     def no_data_in_number_object(self):
-        self.app.method.inputValues(('1' + Keys.BACKSPACE), object_number)
-        self.app.method.inputValues(('111'), object_delay_take_on)
-        self.app.method.inputValues(('111'), object_delay_alarm_enter)
-        self.app.method.inputValues(('111'), object_time_auto_take_on)
+        self.app.method.inputValues('1' + Keys.BACKSPACE, object_number)
+        self.app.method.inputValues('111', object_delay_take_on)
+        self.app.method.inputValues('111', object_delay_alarm_enter)
+        self.app.method.inputValues('111', object_time_auto_take_on)
         status = self.app.method.attributeStatusButton(save_button)
         assert status == 'true', f"\nОшибка Кнопка 'Сохранить' должна быть кликабельной!\nФактический статус кнопки:{status}"
 
     # Проверка кнопки сохранить при вводе данных в обязательные поля
     def no_data_delay_take_on_object(self):
-        self.app.method.inputValues(('111'), object_number)
-        self.app.method.inputValues(('1' + Keys.BACKSPACE), object_delay_take_on)
-        self.app.method.inputValues(('111'), object_delay_alarm_enter)
-        self.app.method.inputValues(('111'), object_time_auto_take_on)
+        self.app.method.inputValues('111', object_number)
+        self.app.method.inputValues('1' + Keys.BACKSPACE, object_delay_take_on)
+        self.app.method.inputValues('111', object_delay_alarm_enter)
+        self.app.method.inputValues('111', object_time_auto_take_on)
         status = self.app.method.attributeStatusButton(save_button)
-        assert status == 'true', f"\nОшибка Кнопка 'Сохранить' должна быть не кликабельной!\nФактический статус кнопки:{status}"
+        assert status == 'true', f"\nОшибка Кнопка 'Сохранить' должна быть не кликабельной!" \
+                                 f"\nФактический статус кнопки:{status}"
 
     # Проверка кнопки сохранить при вводе данных в обязательные поля
     def no_data_delay_alarm_enter_object(self):
-        self.app.method.inputValues(('111'), object_number)
-        self.app.method.inputValues(('111'), object_delay_take_on)
-        self.app.method.inputValues(('1' + Keys.BACKSPACE), object_delay_alarm_enter)
-        self.app.method.inputValues(('111'), object_time_auto_take_on)
+        self.app.method.inputValues('111', object_number)
+        self.app.method.inputValues('111', object_delay_take_on)
+        self.app.method.inputValues('1' + Keys.BACKSPACE, object_delay_alarm_enter)
+        self.app.method.inputValues('111', object_time_auto_take_on)
         status = self.app.method.attributeStatusButton(save_button)
-        assert status == 'true', f"\nОшибка Кнопка 'Сохранить' должна быть не кликабельной!\nФактический статус кнопки:{status}"
+        assert status == 'true', f"\nОшибка Кнопка 'Сохранить' должна быть не кликабельной!" \
+                                 f"\nФактический статус кнопки:{status}"
 
-    # Проверка кнопки сохранить при вводе данных в обязательные поля
+        # Проверка кнопки сохранить при вводе данных в обязательные поля
+
     def no_data_time_auto_take_on_object(self):
-        self.app.method.inputValues(('111'), object_number)
-        self.app.method.inputValues(('111'), object_delay_take_on)
-        self.app.method.inputValues(('111'), object_delay_alarm_enter)
-        self.app.method.inputValues(('1' + Keys.BACKSPACE), object_time_auto_take_on)
+        self.app.method.inputValues('111', object_number)
+        self.app.method.inputValues('111', object_delay_take_on)
+        self.app.method.inputValues('111', object_delay_alarm_enter)
+        self.app.method.inputValues('1' + Keys.BACKSPACE, object_time_auto_take_on)
         status = self.app.method.attributeStatusButton(save_button)
-        assert status == 'true', f"\nОшибка Кнопка 'Сохранить' должна быть не кликабельной!\nФактический статус кнопки:{status}"
+        assert status == 'true', f"\nОшибка Кнопка 'Сохранить' должна быть не кликабельной!" \
+                                 f"\nФактический статус кнопки:{status}"
 
     # Включение чекбоксов радио - РАДИО
     def check_box_radio_on(self):

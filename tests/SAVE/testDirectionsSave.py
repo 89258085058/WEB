@@ -544,34 +544,6 @@ class TestSaveDestinationChanels:
             app.PO_Directions.assert_save_sms_user_timetable_main()
 
     @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Основной канал")
-    @allure.title("Основной канал - SMS пользователю - заполнение полей максимально возможными данными")
-    def test_checking_save_sms_user_time_table_main_max_size(self, app, destinations, close_modal, directions: str):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.openType_rezerv_1('Отключено')
-        with allure.step("Включения тестирования канала"):
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Ввод данных для сохранения"):
-            app.PO_Directions.save_sms_user_timetable_main_max_size()
-        with allure.step("Сохранение данных"):
-            app.PO_Directions.save_button_click()
-        with allure.step("Выход и повторный вход"):
-            app.PO_Navigations.ExitAndEnter()
-            app.PO_Navigations.goToDirectionsPage()
-            app.PO_Directions.openDestination(directions)
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Проверка сохранения поля"):
-            app.PO_Directions.assert_save_sms_user_timetable_main_max()
-
-    @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный 1 канал")
     @allure.title("Резервный 2 канал - SMS пользователю - тестировать интервалом")
     def test_checking_save_sms_user_interval_rezerv_1(self, app, destinations, close_modal, directions: str):
@@ -644,44 +616,6 @@ class TestSaveDestinationChanels:
             app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Проверка сохранения поля"):
             app.PO_Directions.assert_save_sms_user_timetable_rezerv_1()
-
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Резервный 1 канал")
-    @allure.title(
-        "Резервный 1 канал - SMS пользователю - тестировать по расписанию - заполнение полей максимально возможными данными")
-    def test_checking_save_sms_user_time_table_rezerv_1_max(self, app, destinations, close_modal, directions: str):
-        with allure.step("Генерирование тестовых данных"):
-            app.ganerate_data.createData()
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-            app.PO_Directions.openType_rezerv_2('Отключено')
-        with allure.step("Включения тестирования канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Ввод данных для сохранения"):
-            app.PO_Directions.save_sms_user_timetable_rezerv_1_max()
-        with allure.step("Сохранение данных"):
-            app.PO_Directions.save_button_click()
-        with allure.step("Выход и повторный вход"):
-            app.PO_Navigations.ExitAndEnter()
-            app.PO_Navigations.goToDirectionsPage()
-            app.PO_Directions.openDestination(directions)
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Проверка сохранения поля"):
-            app.PO_Directions.assert_save_sms_user_timetable_rezerv_1_max()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный 2 канал")
@@ -766,29 +700,21 @@ class TestSaveDestinationChanels:
             app.PO_Directions.assert_save_sms_user_timetable_rezerv_2()
 
     @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Резервный 2 канал")
-    @allure.title(
-        "Резервный 2 канал - SMS пользователю - тестировать по расписанию - заполнение полей максимально возможными данными")
-    def test_checking_save_sms_user_time_table_rezerv_2_max(self, app, destinations, close_modal, directions: str):
-        with allure.step("Генерирование тестовых данных"):
-            app.ganerate_data.createData()
+    @allure.story("Основной канал")
+    @allure.title("Основной канал - SMS Эгида - тестировать интервалом")
+    def test_checking_save_sms_egida_interval_main(self, app, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
         with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('SMS пользователю')
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('Отключено')
         with allure.step("Включения тестирования канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_2()
+            app.PO_Directions.enableChannelTesting_main()
         with allure.step("Ввод данных для сохранения"):
-            app.PO_Directions.save_sms_user_timetable_rezerv_2_max()
+            app.PO_Directions.save_sms_egida_main()
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -796,15 +722,175 @@ class TestSaveDestinationChanels:
             app.PO_Navigations.goToDirectionsPage()
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
+            app.PO_Directions.openType_main('SMS Эгида')
             app.PO_Directions.enableChannelTesting_main()
+        with allure.step("Проверка сохранения поля"):
+            app.PO_Directions.assert_save_sms_egida_main()
+
+    @pytest.mark.parametrize("directions", directions_list)
+    @allure.story("Основной канал")
+    @allure.title("Основной канал - SMS Эгида - тестировать по расписанию")
+    def test_checking_save_sms_egida_time_table_main(self, app, destinations, close_modal, directions: str):
+        with allure.step("Открытие направления"):
+            app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
             app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
+        with allure.step("Выбор типа управления"):
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('Отключено')
+        with allure.step("Включения тестирования канала"):
+            app.PO_Directions.enableChannelTesting_main()
+        with allure.step("Ввод данных для сохранения"):
+            app.PO_Directions.save_sms_egida_timetable_main()
+        with allure.step("Сохранение данных"):
+            app.PO_Directions.save_button_click()
+        with allure.step("Выход и повторный вход"):
+            app.PO_Navigations.ExitAndEnter()
+            app.PO_Navigations.goToDirectionsPage()
+            app.PO_Directions.openDestination(directions)
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.enableChannelTesting_main()
+        with allure.step("Проверка сохранения поля"):
+            app.PO_Directions.assert_save_sms_egida_timetable_main()
+
+    @pytest.mark.parametrize("directions", directions_list)
+    @allure.story("Резервный 1 канал")
+    @allure.title("Резервный 1 канал - SMS Эгида - тестировать интервалом")
+    def test_checking_save_sms_egida_interval_rezerv_1(self, app, destinations, close_modal, directions: str):
+        with allure.step("Открытие направления"):
+            app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
+        with allure.step("Выбор типа управления"):
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('SMS Эгида')
+        with allure.step("Включения тестирования канала"):
+            app.PO_Directions.enableChannelTesting_main()
             app.PO_Directions.enableChannelTesting_rezerv_1()
+        with allure.step("Ввод данных для сохранения"):
+            app.PO_Directions.save_sms_egida_rezerv_1()
+        with allure.step("Сохранение данных"):
+            app.PO_Directions.save_button_click()
+        with allure.step("Выход и повторный вход"):
+            app.PO_Navigations.ExitAndEnter()
+            app.PO_Navigations.goToDirectionsPage()
+            app.PO_Directions.openDestination(directions)
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('SMS Эгида')
+            app.PO_Directions.enableChannelTesting_main()
+            app.PO_Directions.enableChannelTesting_rezerv_1()
+        with allure.step("Проверка сохранения поля"):
+            app.PO_Directions.assert_save_sms_egida_rezerv_1()
+
+    @pytest.mark.parametrize("directions", directions_list)
+    @allure.story("Резервный 1 канал")
+    @allure.title("Резервный 1 канал - SMS Эгида - тестировать по расписанию")
+    def test_checking_save_sms_egida_time_table_rezerv_1(self, app, destinations, close_modal, directions: str):
+        with allure.step("Открытие направления"):
+            app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
+        with allure.step("Выбор типа управления"):
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('SMS Эгида')
+        with allure.step("Включения тестирования канала"):
+            app.PO_Directions.enableChannelTesting_main()
+            app.PO_Directions.enableChannelTesting_rezerv_1()
+        with allure.step("Ввод данных для сохранения"):
+            app.PO_Directions.save_sms_egida_timetable_rezerv_1()
+        with allure.step("Сохранение данных"):
+            app.PO_Directions.save_button_click()
+        with allure.step("Выход и повторный вход"):
+            app.PO_Navigations.ExitAndEnter()
+            app.PO_Navigations.goToDirectionsPage()
+            app.PO_Directions.openDestination(directions)
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('SMS Эгида')
+            app.PO_Directions.enableChannelTesting_main()
+            app.PO_Directions.enableChannelTesting_rezerv_1()
+        with allure.step("Проверка сохранения поля"):
+            app.PO_Directions.assert_save_sms_egida_timetable_rezerv_1()
+
+    @pytest.mark.parametrize("directions", directions_list)
+    @allure.story("Резервный 2 канал")
+    @allure.title("Резервный 2 канал - SMS Эгида - тестировать интервалом")
+    def test_checking_save_sms_egida_interval_rezerv_2(self, app, destinations, close_modal, directions: str):
+        with allure.step("Открытие направления"):
+            app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
             app.PO_Directions.openChanel('Резерв 2')
-            app.PO_Directions.openType_rezerv_2('SMS пользователю')
+        with allure.step("Выбор типа управления"):
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('SMS Эгида')
+            app.PO_Directions.openType_rezerv_2('SMS Эгида')
+        with allure.step("Включения тестирования канала"):
+            app.PO_Directions.enableChannelTesting_main()
+            app.PO_Directions.enableChannelTesting_rezerv_1()
+            app.PO_Directions.enableChannelTesting_rezerv_2()
+        with allure.step("Ввод данных для сохранения"):
+            app.PO_Directions.save_sms_egida_rezerv_2()
+        with allure.step("Сохранение данных"):
+            app.PO_Directions.save_button_click()
+        with allure.step("Выход и повторный вход"):
+            app.PO_Navigations.ExitAndEnter()
+            app.PO_Navigations.goToDirectionsPage()
+            app.PO_Directions.openDestination(directions)
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
+            app.PO_Directions.openChanel('Резерв 2')
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('SMS Эгида')
+            app.PO_Directions.openType_rezerv_2('SMS Эгида')
+            app.PO_Directions.enableChannelTesting_main()
+            app.PO_Directions.enableChannelTesting_rezerv_1()
             app.PO_Directions.enableChannelTesting_rezerv_2()
         with allure.step("Проверка сохранения поля"):
-            app.PO_Directions.assert_save_sms_user_timetable_rezerv_2_max()
+            app.PO_Directions.assert_save_sms_egida_rezerv_2()
 
-
+    @pytest.mark.parametrize("directions", directions_list)
+    @allure.story("Резервный 2 канал")
+    @allure.title("Резервный 2 канал - SMS Эгида - тестировать по расписанию")
+    def test_checking_save_sms_egida_time_table_rezerv_2(self, app, destinations, close_modal, directions: str):
+        with allure.step("Открытие направления"):
+            app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
+            app.PO_Directions.openChanel('Резерв 2')
+        with allure.step("Выбор типа управления"):
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('SMS Эгида')
+            app.PO_Directions.openType_rezerv_2('SMS Эгида')
+        with allure.step("Включения тестирования канала"):
+            app.PO_Directions.enableChannelTesting_main()
+            app.PO_Directions.enableChannelTesting_rezerv_1()
+            app.PO_Directions.enableChannelTesting_rezerv_2()
+        with allure.step("Ввод данных для сохранения"):
+            app.PO_Directions.save_sms_egida_timetable_rezerv_2()
+        with allure.step("Сохранение данных"):
+            app.PO_Directions.save_button_click()
+        with allure.step("Выход и повторный вход"):
+            app.PO_Navigations.ExitAndEnter()
+            app.PO_Navigations.goToDirectionsPage()
+            app.PO_Directions.openDestination(directions)
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
+            app.PO_Directions.openChanel('Резерв 2')
+            app.PO_Directions.openType_main('SMS Эгида')
+            app.PO_Directions.openType_rezerv_1('SMS Эгида')
+            app.PO_Directions.openType_rezerv_2('SMS Эгида')
+            app.PO_Directions.enableChannelTesting_main()
+            app.PO_Directions.enableChannelTesting_rezerv_1()
+            app.PO_Directions.enableChannelTesting_rezerv_2()
+        with allure.step("Проверка сохранения поля"):
+            app.PO_Directions.assert_save_sms_egida_timetable_rezerv_2()
