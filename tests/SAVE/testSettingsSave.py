@@ -290,7 +290,7 @@ class TestSaveSettings:
     @allure.title("Проверка сохранения настроек радио")
     @pytest.mark.parametrize("randomCB, chanel_list, time_add_sensor, periud_sensor",
                              [
-                                 ('ON', '1', '60', '5'),
+                                 ('ON', '1', '60', '60'),
                                  ('ON', '1', '900', '120')
                              ])
     def test_data_save_radio_limit(self, app, radio, randomCB, chanel_list, time_add_sensor, periud_sensor):
