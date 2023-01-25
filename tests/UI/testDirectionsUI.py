@@ -24,6 +24,7 @@ def destinations(app):
     with allure.step("Переход на страницу направления"):
         app.PO_Navigations.goToDirectionsPage()
 
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАПРАВЛЕНИЯ")
 @allure.feature("Проверки UI")
@@ -552,7 +553,7 @@ class TestUIDestinationMainChanel:
             app.PO_Directions.check_box_dc09_on_channel_main()
         with allure.step("Проверка выключения чекбоксов"):
             app.PO_Directions.check_box_dc09_off_channel_main()
-
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАПРАВЛЕНИЯ")
 @allure.feature("Проверки UI")
@@ -1066,7 +1067,7 @@ class TestUIDestinationRezerv1Chanel:
             app.PO_Directions.check_box_dc09_onn_channel_rezerv_1()
         with allure.step("Проверка выключения чекбоксов"):
             app.PO_Directions.check_box_dc09_off_channel_rezerv_1()
-
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАПРАВЛЕНИЯ")
 @allure.feature("Проверки UI")

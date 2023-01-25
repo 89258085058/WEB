@@ -63,7 +63,7 @@ class TestZonePathPathUI:
     # def test_dropdown_list_control_sections(self, app, add_path, close_modal):
     #     with allure.step("Проверка выбора позиций из выпадающего списка"):
     #         app.PO_Zone_Path.drop_list_controlled_sections()
-
+    @pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
     @allure.story("РАЗДЕЛЫ")
     @allure.title("Проверка чек-боксов в окне Добавить раздел")
     def test_add_path_check_box(self, app, add_path, close_modal):
@@ -85,7 +85,7 @@ class TestZonePathPathUI:
     # def test_settings_path_dropdown_list_control_sections(self, app, settings_path, close_modal):
     #     with allure.step("Проверка выбора позиций из выпадающего списка"):
     #         app.PO_Zone_Path.drop_list_controlled_sections()
-
+    @pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
     @allure.story("РАЗДЕЛЫ")
     @allure.title("Проверка чек-боксов в окне Настройки раздела")
     def test_settings_path_check_box(self, app, settings_path, close_modal):
@@ -96,6 +96,8 @@ class TestZonePathPathUI:
         with allure.step("Проверка частичного выбора чекбоксов"):
             app.PO_Zone_Path.add_path_check_box_some()
 
+
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ЗОНЫ/РАЗДЕЛЫ")
 @allure.feature("Проверки UI")

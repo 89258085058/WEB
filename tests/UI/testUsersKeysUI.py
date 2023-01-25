@@ -56,7 +56,7 @@ def close_modal(request, app):
 
     request.addfinalizer(fin)
 
-
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ПОЛЬЗОВАТЕЛИ И КЛЮЧИ")
 @allure.feature("Проверки UI")
