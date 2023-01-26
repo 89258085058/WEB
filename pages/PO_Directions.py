@@ -2990,8 +2990,8 @@ class DirectionsHelper:
             self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_rezerv_2)
         with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
             self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_rezerv_2)
-        # with allure.step("Проверка ввода значений в поле Количество повторов"):
-        #     self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_2)
         with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
             self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
         with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
