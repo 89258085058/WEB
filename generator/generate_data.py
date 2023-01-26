@@ -133,6 +133,7 @@ class Ganerate:
         Test_interval = str(random.randint(11, 23)) + ':' + str(random.randint(11, 59))
         Days_of_the_week = random.choice(day)
         Time = random.choice(time)
+        count_rep = random.randint(1, 65535)
 
         # Пользователи и ключи
         user_name = mimesis.Person("en").name()
@@ -263,7 +264,8 @@ class Ganerate:
                 'Timeout_on_error': str(Timeout_on_error),
                 'Test_interval': str(Test_interval),
                 'Days_of_the_week': str(Days_of_the_week),
-                'Time': str(Time)
+                'Time': str(Time),
+                'Count_rep': str(count_rep)
 
             },
 

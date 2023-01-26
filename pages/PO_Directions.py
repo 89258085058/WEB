@@ -2166,6 +2166,28 @@ class DirectionsHelper:
             self.app.method.inputValues(_directions['Test_interval'], Test_interval_main)
 
 
+    # Метод сохранения Звонок - ОСНОВНОЙ
+    def save_call_main(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Номер телефона - код"):
+            self.app.method.inputValues(_directions['Phone_cod'], TEL_COD_main)
+        with allure.step("Ввод значений в поле Номер телефона - номер"):
+            self.app.method.inputValues(_directions['Phone_number'], TEL_NUM_main)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_main)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_main)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(test_IF_sms_egida_main, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Метод тестирования"):
+            self.app.method.selectDropdownListByName(test_method_sms_egida_main, _directions['Test_method'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'С интервалом')
+        with allure.step("Ввод значений в поле Интервал тестирования"):
+            self.app.method.inputValues(_directions['Test_interval'], Test_interval_main)
+
+
 
     # Метод сохранения SMS Эгида - Резерв 1
     def save_sms_egida_rezerv_1(self):
@@ -2175,6 +2197,29 @@ class DirectionsHelper:
             self.app.method.inputValues(_directions['Phone_cod'], TEL_COD_rezerv_1)
         with allure.step("Ввод значений в поле Номер телефона - номер"):
             self.app.method.inputValues(_directions['Phone_number'], TEL_NUM_rezerv_1)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(test_IF_sms_egidrezerv_1, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Метод тестирования"):
+            self.app.method.selectDropdownListByName(test_method_sms_egida_rezerv_1, _directions['Test_method'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'С интервалом')
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_1, 'С интервалом')
+        with allure.step("Ввод значений в поле Интервал тестирования"):
+            self.app.method.inputValues(_directions['Test_interval'], Test_interval_rezerv_1)
+
+
+    # Метод сохранения ЗВОНОК - Резерв 1
+    def save_call_rezerv_1(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Номер телефона - код"):
+            self.app.method.inputValues(_directions['Phone_cod'], TEL_COD_rezerv_1)
+        with allure.step("Ввод значений в поле Номер телефона - номер"):
+            self.app.method.inputValues(_directions['Phone_number'], TEL_NUM_rezerv_1)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_rezerv_1)
         with allure.step("Ввод значений в поле Таймаут при ошибке"):
             self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
         with allure.step("Выбор из выпадающего списка Тестировать если"):
@@ -2198,6 +2243,29 @@ class DirectionsHelper:
             self.app.method.inputValues(_directions['Phone_number'], TEL_NUM_rezerv_2)
         with allure.step("Ввод значений в поле Таймаут при ошибке"):
             self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(test_IF_sms_egidrezerv_2, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Метод тестирования"):
+            self.app.method.selectDropdownListByName(test_method_sms_egida_rezerv_2, _directions['Test_method'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'С интервалом')
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_1, 'С интервалом')
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_2, 'С интервалом')
+        with allure.step("Ввод значений в поле Интервал тестирования"):
+            self.app.method.inputValues(_directions['Test_interval'], Test_interval_rezerv_2)
+
+    # Метод сохранения SMS Эгида - Резерв 2
+    def save_call_rezerv_2(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Номер телефона - код"):
+            self.app.method.inputValues(_directions['Phone_cod'], TEL_COD_rezerv_2)
+        with allure.step("Ввод значений в поле Номер телефона - номер"):
+            self.app.method.inputValues(_directions['Phone_number'], TEL_NUM_rezerv_2)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_rezerv_2)
         with allure.step("Выбор из выпадающего списка Тестировать если"):
             self.app.method.selectDropdownListByName(test_IF_sms_egidrezerv_2, _directions['Test_if'])
         with allure.step("Выбор из выпадающего списка Метод тестирования"):
@@ -2254,6 +2322,27 @@ class DirectionsHelper:
         with allure.step("Проверка ввода значений в поле Интервал тестирования"):
             self.app.method.assertValues(_directions['Test_interval'], Test_interval_main)
 
+    # Метод проверки сохранения ЗВОНОК - ОСНОВНОЙ
+    def assert_save_call_main(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Номер телефона - код"):
+            self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_main)
+        with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
+            self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_main)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_main)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_main)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], test_IF_sms_egida_main)
+        with allure.step("Проверка выбора из выпадающего списка Метод тестирования"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_method'], test_method_sms_egida_main)
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'С интервалом')
+        with allure.step("Проверка ввода значений в поле Интервал тестирования"):
+            self.app.method.assertValues(_directions['Test_interval'], Test_interval_main)
+
      # Метод проверки сохранения SMS Эгида - Резерв 1
     def assert_save_sms_egida_rezerv_1(self):
         with allure.step("Парсинг сгенерированных данных"):
@@ -2262,6 +2351,27 @@ class DirectionsHelper:
             self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_rezerv_1)
         with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
             self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], test_IF_sms_egidrezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Метод тестирования"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_method'], test_method_sms_egida_rezerv_1)
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_1, 'С интервалом')
+        with allure.step("Проверка ввода значений в поле Интервал тестирования"):
+            self.app.method.assertValues(_directions['Test_interval'], Test_interval_rezerv_1)
+
+    # Метод проверки сохранения ЗВОНОК - Резерв 1
+    def assert_save_call_rezerv_1(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Номер телефона - код"):
+            self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
+            self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_1)
         with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
             self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
         with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
@@ -2282,6 +2392,28 @@ class DirectionsHelper:
             self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_rezerv_2)
         with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
             self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], test_IF_sms_egidrezerv_2)
+        with allure.step("Проверка выбора из выпадающего списка Метод тестирования"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_method'], test_method_sms_egida_rezerv_2)
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_2, 'С интервалом')
+        with allure.step("Проверка ввода значений в поле Интервал тестирования"):
+            self.app.method.assertValues(_directions['Test_interval'], Test_interval_rezerv_2)
+
+
+    # Метод проверки сохранения SMS Эгида - Резерв 2
+    def assert_save_call_rezerv_2(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Номер телефона - код"):
+            self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
+            self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_2)
         with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
             self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
         with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
@@ -2367,6 +2499,41 @@ class DirectionsHelper:
 
 
 
+    # Метод сохранения ЗВОНОК- ОСНОВНОЙ
+    def save_call_timetable_main(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Номер телефона - код"):
+            self.app.method.inputValues(_directions['Phone_cod'], TEL_COD_main)
+        with allure.step("Ввод значений в поле Номер телефона - номер"):
+            self.app.method.inputValues(_directions['Phone_number'], TEL_NUM_main)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_main)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_main)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(test_IF_sms_egida_main, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Метод тестирования"):
+            self.app.method.selectDropdownListByName(test_method_sms_egida_main, _directions['Test_method'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'По расписанию')
+        with allure.step("Выбор из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
+            self.app.method.click((By.XPATH, days_of_the_week_main))
+        with allure.step("Выбор времени"):
+            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+                        '10:00',
+                        '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                        '21:00',
+                        '22:00', '23:00']
+            for i in time_off:
+                self.app.method.TimeBox("OFF", i, '1')
+            self.app.method.TimeBox("ON", _directions['Time'], '1')
+
+
+
     # Метод сохранения SMS Эгида - РЕЗЕРВ 1
     def save_sms_egida_timetable_rezerv_1(self):
         with allure.step("Парсинг сгенерированных данных"):
@@ -2399,6 +2566,41 @@ class DirectionsHelper:
                 self.app.method.TimeBox("OFF", i, '1')
             self.app.method.TimeBox("ON", _directions['Time'], '1')
 
+
+    # Метод сохранения SMS Эгида - РЕЗЕРВ 1
+    def save_call_timetable_rezerv_1(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Номер телефона - код"):
+            self.app.method.inputValues(_directions['Phone_cod'], TEL_COD_rezerv_1)
+        with allure.step("Ввод значений в поле Номер телефона - номер"):
+            self.app.method.inputValues(_directions['Phone_number'], TEL_NUM_rezerv_1)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_rezerv_1)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(test_IF_sms_egidrezerv_1, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Метод тестирования"):
+            self.app.method.selectDropdownListByName(test_method_sms_egida_rezerv_1, _directions['Test_method'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'С интервалом')
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_1, 'По расписанию')
+        with allure.step("Выбор из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
+            self.app.method.click((By.XPATH, days_of_the_week_main))
+        with allure.step("Выбор времени"):
+            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+                        '10:00',
+                        '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                        '21:00',
+                        '22:00', '23:00']
+            for i in time_off:
+                self.app.method.TimeBox("OFF", i, '1')
+            self.app.method.TimeBox("ON", _directions['Time'], '1')
+
     # Метод сохранения SMS Эгида - РЕЗЕРВ 2
     def save_sms_egida_timetable_rezerv_2(self):
         with allure.step("Парсинг сгенерированных данных"):
@@ -2409,6 +2611,42 @@ class DirectionsHelper:
             self.app.method.inputValues(_directions['Phone_number'], TEL_NUM_rezerv_2)
         with allure.step("Ввод значений в поле Таймаут при ошибке"):
             self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(test_IF_sms_egidrezerv_2, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Метод тестирования"):
+            self.app.method.selectDropdownListByName(test_method_sms_egida_rezerv_2, _directions['Test_method'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'С интервалом')
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_1, 'С интервалом')
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_2, 'По расписанию')
+        with allure.step("Выбор из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
+            self.app.method.click((By.XPATH, days_of_the_week_main))
+        with allure.step("Выбор времени"):
+            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+                        '10:00',
+                        '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                        '21:00',
+                        '22:00', '23:00']
+            for i in time_off:
+                self.app.method.TimeBox("OFF", i, '1')
+            self.app.method.TimeBox("ON", _directions['Time'], '1')
+
+
+    # Метод сохранения ЗВОНОК - РЕЗЕРВ 2
+    def save_call_timetable_rezerv_2(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Номер телефона - код"):
+            self.app.method.inputValues(_directions['Phone_cod'], TEL_COD_rezerv_2)
+        with allure.step("Ввод значений в поле Номер телефона - номер"):
+            self.app.method.inputValues(_directions['Phone_number'], TEL_NUM_rezerv_2)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_rezerv_2)
         with allure.step("Выбор из выпадающего списка Тестировать если"):
             self.app.method.selectDropdownListByName(test_IF_sms_egidrezerv_2, _directions['Test_if'])
         with allure.step("Выбор из выпадающего списка Метод тестирования"):
@@ -2635,6 +2873,32 @@ class DirectionsHelper:
         with allure.step("Проверка выбора времени"):
             self.app.method.assertTimeBox("ON", _directions['Time'], '1')
 
+    # Метод проверки сохранения ЗВОНОК - ОСНОВНОЙ
+    def assert_save_call_timetable_main(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Номер телефона - код"):
+            self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_main)
+        with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
+            self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_main)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_main)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_main)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], test_IF_sms_egida_main)
+        with allure.step("Проверка выбора из выпадающего списка Метод тестирования"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_method'], test_method_sms_egida_main)
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'По расписанию')
+        with allure.step("Проверка выбора из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            wd = self.app.wd
+            element = wd.find_element(By.XPATH, days_of_the_week_main).get_property("textContent")
+            assert str(day) in str(
+                element), f"\nОжидаемое значение в выпадающем списке: '{day}'\nФактическое: '{element}'"
+        with allure.step("Проверка выбора времени"):
+            self.app.method.assertTimeBox("ON", _directions['Time'], '1')
 
     # Метод проверки сохранения SMS пользователю - РЕЗЕРВ 1
     def assert_save_sms_egida_timetable_rezerv_1(self):
@@ -2662,6 +2926,35 @@ class DirectionsHelper:
         with allure.step("Проверка выбора времени"):
             self.app.method.assertTimeBox("ON", _directions['Time'], '1')
 
+
+    # Метод проверки сохранения ЗВОНОК - РЕЗЕРВ 1
+    def assert_save_call_timetable_rezerv_1(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Номер телефона - код"):
+            self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
+            self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], test_IF_sms_egidrezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Метод тестирования"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_method'], test_method_sms_egida_rezerv_1)
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'С интервалом')
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_1, 'По расписанию')
+        with allure.step("Проверка выбора из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            wd = self.app.wd
+            element = wd.find_element(By.XPATH, days_of_the_week_main).get_property("textContent")
+            assert str(day) in str(
+                element), f"\nОжидаемое значение в выпадающем списке: '{day}'\nФактическое: '{element}'"
+        with allure.step("Проверка выбора времени"):
+            self.app.method.assertTimeBox("ON", _directions['Time'], '1')
+
     # Метод проверки сохранения SMS пользователю - РЕЗЕРВ 1
     def assert_save_sms_egida_timetable_rezerv_2(self):
         with allure.step("Парсинг сгенерированных данных"):
@@ -2670,6 +2963,35 @@ class DirectionsHelper:
             self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_rezerv_2)
         with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
             self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], test_IF_sms_egidrezerv_2)
+        with allure.step("Проверка выбора из выпадающего списка Метод тестирования"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_method'], test_method_sms_egida_rezerv_2)
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(testing_sms_egida_main, 'С интервалом')
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_1, 'С интервалом')
+            self.app.method.selectDropdownListByName(testing_sms_egida_rezerv_2, 'По расписанию')
+        with allure.step("Проверка выбора из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            wd = self.app.wd
+            element = wd.find_element(By.XPATH, days_of_the_week_main).get_property("textContent")
+            assert str(day) in str(
+                element), f"\nОжидаемое значение в выпадающем списке: '{day}'\nФактическое: '{element}'"
+        with allure.step("Проверка выбора времени"):
+            self.app.method.assertTimeBox("ON", _directions['Time'], '1')
+
+    # Метод проверки сохранения ЗВОНОК- РЕЗЕРВ 1
+    def assert_save_call_timetable_rezerv_2(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Номер телефона - код"):
+            self.app.method.assertValues(_directions['Phone_cod'], TEL_COD_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Номер телефона - номер"):
+            self.app.method.assertValuesPhoneNum(_directions['Phone_number'], TEL_NUM_rezerv_2)
+        # with allure.step("Проверка ввода значений в поле Количество повторов"):
+        #     self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_2)
         with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
             self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
         with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
