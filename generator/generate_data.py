@@ -134,6 +134,12 @@ class Ganerate:
         Days_of_the_week = random.choice(day)
         Time = random.choice(time)
         count_rep = random.randint(1, 65535)
+        dc09_adr = 'http://www' + str(random.randint(111111, 999999)) + '.ru'
+        dc09_port = random.randint(1111, 9999)
+        Connection_channel = random.choice(['Авто', 'Ethernet', 'GPRS'])
+        Confirmation_timeout_sec = random.randint(20, 90)
+        num_random = random.randint(11, 99)
+        Encryption_key = f'{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}:{num_random}'
 
         # Пользователи и ключи
         user_name = mimesis.Person("en").name()
@@ -265,7 +271,12 @@ class Ganerate:
                 'Test_interval': str(Test_interval),
                 'Days_of_the_week': str(Days_of_the_week),
                 'Time': str(Time),
-                'Count_rep': str(count_rep)
+                'Count_rep': str(count_rep),
+                'DC09_address': str(dc09_adr),
+                'DC09_port': str(dc09_port),
+                'Connection_channel': str(Connection_channel),
+                'Confirmation_timeout_sec': str(Confirmation_timeout_sec),
+                'Encryption_key': str(Encryption_key)
 
             },
 

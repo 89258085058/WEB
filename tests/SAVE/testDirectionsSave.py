@@ -5,7 +5,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 1
+reruns = 0
 
 # directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 
@@ -912,6 +912,7 @@ class TestSaveDestinationChanels:
         with allure.step("Проверка сохранения поля"):
             app.PO_Directions.assert_save_sms_egida_timetable_rezerv_2()
 
+    # -------------------------------------------------------------------------------
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал - Звонок - тестировать интервалом")
@@ -1119,3 +1120,71 @@ class TestSaveDestinationChanels:
             app.PO_Directions.enableChannelTesting_rezerv_2()
         with allure.step("Проверка сохранения поля"):
             app.PO_Directions.assert_save_call_timetable_rezerv_2()
+
+    # -------------------------------------------------------------------------------
+
+    @pytest.mark.parametrize("directions", directions_list)
+    @allure.story("Основной канал")
+    @allure.title("Основной канал - DC09 - тестировать интервалом")
+    def test_checking_save_DC09_interval_main(self, app, destinations, close_modal, directions: str):
+        with allure.step("Генерирование тестовых данных"):
+            app.ganerate_data.createData()
+        with allure.step("Открытие направления"):
+            app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
+        with allure.step("Выбор типа управления"):
+            app.PO_Directions.openType_main('DC09')
+            app.PO_Directions.openType_rezerv_1('Отключено')
+        with allure.step("Включения тестирования канала"):
+            app.PO_Directions.enableChannelTesting_main()
+        with allure.step("Включение Шифрования"):
+            app.PO_Directions.enableEncryption_main()
+        with allure.step("Ввод данных для сохранения"):
+            app.PO_Directions.save_DC09_main()
+        with allure.step("Сохранение данных"):
+            app.PO_Directions.save_button_click()
+        with allure.step("Выход и повторный вход"):
+            app.PO_Navigations.ExitAndEnter()
+            app.PO_Navigations.goToDirectionsPage()
+            app.PO_Directions.openDestination(directions)
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openType_main('DC09')
+            app.PO_Directions.enableChannelTesting_main()
+            app.PO_Directions.enableEncryption_main()
+        with allure.step("Проверка сохранения поля"):
+            app.PO_Directions.assert_save_dc09_main()
+
+    @pytest.mark.parametrize("directions", directions_list)
+    @allure.story("Основной канал")
+    @allure.title("Основной канал - DC09 - тестировать по расписанию")
+    def test_checking_save_DC09_time_table_main(self, app, destinations, close_modal, directions: str):
+        with allure.step("Генерирование тестовых данных"):
+            app.ganerate_data.createData()
+        with allure.step("Открытие направления"):
+            app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openChanel('Резерв 1')
+        with allure.step("Выбор типа управления"):
+            app.PO_Directions.openType_main('DC09')
+            app.PO_Directions.openType_rezerv_1('Отключено')
+        with allure.step("Включения тестирования канала"):
+            app.PO_Directions.enableChannelTesting_main()
+        with allure.step("Включение Шифрования"):
+            app.PO_Directions.enableEncryption_main()
+        with allure.step("Ввод данных для сохранения"):
+            app.PO_Directions.save_DC09_time_table_main()
+        with allure.step("Сохранение данных"):
+            app.PO_Directions.save_button_click()
+        with allure.step("Выход и повторный вход"):
+            app.PO_Navigations.ExitAndEnter()
+            app.PO_Navigations.goToDirectionsPage()
+            app.PO_Directions.openDestination(directions)
+            app.PO_Directions.openChanel('Основной')
+            app.PO_Directions.openType_main('DC09')
+            app.PO_Directions.enableChannelTesting_main()
+            app.PO_Directions.enableEncryption_main()
+        with allure.step("Проверка сохранения поля"):
+            app.PO_Directions.assert_save_dc09_time_table_main()

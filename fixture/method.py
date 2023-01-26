@@ -229,6 +229,7 @@ class MethodsHelper:
     # Выбор из выпадающего списка для сохранения
     def selectDropdownListByName(self, button, name):
         try:
+            time.sleep(0.3)
             self.app.method.click((By.XPATH, button))
             time.sleep(0.3)
             self.app.method.click((By.XPATH, f'/html/body//div[@class="option"][.="{name}"]'))

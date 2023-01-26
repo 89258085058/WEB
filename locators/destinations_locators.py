@@ -86,6 +86,18 @@ test_IF_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[4]
 test_IF_rezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[4]'
 test_IF_rezerv_2 = '((//div[@class="channel-settings"])[3]//span[@class="label"])[4]'
 
+
+# Тестировать если dc09
+dc09_test_IF_main = '(//*[@id="modalSettings"]//span[@class="label"])[3]'
+dc09_test_IF_rezerv_1 = '(//*[@id="modalSettings"]//span[@class="label"])[7]'
+dc09_test_IF_rezerv_2 = '(//*[@id="modalSettings"]//span[@class="label"])[9]'
+
+# Тестировать dc09
+dc09_testing_main = '(//*[@id="modalSettings"]//span[@class="label"])[4]'
+dc09_testing_rezerv_1 = '(//*[@id="modalSettings"]//span[@class="label"])[8]'
+dc09_testing_rezerv_2 = '(//*[@id="modalSettings"]//span[@class="label"])[12]'
+
+
 # Тестировать если СМС ЭГИДА
 test_IF_sms_egida_main = '((//div[@class="channel-settings"])[1]//span[@class="label"])[3]'
 test_IF_sms_egidrezerv_1 = '((//div[@class="channel-settings"])[2]//span[@class="label"])[3]'
