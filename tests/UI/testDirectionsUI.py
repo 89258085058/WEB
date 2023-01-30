@@ -24,12 +24,13 @@ def destinations(app):
     with allure.step("Переход на страницу направления"):
         app.PO_Navigations.goToDirectionsPage()
 
+
 @pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАПРАВЛЕНИЯ")
 @allure.feature("Проверки UI")
 @pytest.mark.flaky(reruns=reruns)
-class TestUIDestinationMainChanel:
+class TestUIDestinationTumblers:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Разделы")
@@ -137,6 +138,13 @@ class TestUIDestinationMainChanel:
         with allure.step("Проверка включения тумблеров"):
             app.PO_Directions.tumblers_instrument_system_events_on_main()
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
+
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestUIDestinationMainChane_01:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
@@ -296,6 +304,13 @@ class TestUIDestinationMainChanel:
             app.PO_Directions.enableChannelTesting_main()
         with allure.step("Проверка выбора из выпадающего списка"):
             app.PO_Directions.check_test_method_sms_egida_main()
+
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestUIDestinationMainChane_02:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
@@ -458,6 +473,13 @@ class TestUIDestinationMainChanel:
         with allure.step("Проверка выключения чекбоксов"):
             app.PO_Directions.check_box_call_off_channel_main()
 
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestUIDestinationMainChane_03:
+
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал - DC09 проверка выпадающего списка: Канал соединения")
@@ -553,12 +575,13 @@ class TestUIDestinationMainChanel:
             app.PO_Directions.check_box_dc09_on_channel_main()
         with allure.step("Проверка выключения чекбоксов"):
             app.PO_Directions.check_box_dc09_off_channel_main()
+
 @pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАПРАВЛЕНИЯ")
 @allure.feature("Проверки UI")
 @pytest.mark.flaky(reruns=reruns)
-class TestUIDestinationRezerv1Chanel:
+class TestUIDestinationRezerv1Chanel_01:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
@@ -752,6 +775,13 @@ class TestUIDestinationRezerv1Chanel:
             app.PO_Directions.enableChannelTesting_rezerv_1()
         with allure.step("Проверка выбора из выпадающего списка"):
             app.PO_Directions.check_test_method_sms_egida_rezerv_1()
+
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestUIDestinationRezerv1Chanel_02:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
@@ -950,6 +980,13 @@ class TestUIDestinationRezerv1Chanel:
         with allure.step("Проверка выключения чекбоксов"):
             app.PO_Directions.check_box_call_off_channel_rezerv_1()
 
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestUIDestinationRezerv1Chanel_03:
+
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 - DC09 проверка выпадающего списка: Канал соединения")
@@ -1072,7 +1109,7 @@ class TestUIDestinationRezerv1Chanel:
 @allure.epic("Тесты НАПРАВЛЕНИЯ")
 @allure.feature("Проверки UI")
 @pytest.mark.flaky(reruns=reruns)
-class TestUIDestinationRezerv2Chanel:
+class TestUIDestinationRezerv2Chanel_01:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
@@ -1293,6 +1330,13 @@ class TestUIDestinationRezerv2Chanel:
             app.PO_Directions.enableChannelTesting_rezerv_2()
         with allure.step("Проверка выбора из выпадающего списка"):
             app.PO_Directions.check_test_method_sms_egida_rezerv_2()
+
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestUIDestinationRezerv2Chanel_02:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
@@ -1520,6 +1564,13 @@ class TestUIDestinationRezerv2Chanel:
             app.PO_Directions.check_box_call_on_channel_rezerv_2()
         with allure.step("Проверка выключения чекбоксов"):
             app.PO_Directions.check_box_call_off_channel_rezerv_2()
+
+@pytest.mark.skip("Неактуальные тесты по UI запускать при появлении свободного времени")
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestUIDestinationRezerv2Chanel_03:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")

@@ -15,38 +15,25 @@ from locators.session_locators import *
 class SessionHelper:
     app: any
 
-#     def login(self, username, password):
-#         with allure.step("Авторизация пользователя"):
-#             try:
-#                 wd = self.app.wd
-#                 wd.get(self.app.base_url)
-#                 self.display_and_hide((By.XPATH, authorization_window))
-#                 self.app.method.inputValues(username, '//*[@id="username"]')
-#                 self.app.method.inputValues(password, '//*[@id="password"]')
-#                 self.app.method.click((By.XPATH, entry_button))
-#                 self.login_verification()
-#             except:
-#                 wd = self.app.wd
-#                 wd.refresh()
-#                 wd.get(self.app.base_url)
-#                 time.sleep(1)
-#                 self.app.method.inputValues(username, '//*[@id="username"]')
-#                 self.app.method.inputValues(password, '//*[@id="password"]')
-#                 self.app.method.click((By.XPATH, entry_button))
-#                 self.login_verification()
-
-
     def login(self, username, password):
         with allure.step("Авторизация пользователя"):
-            wd = self.app.wd
-            wd.get(self.app.base_url)
-            self.display_and_hide((By.XPATH, authorization_window))
-            self.app.method.inputValues(username, '//*[@id="username"]')
-            self.app.method.inputValues(password, '//*[@id="password"]')
-            self.app.method.click((By.XPATH, entry_button))
-            self.login_verification()
-
-          
+            try:
+                wd = self.app.wd
+                wd.get(self.app.base_url)
+                self.display_and_hide((By.XPATH, authorization_window))
+                self.app.method.inputValues(username, '//*[@id="username"]')
+                self.app.method.inputValues(password, '//*[@id="password"]')
+                self.app.method.click((By.XPATH, entry_button))
+                self.login_verification()
+            except:
+                wd = self.app.wd
+                wd.refresh()
+                wd.get(self.app.base_url)
+                time.sleep(1)
+                self.app.method.inputValues(username, '//*[@id="username"]')
+                self.app.method.inputValues(password, '//*[@id="password"]')
+                self.app.method.click((By.XPATH, entry_button))
+                self.login_verification()
 
     def login_remote(self, username, password):
         with allure.step("Авторизация пользователя"):

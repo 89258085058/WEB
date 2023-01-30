@@ -1121,7 +1121,7 @@ class TestSaveDestinationChanels:
         with allure.step("Проверка сохранения поля"):
             app.PO_Directions.assert_save_call_timetable_rezerv_2()
 
-    # -------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")

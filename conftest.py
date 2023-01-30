@@ -50,7 +50,7 @@ def app(request):
         return fixture
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope='class', autouse=True)
 def stop(request):
     def fin():
         fixture.destroy()

@@ -62,7 +62,7 @@ class Application:
         else:
             raise ValueError("Unrecognized browser %s" % browser)
         self.wd.set_window_size(1920, 1080)
-        self.wd.implicitly_wait(10)
+        self.wd.implicitly_wait(5)
         self.PO_Auth = AuthHelper(self)
         self.PO_Directions = DirectionsHelper(self)
         self.PO_Journal = JournalHelper(self)

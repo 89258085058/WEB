@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 reruns = 2
 
-#directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+# directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 directions_list = ['1']
 
 
@@ -23,11 +23,12 @@ def destinations(app):
     with allure.step("Переход на страницу Напавления"):
         app.PO_Navigations.goToDirectionsPage()
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАПРАВЛЕНИЯ")
 @allure.feature("Валидация полей ввода")
 @pytest.mark.flaky(reruns=reruns)
-class TestValidationDestinationMainChanel:
+class Test01ValidationDestinationMainChanel:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story(f"Название - Направление")
@@ -172,6 +173,12 @@ class TestValidationDestinationMainChanel:
             app.PO_Directions.Test_at_intervals_main('С интервалом')
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_test_interval_posutiv_sms_user_main()
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test02ValidationDestinationMainChanel:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
@@ -325,6 +332,12 @@ class TestValidationDestinationMainChanel:
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_cod_negativ_sms_user_main()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test03ValidationDestinationMainChanel:
+
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title(
@@ -477,6 +490,12 @@ class TestValidationDestinationMainChanel:
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_address_negativ_dc09_main()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test04ValidationDestinationMainChanel:
+
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Порт' - DC09")
@@ -627,6 +646,7 @@ class TestValidationDestinationMainChanel:
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_timeout_error_negativ_sms_user_main()
 
+
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title(
@@ -663,11 +683,12 @@ class TestValidationDestinationMainChanel:
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_test_interval_posutiv_sms_user_main()
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАПРАВЛЕНИЯ")
 @allure.feature("Валидация полей ввода")
 @pytest.mark.flaky(reruns=reruns)
-class TestValidationDestinationRezerv1Chanel:
+class Test01ValidationDestinationRezerv1Chanel:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
@@ -868,6 +889,12 @@ class TestValidationDestinationRezerv1Chanel:
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_cod_negativ_sms_user_rezerv_1()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test02ValidationDestinationRezerv1Chanel:
+
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title(
@@ -1062,6 +1089,12 @@ class TestValidationDestinationRezerv1Chanel:
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_tel_number_negativ_sms_user_rezerv_1()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test03ValidationDestinationRezerv1Chanel:
+
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title(
@@ -1255,6 +1288,12 @@ class TestValidationDestinationRezerv1Chanel:
             app.PO_Directions.openType_rezerv_1('DC09')
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_port_negativ_dc09_reserv_1()
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test04ValidationDestinationRezerv1Chanel:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
@@ -1462,11 +1501,12 @@ class TestValidationDestinationRezerv1Chanel:
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_test_interval_posutiv_sms_user_rezerv_1()
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАПРАВЛЕНИЯ")
 @allure.feature("Валидация полей ввода")
 @pytest.mark.flaky(reruns=reruns)
-class TestValidationDestinationRezerv2Chanel:
+class Test01ValidationDestinationRezerv2Chanel:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
@@ -1693,6 +1733,12 @@ class TestValidationDestinationRezerv2Chanel:
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_cod_negativ_sms_user_rezerv_2()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test02ValidationDestinationRezerv2Chanel:
+
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title(
@@ -1913,6 +1959,12 @@ class TestValidationDestinationRezerv2Chanel:
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_tel_number_negativ_sms_user_rezerv_2()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test03ValidationDestinationRezerv2Chanel:
+
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title(
@@ -2132,6 +2184,12 @@ class TestValidationDestinationRezerv2Chanel:
             app.PO_Directions.openType_rezerv_2('DC09')
         with allure.step("Проверка валидации поля"):
             app.PO_Directions.input_port_negativ_dc09_reserv_2()
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАПРАВЛЕНИЯ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test04ValidationDestinationRezerv2Chanel:
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")

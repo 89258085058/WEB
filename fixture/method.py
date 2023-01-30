@@ -52,8 +52,8 @@ class MethodsHelper:
             # check.equal(str(values), str(value))
             assert str(value) == str(
                 values), f"\nОжидаемый результат ввода = '{value}'\nФактическое значение в поле = '{values}'"
-        except TimeoutException:
-            print(f"Ошибка при проверке локатор поля ввода '{locator}' - не найден")
+        except Exception as e:
+            assert e == TimeoutException, f"Ошибка локатор поля ввода '{locator}' - не найден"
 
     # Проверка введенных значений в поле xpath
     def assertValuesPhoneNum(self, value, locator):
@@ -67,8 +67,8 @@ class MethodsHelper:
 
             assert str(value) == str(
                 values), f"\nОжидаемый результат ввода = '{value}'\nФактическое значение в поле = '{values}'"
-        except TimeoutException:
-            print(f"Ошибка при проверке локатор поля ввода '{locator}' - не найден")
+        except Exception as e:
+            assert e == TimeoutException, f"Ошибка локатор поля ввода '{locator}' - не найден"
 
     # Проверка значений на странице
     def assertValuesOnPage(self, value, locator):
@@ -76,8 +76,8 @@ class MethodsHelper:
             values = self.getText(locator)
             assert str(value) == str(
                 values), f"\nОжидаемый результат ввода = '{value}'\nФактическое значение в поле = '{values}'"
-        except TimeoutException:
-            print(f"Ошибка при проверке локатор поля ввода '{locator}' - не найден")
+        except Exception as e:
+            assert e == TimeoutException, f"Ошибка локатор поля ввода '{locator}' - не найден"
 
     # Получить текст
     def getText(self, locator):

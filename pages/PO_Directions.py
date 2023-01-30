@@ -431,6 +431,8 @@ class DirectionsHelper:
                     'Раздел № 13', 'Раздел № 14', 'Раздел № 15', 'Раздел № 16']
         self.app.method.check_dropdown_list_with_check_box(path_main, daysList)
 
+
+
     # Выбор из выпадающего списка Тестировать
     def Test_at_intervals_main(self, name):
         self.app.method.selectDropdownListByName(Test_at_intervals_main, name)
