@@ -60,7 +60,7 @@ def close_modal(request, app):
 @allure.epic("Тесты ПОЛЬЗОВАТЕЛИ И КЛЮЧИ")
 @allure.feature("Валидация полей ввода")
 @pytest.mark.flaky(reruns=reruns)
-class TestUsersKeysValidation():
+class Test01UsersKeysValidation():
 
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Поиск'")
@@ -137,6 +137,12 @@ class TestUsersKeysValidation():
         with allure.step("Проверка валидации поля"):
             app.PO_Users_Keys.input_phone_number_user()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты ПОЛЬЗОВАТЕЛИ И КЛЮЧИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test02UsersKeysValidation():
+
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Телефон (номер)'(Добавить пользователя)")
     def test_user_input_phone_number_user_negativ(self, app, users, close_modal):
@@ -209,6 +215,12 @@ class TestUsersKeysValidation():
         with allure.step("Проверка валидации поля"):
             app.PO_Users_Keys.input_re_password_user()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты ПОЛЬЗОВАТЕЛИ И КЛЮЧИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test03UsersKeysValidation():
+
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Повторите пароль'(Настройки)")
     def test_user_input_re_password_user_negativ_settings(self, app, users_settings, close_modal):
@@ -262,6 +274,12 @@ class TestUsersKeysValidation():
     def test_user_input_phone_re_password_sms_negativ_settings(self, app, users_settings, close_modal):
         with allure.step("Проверка валидации поля"):
             app.PO_Users_Keys.input_re_password_sms_user_negativ()
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты ПОЛЬЗОВАТЕЛИ И КЛЮЧИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test04UsersKeysValidation():
 
     @allure.story("КЛЮЧИ")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Поиск'")

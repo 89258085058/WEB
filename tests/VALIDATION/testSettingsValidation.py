@@ -111,7 +111,7 @@ def exit_enter(app):
 @allure.epic("Тесты НАСТРОЙКИ")
 @allure.feature("Валидация полей ввода")
 @pytest.mark.flaky(reruns=reruns)
-class TestValidationSettings:
+class Test01ValidationSettings:
 
     @allure.story("ОБЪЕКТ")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Название объекта'")
@@ -173,6 +173,12 @@ class TestValidationSettings:
         with allure.step("Проверка валидации поля"):
             app.PO_Settings.input_object_time_auto_take_on_negativ()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test02ValidationSettings:
+
     @allure.story("РАДИО")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Время разрешения добавления новых датчиков'")
     def test_input_data_resolution_time_for_adding_new_sensors(self, app, radio):
@@ -197,6 +203,12 @@ class TestValidationSettings:
         with allure.step("Проверка валидации поля"):
             app.PO_Settings.input_data_sensor_polling_period_negativ()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test03ValidationSettings:
+
     @allure.story("ДАТА И ВРЕМЯ")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Адрес сервера'")
     def test_input_data_time_server_address(self, app, date_time):
@@ -212,6 +224,12 @@ class TestValidationSettings:
             app.PO_Settings.Synchronization_via_NTP_HTP_click()
         with allure.step("Проверка валидации поля"):
             app.PO_Settings.input_data_time_address_server_negativ()
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test03ValidationSettings:
 
     @allure.story("ETHERNET")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'MAC адрес'")
@@ -272,6 +290,12 @@ class TestValidationSettings:
     def test_input_data_ethernet_main_gate_negativ(self, app, ethernet):
         with allure.step("Проверка валидации поля"):
             app.PO_Settings.input_data_ethernet_main_gate_negativ()
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test04ValidationSettings:
 
     @allure.story("ETHERNET")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Предпочтительный DNS сервер'")
@@ -335,6 +359,7 @@ class TestValidationSettings:
         with allure.step("Проверка валидации поля"):
             app.PO_Settings.input_data_ethernet_preferred_ipv6_negativ()
 
+
     @allure.story("ETHERNET")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Альтернативный IPv6 DNS сервер'")
     def test_input_data_ethernet_alternative_ip_v6_address(self, app, ethernet):
@@ -347,6 +372,13 @@ class TestValidationSettings:
     def test_input_data_ethernet_alternative_ip_v6_address_negativ(self, app, ethernet):
         with allure.step("Проверка валидации поля"):
             app.PO_Settings.input_data_ethernet_alternative_ipv6_negativ()
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test05ValidationSettings:
+
 
     @allure.story("GSM")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Число знаков номера для проверки'")
@@ -420,6 +452,12 @@ class TestValidationSettings:
         with allure.step("Проверка валидации поля"):
             app.PO_Settings.input_data_sim_2_USSD_negativ()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test06ValidationSettings:
+
     @allure.story("GSM")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Sim_1: APN'")
     def test_input_data_sim_1_APN(self, app, GSM):
@@ -492,6 +530,11 @@ class TestValidationSettings:
         with allure.step("Проверка валидации поля"):
             app.PO_Settings.input_data_sim_2_password_negativ()
 
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Валидация полей ввода")
+@pytest.mark.flaky(reruns=reruns)
+class Test07ValidationSettings:
 
     @allure.story("Звуковая индикация")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Длительность сигнала'")
