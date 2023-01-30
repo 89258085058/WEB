@@ -2403,6 +2403,7 @@ class DirectionsHelper:
 
     # Метод проверки сохранения DC09 - ОСНОВНОЙ
     def assert_save_dc09_main(self):
+        time.sleep(1)
         with allure.step("Парсинг сгенерированных данных"):
             _directions = self.app.read_data.data_directions()
         with allure.step("Проверка ввода значений в поле Адрес "):

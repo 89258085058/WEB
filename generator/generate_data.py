@@ -133,7 +133,7 @@ class Ganerate:
         Test_interval = str(random.randint(11, 23)) + ':' + str(random.randint(11, 59))
         Days_of_the_week = random.choice(day)
         Time = random.choice(time)
-        count_rep = random.randint(1, 65535)
+        count_rep = random.randint(20, 99)
         dc09_adr = 'http://www' + str(random.randint(111111, 999999)) + '.ru'
         dc09_port = random.randint(1111, 9999)
         Connection_channel = random.choice(['Авто', 'Ethernet', 'GPRS'])

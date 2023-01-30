@@ -43,17 +43,27 @@ class MethodsHelper:
             assert e == TimeoutException, f"Ошибка локатор поля ввода '{locator}' - не найден"
 
     # Проверка введенных значений в поле xpath
+    # def assertValues(self, value, locator):
+    #     try:
+    #         wd = self.app.wd
+    #         element = WebDriverWait(wd, 10).until(
+    #             EC.element_to_be_clickable((By.XPATH, ('%s' % locator))))
+    #         values = element.get_attribute('value')
+    #         # check.equal(str(values), str(value))
+    #         assert str(value) == str(
+    #             values), f"\nОжидаемый результат ввода = '{value}'\nФактическое значение в поле = '{values}'"
+    #     except Exception as e:
+    #         assert e == TimeoutException, f"Ошибка локатор поля ввода '{locator}' - не найден"
+
+
+    # Проверка введенных значений в поле xpath
     def assertValues(self, value, locator):
-        try:
-            wd = self.app.wd
-            element = WebDriverWait(wd, 10).until(
-                EC.element_to_be_clickable((By.XPATH, ('%s' % locator))))
-            values = element.get_attribute('value')
-            # check.equal(str(values), str(value))
-            assert str(value) == str(
-                values), f"\nОжидаемый результат ввода = '{value}'\nФактическое значение в поле = '{values}'"
-        except Exception as e:
-            assert e == TimeoutException, f"Ошибка локатор поля ввода '{locator}' - не найден"
+        wd = self.app.wd
+        element = WebDriverWait(wd, 10).until(
+            EC.element_to_be_clickable((By.XPATH, ('%s' % locator))))
+        values = element.get_attribute('value')
+        assert str(value) == str(
+            values), f"\nОжидаемый результат ввода = '{value}'\nФактическое значение в поле = '{values}'"
 
     # Проверка введенных значений в поле xpath
     def assertValuesPhoneNum(self, value, locator):
