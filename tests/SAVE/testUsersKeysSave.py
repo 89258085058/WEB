@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 
 reruns = 0
 
+
 @pytest.fixture
 def goToUsers(app):
     with allure.step("Переход на страницу Пользователи и ключи"):
@@ -194,7 +195,6 @@ class TestSaveUsers:
 
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Проверка удаления пользователя")
-
     def test_users_keys_delete_save_user(self, app, goToUsers):
         with allure.step("Добавления пользователя при его отсутствии"):
             count = app.PO_Users_Keys.count_user()
@@ -247,6 +247,8 @@ class TestSaveUsers:
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Проверка отображения вкладок при входе не под администратором")
     def test_users_keys_not_admin_user(self, app, goToUsers):
+        with allure.step("Генерирование тестовых данных"):
+            app.ganerate_data.createData()
         with allure.step("Добавления нового пользователя"):
             count = app.PO_Users_Keys.count_user()
             if count == 64:

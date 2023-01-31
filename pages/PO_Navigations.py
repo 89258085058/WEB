@@ -93,8 +93,9 @@ class NavigationsHelper:
         self.app.session.login_enter("admin", "admin")
 
     def ExitAndEnter_no_admin(self):
+        _user = self.app.read_data.data_user()
         self.app.session.logout()
-        self.app.session.login_enter("test", "test")
+        self.app.session.login_enter(_user['user_name_no_admin'], _user['user_name_no_admin'])
 
     def edit_button_click(self):
         with allure.step("Клик по кнопке Редактировать"):

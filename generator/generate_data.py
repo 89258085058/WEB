@@ -283,6 +283,7 @@ class Ganerate:
             'User': {
                 'CB_egida': str(Tumbler_random_5),
                 'user_name': str(user_name),
+                'user_name_no_admin': str(user_name),
                 'user_login': str(user_login),
                 'user_password': str(user_name),
                 'CB_Operator_message_forwarding': str(Tumbler_random_1),

@@ -617,13 +617,15 @@ class UsersKeysHelper:
         # Добавление пользователя
 
     def add_user_for_test(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _user = self.app.read_data.data_user()
         self.PushAddUserButton()
-        self.user_form(input_user_name='test',
-                       input_user_login='test',
-                       input_user_password='test',
-                       input_user_password_rep='test',
+        self.user_form(input_user_name=_user['user_name_no_admin'],
+                       input_user_login=_user['user_name_no_admin'],
+                       input_user_password=_user['user_name_no_admin'],
+                       input_user_password_rep=_user['user_name_no_admin'],
                        input_phone_cod='+7',
-                       input_phone_number='9999999999999999999',
+                       input_phone_number=random.randint(1111111111,9999999999),
                        input_sms_password='12345',
                        input_sms_password_rep='12345'
                        )

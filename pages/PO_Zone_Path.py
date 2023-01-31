@@ -501,7 +501,9 @@ class ZonePathHelper:
     # Раскрытие маска включения Выход 1
     def open_mask_on_out_1(self):
         with allure.step("Раскрытие маска включения - Выход 1"):
+            time.sleep(0.5)
             self.app.method.click((By.XPATH, mask_on_settings_out_1))
+            time.sleep(0.5)
 
     # Выбор режима работы - ВЫХОД № 1/2
     def select_working_mode(self, position: str):
@@ -518,7 +520,9 @@ class ZonePathHelper:
     # Раскрытие маска выключения Выход 1
     def open_mask_off_out_1(self):
         with allure.step("Раскрытие маска выключения - Выход 1"):
+            time.sleep(0.5)
             self.app.method.click((By.XPATH, mask_off_settings_out_1))
+            time.sleep(0.5)
 
     # Раскрытие маска выключения Выход 2
     def open_mask_off_out_2(self):
