@@ -350,7 +350,7 @@ class Test03ValidationDestinationMainChanel:
         with allure.step("Выбор типа управления"):
             app.PO_Directions.openType_main('Звонок')
         with allure.step("Проверка валидации поля"):
-            app.PO_Directions.input_count_reset_positiv_call_main()
+            app.PO_Directions.input_tel_number_posutiv_sms_user_main()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")

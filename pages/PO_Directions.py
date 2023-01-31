@@ -290,6 +290,18 @@ class DirectionsHelper:
             self.app.method.assertEqual(65534, 65534, locator)
             self.app.method.assertEqual(65535, 65535, locator)
 
+    # Проверка ввода поле 99
+    def input_number_99(self, locator):
+        with allure.step("Проверка ввода цифр"):
+            for i in range(10):
+                self.app.method.assertEqual(i, i, locator)
+        with allure.step("Проверка ввода граничных значений"):
+            self.app.method.assertEqual(0, 0, locator)
+            self.app.method.assertEqual(1, 1, locator)
+            self.app.method.assertEqual(98, 98, locator)
+            self.app.method.assertEqual(99, 99, locator)
+
+
     # Проверка ввода поле 65535
     def input_number_65535_negativ(self, locator):
         with allure.step("Проверка ввода латинских букв в нижнем регистре"):
@@ -322,6 +334,39 @@ class DirectionsHelper:
             self.app.method.assertEqual('-1', '1', locator)
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual(999999, 99999, locator)
+
+    # Проверка ввода поле 65535
+    def input_number_99_negativ(self, locator):
+        with allure.step("Проверка ввода латинских букв в нижнем регистре"):
+            self.app.method.assertEqual('abcdefghijklmnopqrstuvwxyz', '', locator)
+        with allure.step("Проверка ввода латинских букв в верхнем регистре"):
+            self.app.method.assertEqual('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '', locator)
+        with allure.step("Проверка ввода Русских букв в нижнем регистре"):
+            self.app.method.assertEqual("ёйцукенгшщзхъфывапролджэячсмитьбю", "", locator)
+        with allure.step("Проверка ввода Русских букв в верхнем регистре"):
+            self.app.method.assertEqual("АПРОЛДЖЭЯЧСМИТЬБЮЁЙЦУКЕНГШЩЗХЪФЫВ", "", locator)
+        with allure.step("Проверка ввода спецсимволов"):
+            self.app.method.assertEqual("!#$%&'()*+,-./:;<=>?@[]^_`{|}~", "", locator)
+        with allure.step("Проверка ввода совместных значений(буквы/цифры/спецсимволы)"):
+            self.app.method.assertEqual('123  АБВABC!@#', '123', locator)
+        with allure.step("Проверка ввода пробелов"):
+            self.app.method.assertEqual('   ', '', locator)
+            self.app.method.assertEqual('12     ', '12', locator)
+            self.app.method.assertEqual('   12', '12', locator)
+            self.app.method.assertEqual('1 2', '12', locator)
+        with allure.step("Проверка ввода дробного числа "):
+            self.app.method.assertEqual('1.1', '11', locator)
+            self.app.method.assertEqual('0.1', '1', locator)
+            self.app.method.assertEqual('1,1', '11', locator)
+            self.app.method.assertEqual('0,1', '1', locator)
+        with allure.step("Проверка ввода пустого значения"):
+            self.app.method.assertEqual('', '', locator)
+        with allure.step("Проверка ввода очень большого числа"):
+            self.app.method.assertEqual(9 * 10000000000000, 90, locator)
+        with allure.step("Проверка ввода отрицательного числа"):
+            self.app.method.assertEqual('-1', '1', locator)
+        with allure.step("Проверка ввода граничных значений"):
+            self.app.method.assertEqual(999, 99, locator)
 
     # Проверка ввода поле 255
     def input_number_255(self, locator):
@@ -686,32 +731,32 @@ class DirectionsHelper:
     # Проверка ввода номера Количество повторов - ОСНОВНОЙ
     def input_count_reset_positiv_call_main(self):
         time.sleep(0.3)
-        self.input_number_65535(count_reset_main)
+        self.input_number_99(count_reset_main)
 
     # Проверка ввода номера Количество повторов - ОСНОВНОЙ
     def input_count_reset_negativ_call_main(self):
         time.sleep(0.3)
-        self.input_number_65535_negativ(count_reset_main)
+        self.input_number_99_negativ(count_reset_main)
 
     # Проверка ввода номера Количество повторов - ОСНОВНОЙ
     def input_count_reset_positiv_call_reserv_1(self):
         time.sleep(0.3)
-        self.input_number_65535(count_reset_rezerv_1)
+        self.input_number_99(count_reset_rezerv_1)
 
     # Проверка ввода номера Количество повторов - ОСНОВНОЙ
     def input_count_reset_negativ_call_reserv_1(self):
         time.sleep(0.3)
-        self.input_number_65535_negativ(count_reset_rezerv_1)
+        self.input_number_99_negativ(count_reset_rezerv_1)
 
     # Проверка ввода номера Количество повторов - ОСНОВНОЙ
     def input_count_reset_positiv_call_reserv_2(self):
         time.sleep(0.3)
-        self.input_number_65535(count_reset_rezerv_2)
+        self.input_number_99(count_reset_rezerv_2)
 
     # Проверка ввода номера Количество повторов - ОСНОВНОЙ
     def input_count_reset_negativ_call_reserv_2(self):
         time.sleep(0.3)
-        self.input_number_65535_negativ(count_reset_rezerv_2)
+        self.input_number_99_negativ(count_reset_rezerv_2)
 
     # Проверка ввода номера телефона канал - ОСНОВНОЙ
     def input_tel_number_posutiv_sms_user_main(self):
