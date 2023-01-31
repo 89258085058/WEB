@@ -301,7 +301,6 @@ class DirectionsHelper:
             self.app.method.assertEqual(98, 98, locator)
             self.app.method.assertEqual(99, 99, locator)
 
-
     # Проверка ввода поле 65535
     def input_number_65535_negativ(self, locator):
         with allure.step("Проверка ввода латинских букв в нижнем регистре"):
@@ -476,8 +475,6 @@ class DirectionsHelper:
                     'Раздел № 13', 'Раздел № 14', 'Раздел № 15', 'Раздел № 16']
         self.app.method.check_dropdown_list_with_check_box(path_main, daysList)
 
-
-
     # Выбор из выпадающего списка Тестировать
     def Test_at_intervals_main(self, name):
         self.app.method.selectDropdownListByName(Test_at_intervals_main, name)
@@ -572,10 +569,20 @@ class DirectionsHelper:
         self.app.method.checkBox("ON", main_Enable_channel_testing_click, main_Enable_channel_testing_status)
         self.app.method.assertCheckBox("ON", main_Enable_channel_testing_status)
 
+    # Выключить тестирование канала - Основной
+    def offChannelTesting_main(self):
+        self.app.method.checkBox("OFF", main_Enable_channel_testing_click, main_Enable_channel_testing_status)
+        self.app.method.assertCheckBox("OFF", main_Enable_channel_testing_status)
+
     # Включить тестирование канала - Резерв 1
     def enableChannelTesting_rezerv_1(self):
         self.app.method.checkBox("ON", rezerv_1_Enable_channel_testing_click, rezerv_1_Enable_channel_testing_status)
         self.app.method.assertCheckBox("ON", rezerv_1_Enable_channel_testing_status)
+
+    # Выключить тестирование канала - Резерв 1
+    def offChannelTesting_rezerv_1(self):
+        self.app.method.checkBox("OFF", rezerv_1_Enable_channel_testing_click, rezerv_1_Enable_channel_testing_status)
+        self.app.method.assertCheckBox("OFF", rezerv_1_Enable_channel_testing_status)
 
     # Включить тестирование канала - Резерв 2
     def enableChannelTesting_rezerv_2(self):
@@ -2257,8 +2264,57 @@ class DirectionsHelper:
         with allure.step("Ввод значений в поле Интервал тестирования"):
             self.app.method.inputValues(_directions['Test_interval'], Test_interval_main)
 
-        # Метод сохранения DC09 - ОСНОВНОЙ
+    # Метод сохранения DC09 - Резерв 1
+    def save_DC09_rezerv_1(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Адрес "):
+            self.app.method.inputValues(_directions['DC09_address'], address_DC09_reserv_1)
+        with allure.step("Ввод значений в поле Порт "):
+            self.app.method.inputValues(_directions['DC09_port'], port_DC09_reserv_1)
+        with allure.step("Выбор из выпадающего списка Канал соединения"):
+            self.app.method.selectDropdownListByName(connection_rezerv_1, _directions['Connection_channel'])
+        with allure.step("Ввод значений в поле Таймаут подтверждения, сек"):
+            self.app.method.inputValues(_directions['Confirmation_timeout_sec'], confirmation_timeout_DC09_reserv_1)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_rezerv_1)
+        with allure.step("Ввод значений в поле Ключ шифрования"):
+            self.app.method.inputValues(_directions['Encryption_key'], encryption_key_DC09_reserv_1)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(dc09_test_IF_rezerv_1, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(dc09_testing_rezerv_1, 'С интервалом')
+        with allure.step("Ввод значений в поле Интервал тестирования"):
+            self.app.method.inputValues(_directions['Test_interval'], Test_interval_rezerv_1)
 
+    # Метод сохранения DC09 - Резерв 2
+    def save_DC09_rezerv_2(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Адрес "):
+            self.app.method.inputValues(_directions['DC09_address'], address_DC09_reserv_2)
+        with allure.step("Ввод значений в поле Порт "):
+            self.app.method.inputValues(_directions['DC09_port'], port_DC09_reserv_2)
+        with allure.step("Выбор из выпадающего списка Канал соединения"):
+            self.app.method.selectDropdownListByName(connection_rezerv_2, _directions['Connection_channel'])
+        with allure.step("Ввод значений в поле Таймаут подтверждения, сек"):
+            self.app.method.inputValues(_directions['Confirmation_timeout_sec'], confirmation_timeout_DC09_reserv_2)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_rezerv_2)
+        with allure.step("Ввод значений в поле Ключ шифрования"):
+            self.app.method.inputValues(_directions['Encryption_key'], encryption_key_DC09_reserv_2)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(dc09_test_IF_rezerv_1, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(dc09_testing_rezerv_1, 'С интервалом')
+        with allure.step("Ввод значений в поле Интервал тестирования"):
+            self.app.method.inputValues(_directions['Test_interval'], Test_interval_main)
+
+    # Метод сохранения DC09 - ОСНОВНОЙ
     def save_DC09_time_table_main(self):
         with allure.step("Парсинг сгенерированных данных"):
             _directions = self.app.read_data.data_directions()
@@ -2280,6 +2336,81 @@ class DirectionsHelper:
             self.app.method.selectDropdownListByName(dc09_test_IF_main, _directions['Test_if'])
         with allure.step("Выбор из выпадающего списка Тестировать"):
             self.app.method.selectDropdownListByName(dc09_testing_main, 'По расписанию')
+        with allure.step("Выбор из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
+            self.app.method.click((By.XPATH, days_of_the_week_main))
+        with allure.step("Выбор времени"):
+            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+                        '10:00',
+                        '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                        '21:00',
+                        '22:00', '23:00']
+            for i in time_off:
+                self.app.method.TimeBox("OFF", i, '1')
+            self.app.method.TimeBox("ON", _directions['Time'], '1')
+
+    # Метод сохранения DC09 - Резерв 1
+    def save_DC09_time_table_rezerv_1(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Адрес "):
+            self.app.method.inputValues(_directions['DC09_address'], address_DC09_reserv_1)
+        with allure.step("Ввод значений в поле Порт "):
+            self.app.method.inputValues(_directions['DC09_port'], port_DC09_reserv_1)
+        with allure.step("Выбор из выпадающего списка Канал соединения"):
+            self.app.method.selectDropdownListByName(connection_rezerv_1, _directions['Connection_channel'])
+        with allure.step("Ввод значений в поле Таймаут подтверждения, сек"):
+            self.app.method.inputValues(_directions['Confirmation_timeout_sec'], confirmation_timeout_DC09_reserv_1)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_rezerv_1)
+        with allure.step("Ввод значений в поле Ключ шифрования"):
+            self.app.method.inputValues(_directions['Encryption_key'], encryption_key_DC09_reserv_1)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(dc09_test_IF_rezerv_1, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(dc09_testing_main, 'С интервалом')
+            self.app.method.selectDropdownListByName(dc09_testing_rezerv_1, 'По расписанию')
+        with allure.step("Выбор из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
+            self.app.method.click((By.XPATH, days_of_the_week_main))
+        with allure.step("Выбор времени"):
+            time_off = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+                        '10:00',
+                        '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                        '21:00',
+                        '22:00', '23:00']
+            for i in time_off:
+                self.app.method.TimeBox("OFF", i, '1')
+            self.app.method.TimeBox("ON", _directions['Time'], '1')
+
+    # Метод сохранения DC09 - Резерв 2
+    def save_DC09_time_table_rezerv_2(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Ввод значений в поле Адрес "):
+            self.app.method.inputValues(_directions['DC09_address'], address_DC09_reserv_2)
+        with allure.step("Ввод значений в поле Порт "):
+            self.app.method.inputValues(_directions['DC09_port'], port_DC09_reserv_2)
+        with allure.step("Выбор из выпадающего списка Канал соединения"):
+            self.app.method.selectDropdownListByName(connection_rezerv_2, _directions['Connection_channel'])
+        with allure.step("Ввод значений в поле Таймаут подтверждения, сек"):
+            self.app.method.inputValues(_directions['Confirmation_timeout_sec'], confirmation_timeout_DC09_reserv_2)
+        with allure.step("Ввод значений в поле Количество повторов"):
+            self.app.method.inputValues(_directions['Count_rep'], count_reset_rezerv_2)
+        with allure.step("Ввод значений в поле Ключ шифрования"):
+            self.app.method.inputValues(_directions['Encryption_key'], encryption_key_DC09_reserv_2)
+        with allure.step("Ввод значений в поле Таймаут при ошибке"):
+            self.app.method.inputValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Выбор из выпадающего списка Тестировать если"):
+            self.app.method.selectDropdownListByName(dc09_test_IF_rezerv_1, _directions['Test_if'])
+        with allure.step("Выбор из выпадающего списка Тестировать"):
+            self.app.method.selectDropdownListByName(dc09_testing_rezerv_1, 'По расписанию')
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
@@ -2472,6 +2603,58 @@ class DirectionsHelper:
         with allure.step("Проверка ввода значений в поле Интервал тестирования"):
             self.app.method.assertValues(_directions['Test_interval'], Test_interval_main)
 
+    # Метод проверки сохранения DC09 - Резерв 1
+    def assert_save_dc09_rezerv_1(self):
+        time.sleep(1)
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Адрес "):
+            self.app.method.assertValues(_directions['DC09_address'], address_DC09_reserv_1)
+        with allure.step("Проверка ввода значений в поле Порт "):
+            self.app.method.assertValues(_directions['DC09_port'], port_DC09_reserv_1)
+        with allure.step("Проверка выбора из выпадающего списка Канал соединения"):
+            self.app.method.assertSelectionDropdownList(_directions['Connection_channel'], connection_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Таймаут подтверждения, сек"):
+            self.app.method.assertValues(_directions['Confirmation_timeout_sec'], confirmation_timeout_DC09_reserv_1)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Ключ шифрования"):
+            self.app.method.assertValues(_directions['Encryption_key'], encryption_key_DC09_reserv_1)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], dc09_test_IF_rezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать"):
+            self.app.method.assertSelectionDropdownList('С интервалом', dc09_testing_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Интервал тестирования"):
+            self.app.method.assertValues(_directions['Test_interval'], Test_interval_rezerv_1)
+
+    # Метод проверки сохранения DC09 - Резерв 2
+    def assert_save_dc09_rezerv_2(self):
+        time.sleep(1)
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Адрес "):
+            self.app.method.assertValues(_directions['DC09_address'], address_DC09_reserv_2)
+        with allure.step("Проверка ввода значений в поле Порт "):
+            self.app.method.assertValues(_directions['DC09_port'], port_DC09_reserv_2)
+        with allure.step("Проверка выбора из выпадающего списка Канал соединения"):
+            self.app.method.assertSelectionDropdownList(_directions['Connection_channel'], connection_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Таймаут подтверждения, сек"):
+            self.app.method.assertValues(_directions['Confirmation_timeout_sec'], confirmation_timeout_DC09_reserv_2)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Ключ шифрования"):
+            self.app.method.assertValues(_directions['Encryption_key'], encryption_key_DC09_reserv_2)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], dc09_test_IF_rezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать"):
+            self.app.method.assertSelectionDropdownList('С интервалом', dc09_testing_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Интервал тестирования"):
+            self.app.method.assertValues(_directions['Test_interval'], Test_interval_main)
+
     # Метод проверки сохранения DC09 - ОСНОВНОЙ
     def assert_save_dc09_time_table_main(self):
         with allure.step("Парсинг сгенерированных данных"):
@@ -2494,6 +2677,68 @@ class DirectionsHelper:
             self.app.method.assertSelectionDropdownList(_directions['Test_if'], dc09_test_IF_main)
         with allure.step("Проверка выбора из выпадающего списка Тестировать"):
             self.app.method.assertSelectionDropdownList('По расписанию', dc09_testing_main)
+        with allure.step("Проверка выбора из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            wd = self.app.wd
+            element = wd.find_element(By.XPATH, days_of_the_week_main).get_property("textContent")
+            assert str(day) in str(
+                element), f"\nОжидаемое значение в выпадающем списке: '{day}'\nФактическое: '{element}'"
+        with allure.step("Проверка выбора времени"):
+            self.app.method.assertTimeBox("ON", _directions['Time'], '1')
+
+    # Метод проверки сохранения DC09 - Резерв 1
+    def assert_save_dc09_time_table_rezerv_1(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Адрес "):
+            self.app.method.assertValues(_directions['DC09_address'], address_DC09_reserv_1)
+        with allure.step("Проверка ввода значений в поле Порт "):
+            self.app.method.assertValues(_directions['DC09_port'], port_DC09_reserv_1)
+        with allure.step("Проверка выбора из выпадающего списка Канал соединения"):
+            self.app.method.assertSelectionDropdownList(_directions['Connection_channel'], connection_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Таймаут подтверждения, сек"):
+            self.app.method.assertValues(_directions['Confirmation_timeout_sec'], confirmation_timeout_DC09_reserv_1)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_1)
+        with allure.step("Проверка ввода значений в поле Ключ шифрования"):
+            self.app.method.assertValues(_directions['Encryption_key'], encryption_key_DC09_reserv_1)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], dc09_test_IF_rezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать"):
+            self.app.method.assertSelectionDropdownList('По расписанию', dc09_testing_rezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Дни недели"):
+            day = _directions['Days_of_the_week']
+            wd = self.app.wd
+            element = wd.find_element(By.XPATH, days_of_the_week_main).get_property("textContent")
+            assert str(day) in str(
+                element), f"\nОжидаемое значение в выпадающем списке: '{day}'\nФактическое: '{element}'"
+        with allure.step("Проверка выбора времени"):
+            self.app.method.assertTimeBox("ON", _directions['Time'], '1')
+
+    # Метод проверки сохранения DC09 - Резерв 2
+    def assert_save_dc09_time_table_rezerv_2(self):
+        with allure.step("Парсинг сгенерированных данных"):
+            _directions = self.app.read_data.data_directions()
+        with allure.step("Проверка ввода значений в поле Адрес "):
+            self.app.method.assertValues(_directions['DC09_address'], address_DC09_reserv_2)
+        with allure.step("Проверка ввода значений в поле Порт "):
+            self.app.method.assertValues(_directions['DC09_port'], port_DC09_reserv_2)
+        with allure.step("Проверка выбора из выпадающего списка Канал соединения"):
+            self.app.method.assertSelectionDropdownList(_directions['Connection_channel'], connection_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Таймаут подтверждения, сек"):
+            self.app.method.assertValues(_directions['Confirmation_timeout_sec'], confirmation_timeout_DC09_reserv_2)
+        with allure.step("Проверка ввода значений в поле Количество повторов"):
+            self.app.method.assertValues(_directions['Count_rep'], count_reset_rezerv_2)
+        with allure.step("Проверка ввода значений в поле Ключ шифрования"):
+            self.app.method.assertValues(_directions['Encryption_key'], encryption_key_DC09_reserv_2)
+        with allure.step("Проверка ввода значений в поле Таймаут при ошибке"):
+            self.app.method.assertValues(_directions['Timeout_on_error'], Timeout_on_error_rezerv_2)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать если"):
+            self.app.method.assertSelectionDropdownList(_directions['Test_if'], dc09_test_IF_rezerv_1)
+        with allure.step("Проверка выбора из выпадающего списка Тестировать"):
+            self.app.method.assertSelectionDropdownList('По расписанию', dc09_testing_rezerv_1)
         with allure.step("Проверка выбора из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             wd = self.app.wd
