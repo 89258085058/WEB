@@ -8,6 +8,4 @@ python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui_001 
 python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui_001 tests/UI/testZonePathUI.py
 python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui_001 tests/UI/testStatusUI.py
 python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui_001 tests/UI/testUpdate.py
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui_001 tests/UI/testDirectionsUI.py -k TestUIDestinationMainChanel
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui_001 tests/UI/testDirectionsUI.py -k TestUIDestinationRezerv1Chanel
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui_001 tests/UI/testDirectionsUI.py -k TestUIDestinationRezerv2Chanel
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui_001 tests/UI/testDirectionsUI.py
