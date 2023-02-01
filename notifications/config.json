@@ -1,17 +1,10 @@
 {
   "base": {
-    "logo": "images/bolid.png",
-    "project": "UI тесты",
-    "environment": "Удаленный интерфейс ПО SignalGSM",
-    "comment": "Отчет",
+    "proxy": "http://gorelov:911@proxy.bolid.ru:3128",
+    "project": "Тegesgesgesgesgesgesgesgesgesgesgesges",
+    "environment": "SignalGSM",
     "reportLink": "http://194.67.118.210:8080/job/Signal_ui/allure/#behaviors",
-    "language": "ru",
-    "allureFolder": "allure-report/",
-    "enableChart": true
-  },
-  "telegram": {
-    "token": "5949556914:AAH5PP6FOQYIYWHzBjRtPM16OWqAQ95dhco",
-    "chat": "-1001819814165",
-    "replyTo": ""
+    "token": "6199931705:AAHCit0DF_KurcBZUPw3gtSTX2WbAecFERs",
+    "chat": "-1001842767640"
   }
 }
