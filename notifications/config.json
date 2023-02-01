@@ -1,7 +1,7 @@
 {
   "base": {
     "proxy": "http://gorelov:911@proxy.bolid.ru:3128",
-    "project": "Тegesgesgesgesgesgesgesgesgesgesgesges",
+    "project": "-",
     "environment": "SignalGSM",
     "reportLink": "http://194.67.118.210:8080/job/Signal_ui/allure/#behaviors",
     "token": "6199931705:AAHCit0DF_KurcBZUPw3gtSTX2WbAecFERs",
