@@ -42,6 +42,7 @@ class CreateAllure:
         self.proxy = self.data_config()['proxy']
         self.token = self.data_config()['token']
         self.chat = self.data_config()['chat']
+        self.reportLink = self.data_config()['reportLink']
         labels = ['Прошедшие', 'Упавшие', 'Ошибки', 'Пропущеные']
         values = [self.passed, self.failed, self.broken, self.skipped]
         colors = ['green', 'red', 'yellow', 'grey']
@@ -52,30 +53,31 @@ class CreateAllure:
         return plt.savefig('allure_bot/allure.png')
 
     def send_messege(self):
-        self.create_data()
-        bot = telebot.TeleBot(f'{self.token}')
-        bot.send_media_group(f'{self.chat}', [InputMediaPhoto(open('allure_bot/allure.png', 'rb'),
-                                                              caption=f'Рабочее окружение: Удаленный интерфейс ПО SignalGSM'
-                                                                      f'\n'
-                                                                      f'\nВсего тестов: {self.total}'
-                                                                      f'\nУспешных тестов: {self.passed}'
-                                                                      f'\nУпавших тестов: {self.failed}'
-                                                                      f'\nНеисправных тестов: {self.broken}'
-                                                                      f'\nПропущенных тестов: {self.skipped}'
-                                                                      f'\nОтчет: http://194.67.118.210:8080/job/Signal_ui/allure/#behaviors')])
-    # def send_messege(self):
-    #     self.create_data()
-    #     apihelper.proxy = {'https': f'{self.proxy}'}
-    #     bot = telebot.TeleBot(f'{self.token}')
-    #     bot.send_media_group(f'{self.chat}', [InputMediaPhoto(open('allure_bot/allure.png', 'rb'),
-    #                                                           caption=f'Рабочее окружение: Удаленный интерфейс ПО SignalGSM'
-    #                                                                   f'\n'
-    #                                                                   f'\nВсего тестов: {self.total}'
-    #                                                                   f'\nУспешных тестов: {self.passed}'
-    #                                                                   f'\nУпавших тестов: {self.failed}'
-    #                                                                   f'\nНеисправных тестов: {self.broken}'
-    #                                                                   f'\nПропущенных тестов: {self.skipped}'
-    #                                                                   f'\nОтчет: http://194.67.118.210:8080/job/Signal_ui/allure/#behaviors')])
+        try:
+            self.create_data()
+            bot = telebot.TeleBot(f'{self.token}')
+            bot.send_media_group(f'{self.chat}', [InputMediaPhoto(open('allure_bot/allure.png', 'rb'),
+                                                                  caption=f'Рабочее окружение: Удаленный интерфейс ПО SignalGSM'
+                                                                          f'\n'
+                                                                          f'\nВсего тестов: {self.total}'
+                                                                          f'\nУспешных тестов: {self.passed}'
+                                                                          f'\nУпавших тестов: {self.failed}'
+                                                                          f'\nНеисправных тестов: {self.broken}'
+                                                                          f'\nПропущенных тестов: {self.skipped}'
+                                                                          f'\nОтчет: {self.reportLink}')])
+        except:
+            self.create_data()
+            apihelper.proxy = {'https': f'{self.proxy}'}
+            bot = telebot.TeleBot(f'{self.token}')
+            bot.send_media_group(f'{self.chat}', [InputMediaPhoto(open('allure_bot/allure.png', 'rb'),
+                                                                  caption=f'Рабочее окружение: Удаленный интерфейс ПО SignalGSM'
+                                                                          f'\n'
+                                                                          f'\nВсего тестов: {self.total}'
+                                                                          f'\nУспешных тестов: {self.passed}'
+                                                                          f'\nУпавших тестов: {self.failed}'
+                                                                          f'\nНеисправных тестов: {self.broken}'
+                                                                          f'\nПропущенных тестов: {self.skipped}'
+                                                                          f'\nОтчет: http://194.67.118.210:8080/job/Signal_ui/allure/#behaviors')])
 
 
 messege = CreateAllure()
