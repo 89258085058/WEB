@@ -53,7 +53,6 @@ class CreateAllure:
 
     def send_messege(self):
         self.create_data()
-        apihelper.proxy = {'https': f'{self.proxy}'}
         bot = telebot.TeleBot(f'{self.token}')
         bot.send_media_group(f'{self.chat}', [InputMediaPhoto(open('allure_bot/allure.png', 'rb'),
                                                               caption=f'Рабочее окружение: Удаленный интерфейс ПО SignalGSM'
@@ -64,6 +63,19 @@ class CreateAllure:
                                                                       f'\nНеисправных тестов: {self.broken}'
                                                                       f'\nПропущенных тестов: {self.skipped}'
                                                                       f'\nОтчет: http://194.67.118.210:8080/job/Signal_ui/allure/#behaviors')])
+    # def send_messege(self):
+    #     self.create_data()
+    #     apihelper.proxy = {'https': f'{self.proxy}'}
+    #     bot = telebot.TeleBot(f'{self.token}')
+    #     bot.send_media_group(f'{self.chat}', [InputMediaPhoto(open('allure_bot/allure.png', 'rb'),
+    #                                                           caption=f'Рабочее окружение: Удаленный интерфейс ПО SignalGSM'
+    #                                                                   f'\n'
+    #                                                                   f'\nВсего тестов: {self.total}'
+    #                                                                   f'\nУспешных тестов: {self.passed}'
+    #                                                                   f'\nУпавших тестов: {self.failed}'
+    #                                                                   f'\nНеисправных тестов: {self.broken}'
+    #                                                                   f'\nПропущенных тестов: {self.skipped}'
+    #                                                                   f'\nОтчет: http://194.67.118.210:8080/job/Signal_ui/allure/#behaviors')])
 
 
 messege = CreateAllure()
