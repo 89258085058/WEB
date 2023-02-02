@@ -10,28 +10,22 @@ from telebot.types import InputMediaPhoto
 class CreateAllure:
 
     def data_alure_report_artifacts(self):
-        f = "allure-report/widgets/summary.json"
-        file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)
+        file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "allure-report/widgets/summary.json")
+        with open(file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return json.dumps(data, sort_keys=False, indent=4, ensure_ascii=False)
+
+    def config_file(self):
+        file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "notifications/config.json")
         with open(file, 'r', encoding='utf-8') as f:
             data = json.load(f)
         return json.dumps(data, sort_keys=False, indent=4, ensure_ascii=False)
 
     def data_statistic(self):
-        data = self.data_alure_report_artifacts()
-        json_data = json.loads(data)
-        return json_data["statistic"]
-
-    def config_file(self):
-        f = "notifications/config.json"
-        file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)
-        with open(file, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        return json.dumps(data, sort_keys=False, indent=4, ensure_ascii=False)
+        return json.loads(self.data_alure_report_artifacts())["statistic"]
 
     def data_config(self):
-        data = self.config_file()
-        json_data = json.loads(data)
-        return json_data["base"]
+        return json.loads(self.config_file())["base"]
 
     def create_data(self):
         self.failed = self.data_statistic()['failed']
@@ -47,11 +41,12 @@ class CreateAllure:
         self.environment = self.data_config()['environment']
         labels = ['Успешные', 'Упавшие', 'Сломанные', 'Пропущенные']
         values = [self.passed, self.failed, self.broken, self.skipped]
-        colors = ['green', 'red', 'yellow', 'grey']
+        colors = ['#228B22', '#FF0000', '#FFD700', '#C0C0C0']
         explode = [0.0, 0.1, 0.0, 0.0]
         plt.title(f'{self.name}\n', fontdict={'fontweight': 600, 'fontsize': 'xx-large'})
-        plt.pie(values, labels=labels, colors=colors, explode=explode, shadow=True, autopct='%1.1f%%', startangle=180)
+        plt.pie(values, colors=colors, explode=explode, shadow=True, autopct='%1.1f%%', startangle=180)
         plt.axis('equal')
+        plt.legend(labels=labels)
         return plt.savefig('allure_bot/allure.png')
 
     def send_messege(self):
