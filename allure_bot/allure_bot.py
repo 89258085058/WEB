@@ -44,9 +44,10 @@ class CreateAllure:
         colors = ['#228B22', '#FF0000', '#FFD700', '#C0C0C0']
         explode = [0.0, 0.1, 0.0, 0.0]
         plt.title(f'{self.name}\n', fontdict={'fontweight': 600, 'fontsize': 'xx-large'})
-        plt.pie(values, colors=colors, explode=explode, shadow=True, autopct='%1.1f%%', startangle=180)
+        plt.pie(values, colors=colors, explode=explode, shadow=True,
+                autopct='%1.1f%%', startangle=180, textprops={'size': 'large'})
         plt.axis('equal')
-        plt.legend(labels=labels)
+        plt.legend(labels=labels, loc="lower right", bbox_to_anchor=(0.2, -0.1, 0, 0))
         return plt.savefig('allure_bot/allure.png')
 
     def send_messege(self):
