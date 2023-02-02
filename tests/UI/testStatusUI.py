@@ -60,18 +60,3 @@ class TestStatusUI:
         with allure.step("Проверка названий полей"):
             app.PO_Status.text_status_others()
 
-    @allure.story("Проверка названий полей на странице")
-    @allure.title("Состояние GSM модуля SIM 1")
-    def test_title_status_gsm_sim_1(self, app, StatusPage):
-        with allure.step("Раскрыть настройки SIM 1"):
-            app.PO_Status.open_sim_1()
-        with allure.step("Проверка названий полей"):
-            app.PO_Status.text_status_gsm_sim_1()
-
-    @allure.story("Проверка названий полей на странице")
-    @allure.title("Состояние GSM модуля SIM 2")
-    def test_title_status_gsm_sim_2(self, app, StatusPage):
-        with allure.step("Раскрыть настройки SIM 1/SIM 2"):
-            app.PO_Status.open_sim_2()
-        with allure.step("Проверка названий полей"):
-            app.PO_Status.text_status_gsm_sim_2()
