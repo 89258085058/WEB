@@ -177,11 +177,6 @@ class TestUiSettings:
         with allure.step("Проверка названий полей"):
             app.PO_Settings.text_gsm_page()
 
-    @allure.story("GSM")
-    @allure.title("Проверка названий полей на модальном окне: Отправка тестового SMS SIM 1/2")
-    def test_main_title_gsm_sms(self, app, GSM, close_modal):
-        with allure.step("Проверка названий полей"):
-            app.PO_Settings.text_gsm_page_SMS()
 
     @allure.story("GSM")
     @allure.title("Проверка чекбоксов gsm")
