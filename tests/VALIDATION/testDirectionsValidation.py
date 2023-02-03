@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import random
 
 import allure
 import pytest
@@ -7,7 +8,8 @@ from selenium.webdriver.common.by import By
 reruns = 2
 
 # directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
-directions_list = ['1']
+
+directions_list = [f'{random.randint(1,16)}']
 
 
 @pytest.fixture()
