@@ -32,6 +32,7 @@ class CreateAllure:
         self.broken = self.data_statistic()['broken']
         self.passed = self.data_statistic()['passed']
         self.skipped = self.data_statistic()['skipped']
+        self.unknown = self.data_statistic()['unknown']
         self.total = self.data_statistic()['total']
         self.name = self.data_config()['project']
         self.proxy = self.data_config()['proxy']
@@ -63,6 +64,12 @@ class CreateAllure:
                 'label': "Пропущенные",
                 'value': self.skipped,
                 'color': '#C0C0C0',
+                'explode': 0.0
+            },
+            {
+                'label': "Неизвестные",
+                'value': self.unknown,
+                'color': '#c507cd',
                 'explode': 0.0
             }
         ]
