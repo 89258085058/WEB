@@ -51,7 +51,8 @@ def outs(app):
 @pytest.mark.flaky(reruns=reruns)
 class TestZonePathValidationPath:
 
-
+    @allure.story("РАЗДЕЛЫ")
+    @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Поиск'")
     def test_path_input_search(self, app):
         with allure.step("Переход на страницу Зоны Разделы"):
             app.PO_Navigations.goToZonePathPage()
@@ -60,12 +61,14 @@ class TestZonePathValidationPath:
         with allure.step("Проверка валидации поля"):
             app.PO_Zone_Path.input_seach()
 
-
+    @allure.story("РАЗДЕЛЫ")
+    @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Номер'")
     def test_path_input_number_positiv(self, app, add_path, close_modal):
         with allure.step("Проверка валидации поля"):
             app.PO_Zone_Path.input_data_namber_path_positv()
 
-
+    @allure.story("РАЗДЕЛЫ")
+    @allure.title("Негитивные сценарии: Проверка ввода значений в поле 'Номер'")
     def test_path_input_number_negativ(self, app, add_path, close_modal):
         with allure.step("Проверка валидации поля"):
             app.PO_Zone_Path.input_data_namber_path_negativ()
