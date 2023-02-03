@@ -39,10 +39,39 @@ class CreateAllure:
         self.chat = self.data_config()['chat']
         self.reportLink = self.data_config()['reportLink']
         self.environment = self.data_config()['environment']
-        labels = ['Успешные', 'Упавшие', 'Сломанные', 'Пропущенные']
-        values = [self.passed, self.failed, self.broken, self.skipped]
-        colors = ['#228B22', '#FF0000', '#FFD700', '#C0C0C0']
-        explode = [0.0, 0.1, 0.0, 0.0]
+
+        testValues = [
+            {
+                'label': "Успешные",
+                'value': self.passed,
+                'color': '#228B22',
+                'explode': 0.0
+            },
+            {
+                'label': "Упавшие",
+                'value': self.failed,
+                'color': '#FF0000',
+                'explode': 0.1
+            },
+            {
+                'label': "Сломанные",
+                'value': self.broken,
+                'color': '#FFD700',
+                'explode': 0.0
+            },
+            {
+                'label': "Пропущенные",
+                'value': self.skipped,
+                'color': '#C0C0C0',
+                'explode': 0.0
+            }
+        ]
+
+        labels = [obj["label"] for obj in testValues if obj["value"] > 0]
+        values = [obj["value"] for obj in testValues if obj["value"] > 0]
+        colors = [obj["color"] for obj in testValues if obj["value"] > 0]
+        explode = [obj["explode"] for obj in testValues if obj["value"] > 0]
+
         plt.title(f'{self.name}\n', fontdict={'fontweight': 600, 'fontsize': 'xx-large'})
         plt.pie(values, colors=colors, explode=explode, shadow=True,
                 autopct='%1.1f%%', startangle=180, textprops={'size': 'large'})
