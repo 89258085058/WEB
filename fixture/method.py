@@ -439,3 +439,15 @@ class MethodsHelper:
         if selected.get_attribute("class") == 'BTN-primary-text block active':
             result = 'Не выключается'
         assert status_check_box == selected.get_attribute("class"), f"Ошибка! Время: '{time}' - {result}"
+
+    # Проверка присутствия элемента на странице
+    def is_element_present(self, locator):
+        wd = self.app.wd
+        wd.implicitly_wait(0.1)
+        try:
+            wd.find_element(By.CSS_SELECTOR, locator)
+        except NoSuchElementException:
+            wd.implicitly_wait(5)
+            return False
+        wd.implicitly_wait(5)
+        return True

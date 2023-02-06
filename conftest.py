@@ -82,3 +82,10 @@ def pytest_runtest_makereport():
         logging.info('Skipped')
     else:
         logging.info('Passed')
+
+
+@pytest.fixture()
+def extend_time():
+    if fixture.method.is_element_present('div.b-dialog'):
+        fixture.method.click_element_locate('//div[@class="before-logout-dialog-button"]/button')
+
