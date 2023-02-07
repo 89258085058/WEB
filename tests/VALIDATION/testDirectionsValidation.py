@@ -35,7 +35,7 @@ class Test01ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story(f"Название - Направление")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Название'")
-    def test_input_data_name_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_name_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Проверка валидации поля"):
@@ -44,7 +44,7 @@ class Test01ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Название - Направление")
     @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Название'")
-    def test_input_data_name_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_name_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Проверка валидации поля"):
@@ -53,7 +53,7 @@ class Test01ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Позитивные сценарии: Проверка ввода значений в поле 'код' - SMS пользователю")
-    def test_input_data_sms_user_cod_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_sms_user_cod_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -66,7 +66,7 @@ class Test01ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Негативные сценарии: Проверка ввода значений в поле 'код' - SMS пользователю")
-    def test_input_data_sms_user_cod_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_sms_user_cod_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -80,7 +80,7 @@ class Test01ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS пользователю")
-    def test_input_data_sms_user_tel_number_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_sms_user_tel_number_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -94,7 +94,7 @@ class Test01ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS пользователю")
-    def test_input_data_sms_user_tel_number_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_sms_user_tel_number_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -108,7 +108,7 @@ class Test01ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS пользователю")
-    def test_input_data_sms_user_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_sms_user_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                    directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -125,7 +125,7 @@ class Test01ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS пользователю")
-    def test_input_data_sms_user_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_sms_user_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                    directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -142,7 +142,7 @@ class Test01ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS пользователю")
-    def test_input_data_sms_user_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_sms_user_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                    directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -161,7 +161,7 @@ class Test01ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS пользователю")
-    def test_input_data_sms_user_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_sms_user_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                    directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -185,7 +185,7 @@ class Test02ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Позитивные сценарии: Проверка ввода значений в поле 'код' - SMS Эгида")
-    def test_input_data_sms_egida_cod_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_sms_egida_cod_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -198,7 +198,7 @@ class Test02ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Негативные сценарии: Проверка ввода значений в поле 'код' - SMS Эгида")
-    def test_input_data_sms_egida_cod_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_sms_egida_cod_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -212,7 +212,7 @@ class Test02ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS Эгида")
-    def test_input_data_sms_egida_tel_number_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_sms_egida_tel_number_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -226,7 +226,7 @@ class Test02ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS Эгида")
-    def test_input_data_sms_egida_tel_number_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_sms_egida_tel_number_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -240,7 +240,7 @@ class Test02ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS Эгида")
-    def test_input_data_sms_egida_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_sms_egida_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                     directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -257,7 +257,7 @@ class Test02ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS Эгида")
-    def test_input_data_sms_egida_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_sms_egida_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                     directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -274,7 +274,7 @@ class Test02ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS Эгида")
-    def test_input_data_sms_egida_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_sms_egida_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                     directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -293,7 +293,7 @@ class Test02ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS Эгида")
-    def test_input_data_sms_egida_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_sms_egida_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                     directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -311,7 +311,7 @@ class Test02ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Позитивные сценарии: Проверка ввода значений в поле 'код' - Звонок")
-    def test_input_data_call_cod_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_cod_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -324,7 +324,7 @@ class Test02ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Негативные сценарии: Проверка ввода значений в поле 'код' - Звонок")
-    def test_input_data_call_cod_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_cod_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -344,7 +344,7 @@ class Test03ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'номер телефона' - Звонок")
-    def test_input_data_call_tel_number_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_tel_number_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -358,7 +358,7 @@ class Test03ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'номер телефона' - Звонок")
-    def test_input_data_call_tel_number_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_tel_number_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -372,7 +372,7 @@ class Test03ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Количество повторов' - Звонок")
-    def test_input_data_call_count_reset_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_count_reset_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -386,7 +386,7 @@ class Test03ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Количество повторов' - Звонок")
-    def test_input_data_call_count_reset_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_count_reset_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -400,7 +400,7 @@ class Test03ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - Звонок")
-    def test_input_data_call_timeout_error_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -416,7 +416,7 @@ class Test03ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - Звонок")
-    def test_input_data_call_timeout_error_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -432,7 +432,7 @@ class Test03ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - Звонок")
-    def test_input_data_call_test_interval_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -450,7 +450,7 @@ class Test03ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - Звонок")
-    def test_input_data_call_test_interval_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_call_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -467,7 +467,7 @@ class Test03ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Адрес' - DC09")
-    def test_input_data_address_DC09_cod_positiv_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_address_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                        directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -481,7 +481,7 @@ class Test03ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Негативные сценарии: Проверка ввода значений в поле 'Адрес' - DC09")
-    def test_input_data_address_DC09_cod_negativ_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_address_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                        directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -501,7 +501,7 @@ class Test04ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Порт' - DC09")
-    def test_input_data_port_DC09_cod_positiv_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_port_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                     directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -515,7 +515,7 @@ class Test04ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Негативные сценарии: Проверка ввода значений в поле 'Порт' - DC09")
-    def test_input_data_port_DC09_cod_negativ_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_port_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                     directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -530,7 +530,7 @@ class Test04ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Таймаут подтверждения, сек' - DC09")
-    def test_input_data_confirmation_timeout_DC09_cod_positiv_type_main_destination(self, app, destinations,
+    def test_input_data_confirmation_timeout_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations,
                                                                                     close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -545,7 +545,7 @@ class Test04ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Таймаут подтверждения, сек' - DC09")
-    def test_input_data_confirmation_timeout_DC09_cod_negativ_type_main_destination(self, app, destinations,
+    def test_input_data_confirmation_timeout_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations,
                                                                                     close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -559,7 +559,7 @@ class Test04ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Количество повторов' - DC09")
-    def test_input_data_number_of_repetitions_DC09_cod_positiv_type_main_destination(self, app, destinations,
+    def test_input_data_number_of_repetitions_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations,
                                                                                      close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -573,7 +573,7 @@ class Test04ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Негативные сценарии: Проверка ввода значений в поле 'Количество повторов' - DC09")
-    def test_input_data_number_of_repetitions_DC09_cod_negativ_type_main_destination(self, app, destinations,
+    def test_input_data_number_of_repetitions_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations,
                                                                                      close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -587,7 +587,7 @@ class Test04ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Ключ шифрования' - DC09")
-    def test_input_data_encryption_key_DC09_cod_positiv_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_encryption_key_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                               directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -603,7 +603,7 @@ class Test04ValidationDestinationMainChanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Основной канал")
     @allure.title("Основной канал Негативные сценарии: Проверка ввода значений в поле 'Ключ шифрования' - DC09")
-    def test_input_data_encryption_key_DC09_cod_negativ_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_encryption_key_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                               directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -620,7 +620,7 @@ class Test04ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - DC09")
-    def test_input_data_DC09_timeout_error_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_DC09_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -636,7 +636,7 @@ class Test04ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - DC09")
-    def test_input_data_DC09_timeout_error_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_DC09_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -653,7 +653,7 @@ class Test04ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - DC09")
-    def test_input_data_DC09_test_interval_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_DC09_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -671,7 +671,7 @@ class Test04ValidationDestinationMainChanel:
     @allure.story("Основной канал")
     @allure.title(
         "Основной канал Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - DC09")
-    def test_input_data_DC09_test_interval_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_DC09_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Раскрытие настроек канала"):
@@ -695,7 +695,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'код' - SMS пользователю")
-    def test_input_data_reserv_1_sms_user_cod_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_user_cod_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                   directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -712,7 +712,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'код' - SMS пользователю")
-    def test_input_data_reserv_1_sms_user_cod_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_user_cod_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                   directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -731,7 +731,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS пользователю")
-    def test_input_data_reserv_1_sms_user_tel_number_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_user_tel_number_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                          directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -750,7 +750,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS пользователю")
-    def test_input_data_reserv_1_sms_user_tel_number_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_user_tel_number_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                          directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -769,7 +769,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS пользователю")
-    def test_input_data_reserv_1_sms_user_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_user_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                             directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -790,7 +790,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS пользователю")
-    def test_input_data_reserv_1_sms_user_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_user_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                             directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -812,7 +812,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS пользователю")
-    def test_input_data_reserv_1_sms_user_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_user_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                             directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -837,7 +837,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS пользователю")
-    def test_input_data_reserv_1_sms_user_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_user_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                             directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -860,7 +860,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'код' - SMS Эгида")
-    def test_input_data_reserv_1_sms_egida_cod_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_egida_cod_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                    directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -877,7 +877,7 @@ class Test01ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'код' - SMS Эгида")
-    def test_input_data_reserv_1_sms_egida_cod_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_egida_cod_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                    directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -901,7 +901,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS Эгида")
-    def test_input_data_reserv_1_sms_egida_tel_number_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_egida_tel_number_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                           directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -919,7 +919,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS Эгида")
-    def test_input_data_reserv_1_sms_egida_tel_number_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_egida_tel_number_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                           directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -937,7 +937,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS Эгида")
-    def test_input_data_reserv_1_sms_egida_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_egida_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -958,7 +958,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS Эгида")
-    def test_input_data_reserv_1_sms_egida_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_egida_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -979,7 +979,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS Эгида")
-    def test_input_data_reserv_1_sms_egida_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_egida_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1003,7 +1003,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS Эгида")
-    def test_input_data_reserv_1_sms_egida_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_sms_egida_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1026,7 +1026,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'код' - Звонок")
-    def test_input_data_reserv_1_call_cod_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_reserv_1_call_cod_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Предусловия раскрытие настроек канала"):
@@ -1042,7 +1042,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'код' - Звонок")
-    def test_input_data_reserv_1_call_cod_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_reserv_1_call_cod_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Предусловия раскрытие настроек канала"):
@@ -1059,7 +1059,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'номер телефона' - Звонок")
-    def test_input_data_reserv_1_call_tel_number_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_call_tel_number_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                      directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1077,7 +1077,7 @@ class Test02ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'номер телефона' - Звонок")
-    def test_input_data_reserv_1_call_tel_number_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_call_tel_number_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                      directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1101,7 +1101,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Количество повторов' - Звонок")
-    def test_input_data_reserv_1_call_count_reset_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_call_count_reset_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                       directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1119,7 +1119,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Количество повторов' - Звонок")
-    def test_input_data_reserv_1_call_count_reset_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_call_count_reset_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                       directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1137,7 +1137,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - Звонок")
-    def test_input_data_reserv_1_call_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_call_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1158,7 +1158,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - Звонок")
-    def test_input_data_reserv_1_call_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_call_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1179,7 +1179,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - Звонок")
-    def test_input_data_reserv_1_call_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_call_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1203,7 +1203,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - Звонок")
-    def test_input_data_reserv_1_call_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_call_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1226,7 +1226,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Адрес' - DC09")
-    def test_input_data_reserv_1_address_DC09_cod_positiv_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_address_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                                 directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1243,7 +1243,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Адрес' - DC09")
-    def test_input_data_reserv_1_address_DC09_cod_negativ_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_address_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                                 directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1260,7 +1260,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Порт' - DC09")
-    def test_input_data_reserv_1_port_DC09_cod_positiv_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_port_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1277,7 +1277,7 @@ class Test03ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Порт' - DC09")
-    def test_input_data_reserv_1_port_DC09_cod_negativ_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_port_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1301,7 +1301,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут подтверждения, сек' - DC09")
-    def test_input_data_reserv_1_confirmation_timeout_DC09_cod_positiv_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_1_confirmation_timeout_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations,
                                                                                              close_modal,
                                                                                              directions: str):
         with allure.step("Открытие направления"):
@@ -1320,7 +1320,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Таймаут подтверждения, сек' - DC09")
-    def test_input_data_reserv_1_confirmation_timeout_DC09_cod_negativ_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_1_confirmation_timeout_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations,
                                                                                              close_modal,
                                                                                              directions: str):
         with allure.step("Открытие направления"):
@@ -1338,7 +1338,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Количество повторов' - DC09")
-    def test_input_data_reserv_1_number_of_repetitions_DC09_cod_positiv_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_1_number_of_repetitions_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations,
                                                                                               close_modal,
                                                                                               directions: str):
         with allure.step("Открытие направления"):
@@ -1356,7 +1356,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Количество повторов' - DC09")
-    def test_input_data_reserv_1_number_of_repetitions_DC09_cod_negativ_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_1_number_of_repetitions_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations,
                                                                                               close_modal,
                                                                                               directions: str):
         with allure.step("Открытие направления"):
@@ -1374,7 +1374,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Ключ шифрования' - DC09")
-    def test_input_data_reserv_1_encryption_key_DC09_cod_positiv_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_1_encryption_key_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations,
                                                                                        close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1395,7 +1395,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 1")
     @allure.title("Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Ключ шифрования' - DC09")
-    def test_input_data_reserv_1_encryption_key_DC09_cod_negativ_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_1_encryption_key_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations,
                                                                                        close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1417,7 +1417,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - DC09")
-    def test_input_data_reserv_1_DC09_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_DC09_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1438,7 +1438,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - DC09")
-    def test_input_data_reserv_1_DC09_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_DC09_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1459,7 +1459,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - DC09")
-    def test_input_data_reserv_1_DC09_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_DC09_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1483,7 +1483,7 @@ class Test04ValidationDestinationRezerv1Chanel:
     @allure.story("Резервный канал 1")
     @allure.title(
         "Резервный канал 1 Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - DC09")
-    def test_input_data_reserv_1_DC09_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_1_DC09_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1513,7 +1513,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'код' - SMS пользователю")
-    def test_input_data_reserv_2_sms_user_cod_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_user_cod_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                   directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1532,7 +1532,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'код' - SMS пользователю")
-    def test_input_data_reserv_2_sms_user_cod_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_user_cod_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                   directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1553,7 +1553,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS пользователю")
-    def test_input_data_reserv_2_sms_user_tel_number_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_user_tel_number_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                          directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1574,7 +1574,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS пользователю")
-    def test_input_data_reserv_2_sms_user_tel_number_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_user_tel_number_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                          directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1595,7 +1595,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS пользователю")
-    def test_input_data_reserv_2_sms_user_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_user_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                             directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1619,7 +1619,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS пользователю")
-    def test_input_data_reserv_2_sms_user_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_user_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                             directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1644,7 +1644,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS пользователю")
-    def test_input_data_reserv_2_sms_user_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_user_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                             directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1673,7 +1673,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS пользователю")
-    def test_input_data_reserv_2_sms_user_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_user_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                             directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1700,7 +1700,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'код' - SMS Эгида")
-    def test_input_data_reserv_2_sms_egida_cod_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_egida_cod_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                    directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1719,7 +1719,7 @@ class Test01ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'код' - SMS Эгида")
-    def test_input_data_reserv_2_sms_egida_cod_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_egida_cod_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                    directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1745,7 +1745,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS Эгида")
-    def test_input_data_reserv_2_sms_egida_tel_number_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_egida_tel_number_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                           directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1765,7 +1765,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'номер телефона' - SMS Эгида")
-    def test_input_data_reserv_2_sms_egida_tel_number_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_egida_tel_number_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                           directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1785,7 +1785,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS Эгида")
-    def test_input_data_reserv_2_sms_egida_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_egida_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1809,7 +1809,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - SMS Эгида")
-    def test_input_data_reserv_2_sms_egida_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_egida_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1833,7 +1833,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS Эгида")
-    def test_input_data_reserv_2_sms_egida_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_egida_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1861,7 +1861,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - SMS Эгида")
-    def test_input_data_reserv_2_sms_egida_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_sms_egida_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1888,7 +1888,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'код' - Звонок")
-    def test_input_data_reserv_2_call_cod_positiv_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_reserv_2_call_cod_positiv_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Предусловия раскрытие настроек канала"):
@@ -1906,7 +1906,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'код' - Звонок")
-    def test_input_data_reserv_2_call_cod_negativ_destination(self, app, destinations, close_modal, directions: str):
+    def test_input_data_reserv_2_call_cod_negativ_destination(self, app, extend_time, destinations, close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
         with allure.step("Предусловия раскрытие настроек канала"):
@@ -1925,7 +1925,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'номер телефона' - Звонок")
-    def test_input_data_reserv_2_call_tel_number_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_call_tel_number_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                      directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1945,7 +1945,7 @@ class Test02ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'номер телефона' - Звонок")
-    def test_input_data_reserv_2_call_tel_number_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_call_tel_number_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                      directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1971,7 +1971,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Количество повторов' - Звонок")
-    def test_input_data_reserv_2_call_count_reset_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_call_count_reset_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                       directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -1991,7 +1991,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Количество повторов' - Звонок")
-    def test_input_data_reserv_2_call_count_reset_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_call_count_reset_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                       directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2011,7 +2011,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - Звонок")
-    def test_input_data_reserv_2_call_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_call_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2035,7 +2035,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - Звонок")
-    def test_input_data_reserv_2_call_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_call_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2059,7 +2059,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - Звонок")
-    def test_input_data_reserv_2_call_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_call_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2087,7 +2087,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - Звонок")
-    def test_input_data_reserv_2_call_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_call_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2114,7 +2114,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Адрес' - DC09")
-    def test_input_data_reserv_2_address_DC09_cod_positiv_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_address_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                                 directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2133,7 +2133,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Адрес' - DC09")
-    def test_input_data_reserv_2_address_DC09_cod_negativ_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_address_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                                 directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2152,7 +2152,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Порт' - DC09")
-    def test_input_data_reserv_2_port_DC09_cod_positiv_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_port_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2171,7 +2171,7 @@ class Test03ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Порт' - DC09")
-    def test_input_data_reserv_2_port_DC09_cod_negativ_type_main_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_port_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations, close_modal,
                                                                              directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2197,7 +2197,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут подтверждения, сек' - DC09")
-    def test_input_data_reserv_2_confirmation_timeout_DC09_cod_positiv_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_2_confirmation_timeout_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations,
                                                                                              close_modal,
                                                                                              directions: str):
         with allure.step("Открытие направления"):
@@ -2218,7 +2218,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Таймаут подтверждения, сек' - DC09")
-    def test_input_data_reserv_2_confirmation_timeout_DC09_cod_negativ_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_2_confirmation_timeout_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations,
                                                                                              close_modal,
                                                                                              directions: str):
         with allure.step("Открытие направления"):
@@ -2238,7 +2238,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Количество повторов' - DC09")
-    def test_input_data_reserv_2_number_of_repetitions_DC09_cod_positiv_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_2_number_of_repetitions_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations,
                                                                                               close_modal,
                                                                                               directions: str):
         with allure.step("Открытие направления"):
@@ -2258,7 +2258,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Количество повторов' - DC09")
-    def test_input_data_reserv_2_number_of_repetitions_DC09_cod_negativ_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_2_number_of_repetitions_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations,
                                                                                               close_modal,
                                                                                               directions: str):
         with allure.step("Открытие направления"):
@@ -2278,7 +2278,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Ключ шифрования' - DC09")
-    def test_input_data_reserv_2_encryption_key_DC09_cod_positiv_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_2_encryption_key_DC09_cod_positiv_type_main_destination(self, app, extend_time, destinations,
                                                                                        close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2300,7 +2300,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Резервный канал 2")
     @allure.title("Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Ключ шифрования' - DC09")
-    def test_input_data_reserv_2_encryption_key_DC09_cod_negativ_type_main_destination(self, app, destinations,
+    def test_input_data_reserv_2_encryption_key_DC09_cod_negativ_type_main_destination(self, app, extend_time, destinations,
                                                                                        close_modal, directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2323,7 +2323,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - DC09")
-    def test_input_data_reserv_2_DC09_timeout_error_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_DC09_timeout_error_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2347,7 +2347,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Таймаут при ошибке' - DC09")
-    def test_input_data_reserv_2_DC09_timeout_error_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_DC09_timeout_error_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2371,7 +2371,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Позитивные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - DC09")
-    def test_input_data_reserv_2_DC09_test_interval_positiv_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_DC09_test_interval_positiv_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
@@ -2399,7 +2399,7 @@ class Test04ValidationDestinationRezerv2Chanel:
     @allure.story("Резервный канал 2")
     @allure.title(
         "Резервный канал 2 Негативные сценарии: Проверка ввода значений в поле 'Интервал тестирования' - DC09")
-    def test_input_data_reserv_2_DC09_test_interval_negativ_destination(self, app, destinations, close_modal,
+    def test_input_data_reserv_2_DC09_test_interval_negativ_destination(self, app, extend_time, destinations, close_modal,
                                                                         directions: str):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
