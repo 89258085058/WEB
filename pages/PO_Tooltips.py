@@ -542,7 +542,7 @@ class TooltipsHelper:
         self.assert_tooltip_messege(locator=user_name, text=text_U_K_user_name)
 
     def tooltip_user_keys_user_name_input(self):
-        self.assert_tooltip_messege(locator=user_name_input, text=input_128)
+        self.assert_tooltip_messege(locator=user_name_input, text=input_63)
 
     # ПОЛЬЗОВАТЕЛИ И КЛЮЧИ/ПОЛЬЗОВАТЕЛИ - Логин
     def tooltip_user_keys_user_login(self):
@@ -651,7 +651,7 @@ class TooltipsHelper:
         self.assert_tooltip_messege(locator=path_name, text=text_path_name)
 
     def tooltip_path_name_input(self):
-        self.assert_tooltip_messege(locator=path_name_input, text=input_name_95)
+        self.assert_tooltip_messege(locator=path_name_input, text=input_name_31)
 
     # Зоны/Разделы/Разделы - Управляющие разделы
     def tooltip_path_control_sections(self):

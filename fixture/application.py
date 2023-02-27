@@ -20,6 +20,7 @@ from pages.PO_Tooltips import TooltipsHelper
 from pages.PO_Update import UpdateHelper
 from pages.PO_Users_Keys import UsersKeysHelper
 from pages.PO_Zone_Path import ZonePathHelper
+from api.endpoint import EndpointHelper
 
 
 class Application:
@@ -74,6 +75,7 @@ class Application:
         self.PO_Sensors = SensorsHelper(self)
         self.PO_Status = StatusHelper(self)
         self.PO_Update = UpdateHelper(self)
+        self.endpoint = EndpointHelper(self)
         self.method = MethodsHelper(self)
         self.session = SessionHelper(self)
         self.read_data = DataHelper(self)
