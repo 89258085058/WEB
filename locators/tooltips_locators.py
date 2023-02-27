@@ -224,9 +224,9 @@ user_group_of_outputs_controlled_by_SMS = '//*[@id="modalSettings"]//span[.="Г�
 # Группа выходов с управлением звонком
 user_group_of_outputs_with_call_control = '//*[@id="modalSettings"]//span[.="Группа выходов с управлением звонком"]'
 # Разрешить снятие по SMS
-user_allow_withdrawal_by_SMS = '//*[@id="modalSettings"]//span[.="Разрешить снятие по SMS"]'
+user_allow_withdrawal_by_SMS = '//*[@id="modalSettings"]//span[.="Разрешить снятие"]'
 # Разрешить взятие по SMS
-user_allow_pickup_by_SMS = '//*[@id="modalSettings"]//span[.="Разрешить взятие по SMS"]'
+user_allow_pickup_by_SMS = '//*[@id="modalSettings"]//span[.="Разрешить взятие"]'
 # Телефон
 user_phone = '//*[@id="modalSettings"]//span[.="Телефон"]'
 user_phone_cod = '//*[@id="modalSettings"]//*[.="Телефон"]/following::input[1]'
@@ -238,7 +238,7 @@ user_password_sms_input = '//*[@id="modalSettings"]//*[.="Пароль SMS"]/fol
 user_rep_password_sms = '//*[@id="modalSettings"]//span[.="Повторите пароль SMS"]'
 user_rep_password_sms_input = '//*[@id="modalSettings"]//*[.="Повторите пароль SMS"]/following::input[1]'
 # Управляемые по SMS разделы
-user_SMS_controlled_sections = '//*[@id="modalSettings"]//span[.="Управляемые по SMS разделы"]'
+user_SMS_controlled_sections = '//*[@id="modalSettings"]//span[.="Управляемые разделы"]'
 # ------------------------Ключи--------------------------
 # Идентификатор
 keys_id = '//*[@id="modalSettings"]//span[.="Идентификатор"]'
@@ -298,9 +298,9 @@ directions_enable_channel_testing_rezerv_2 = '(//*[@id="modalSettings"]//span[.=
 directions_timeout_on_error = '(//*[@id="modalSettings"]//span[.="Таймаут при ошибке"])[1]'
 directions_timeout_on_error_rezerv_1 = '(//*[@id="modalSettings"]//span[.="Таймаут при ошибке"])[2]'
 directions_timeout_on_error_rezerv_2 = '(//*[@id="modalSettings"]//span[.="Таймаут при ошибке"])[3]'
-directions_timeout_on_error_input = '(//*[@id="modalSettings"]//*[.="Таймаут при ошибке"]//input[1])[1]'
-directions_timeout_on_error_input_rezerv_1 = '(//*[@id="modalSettings"]//*[.="Таймаут при ошибке"]//input[1])[2]'
-directions_timeout_on_error_input_rezerv_2 = '(//*[@id="modalSettings"]//*[.="Таймаут при ошибке"]//input[1])[3]'
+directions_timeout_on_error_input = '(//*[.="Таймаут при ошибке"])[1]/../..//input'
+directions_timeout_on_error_input_rezerv_1 = '(//*[.="Таймаут при ошибке"])[2]/../..//input'
+directions_timeout_on_error_input_rezerv_2 = '(//*[.="Таймаут при ошибке"])[3]/../..//input'
 # Тестировать если
 directions_test_if = '(//*[@id="modalSettings"]//span[.="Тестировать если"])[1]'
 directions_test_if_rezerv_1 = '(//*[@id="modalSettings"]//span[.="Тестировать если"])[2]'
@@ -321,23 +321,23 @@ directions_days_of_th_week_rezerv_2 = '(//*[@id="modalSettings"]//span[.="Дни
 directions_number_of_repetitions = '(//*[@id="modalSettings"]//span[.="Количество повторов"])[1]'
 directions_number_of_repetitions_rezerv_1 = '(//*[@id="modalSettings"]//span[.="Количество повторов"])[2]'
 directions_number_of_repetitions_rezerv_2 = '(//*[@id="modalSettings"]//span[.="Количество повторов"])[3]'
-directions_number_of_repetitions_input = '(//*[@id="modalSettings"]//*[.="Количество повторов"]//input)[1]'
-directions_number_of_repetitions_input_rezerv_1 = '(//*[@id="modalSettings"]//*[.="Количество повторов"]//input)[2]'
-directions_number_of_repetitions_input_rezerv_2 = '(//*[@id="modalSettings"]//*[.="Количество повторов"]//input)[3]'
+directions_number_of_repetitions_input = '(//div[@class = "channel-settings"])[1]//input[@maxlength="2"]'
+directions_number_of_repetitions_input_rezerv_1 = '(//div[@class = "channel-settings"])[2]//input[@maxlength="2"]'
+directions_number_of_repetitions_input_rezerv_2 = '(//div[@class = "channel-settings"])[3]//input[@maxlength="2"]'
 # Адрес
 directions_address = '(//*[@id="modalSettings"]//span[.="Адрес"])[1]'
 directions_address_rezerv_1 = '(//*[@id="modalSettings"]//span[.="Адрес"])[2]'
 directions_address_rezerv_2 = '(//*[@id="modalSettings"]//span[.="Адрес"])[3]'
-directions_address_input = '(//*[@id="modalSettings"]//*[.="Адрес"]//input)[1]'
-directions_address_input_rezerv_1 = '(//*[@id="modalSettings"]//*[.="Адрес"]//input)[2]'
-directions_address_input_rezerv_2 = '(//*[@id="modalSettings"]//*[.="Адрес"]//input)[3]'
+directions_address_input = '(//div[@class = "channel-settings"])[1]//input[@maxlength="31"]'
+directions_address_input_rezerv_1 = '(//div[@class = "channel-settings"])[2]//input[@maxlength="31"]'
+directions_address_input_rezerv_2 = '(//div[@class = "channel-settings"])[3]//input[@maxlength="31"]'
 # Порт
 directions_port = '(//*[@id="modalSettings"]//span[.="Порт"])[1]'
 directions_port_rezerv_1 = '(//*[@id="modalSettings"]//span[.="Порт"])[2]'
 directions_port_rezerv_2 = '(//*[@id="modalSettings"]//span[.="Порт"])[3]'
-directions_port_input = '(//*[@id="modalSettings"]//*[.="Порт"]//input)[1]'
-directions_port_input_rezerv_1 = '(//*[@id="modalSettings"]//*[.="Порт"]//input)[2]'
-directions_port_input_rezerv_2 = '(//*[@id="modalSettings"]//*[.="Порт"]//input)[3]'
+directions_port_input = '(//div[@class = "channel-settings"])[1]//input[@maxlength="5"]'
+directions_port_input_rezerv_1 = '(//div[@class = "channel-settings"])[2]//input[@maxlength="5"]'
+directions_port_input_rezerv_2 = '(//div[@class = "channel-settings"])[3]//input[@maxlength="5"]'
 # Канал соединения
 directions_connection_channel = '(//*[@id="modalSettings"]//span[.="Канал соединения"])[1]'
 directions_connection_channel_rezerv_1 = '(//*[@id="modalSettings"]//span[.="Канал соединения"])[2]'
@@ -346,9 +346,9 @@ directions_connection_channel_rezerv_2 = '(//*[@id="modalSettings"]//span[.="К�
 directions_confirmation_timeout_sec = '(//*[@id="modalSettings"]//span[.="Таймаут подтверждения, сек"])[1]'
 directions_confirmation_timeout_sec_rezerv_1 = '(//*[@id="modalSettings"]//span[.="Таймаут подтверждения, сек"])[2]'
 directions_confirmation_timeout_sec_rezerv_2 = '(//*[@id="modalSettings"]//span[.="Таймаут подтверждения, сек"])[3]'
-directions_confirmation_timeout_sec_input = '(//*[@id="modalSettings"]//*[.="Таймаут подтверждения, сек"]//input)[1]'
-directions_confirmation_timeout_sec_input_rezerv_1 = '(//*[@id="modalSettings"]//*[.="Таймаут подтверждения, сек"]//input)[2]'
-directions_confirmation_timeout_sec_input_rezerv_2 = '(//*[@id="modalSettings"]//*[.="Таймаут подтверждения, сек"]//input)[3]'
+directions_confirmation_timeout_sec_input = '((//div[@class = "channel-settings"])[1]//input[@maxlength="2"])[1]'
+directions_confirmation_timeout_sec_input_rezerv_1 = '((//div[@class = "channel-settings"])[2]//input[@maxlength="2"])[1]'
+directions_confirmation_timeout_sec_input_rezerv_2 = '((//div[@class = "channel-settings"])[3]//input[@maxlength="2"])[1]'
 # Количество повторов
 directions_number_of_repetitions_DC09 = '(//*[@id="modalSettings"]//span[.="Количество повторов"])[1]'
 directions_number_of_repetitions_DC09_rezerv_1 = '(//*[@id="modalSettings"]//span[.="Количество повторов"])[2]'
@@ -365,9 +365,9 @@ directions_encryption_key = '(//*[@id="modalSettings"]//span[.="Ключ шиф�
 directions_encryption_key_rezerv_1 = '(//*[@id="modalSettings"]//span[.="Ключ шифрования"])[2]'
 directions_encryption_key_rezerv_2 = '(//*[@id="modalSettings"]//span[.="Ключ шифрования"])[3]'
 # Телефон
-directions_phone_cod = '(//*[@id="modalSettings"]//*[.="Номер телефона"]//input[1])[1]'
-directions_phone_cod_rezerv_1 = '(//*[@id="modalSettings"]//*[.="Номер телефона"]//input[1])[2]'
-directions_phone_cod_rezerv_2 = '(//*[@id="modalSettings"]//*[.="Номер телефона"]//input[1])[3]'
-directions_phone_number = '(//*[@id="modalSettings"]//*[.="Номер телефона"]//input[2])[1]'
-directions_phone_number_rezerv_1 = '(//*[@id="modalSettings"]//*[.="Номер телефона"]//input[2])[2]'
-directions_phone_number_rezerv_2 = '(//*[@id="modalSettings"]//*[.="Номер телефона"]//input[2])[3]'
+directions_phone_cod = '(//div[@class = "channel-settings"])[1]//input[contains(@class, "b-phone-code")]'
+directions_phone_cod_rezerv_1 = '(//div[@class = "channel-settings"])[2]//input[contains(@class, "b-phone-code")]'
+directions_phone_cod_rezerv_2 = '(//div[@class = "channel-settings"])[3]//input[contains(@class, "b-phone-code")]'
+directions_phone_number = '(//div[@class = "channel-settings"])[1]//input[contains(@class, "b-phone-number")]'
+directions_phone_number_rezerv_1 = '(//div[@class = "channel-settings"])[2]//input[contains(@class, "b-phone-number")]'
+directions_phone_number_rezerv_2 = '(//div[@class = "channel-settings"])[3]//input[contains(@class, "b-phone-number")]'

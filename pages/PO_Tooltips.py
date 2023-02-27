@@ -31,7 +31,7 @@ class TooltipsHelper:
 
     # НАСТРОЙКИ/ОБЪЕКТ - Проверка подсказки Название объекта
     def tooltip_settings_object_name_input(self):
-        self.assert_tooltip_messege(locator=object_name_input, text=input_max_len_32)
+        self.assert_tooltip_messege(locator=object_name_input, text=input_max_len_31)
 
     def tooltip_settings_object_name(self):
         self.assert_tooltip_messege(locator=object_name, text=Settings_object_tooltip_messege_name_object)
@@ -294,7 +294,7 @@ class TooltipsHelper:
 
     def tooltip_settings_radio_Sensor_polling_period_input(self):
         self.assert_tooltip_messege(locator=Radio_Sensor_polling_period_input,
-                                    text=input_5_120)
+                                    text=input_60_120)
 
     # НАСТРОЙКИ/GSM - Включить модуль GSM
     def tooltip_settings_gsm_Enable_GSM_module(self):
@@ -675,7 +675,7 @@ class TooltipsHelper:
         self.assert_tooltip_messege(locator=directions_name, text=text_directions_name)
 
     def tooltip_directions_name_input(self):
-        self.assert_tooltip_messege(locator=directions_name_input, text=input_name_63)
+        self.assert_tooltip_messege(locator=directions_name_input, text=input_name_31)
 
     # Направления - Номер телефона - код
     def tooltip_directions_phone_cod_input(self):
@@ -822,15 +822,15 @@ class TooltipsHelper:
 
     def tooltip_directions_number_of_repetitions_input(self):
         self.assert_tooltip_messege(locator=directions_number_of_repetitions_input,
-                                    text=input_0_65535_not_necessary)
+                                    text=input_1_99)
 
     def tooltip_directions_number_of_repetitions_input_rezerv_1(self):
         self.assert_tooltip_messege(locator=directions_number_of_repetitions_input_rezerv_1,
-                                    text=input_0_65535_not_necessary)
+                                    text=input_1_99)
 
     def tooltip_directions_number_of_repetitions_input_rezerv_2(self):
         self.assert_tooltip_messege(locator=directions_number_of_repetitions_input_rezerv_2,
-                                    text=input_0_65535_not_necessary)
+                                    text=input_1_99)
 
     # Направления - Адрес
     def tooltip_directions_address(self):
