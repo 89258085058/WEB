@@ -22,7 +22,7 @@ Timeout_on_error_rezerv_2 = '(//*[.="Таймаут при ошибке *"]//inp
 
 # Интервал тестирования
 Test_interval_main = '(//*[.="Интервал тестирования"]//input)[1]'
-Test_interval_rezerv_1 = '(//div[@class = "channel-settings"])[2]//*[.="Интервал тестирования"]//input'
+Test_interval_rezerv_1 = '(//*[.="Интервал тестирования"]//input)[2]'
 Test_interval_rezerv_2 = '(//*[.="Интервал тестирования"]//input)[3]'
 
 # Адрес

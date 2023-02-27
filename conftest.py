@@ -49,16 +49,6 @@ def app(request):
         fixture.session.ensure_login(username=logAndPas["username"], password=logAndPas["password"])
         return fixture
 
-    if request.config.getoption("--device") == 'emulator':
-        browser = request.config.getoption("--browser")
-        web_config = load_config(request.config.getoption("--target"))["emulator"]
-        logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
-
-        fixture = Application(browser=browser, base_url=web_config["baseUrl_emulator"],
-                              base_url_for_check=web_config["baseUrl_emulator_signal"])
-        fixture.session.ensure_login_remote(username=logAndPas["username"], password=logAndPas["password"])
-        return fixture
-
 
 @pytest.fixture(scope='class', autouse=True)
 def stop(request):
@@ -75,7 +65,6 @@ def pytest_addoption(parser):
     # parser.addoption("--browser", action='store', default="Firefox")
     parser.addoption("--target", action='store', default="target.json")
     parser.addoption("--device", action='store', default="local")
-    # parser.addoption("--device", action='store', default="emulator")
 
 
 @pytest.hookimpl(hookwrapper=True)
