@@ -63,7 +63,7 @@ class TestUIJournal:
                                  (35, 'Событие \"Колокольчик\"'),
                                  (36, 'Количество событий по зоне')
                              ])
-    def test_evt_from_sensor(self, app, open_tab_journal, z_event, description):
+    def test_evt_from_sensor(self, app, extend_time, open_tab_journal, z_event, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_sensor(z_event, description)
 
@@ -80,7 +80,7 @@ class TestUIJournal:
                                  ('Ниже нормы.', 1),
                                  ('Выше нормы.', 2),
                              ])
-    def test_evt_from_sensor_climate(self, app, open_tab_journal, z_event, description, type_evt, value_type_evt):
+    def test_evt_from_sensor_climate(self, app, extend_time, open_tab_journal, z_event, description, type_evt, value_type_evt):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_sensor_climate(z_event, description, type_evt, value_type_evt)
 
@@ -111,7 +111,7 @@ class TestUIJournal:
                                  (21, 'Свободное событие'),
                                  (22, 'Переключение выхода')
                              ])
-    def test_evt_from_key(self, app, open_tab_journal, p_event, description):
+    def test_evt_from_key(self, app, extend_time, open_tab_journal, p_event, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_key(p_event, description)
 
@@ -153,7 +153,7 @@ class TestUIJournal:
                                  ('Орион', 18),
                                  ('Управление по USB', 21)
                              ])
-    def test_evt_from_matrix(self, app, open_tab_journal, p_event, description, type_evt, value_type_evt):
+    def test_evt_from_matrix(self, app, extend_time, open_tab_journal, p_event, description, type_evt, value_type_evt):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_matrix(p_event, description, type_evt, value_type_evt)
 
@@ -200,7 +200,7 @@ class TestUIJournal:
                                  (66, 'Ошибка обновления на новую прошивку из-за несоответствия аппаратной версии'),
                                  (67, 'Ошибка проверки CRC')
                              ])
-    def test_evt_from_bl(self, app, open_tab_journal, value_bievent, description):
+    def test_evt_from_bl(self, app, extend_time, open_tab_journal, value_bievent, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_bl(value_bievent, description)
 
@@ -216,7 +216,7 @@ class TestUIJournal:
                                  (7, 'Отмена обновления ПО РУ'),
 
                              ])
-    def test_evt_from_fw(self, app, open_tab_journal, value_event, description):
+    def test_evt_from_fw(self, app, extend_time, open_tab_journal, value_event, description):
         with allure.step(f"Проверка события {description}"):
             app.PO_Journal.event_evt_from_fw(value_event, description)
 
@@ -237,7 +237,7 @@ class TestUIJournal:
                                  (11, 'Синхронизация времени по PSUTTZ выполнена успешно'),
                                  (12, 'Ошибка синхронизации времени по PSUTTZ'),
                              ])
-    def test_evt_from_time_sync(self, app, open_tab_journal, value_event, description):
+    def test_evt_from_time_sync(self, app, extend_time, open_tab_journal, value_event, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_time_sync(value_event, description)
 
@@ -268,7 +268,7 @@ class TestUIJournal:
                                  (22, 'Питание от внешнего источника не предусмотрено в этом исполнении прибора'),
                                  (23, 'Питание от внешней батареи не предусмотрено в этом исполнении прибора')
                              ])
-    def test_evt_from_ps(self, app, open_tab_journal, value_event, description):
+    def test_evt_from_ps(self, app, extend_time, open_tab_journal, value_event, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_ps(value_event, description)
 
@@ -286,7 +286,7 @@ class TestUIJournal:
                                  ('SMS', 1),
                                  ('WEB', 2),
                              ])
-    def test_evt_from_login(self, app, open_tab_journal, value_login_status, description, type_auth, value_type_auth):
+    def test_evt_from_login(self, app, extend_time, open_tab_journal, value_login_status, description, type_auth, value_type_auth):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_login(value_login_status, description, type_auth, value_type_auth)
 
@@ -320,7 +320,7 @@ class TestUIJournal:
                                  (24, 'Ошибка. Сим-карта не готова'),
                                  (25, 'Ошибка. Сим-карта отсутствует')
                              ])
-    def test_evt_from_gsm_module(self, app, open_tab_journal, value_event, description):
+    def test_evt_from_gsm_module(self, app, extend_time, open_tab_journal, value_event, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_gsm_module(value_event, description)
 
@@ -333,7 +333,7 @@ class TestUIJournal:
                                  (4, 'Отсутствует направление'),
                                  (5, 'Повторная попытка отправки'),
                              ])
-    def test_evt_from_channel(self, app, open_tab_journal, value_status, description):
+    def test_evt_from_channel(self, app, extend_time, open_tab_journal, value_status, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_channel(value_status, description)
 
@@ -355,7 +355,7 @@ class TestUIJournal:
                                  ('Резервный', 1),
                                  ('Второй резервный', 2),
                              ])
-    def test_evt_from_test(self, app, open_tab_journal, value_test_type, description, state, value_state, channel, value_channel):
+    def test_evt_from_test(self, app, extend_time, open_tab_journal, value_test_type, description, state, value_state, channel, value_channel):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_test(value_test_type, description, state, value_state, channel, value_channel)
 
@@ -365,7 +365,7 @@ class TestUIJournal:
                                  (0, 'Источник неизвестен'),
                                  (1, 'Неподдерживаемое СМС от пользователя')
                              ])
-    def test_evt_from_text_string(self, app, open_tab_journal, value_source, description):
+    def test_evt_from_text_string(self, app, extend_time, open_tab_journal, value_source, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_text_string(value_source, description)
 
@@ -406,7 +406,7 @@ class TestUIJournal:
                                  (3, 'Неисправность', 4, 'На выходе низкое напряжение'),
                                  (3, 'Неисправность', 5, 'Обрыв выхода')
                              ])
-    def test_evt_from_output(self, app, set_name_for_exit_two, open_tab_journal, value_out_event_type,
+    def test_evt_from_output(self, app, extend_time, set_name_for_exit_two, open_tab_journal, value_out_event_type,
                              description_out_event_type, value, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_output(value_out_event_type, description_out_event_type, value, description)
@@ -475,7 +475,7 @@ class TestUIJournal:
                               (65, 'С2000Р-ОПР'),
                               (66, 'Количество поддерживаемых типов устройств С2000Р')
                               ])
-    def test_evt_from_system_action_sensor(self, app, open_tab_journal, value_sys_evt_type,
+    def test_evt_from_system_action_sensor(self, app, extend_time, open_tab_journal, value_sys_evt_type,
                                            description_sys_evt_type, value_sensor_type, description_sensor_type):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_system_action_sensor(value_sys_evt_type, description_sys_evt_type,
@@ -503,7 +503,7 @@ class TestUIJournal:
                                  (5, 'Отметка наряда. По факту приложения ключа к считывателю формируется событие '
                                      '"Отметка наряда", которое может передаваться по каналам трансляции')
                              ])
-    def test_evt_from_system_action_key(self, app, open_tab_journal, value_sys_evt_type,
+    def test_evt_from_system_action_key(self, app, extend_time, open_tab_journal, value_sys_evt_type,
                                         description_sys_evt_type, value_access_law, description_access_law):
         with allure.step(f"Проверка события "):
             app.PO_Journal.event_evt_from_system_action_key(value_sys_evt_type, description_sys_evt_type,
@@ -519,7 +519,7 @@ class TestUIJournal:
                                  (13, 'Устройство было перезагружено'),
                                  (14, 'Баланс ниже порога')
                              ])
-    def test_evt_from_system(self, app, open_tab_journal, value_sys_evt_type, description_sys_evt_type):
+    def test_evt_from_system(self, app, extend_time, open_tab_journal, value_sys_evt_type, description_sys_evt_type):
         with allure.step(f"Проверка события {description_sys_evt_type}"):
             app.PO_Journal.event_evt_from_system(value_sys_evt_type, description_sys_evt_type)
 
@@ -531,7 +531,7 @@ class TestUIJournal:
                                  (6, 'Добавлен или изменен пользователь', 255),
                                  (7, 'Удалён пользователь', 0),
                              ])
-    def test_evt_from_system_add_and_delete_user(self, app, open_tab_journal, value_sys_evt_type,
+    def test_evt_from_system_add_and_delete_user(self, app, extend_time, open_tab_journal, value_sys_evt_type,
                                                  description_sys_evt_type, value_settings_changes):
         with allure.step(f"Проверка события {description_sys_evt_type}"):
             app.PO_Journal.event_evt_from_system_add_and_delete_user(value_sys_evt_type, description_sys_evt_type,
@@ -568,7 +568,7 @@ class TestUIJournal:
                                  (21, 'Свободное событие'),
                                  (22, 'Переключение выхода')
                              ])
-    def test_evt_from_system_case_state(self, app, open_tab_journal, value_sys_evt_type, description_sys_evt_type,
+    def test_evt_from_system_case_state(self, app, extend_time, open_tab_journal, value_sys_evt_type, description_sys_evt_type,
                                         value_state, value_description, p_event, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_system_case_state(value_sys_evt_type, description_sys_evt_type,
@@ -586,24 +586,24 @@ class TestUIJournal:
                                  (4004, 'Неправильный пароль'),
                                  (4006, 'Нет прав администратора')
                              ])
-    def test_evt_from_control_command(self, app, open_tab_journal, value_state, description_state):
+    def test_evt_from_control_command(self, app, extend_time, open_tab_journal, value_state, description_state):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_сontrol_сommand(value_state, description_state)
 
 # *********************************************************************************************************************
 
     @allure.title("Проверка отображение страницы")
-    def test_display_items_on_journal_page(self, app, open_tab_journal):
+    def test_display_items_on_journal_page(self, app, extend_time, open_tab_journal):
         with allure.step("Проверка элементов на страницу"):
             app.PO_Journal.display_items_on_journal_page()
 
     @allure.title("Результаты фильтрации по разным полям")
-    def test_result_filters_for_fields(self, app, open_tab_journal):
+    def test_result_filters_for_fields(self, app, extend_time, open_tab_journal):
         with allure.step("Проверка результата фильтрации"):
             app.PO_Journal.assert_result_filters_for_fields()
 
     @allure.title("Сброс результатов фильтрации")
-    def test_reset_result_filters(self, app, open_tab_journal):
+    def test_reset_result_filters(self, app, extend_time, open_tab_journal):
         with allure.step("Проверка сброса"):
             app.PO_Journal.assert_reset_result_filters()
 
@@ -616,6 +616,6 @@ class TestJournalValidation:
 
     @allure.story("Журнал")
     @allure.title("Проверка ввода значений в поле 'Поиск'")
-    def test_display_items_on_journal_page(self, app, open_tab_journal):
+    def test_display_items_on_journal_page(self, app, extend_time, open_tab_journal):
         with allure.step("Проверка валидации поля"):
             app.PO_Zone_Path.input_seach()
