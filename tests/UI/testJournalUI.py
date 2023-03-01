@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-import time
 import allure
 import pytest
 
-reruns = 0
+reruns = 1
 
 
 @pytest.fixture()
@@ -12,6 +11,12 @@ def open_tab_journal(app):
         app.PO_Navigations.goToJournalPage()
     with allure.step("Зачистка журнала от событий"):
         app.endpoint.delete_all_events()
+
+
+@pytest.fixture(scope='class')
+def set_name_for_exit_two(app):
+    with allure.step("Установка имнени для второго выхода"):
+        app.PO_Journal.set_name_for_exit_two()
 
 
 @allure.label("owner", 'Александр Санталов')
@@ -319,7 +324,6 @@ class TestUIJournal:
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_gsm_module(value_event, description)
 
-    @pytest.mark.skip('Заведен баг по структуре тела')
     @allure.story("Проверка события EvtFromChannel")
     @pytest.mark.parametrize("value_status, description",
                              [
@@ -333,22 +337,27 @@ class TestUIJournal:
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_channel(value_status, description)
 
-    @pytest.mark.skip('Заведен баг по структуре тела')
     @allure.story("Проверка события EvtFromTest")
-    @pytest.mark.parametrize("value_login_status, description",
+    @pytest.mark.parametrize("value_test_type, description",
                              [
-                                 (0, 'смс'),
-                                 (1, 'звонок'),
-                                 (2, 'смс эгида 3'),
+                                 (0, 'Смс'),
+                                 (1, 'Звонок'),
+                                 (2, 'Смс эгида 3'),
                              ])
-    @pytest.mark.parametrize("type_auth, value_type_auth",
+    @pytest.mark.parametrize("state, value_state",
                              [
                                  ('Успешная передача', 0),
                                  ('Ошибка передачи', 1),
                              ])
-    def test_evt_from_test(self, app, open_tab_journal, value_login_status, description, type_auth, value_type_auth):
+    @pytest.mark.parametrize("channel, value_channel",
+                             [
+                                 ('Основной', 0),
+                                 ('Резервный', 1),
+                                 ('Второй резервный', 2),
+                             ])
+    def test_evt_from_test(self, app, open_tab_journal, value_test_type, description, state, value_state, channel, value_channel):
         with allure.step(f"Проверка события"):
-            app.PO_Journal.event_evt_from_test(value_login_status, description, type_auth, value_type_auth)
+            app.PO_Journal.event_evt_from_test(value_test_type, description, state, value_state, channel, value_channel)
 
     @allure.story("Проверка события EvtTextString")
     @pytest.mark.parametrize("value_source, description",
@@ -360,37 +369,36 @@ class TestUIJournal:
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_text_string(value_source, description)
 
-    @pytest.mark.skip('Заведен баг по структуре тела')
     @allure.story("Проверка события EvtFromOutput")
     @pytest.mark.parametrize("value_out_event_type, description_out_event_type, value, description",
                              [
                                  (0, 'Внешнее управление', 0, 'Выход Выключен'),
                                  (0, 'Внешнее управление', 1, 'Выход Включен'),
-                                 # (1, 'Событийное', 0, 'События нет'),
-                                 # (1, 'Событийное', 1, 'Раздел не используется'),
-                                 # (1, 'Событийное', 2, 'Невзятие'),
-                                 # (1, 'Событийное', 3, 'Ожидание квитанции'),
-                                 # (1, 'Событийное', 4, 'Раздел снят'),
-                                 # (1, 'Событийное', 5, 'Автовзятие'),
-                                 # (1, 'Событийное', 6, 'Задержка взятия'),
-                                 # (1, 'Событийное', 7, 'Принудительное взятие раздела'),
-                                 # (1, 'Событийное', 8, 'Квитанция получена'),
-                                 # (1, 'Событийное', 9, 'Раздел взят'),
-                                 # (1, 'Событийное', 10, 'Тревога входа'),
-                                 # (1, 'Событийное', 11, 'Тревога'),
-                                 # (1, 'Событийное', 12, 'Пожара нет'),
-                                 # (1, 'Событийное', 13, 'Пожар'),
-                                 # (1, 'Событийное', 14, 'Пожар по ручному извещателю'),
-                                 # (1, 'Событийное', 15, 'Тихая тревога'),
-                                 # (1, 'Событийное', 16, 'Включение выхода'),
-                                 # (1, 'Событийное', 17, 'Выключение выхода'),
-                                 # (1, 'Событийное', 18, 'Отметка наряда'),
-                                 # (1, 'Событийное', 19, 'Протечка воды'),
-                                 # (1, 'Событийное', 20, 'Сброс оповещателей тревоги и пожара'),
-                                 # (1, 'Событийное', 21, 'Свободное событие'),
-                                 # (1, 'Событийное', 22, 'Переключение выхода'),
-                                 # (2, 'Cобытие по температуре', 0, 'Выход Выключен'),
-                                 # (2, 'Cобытие по температуре', 1, 'Выход Включен'),
+                                 (1, 'Событийное', 0, 'События нет'),
+                                 (1, 'Событийное', 1, 'Раздел не используется'),
+                                 (1, 'Событийное', 2, 'Невзятие'),
+                                 (1, 'Событийное', 3, 'Ожидание квитанции'),
+                                 (1, 'Событийное', 4, 'Раздел снят'),
+                                 (1, 'Событийное', 5, 'Автовзятие'),
+                                 (1, 'Событийное', 6, 'Задержка взятия'),
+                                 (1, 'Событийное', 7, 'Принудительное взятие раздела'),
+                                 (1, 'Событийное', 8, 'Квитанция получена'),
+                                 (1, 'Событийное', 9, 'Раздел взят'),
+                                 (1, 'Событийное', 10, 'Тревога входа'),
+                                 (1, 'Событийное', 11, 'Тревога'),
+                                 (1, 'Событийное', 12, 'Пожара нет'),
+                                 (1, 'Событийное', 13, 'Пожар'),
+                                 (1, 'Событийное', 14, 'Пожар по ручному извещателю'),
+                                 (1, 'Событийное', 15, 'Тихая тревога'),
+                                 (1, 'Событийное', 16, 'Включение выхода'),
+                                 (1, 'Событийное', 17, 'Выключение выхода'),
+                                 (1, 'Событийное', 18, 'Отметка наряда'),
+                                 (1, 'Событийное', 19, 'Протечка воды'),
+                                 (1, 'Событийное', 20, 'Сброс оповещателей тревоги и пожара'),
+                                 (1, 'Событийное', 21, 'Свободное событие'),
+                                 (1, 'Событийное', 22, 'Переключение выхода'),
+                                 (2, 'Cобытие по температуре', 0, 'Выход Выключен'),
+                                 (2, 'Cобытие по температуре', 1, 'Выход Включен'),
                                  (3, 'Неисправность', 0, 'Cостояние выхода ещё не определено'),
                                  (3, 'Неисправность', 1, 'Аварии выхода нет'),
                                  (3, 'Неисправность', 2, 'Выход перегружен'),
@@ -398,8 +406,8 @@ class TestUIJournal:
                                  (3, 'Неисправность', 4, 'На выходе низкое напряжение'),
                                  (3, 'Неисправность', 5, 'Обрыв выхода')
                              ])
-    def test_evt_from_output(
-            self, app, open_tab_journal, value_out_event_type, description_out_event_type, value, description):
+    def test_evt_from_output(self, app, set_name_for_exit_two, open_tab_journal, value_out_event_type,
+                             description_out_event_type, value, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_output(value_out_event_type, description_out_event_type, value, description)
 
@@ -501,13 +509,10 @@ class TestUIJournal:
             app.PO_Journal.event_evt_from_system_action_key(value_sys_evt_type, description_sys_evt_type,
                                                             value_access_law, description_access_law)
 
-    @pytest.mark.skip('Заведен баг по структуре тела')
     @allure.story("Проверка события EvtSystem")
     @allure.title("Проверка отображение событий для EvtSystem")
     @pytest.mark.parametrize("value_sys_evt_type, description_sys_evt_type",
                              [
-                                 (6, 'Добавлен или изменен пользователь'),
-                                 (7, 'Удалён пользователь'),
                                  (8, 'Добавлено или изменено направление'),
                                  (9, 'Удалено направление'),
                                  (10, 'Событие от загрузчика'),
@@ -517,6 +522,20 @@ class TestUIJournal:
     def test_evt_from_system(self, app, open_tab_journal, value_sys_evt_type, description_sys_evt_type):
         with allure.step(f"Проверка события {description_sys_evt_type}"):
             app.PO_Journal.event_evt_from_system(value_sys_evt_type, description_sys_evt_type)
+
+    @allure.story("Проверка события EvtSystem")
+    @allure.title("Проверка отображение событий для EvtSystem")
+    @pytest.mark.parametrize("value_sys_evt_type, description_sys_evt_type, value_settings_changes",
+                             [
+                                 (6, 'Добавлен или изменен пользователь', 0),
+                                 (6, 'Добавлен или изменен пользователь', 255),
+                                 (7, 'Удалён пользователь', 0),
+                             ])
+    def test_evt_from_system_add_and_delete_user(self, app, open_tab_journal, value_sys_evt_type,
+                                                 description_sys_evt_type, value_settings_changes):
+        with allure.step(f"Проверка события {description_sys_evt_type}"):
+            app.PO_Journal.event_evt_from_system_add_and_delete_user(value_sys_evt_type, description_sys_evt_type,
+                                                                     value_settings_changes)
 
     @allure.story("Проверка события EvtSystem")
     @allure.title("Проверка отображение событий для EvtSystem по параметру SYS_EVENT_CASE_STATE")
@@ -555,7 +574,7 @@ class TestUIJournal:
             app.PO_Journal.event_evt_from_system_case_state(value_sys_evt_type, description_sys_evt_type,
                                                             value_state, value_description, p_event, description)
 
-    @pytest.mark.skip('Заведен баг по структуре тела')
+    @pytest.mark.skip('Не разработано на фронте')
     @allure.story("Журнал")
     @allure.title("Проверка отображение событий для EvtFromControlCommand")
     @pytest.mark.parametrize("value_state, description_state",

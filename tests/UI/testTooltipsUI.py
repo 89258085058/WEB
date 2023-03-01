@@ -295,6 +295,7 @@ class Test01TooltipsMassege:
         with allure.step("Проверка подсказки: Включить энергосберегающий режим"):
             app.PO_Tooltips.tooltip_settings_device_enable_power_saving_mode()
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
 @allure.feature("Настройки")
@@ -508,6 +509,7 @@ class Test02TooltipsMassege:
             app.PO_Settings.open_volum_indication_events()
         with allure.step("Проверка подсказки: Снятие раздела"):
             app.PO_Tooltips.tooltip_settings_volum_indications_Removing_partition()
+
 
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
@@ -741,6 +743,7 @@ class Test03TooltipsMassege:
         with allure.step("Проверка подсказки: Маска подсети"):
             app.PO_Tooltips.tooltip_settings_ethernet_Subnet_mask()
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
 @allure.feature("Настройки")
@@ -960,6 +963,7 @@ class Test04TooltipsMassege:
             app.PO_Settings.Synchronization_via_NTP_HTP_click()
         with allure.step("Проверка подсказки: Адрес сервера"):
             app.PO_Tooltips.tooltip_settings_date_time_drop_list_ntp_input()
+
 
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
@@ -1237,6 +1241,7 @@ class Test05TooltipsMassege:
         with allure.step("Проверка подсказки: Альтернативный DNS сервер"):
             app.PO_Tooltips.tooltip_settings_ethernet_Alternative_DNS_Server_input()
 
+
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
 @allure.feature("Настройки")
@@ -1452,6 +1457,7 @@ class Test01TooltipsMassegeUsersKeys():
     def test_users_keys_keys_tooltip_2(self, app, keys_settings, close_modal):
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_user_keys_keys_user()
+
 
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
 @allure.feature("Пользователи и ключи")
@@ -1671,6 +1677,7 @@ class Test01TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_test_method()
 
+
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
 @allure.feature("Направления")
 @pytest.mark.flaky(reruns=reruns)
@@ -1797,7 +1804,7 @@ class Test02TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_encryption()
 
-    @pytest.mark.skip("Не реализованно")
+    # @pytest.mark.skip("Не реализованно")
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
     @allure.title("Направления - DC09 - Ключ шифрования - Основной канал")
@@ -1903,6 +1910,7 @@ class Test02TooltipsMassegeDirections():
             app.PO_Directions.openType_main('DC09')
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_confirmation_timeout_sec_input()
+
 
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
 @allure.feature("Направления")
@@ -2193,7 +2201,7 @@ class Test03TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_encryption_rezerv_1()
 
-    @pytest.mark.skip("Не реализованно")
+    # @pytest.mark.skip("Не реализованно")
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
     @allure.title("Направления - DC09 - Ключ шифрования - Резервный канал 1")
@@ -2209,6 +2217,7 @@ class Test03TooltipsMassegeDirections():
             app.PO_Directions.openType_rezerv_1('DC09')
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_encryption_keyn_rezerv_1()
+
 
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
 @allure.feature("Направления")
@@ -2506,6 +2515,7 @@ class Test04TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_test_rezerv_2()
 
+
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
 @allure.feature("Направления")
 @pytest.mark.flaky(reruns=reruns)
@@ -2659,7 +2669,7 @@ class Test05TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_encryption_rezerv_2()
 
-    @pytest.mark.skip("Не реализованно")
+    # @pytest.mark.skip("Не реализованно")
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
     @allure.title("Направления - DC09 - Ключ шифрования - Резервный канал 2")
@@ -2789,6 +2799,7 @@ class Test05TooltipsMassegeDirections():
             app.PO_Directions.openType_rezerv_2('DC09')
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_port_input_rezerv_2()
+
 
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
 @allure.feature("Направления")

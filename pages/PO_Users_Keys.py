@@ -38,7 +38,7 @@ class UsersKeysHelper:
         time.sleep(1)
 
     # Клик по кнопке Ключи/Настройки
-    def PushKeysSettingsButton(self, locator=user_settings_button):
+    def PushKeysSettingsButton(self, locator=btn_add_key):
         time.sleep(1)
         self.app.method.click((By.XPATH, locator))
         time.sleep(1)

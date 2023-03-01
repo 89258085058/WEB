@@ -18,7 +18,10 @@ class EndpointHelper:
                                "PartitionsMask": 2,
                                "SourceID": 1,
                                "UserID": 0,
-                               "Z_Event": z_event
+                               "Z_Event": z_event,
+                               "NotTakenSensors": [4],
+                               "NotTakeFireFlag": 1,
+                               "TemporaryDisabledSensors": [4]
                            },
                            "EventType": event_type,
                        } | self.common_json
@@ -62,7 +65,10 @@ class EndpointHelper:
                                "PartitionsMask": 2,
                                "SourceID": 1,
                                "UserID": 0,
-                               "KeyID": 1
+                               "KeyID": 1,
+                               "NotTakenSensors": [4],
+                               "NotTakeFireFlag": 1,
+                               "TemporaryDisabledSensors": [4]
                            },
                            "EventType": 3,
                        } | self.common_json
@@ -227,7 +233,25 @@ class EndpointHelper:
                                "SysEvtType": value_sys_evt_type,
                                "SysObjectID": 5,
                                "SysEventUserID": 0,
-                               "settingsChanges": 0
+                               "channel0Type": 0,
+                               "channel1Type": 2,
+                               "channel2Type": 1,
+                               "Balance": 100,
+                               "phoneNumber": 89167115555
+                           },
+                           "EventType": 7,
+                       } | self.common_json
+        }
+        return data
+
+    def generate_json_for_system_add_delete_user(self, value_sys_evt_type, value_settings_changes):
+        data = {
+            "journal": {
+                           "Event": {
+                               "SysEvtType": value_sys_evt_type,
+                               "SysObjectID": 5,
+                               "SysEventUserID": 0,
+                               "settingsChanges": value_settings_changes
                            },
                            "EventType": 7,
                        } | self.common_json
@@ -252,46 +276,37 @@ class EndpointHelper:
     def generate_json_for_assert_filters(self, p_event, z_event, event_type, time, name):
         data = {
             "journal": {
-                           "Event": {
-                               "P_Event": p_event,
-                               "PartitionsMask": 2,
-                               "SourceID": 1,
-                               "UserID": 0,
-                               "Z_Event": z_event
-                           },
-                           "EventType": event_type,
-                           "EventID": 0,
-                           "timeZone15Min": 12,
-                           "datetime": time,
-                           "UserName": name
-                       }
+                "Event": {
+                    "P_Event": p_event,
+                    "PartitionsMask": 2,
+                    "SourceID": 1,
+                    "UserID": 0,
+                    "Z_Event": z_event
+                },
+                "EventType": event_type,
+                "EventID": 0,
+                "timeZone15Min": 12,
+                "datetime": time,
+                "UserName": name
+            }
         }
         return data
 
     def create_event_for_filters(self, p_event, z_event, event_type, time, name):
         data = self.generate_json_for_assert_filters(p_event, z_event, event_type, time, name)
         requests.post(f'{base_url}/generate/', json=data)
-"""
-{
-    "journal": {
-        "Event": { 
-          "SysEvtType": 8, 
-          "SysObjectID": 10, 
-          "SysEventUserID": 0, 
-          "settingsChanges":0,
-          "channel0Type": 0,
-          "channel1Type":1,
-          "channel2Type": 2 
-        },
-        "num": 100000,
-        "EventID": 0,
-        "datetime": 1661221733,
-        "timeZone15Min": 28,
-        "EventType": 7,
-        "UserName": "Администратор"
-    }
-}
 
-"""
-
-# Доработать EvtSystem
+    def generate_json_for_test(self, value_test_type, value_state, value_channel):
+        data = {
+            "journal": {
+                           "Event": {
+                               "datetime": 1661221727,
+                               "direction": 1,
+                               "channel": value_channel,
+                               "state": value_state,
+                               "testType": value_test_type
+                           },
+                           "EventType": 16,
+                       } | self.common_json
+        }
+        return data

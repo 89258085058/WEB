@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-import datetime
 import time
 
 import allure
 from selenium.webdriver.common.by import By
-
+from locators.zone_path_locators import name_out_2
 from locators.journal_locators import *
 from dataclasses import dataclass
 
@@ -91,8 +90,16 @@ class JournalHelper:
         locator = self.get_locator_for_section(key_id)
         self.assert_equal_event_and_value_date(locator)
         self.app.method.assert_element_text(locator + '//p', f'15:04:50 | {description}: Раздел № 01, Test')
-        text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nКлюч: 1' \
-                    f'\nИсточник: Ключ\nДата и время: 01.01.2022 15:04:50'
+        if key_id == 2:
+            text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nКлюч: 1' \
+                        f'\nИсточник: Ключ\nНевзятые датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
+        elif key_id == 7:
+            text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nКлюч: 1' \
+                        f'\nИсточник: Ключ\nВременно отключенные датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
+        else:
+            text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nКлюч: 1' \
+                        f'\nИсточник: Ключ\nДата и время: 01.01.2022 15:04:50'
+
         self.open_event(locator)
         self.app.method.assert_element_text(locator + '//div[@class="card-body"]', text_body)
 
@@ -109,12 +116,26 @@ class JournalHelper:
         self.assert_equal_event_and_value_date(locator)
         if type_evt == 'Брелок':
             self.app.method.assert_element_text(locator + '//p', f'15:04:50 | {description}: Раздел № 01, Брелок №1, Test')
-            text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nБрелок: Брелок №1' \
-                        f'\nДата и время: 01.01.2022 15:04:50'
+            if p_event == 2:
+                text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nБрелок: Брелок №1' \
+                            f'\nНевзятые датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
+            elif p_event == 7:
+                text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nБрелок: Брелок №1' \
+                            f'\nВременно отключенные датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
+            else:
+                text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nБрелок: Брелок №1' \
+                            f'\nДата и время: 01.01.2022 15:04:50'
         else:
             self.app.method.assert_element_text(locator + '//p', f'15:04:50 | {description}: Раздел № 01, Test')
-            text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nИсточник: {type_evt}' \
-                        f'\nДата и время: 01.01.2022 15:04:50'
+            if p_event == 2:
+                text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nИсточник: {type_evt}' \
+                            f'\nНевзятые датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
+            elif p_event == 7:
+                text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nИсточник: {type_evt}' \
+                            f'\nВременно отключенные датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
+            else:
+                text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nИсточник: {type_evt}' \
+                            f'\nДата и время: 01.01.2022 15:04:50'
         self.open_event(locator)
         self.app.method.assert_element_text(locator + '//div[@class="card-body"]', text_body)
 
@@ -214,10 +235,25 @@ class JournalHelper:
     def assert_evt_from_channel(self, description):
         self.assert_equal_event_and_value_date(event_info)
         self.app.method.assert_element_text(event_info + '//p', f'15:04:50 | {description}')
-        # text_body = f'Событие: {description}\nИсточник: Аутентификация\nТип авторизации: {type_auth}' \
-        #             f'\nДата и время: 01.01.2022 15:04:50'
-        # self.open_event(event_info)
-        # self.app.method.assert_element_text(event_info + '//div[@class="card-body"]', text_body)
+        text_body = f'Количество попыток передачи: 1\nНомер направления: 1\nНомер канала: 1' \
+                    f'\nДата и время: 01.01.2022 15:04:50'
+        self.open_event(event_info)
+        self.app.method.assert_element_text(event_info + '//div[@class="card-body"]', text_body)
+
+    def event_evt_from_test(self, value_test_type, description, state, value_state, channel, value_channel):
+        with allure.step("Эмуляция события по api"):
+            data = self.app.endpoint.generate_json_for_test(value_test_type, value_state, value_channel)
+            self.app.endpoint.create_event(data)
+        with allure.step(f"Проверка отображения события"):
+            self.assert_evt_from_test(description, state, channel)
+
+    def assert_evt_from_test(self, description, state, channel):
+        self.assert_equal_event_and_value_date(event_info)
+        self.app.method.assert_element_text(event_info + '//p', f'15:04:50 | Тестирование направления: {state}')
+        text_body = f'Дата и время проведения тестирования: 20.01.1970 08:27:01\nНаправление: 1\nКанал: {channel}' \
+                    f'\nТип события: {description}\nДата и время: 01.01.2022 15:04:50'
+        self.open_event(event_info)
+        self.app.method.assert_element_text(event_info + '//div[@class="card-body"]', text_body)
 
     def event_evt_from_text_string(self, value_source, description):
         with allure.step("Эмуляция события по api"):
@@ -255,9 +291,9 @@ class JournalHelper:
             locator = event_warning
         self.assert_equal_event_and_value_date(locator)
         self.app.method.assert_element_text(
-            locator + '//p', f'15:04:50 | {description_out_event_type}: Выход №02, 100')
+            locator + '//p', f'15:04:50 | {description_out_event_type}: output_second, 100')
 
-        text_body = f'Событие: {description_out_event_type}\nВыход: № 2, «Выход №02», 100\nИсточник: Выход' \
+        text_body = f'Событие: {description_out_event_type}\nВыход: № 2, «0», 100\nИсточник: Выход' \
                     f'\n{param}{description}\nДата и время: 01.01.2022 15:04:50'
         self.open_event(locator)
         self.app.method.assert_element_text(locator + '//div[@class="card-body"]', text_body)
@@ -300,12 +336,42 @@ class JournalHelper:
             data = self.app.endpoint.generate_json_for_system_standard(value_sys_evt_type)
             self.app.endpoint.create_event(data)
         with allure.step(f"Проверка отображения события"):
-            self.assert_evt_from_system(description_sys_evt_type)
+            self.assert_evt_from_system(value_sys_evt_type, description_sys_evt_type)
 
-    def assert_evt_from_system(self, description_sys_evt_type):
+    def assert_evt_from_system(self, value_sys_evt_type, description_sys_evt_type):
         self.assert_equal_event_and_value_date(event_info)
         self.app.method.assert_element_text(event_info + '//p', f'15:04:50 | {description_sys_evt_type}')
-        text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система\nДата и время: 01.01.2022 15:04:50'
+        if value_sys_evt_type in [8, 9]:
+            text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система\nОсновной канал: Выключен' \
+                        f'\nПервый резеврный канал: СМС Эгида 3\nВторой резервный канал: СМС пользователю' \
+                        f'\nДата и время: 01.01.2022 15:04:50'
+        elif value_sys_evt_type == 14:
+            text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система\nБаланс: 100' \
+                        f'\nНомер телефона: 89167115555\nДата и время: 01.01.2022 15:04:50'
+        else:
+            text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система\nДата и время: 01.01.2022 15:04:50'
+        self.open_event(event_info)
+        self.app.method.assert_element_text(event_info + '//div[@class="card-body"]', text_body)
+
+    def event_evt_from_system_add_and_delete_user(
+            self, value_sys_evt_type, description_sys_evt_type, value_settings_changes):
+        with allure.step("Эмуляция события по api"):
+            data = self.app.endpoint.generate_json_for_system_add_delete_user(value_sys_evt_type, value_settings_changes)
+            self.app.endpoint.create_event(data)
+        with allure.step(f"Проверка отображения события"):
+            self.assert_evt_from_system_add_delete_user(description_sys_evt_type, value_settings_changes)
+
+    def assert_evt_from_system_add_delete_user(self, description_sys_evt_type, value_settings_changes):
+        self.assert_equal_event_and_value_date(event_info)
+        self.app.method.assert_element_text(event_info + '//p', f'15:04:50 | {description_sys_evt_type}')
+        settings_description = 'Изменилось имя, Изменился логин, Изменился пароль, Изменился номер телефона, ' \
+                               'Изменилась маска разделов, Изменилась структура настроек, Изменился пароль ' \
+                               'управления по телефону'
+        if value_settings_changes == 0:
+            text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система\nДата и время: 01.01.2022 15:04:50'
+        else:
+            text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система\nНастройки пользователя: ' \
+                        f'{settings_description}\nДата и время: 01.01.2022 15:04:50'
         self.open_event(event_info)
         self.app.method.assert_element_text(event_info + '//div[@class="card-body"]', text_body)
 
@@ -489,3 +555,9 @@ class JournalHelper:
         self.app.method.assertValues(None, field_time)
         self.app.method.assertValues(None, field_date)
 
+    def set_name_for_exit_two(self):
+        self.app.PO_Navigations.goToZonePathPage()
+        self.app.PO_Navigations.goToZonePathOuts()
+        self.app.PO_Settings.edit_button_click()
+        self.app.method.inputValues("output_second", name_out_2)
+        self.app.PO_Zone_Path.save_button_click()
