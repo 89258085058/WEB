@@ -2,7 +2,7 @@
 import requests
 from dataclasses import dataclass
 
-base_url = "http://192.168.22.169/signal/journal/80340089"
+base_url = "http://192.168.22.169/signal/"
 
 
 @dataclass
@@ -49,12 +49,12 @@ class EndpointHelper:
 
     def create_event(self, data):
         wd = self.app.wd
-        requests.post(f'{base_url}/generate/', json=data)
+        requests.post(f'{base_url}journal/80340089/generate/', json=data)
         wd.refresh()
 
     def delete_all_events(self):
         wd = self.app.wd
-        requests.delete(f'{base_url}/delete/')
+        requests.delete(f'{base_url}journal/80340089/delete/')
         wd.refresh()
 
     def generate_json_for_evt_from_key(self, p_event):
@@ -294,7 +294,7 @@ class EndpointHelper:
 
     def create_event_for_filters(self, p_event, z_event, event_type, time, name):
         data = self.generate_json_for_assert_filters(p_event, z_event, event_type, time, name)
-        requests.post(f'{base_url}/generate/', json=data)
+        requests.post(f'{base_url}journal/80340089/generate/', json=data)
 
     def generate_json_for_test(self, value_test_type, value_state, value_channel):
         data = {
@@ -310,3 +310,89 @@ class EndpointHelper:
                        } | self.common_json
         }
         return data
+
+    # Добавление раздела с заданным статусом
+
+    def add_partition_with_status(self, value_status):
+        if value_status in [13, 14]:
+            security = 2
+            state = value_status
+        else:
+            security = value_status
+            state = 2
+        data = {
+            "Partition": {
+                "id": 3,
+                "used": 1,
+                "name": "fake_part",
+                "ControlPartitions": 0,
+                "AutoTakeFromNotTakeEn": 0,
+                "AutoTakeFromAlarmEn": 0,
+                "TakeDelayEn": 0,
+                "PartExtNumber": 3,
+                "SecurityState": security,
+                "FireAlarmState": state,
+                "ConfigAllowed": 1
+            }
+        }
+        return data
+
+    def add_partition_status(self, data):
+        wd = self.app.wd
+        requests.post(f'{base_url}partition/80340089/generate/', json=data)
+        wd.refresh()
+
+    def add_sensor_status(self, data):
+        wd = self.app.wd
+        requests.post(f'{base_url}sensor/80340089/generate/', json=data)
+        wd.refresh()
+
+    def add_sensor_with_status(self, z_event):
+        data = {
+            "Sensors": {
+                "num": 10,
+                "used": 1,
+                "MainStatus": z_event,
+                "SignalLevel": -54,
+                "SupplyMainVoltage": 3090,
+                "SerialNumber": 100000018,
+                "HardwareVersion": 256,
+                "FirmwareVersion": 262,
+                "radioProtVer": 0,
+                "name": "FAKE",
+                "Partition": 3,
+                "ZoneType": 2,
+                "LedMode": 1,
+                "BellEnable": 0,
+                "Enable": 1,
+                "dwSerial": 100000017,
+                "bHWVer": 256,
+                "bSWVer": 262,
+                "bType": 5,
+                "networkDeviceType": 0,
+                "sensor": {
+                    "TrainState": 0,
+                    "TrainResistanseOhm": 0,
+                    "EnableSabotage": 0,
+                    "Legacy": 0,
+                    "Mode": 0
+                }
+            }
+        }
+        return data
+
+    def add_device(self, cokies):
+        headers = {"Authorization": f"JWT {cokies}"}
+
+        requests.post('http://192.168.22.169/devices/', json={"id_dev": "0", "name": "fake_signal", "status": 2,
+                                                              "type_num": 3, "is_active": True}, headers=headers)
+
+    def change_status_device(self, status):
+        wd = self.app.wd
+        data = {
+            "id_dev": "0",
+            "status": status,
+            "is_active": True
+        }
+        requests.patch('http://192.168.22.169/devices/0/local/', json=data)
+        wd.refresh()

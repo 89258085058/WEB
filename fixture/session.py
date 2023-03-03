@@ -86,6 +86,7 @@ class SessionHelper:
     def ensure_login_remote(self, username, password):
         self.login_remote(username, password)
 
+
     def display_and_hide(self, locator):
         try:
             wd = self.app.wd

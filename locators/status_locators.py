@@ -13,3 +13,9 @@ others_data_status_text = '//*[@id="app"]//div[@class="others-block card"]'
 # ------------Кнопки------------
 sim_1_button = '(//*[@id="app"]//i[@class="b-panel__header-icon"])[1]'
 sim_2_button = '(//*[@id="app"]//i[@class="b-panel__header-icon"])[2]'
+# ---Статусы
+status_primary = "//div[.='fake_part']/..//span[contains(@class, 'primary')]"
+status_success = "//div[.='fake_part']/..//span[contains(@class, 'success')]"
+status_secondary = "//div[.='fake_part']/..//span[contains(@class, 'secondary')]"
+status_warning = "//div[.='fake_part']/..//span[contains(@class, 'warning')]"
+status_danger = "//div[.='fake_part']/..//span[contains(@class, 'error')]"

@@ -575,7 +575,7 @@ class TestUIJournal:
                                                             value_state, value_description, p_event, description)
 
     @pytest.mark.skip('Не разработано на фронте')
-    @allure.story("Журнал")
+    @allure.story("Проверка события EvtFromControlCommand")
     @allure.title("Проверка отображение событий для EvtFromControlCommand")
     @pytest.mark.parametrize("value_state, description_state",
                              [
