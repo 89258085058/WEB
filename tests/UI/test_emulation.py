@@ -43,7 +43,7 @@ def precondition_for_device(app):
 @allure.epic("Тесты эмуляция статусов")
 @allure.feature("Проверки UI")
 @pytest.mark.flaky(reruns=reruns)
-class TestEmulation:
+class TestEmulationOne:
 
     @allure.story("Проверка статуса раздела")
     @pytest.mark.parametrize("value_status, description_status",
@@ -120,6 +120,13 @@ class TestEmulation:
     def test_assert_status_sensor(self, app, open_tab_sensors, z_event, description):
         with allure.step("Проверка статуса"):
             app.PO_Status.assert_status_sensor(z_event, description)
+
+
+@allure.label("owner", 'Александр Санталов')
+@allure.epic("Тесты эмуляция статусов")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestEmulationTwo:
 
     @allure.story("Проверка статуса устройства")
     @pytest.mark.parametrize("status, description",

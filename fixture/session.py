@@ -35,7 +35,7 @@ class SessionHelper:
                 self.app.method.click((By.XPATH, entry_button))
                 self.login_verification()
 
-    def login_remote(self, username, password):
+    def login_remote(self, username, password, param='only_remote'):
         with allure.step("Авторизация пользователя"):
             wd = self.app.wd
             wd.get(self.app.base_url)
@@ -43,13 +43,17 @@ class SessionHelper:
             self.app.method.inputValues('ant2001daniil', '//*[@id="password"]')
             self.app.method.click((By.XPATH, '//*[@id="app"]/main//span[.="Войти"]'))
             time.sleep(0.5)
-            self.app.method.click((By.XPATH, '//*[@id="app"]//button[.=" Перейти "]'))
+            if param == 'only_remote':
+                self.app.method.click((By.XPATH, '//*[@id="app"]//button[.=" Перейти "]'))
+            else:
+                self.app.method.click((By.XPATH, "//*[.='80340089']/../../..//button[2]"))
             time.sleep(1)
             window_after = wd.window_handles[1]
             wd.switch_to.window(window_after)
             self.app.method.inputValues(username, '//*[@id="username"]')
             self.app.method.inputValues(password, '//*[@id="password"]')
             self.app.method.click((By.XPATH, entry_button))
+            wd.set_window_size(1920, 1080)
 
     def login_enter(self, username, password):
         # wd.get(self.app.base_url)
@@ -86,6 +90,8 @@ class SessionHelper:
     def ensure_login_remote(self, username, password):
         self.login_remote(username, password)
 
+    def ensure_login_remote_local(self, username, password):
+        self.login_remote(username, password, param="remote-local")
 
     def display_and_hide(self, locator):
         try:

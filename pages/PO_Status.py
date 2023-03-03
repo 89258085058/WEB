@@ -139,7 +139,6 @@ class StatusHelper:
         wd = self.app.wd
         cookies = wd.get_cookies()[1].get('value')
         self.app.endpoint.add_device(cookies)
-        self.app.session.logout()
         wd.switch_to.window(wd.window_handles[0])
 
     def get_locator_for_device(self, status_device):
@@ -172,4 +171,3 @@ class StatusHelper:
         self.app.method.click_element_locate("//span[.='Удалить']")
         self.app.method.click_element_locate("//div[.=' Удалить ']")
         wd.switch_to.window(wd.window_handles[1])
-        self.app.session.login_enter("admin", "admin")
