@@ -16,6 +16,7 @@ class MethodsHelper:
     # Проверка перехода на нудную ручку
     def pageEndpoint(self, host: str, endpoint: str, locator: str):
         wd = self.app.wd
+        wd.set_window_size(1920, 1080)
         if wd.current_url == host + endpoint:
             pass
         else:

@@ -395,4 +395,3 @@ class EndpointHelper:
             "is_active": True
         }
         requests.patch('http://192.168.22.169/devices/0/local/', json=data)
-        wd.refresh()

@@ -53,7 +53,6 @@ class SessionHelper:
             self.app.method.inputValues(username, '//*[@id="username"]')
             self.app.method.inputValues(password, '//*[@id="password"]')
             self.app.method.click((By.XPATH, entry_button))
-            wd.set_window_size(1920, 1080)
 
     def login_enter(self, username, password):
         # wd.get(self.app.base_url)
