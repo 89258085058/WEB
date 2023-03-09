@@ -56,7 +56,7 @@ def app(request):
 
         fixture = Application(browser=browser, base_url=web_config["baseUrl_emulator"],
                               base_url_for_check=web_config["baseUrl_emulator_signal"])
-        fixture.session.ensure_login_remote(username=logAndPas["username"], password=logAndPas["password"])
+        fixture.session.ensure_login_remote_local(username=logAndPas["username"], password=logAndPas["password"])
         return fixture
 
 
@@ -98,5 +98,5 @@ def pytest_runtest_makereport():
 @pytest.fixture()
 def extend_time():
     if fixture.method.is_element_present('div.b-dialog'):
-        fixture.method.click_element_locate('//div[@class="before-logout-dialog-button"]/button')
+        fixture.method.check_hide_element('div.b-dialog', '//div[@class="before-logout-dialog-button"]/button')
 

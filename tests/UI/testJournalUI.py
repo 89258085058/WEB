@@ -23,7 +23,7 @@ def set_name_for_exit_two(app):
 @allure.epic("Тесты Журнал")
 @allure.feature("Проверки UI")
 @pytest.mark.flaky(reruns=reruns)
-class TestUIJournal:
+class TestUIJournalChapter1:
 
     @allure.story("Проверка события EvtFromSensor")
     @pytest.mark.parametrize("z_event, description",
@@ -240,6 +240,13 @@ class TestUIJournal:
     def test_evt_from_time_sync(self, app, extend_time, open_tab_journal, value_event, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_time_sync(value_event, description)
+
+
+@allure.label("owner", 'Александр Санталов')
+@allure.epic("Тесты Журнал")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestUIJournalChapter2:
 
     @allure.story("Проверка события EvtFromPS")
     @pytest.mark.parametrize("value_event, description",
