@@ -9,6 +9,7 @@ path_row = '//*[@id="app"]/main//div[@class="main-info"]'
 # ------------КНОПКИ------------
 add_path_button = '//*[@id="app"]//button[@class="BTN-indigo control-btn-desktop"]'
 settings_first_path_button = '(//*[@id="app"]//button[@class="BTN-secondary block BTN-auto-icon"][.="Настройки"])[1]'
+action_first_path_button = '(//*[@id="app"]//button[@class="BTN-primary block"][.="Снять"])[1]'
 settings_2_path_button = '(//*[@id="app"]//button[@class="BTN-secondary block BTN-auto-icon"][.="Настройки"])[2]'
 cancel_button = '(//*[.=" Отменить "]//div)[last()]'
 cross_close_button = '//*[@id="app"]/main//div[@class="reset-icon"]'
