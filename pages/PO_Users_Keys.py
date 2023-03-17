@@ -562,11 +562,22 @@ class UsersKeysHelper:
         self.assert_save_text()
         time.sleep(1)
 
+    def delete_all_keys(self):
+        wd = self.app.wd
+        for element in wd.find_elements(By.XPATH, '//button[.="Удалить"]'):
+            element.click()
+            self.app.method.click((By.XPATH, '//button[contains(@class, "close-icon")]'))
+
     # Удоление пользователя
     def delete_user(self):
         self.app.method.click((By.XPATH, delete_button_user))
         self.assert_save_text()
         time.sleep(1)
+
+    def delete_all_user(self):
+        while self.count_user() != 1:
+            self.app.method.click((By.XPATH, delete_button_user))
+            self.app.method.check_hide_element('button.close-icon', '//button[contains(@class, "close-icon")]')
 
     # Подсчет ключей
     def count_key(self):

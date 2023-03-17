@@ -43,10 +43,10 @@ class TestSaveKeys:
     def test_01_users_keys_save_data_key(self, app, goToKeys, close_modal):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
-        with allure.step("Предусловия добавления ключа"):
+        with allure.step("Удаляем все ключи, если они имеются"):
             count = app.PO_Users_Keys.count_key()
-            if count == 64:
-                app.PO_Users_Keys.delete_key()
+            if count > 0:
+                app.PO_Users_Keys.delete_all_keys()
         with allure.step("Добавления ключа"):
             app.PO_Users_Keys.data_key_for_save()
         with allure.step("Выход и повторный вход"):
@@ -136,10 +136,10 @@ class TestSaveUsers:
     def test_users_keys_save_data_user(self, app, goToUsers, close_modal):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
-        with allure.step("Предусловия добавления пользователя"):
+        with allure.step("Удаляем всех пользователей, если они имеются"):
             count = app.PO_Users_Keys.count_user()
-            if count == 64:
-                app.PO_Users_Keys.delete_user()
+            if count > 1:
+                app.PO_Users_Keys.delete_all_user()
         with allure.step("Создание пользователя"):
             app.PO_Users_Keys.data_user_for_save()
         with allure.step("Выход и повторный вход"):
