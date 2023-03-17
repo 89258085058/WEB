@@ -453,6 +453,17 @@ class MethodsHelper:
         wd.implicitly_wait(5)
         return True
 
+    def is_element_present_xpath(self, locator):
+        wd = self.app.wd
+        wd.implicitly_wait(0.1)
+        try:
+            wd.find_element(By.XPATH, locator)
+        except NoSuchElementException:
+            wd.implicitly_wait(5)
+            return False
+        wd.implicitly_wait(5)
+        return True
+
     def assert_element_text(self, locator, text):
         try:
             wd = self.app.wd

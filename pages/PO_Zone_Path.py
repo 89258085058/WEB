@@ -302,7 +302,7 @@ class ZonePathHelper:
     def settings_first_path_button(self):
         with allure.step("Клик по кнопке Настройки"):
             # Если раздел взят то снимаем его
-            if self.app.method.getText(action_first_path_button) == 'Снять':
+            if self.app.method.is_element_present_xpath(action_first_path_button):
                 self.app.method.click((By.XPATH, action_first_path_button))
             self.app.method.click((By.XPATH, settings_first_path_button))
 
