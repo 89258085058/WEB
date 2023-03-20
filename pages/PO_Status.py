@@ -38,6 +38,10 @@ class StatusHelper:
     def text_status_device(self):
         self.app.method.assertTextOnPage(device_data_status_text, device_status_text_content)
 
+    # Проверка полей на странице: блок 'Прибор'
+    def text_status_device_option(self):
+        self.app.method.assertTextOnPage(device_option_data_status_text, device_option_status_text_content)
+
     # Проверка полей на странице Прочее
     def text_status_others(self):
         self.app.method.assertTextOnPage(others_data_status_text, others_status_text_content)

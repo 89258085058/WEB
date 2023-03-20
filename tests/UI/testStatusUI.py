@@ -60,3 +60,9 @@ class TestStatusUI:
         with allure.step("Проверка названий полей"):
             app.PO_Status.text_status_others()
 
+    @allure.story("Проверка названий полей на странице")
+    @allure.title("Прибор")
+    def test_title_status_device_option(self, app, StatusPage):
+        with allure.step("Проверка названий полей"):
+            app.PO_Status.text_status_device_option()
+

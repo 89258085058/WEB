@@ -897,15 +897,15 @@ class TooltipsHelper:
 
     def tooltip_directions_confirmation_timeout_sec_input(self):
         self.assert_tooltip_messege(locator=directions_confirmation_timeout_sec_input,
-                                    text=input_0_99)
+                                    text=input_20_99)
 
     def tooltip_directions_confirmation_timeout_sec_input_rezerv_1(self):
         self.assert_tooltip_messege(locator=directions_confirmation_timeout_sec_input_rezerv_1,
-                                    text=input_0_99)
+                                    text=input_20_99)
 
     def tooltip_directions_confirmation_timeout_sec_input_rezerv_2(self):
         self.assert_tooltip_messege(locator=directions_confirmation_timeout_sec_input_rezerv_2,
-                                    text=input_0_99)
+                                    text=input_20_99)
 
     # Направления - Количество повторов
     def tooltip_directions_number_of_repetitions_DC09(self):

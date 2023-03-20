@@ -8,7 +8,8 @@ gsm_data_status_text_sim_1 = '(//*[@id="app"]//div[@class="accordion accordion--
 gsm_data_status_text_sim_2 = '(//*[@id="app"]//div[@class="accordion accordion--open"])[2]'
 power_data_status_text = '//*[@id="app"]//div[@class="power-block card"]'
 ethernet_data_status_text = '//*[@id="app"]//div[@class="ethernet-block card"]'
-device_data_status_text = '//*[@id="app"]//div[@class="device-state-block card"]'
+device_option_data_status_text = '(//*[@id="app"]//div[@class="device-state-block card"])[1]'
+device_data_status_text = '(//*[@id="app"]//div[@class="device-state-block card"])[2]'
 others_data_status_text = '//*[@id="app"]//div[@class="others-block card"]'
 # ------------Кнопки------------
 sim_1_button = '(//*[@id="app"]//i[@class="b-panel__header-icon"])[1]'
