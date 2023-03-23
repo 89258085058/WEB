@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=200&section=header&text=Добро%20пожаловать!%20&fontAlignY=35&fontSize=60&desc=%20Selenium%20SignalGSM%20&descAlignY=60&descSize=50&animation=twinkling&fontColor=E9E9E9F3&descAlign=60&fontAlign=35)
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=200&section=header&text=Добро%20пожаловать!%20&fontAlignY=35&fontSize=60&desc=%20Сервис%20Автоматизации тестирования%20&descAlignY=60&descSize=50&animation=twinkling&fontColor=E9E9E9F3&descAlign=60&fontAlign=35)
 
 
 
