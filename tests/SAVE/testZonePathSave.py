@@ -48,7 +48,7 @@ class TestZonePathOutsSave:
 
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения наименования - ВЫХОД №1")
-    def test_out_1_save_name(self, app, outs):
+    def test_out_1_save_name(self, app, repeat_auth, outs):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Внесение изменений в наименование выхода"):
@@ -65,7 +65,7 @@ class TestZonePathOutsSave:
 
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения наименования - ВЫХОД №2")
-    def test_out_2_save_name(self, app, outs):
+    def test_out_2_save_name(self, app, repeat_auth, outs):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Внесение изменений в наименование выхода"):
@@ -88,7 +88,7 @@ class TestZonePathOutsSave:
                                  ('Событийный'),
                                  ('Управляемый')
                              ])
-    def test_out_1_save_operating_mode(self, app, outs, operating_mod):
+    def test_out_1_save_operating_mode(self, app, repeat_auth, outs, operating_mod):
         with allure.step("Выбор режима работы"):
             app.PO_Zone_Path.select_working_mode_out_2('Выключен')
             app.PO_Zone_Path.select_working_mode_out_1(operating_mod)
@@ -104,7 +104,7 @@ class TestZonePathOutsSave:
 
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения выбора Режимов работы - ВЫХОД №1 - Температурный")
-    def test_out_1_save_operating_mode_1(self, app, outs):
+    def test_out_1_save_operating_mode_1(self, app, repeat_auth, outs):
         with allure.step("Выбор режима работы"):
             app.PO_Zone_Path.select_working_mode_out_2('Выключен')
             app.PO_Zone_Path.select_working_mode_out_1_temp('Температурный')
@@ -126,7 +126,7 @@ class TestZonePathOutsSave:
                                  ('Событийный'),
                                  ('Управляемый')
                              ])
-    def test_out_2_save_operating_mode(self, app, outs, operating_mod):
+    def test_out_2_save_operating_mode(self, app, repeat_auth, outs, operating_mod):
         with allure.step("Выбор режима работы"):
             app.PO_Zone_Path.select_working_mode_out_1('Выключен')
             app.PO_Zone_Path.select_working_mode_out_2(operating_mod)
@@ -142,7 +142,7 @@ class TestZonePathOutsSave:
 
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения выбора Режимов работы - ВЫХОД №2 - Температурный")
-    def test_out_2_save_operating_mode_1(self, app, outs):
+    def test_out_2_save_operating_mode_1(self, app, repeat_auth, outs):
         with allure.step("Выбор режима работы"):
             app.PO_Zone_Path.select_working_mode_out_1('Выключен')
             app.PO_Zone_Path.select_working_mode_out_2_temp('Температурный')
@@ -167,7 +167,7 @@ class TestZonePathOutsSave:
                                  ('Пожар'),
                                  ('Тревога')
                              ])
-    def test_out_1_save_operating_mode_event(self, app, outs, event):
+    def test_out_1_save_operating_mode_event(self, app, repeat_auth, outs, event):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Выбор режима работы"):
@@ -196,7 +196,7 @@ class TestZonePathOutsSave:
                                  ('Пожар'),
                                  ('Тревога')
                              ])
-    def test_out_2_save_operating_mode_event(self, app, outs, event):
+    def test_out_2_save_operating_mode_event(self, app, repeat_auth, outs, event):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Выбор режима работы"):
@@ -216,7 +216,7 @@ class TestZonePathOutsSave:
 
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения Режима работы - Температурный - ВЫХОД №1")
-    def test_out_1_save_operating_mode_temp(self, app, outs):
+    def test_out_1_save_operating_mode_temp(self, app, repeat_auth, outs):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Выбор режима работы"):
@@ -236,7 +236,7 @@ class TestZonePathOutsSave:
 
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения Режима работы - Температурный - ВЫХОД №2")
-    def test_out_2_save_operating_mode_temp(self, app, outs):
+    def test_out_2_save_operating_mode_temp(self, app, repeat_auth, outs):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Выбор режима работы"):
@@ -257,7 +257,7 @@ class TestZonePathOutsSave:
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения Режима работы - Управляемый - ВЫХОД №1")
     @pytest.mark.parametrize("Output_group_number", outs_test_list)
-    def test_out_1_save_operating_mode_managed(self, app, outs, Output_group_number):
+    def test_out_1_save_operating_mode_managed(self, app, repeat_auth, outs, Output_group_number):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Выбор режима работы"):
@@ -284,7 +284,7 @@ class TestZonePathOutsSave:
     @allure.story("ВЫХОДЫ")
     @allure.title("Проверка сохранения Режима работы - Управляемый - ВЫХОД №2")
     @pytest.mark.parametrize("Output_group_number", outs_test_list)
-    def test_out_2_save_operating_mode_managed(self, app, outs, Output_group_number):
+    def test_out_2_save_operating_mode_managed(self, app, repeat_auth, outs, Output_group_number):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Выбор режима работы"):
@@ -325,7 +325,7 @@ class TestZonePathOutsPATHSave:
                                  ('OFF', 'ON', 'OFF'),
                                  ('OFF', 'OFF', 'ON')
                              ])
-    def test_path_save_data(self, app, settings_path, close_modal, tumbler_1, tumbler_2, tumbler_3):
+    def test_path_save_data(self, app, repeat_auth, settings_path, close_modal, tumbler_1, tumbler_2, tumbler_3):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Внесение изменений в настройках раздела"):
@@ -344,7 +344,7 @@ class TestZonePathOutsPATHSave:
 
     @allure.story("РАЗДЕЛЫ")
     @allure.title("Проверка добавления максимального количества разделов c данными по умолчанию")
-    def test_path_add_max_path_1(self, app):
+    def test_path_add_max_path_1(self, app, repeat_auth):
         with allure.step("Переход на страницу Зоны Разделы"):
             app.PO_Navigations.goToZonePathPage()
         with allure.step("Переход на вкладку 'Разделы'"):
@@ -354,7 +354,7 @@ class TestZonePathOutsPATHSave:
 
     @allure.story("РАЗДЕЛЫ")
     @allure.title("Проверка добавления максимального количества разделов c заполнением данных")
-    def test_path_add_max_path_2(self, app):
+    def test_path_add_max_path_2(self, app, repeat_auth):
         with allure.step("Переход на страницу Зоны Разделы"):
             app.PO_Navigations.goToZonePathPage()
         with allure.step("Переход на вкладку 'Разделы'"):
@@ -364,7 +364,7 @@ class TestZonePathOutsPATHSave:
 
     @allure.story("РАЗДЕЛЫ")
     @allure.title("Проверка всплывающей ошибки при добавлении максимального количества разделов")
-    def test_path_add_max_error_window(self, app):
+    def test_path_add_max_error_window(self, app, repeat_auth):
         with allure.step("Переход на страницу Зоны Разделы"):
             app.PO_Navigations.goToZonePathPage()
         with allure.step("Переход на вкладку 'Разделы'"):
