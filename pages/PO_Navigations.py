@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import time
 from dataclasses import dataclass
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import allure
 from selenium.webdriver.common.by import By
 
@@ -89,8 +90,18 @@ class NavigationsHelper:
                                                         f" фактический адрес:'{wd.current_url}'***"
 
     def ExitAndEnter(self):
-        self.app.session.logout()
-        self.app.session.login_enter("admin", "admin")
+        wd = self.app.wd
+        try:
+            self.app.session.logout()
+            self.app.session.login_enter("admin", "admin")
+            WebDriverWait(wd, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.auth-icon')))
+        except:
+            wd.refresh()
+            time.sleep(1)
+            self.app.session.login_enter("admin", "admin")
+            self.app.session.login_verification()
+
+
 
     def ExitAndEnter_no_admin(self):
         _user = self.app.read_data.data_user()
