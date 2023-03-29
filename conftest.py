@@ -74,8 +74,8 @@ def pytest_addoption(parser):
     parser.addoption("--browser", action='store', default="chrome")
     # parser.addoption("--browser", action='store', default="Firefox")
     parser.addoption("--target", action='store', default="target.json")
-    parser.addoption("--device", action='store', default="local")
-    # parser.addoption("--device", action='store', default="emulator")
+    # parser.addoption("--device", action='store', default="local")
+    parser.addoption("--device", action='store', default="emulator")
 
 
 @pytest.hookimpl(hookwrapper=True)
@@ -101,9 +101,9 @@ def extend_time():
         fixture.method.check_hide_element('div.b-dialog', '//div[@class="before-logout-dialog-button"]/button')
 
 
-@pytest.fixture()
-def repeat_auth():
-    if fixture.method.is_element_present('#username'):
-        logAndPas = load_config('target.json')["webadmin"]
-        fixture.session.login(username=logAndPas["username"], password=logAndPas["password"])
+# @pytest.fixture()
+# def repeat_auth():
+#     if fixture.method.is_element_present('#username'):
+#         logAndPas = load_config('target.json')["webadmin"]
+#         fixture.session.login(username=logAndPas["username"], password=logAndPas["password"])
 
