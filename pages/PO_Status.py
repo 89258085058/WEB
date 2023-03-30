@@ -80,7 +80,15 @@ class StatusHelper:
             locator = f"//div[.='fake_part']/..//span[@class ='status {status}']"
             assert 1 == self.app.method.elements_count(locator), \
                 f"\nОжидаемый результат {1}\nФактический результат {self.app.method.elements_count(locator)}"
-            self.app.method.assert_element_text(locator, description_status)
+            btn_locator = "//div[.='fake_part']/../..//button[contains(.,'ять')]"
+            if value_status in [2, 10, 11, 13, 14, 15]:
+                assert 2 == self.app.method.elements_count(btn_locator), f'ОР {2}, ФР {self.app.method.elements_count(btn_locator)}'
+            else:
+                assert 1 == self.app.method.elements_count(btn_locator)
+            if value_status in [13, 14]:
+                self.app.method.assert_element_text(locator, description_status + ', Невзятие')
+            else:
+                self.app.method.assert_element_text(locator, description_status)
 
     def get_locator_for_tab_status(self, param):
         if param == 9:
