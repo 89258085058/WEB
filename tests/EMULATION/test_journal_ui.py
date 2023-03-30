@@ -2,7 +2,7 @@
 import allure
 import pytest
 
-reruns = 1
+reruns = 0
 
 
 @pytest.fixture()
@@ -17,6 +17,12 @@ def open_tab_journal(app):
 def set_name_for_exit_two(app):
     with allure.step("Установка имнени для второго выхода"):
         app.PO_Journal.set_name_for_exit_two()
+
+
+@pytest.fixture(scope='class')
+def set_name_partition(app):
+    with allure.step("Установка имнени для первого раздела"):
+        app.PO_Journal.set_name_partition()
 
 
 @allure.label("owner", 'Александр Санталов')
@@ -63,7 +69,7 @@ class TestUIJournalChapter1:
                                  (35, 'Событие \"Колокольчик\"'),
                                  (36, 'Количество событий по зоне')
                              ])
-    def test_evt_from_sensor(self, app, extend_time, open_tab_journal, z_event, description):
+    def test_evt_from_sensor(self, app, extend_time, set_name_partition, open_tab_journal, z_event, description):
         with allure.step(f"Проверка события"):
             app.PO_Journal.event_evt_from_sensor(z_event, description)
 

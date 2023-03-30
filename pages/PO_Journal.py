@@ -561,3 +561,10 @@ class JournalHelper:
         self.app.PO_Settings.edit_button_click()
         self.app.method.inputValues("output_second", name_out_2)
         self.app.PO_Zone_Path.save_button_click()
+
+    def set_name_partition(self):
+        self.app.PO_Navigations.goToZonePathPage()
+        self.app.PO_Navigations.goToPathPage()
+        self.app.PO_Zone_Path.settings_first_path_button()
+        self.app.method.inputValues('Раздел № 01', '//*[.="Название"]//input[1]')
+        self.app.PO_Zone_Path.save_button_settings_click()
