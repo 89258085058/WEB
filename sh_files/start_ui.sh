@@ -1,11 +1,12 @@
 #!/bin/bash
 
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/testAuthUI.py
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/testNavigationsUI.py
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/testSettingsUI.py
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/testTooltipsUI.py
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/testUsersKeysUI.py
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/testZonePathUI.py
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/testStatusUI.py
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/testUpdate.py
-python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/testDirectionsUI.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_auth_ui.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_directions_ui.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_navigations_ui.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_settings_ui.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_tooltips_ui.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_users_keys_ui.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_zone_path_ui.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_status_ui.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_update.py
+python3 -m pytest  --device=remote --browser=selenoid --alluredir=allure_ui tests/UI/test_directions_ui.py
