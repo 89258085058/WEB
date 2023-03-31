@@ -115,28 +115,26 @@ class TestSaveSettings:
 
     @allure.story("ОБЪЕКТ")
     @allure.title("Проверка сохранения настроек объекта: параметризованный тест")
-    @pytest.mark.parametrize("randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5",
+    @pytest.mark.parametrize("randomCB_1, randomCB_2, randomCB_3, randomCB_4",
                              [
-                                 ('ON', 'ON', 'ON', 'ON', 'ON'),
-                                 ('OFF', 'ON', 'ON', 'ON', 'ON'),
-                                 ('ON', 'OFF', 'ON', 'ON', 'ON'),
-                                 ('ON', 'ON', 'OFF', 'ON', 'ON'),
-                                 ('ON', 'ON', 'ON', 'OFF', 'ON'),
-                                 ('ON', 'ON', 'ON', 'ON', 'OFF'),
-                                 ('OFF', 'OFF', 'OFF', 'OFF', 'OFF'),
-                                 ('ON', 'OFF', 'OFF', 'OFF', 'OFF'),
-                                 ('OFF', 'ON', 'OFF', 'OFF', 'OFF'),
-                                 ('OFF', 'OFF', 'ON', 'OFF', 'OFF'),
-                                 ('OFF', 'OFF', 'OFF', 'ON', 'OFF'),
-                                 ('OFF', 'OFF', 'OFF', 'OFF', 'ON')
+                                 ('ON', 'ON', 'ON', 'ON'),
+                                 ('OFF', 'ON', 'ON', 'ON'),
+                                 ('ON', 'OFF', 'ON', 'ON'),
+                                 ('ON', 'ON', 'OFF', 'ON'),
+                                 ('ON', 'ON', 'ON', 'OFF'),
+                                 ('OFF', 'OFF', 'OFF', 'OFF'),
+                                 ('ON', 'OFF', 'OFF', 'OFF'),
+                                 ('OFF', 'ON', 'OFF', 'OFF'),
+                                 ('OFF', 'OFF', 'ON', 'OFF'),
+                                 ('OFF', 'OFF', 'OFF', 'ON'),
                              ])
-    def test_data_save_object_01(self, app, object, randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5):
+    def test_data_save_object_01(self, app, object, randomCB_1, randomCB_2, randomCB_3, randomCB_4):
         with allure.step("Генерирование тестовых данных"):
             app.ganerate_data.createData()
         with allure.step("Заполнение полей данными"):
             app.PO_Settings.save_object_data()
         with allure.step("Выбор чек-боксов"):
-            app.PO_Settings.save_object_check_box(randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5)
+            app.PO_Settings.save_object_check_box(randomCB_1, randomCB_2, randomCB_3, randomCB_4)
         with allure.step("Сохранение данных"):
             app.PO_Settings.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -147,23 +145,23 @@ class TestSaveSettings:
         with allure.step("Проверка сохраненных данных в полях ввода"):
             app.PO_Settings.save_object_data_check()
         with allure.step("Проверка сохранения выбора чек-боксов"):
-            app.PO_Settings.save_object_check_box_check(randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5)
+            app.PO_Settings.save_object_check_box_check(randomCB_1, randomCB_2, randomCB_3, randomCB_4)
         with allure.step("Завершение настроек"):
             app.PO_Settings.finish_setting()
 
     @allure.story("ОБЪЕКТ")
     @allure.title("Проверка сохранения настроек объекта: граничные значения")
     @pytest.mark.parametrize(
-        "name, number, delay_take, delay_alarm, time_take_on, randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5",
+        "name, number, delay_take, delay_alarm, time_take_on, randomCB_1, randomCB_2, randomCB_3, randomCB_4",
         [
-            (('a' * 31), '9999', '65535', '65535', '65535', 'ON', 'ON', 'ON', 'ON', 'ON'),
-            ('1', '1', '5', '5', '5', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF')
+            (('a' * 31), '9999', '65535', '65535', '65535', 'ON', 'ON', 'ON', 'ON'),
+            ('1', '1', '5', '5', '5', 'OFF', 'OFF', 'OFF', 'OFF')
         ])
     def test_data_save_object_limit_values(self, app, object, name, number, delay_take, delay_alarm, time_take_on,
-                                           randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5):
+                                           randomCB_1, randomCB_2, randomCB_3, randomCB_4):
         with allure.step("Заполнение полей данными"):
             app.PO_Settings.save_object_data_limit(name, number, delay_take, delay_alarm, time_take_on, randomCB_1,
-                                                   randomCB_2, randomCB_3, randomCB_4, randomCB_5)
+                                                   randomCB_2, randomCB_3, randomCB_4)
         with allure.step("Сохранение данных"):
             app.PO_Settings.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -173,7 +171,7 @@ class TestSaveSettings:
             app.PO_Settings.edit_button_click()
         with allure.step("Проверка сохраненных данных в полях ввода"):
             app.PO_Settings.save_object_data_limit_check(name, number, delay_take, delay_alarm, time_take_on,
-                                                         randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5)
+                                                         randomCB_1, randomCB_2, randomCB_3, randomCB_4)
         with allure.step("Завершение настроек"):
             app.PO_Settings.finish_setting()
 

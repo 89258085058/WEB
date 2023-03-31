@@ -23,11 +23,11 @@ object_taking_with_lost_sensors_status = '(//*[@id="app"]//label/input)[2]'
 object_taking_sensors_in_alarm_click = '(//*[@id="app"]//label/span)[3]'
 object_taking_sensors_in_alarm_status = '(//*[@id="app"]//label/input)[3]'
 # Взятие при датчиках в неисправности
-object_capturing_with_sensors_in_error_click = '(//*[@id="app"]//label/span)[4]'
-object_capturing_with_sensors_in_error_status = '(//*[@id="app"]//label/input)[4]'
+object_capturing_with_sensors_in_error_click = '(//*[@id="app"]//label/span)[3]'
+object_capturing_with_sensors_in_error_status = '(//*[@id="app"]//label/input)[3]'
 # Принудительное взятие из тревоги
-object_forced_take_from_alarm_click = '(//*[@id="app"]//label/span)[5]'
-object_forced_take_from_alarm_status = '(//*[@id="app"]//label/input)[5]'
+object_forced_take_from_alarm_click = '(//*[@id="app"]//label/span)[4]'
+object_forced_take_from_alarm_status = '(//*[@id="app"]//label/input)[4]'
 # ------------ТЕКСТ-------------------
 object_text = '//div[@class="settings-object"]'
 # ------------КНОПКИ------------------

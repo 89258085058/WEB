@@ -1889,25 +1889,25 @@ class SettingsHelper:
             self.app.method.inputValues(value=_object["Auto_arm_time"], locator=object_time_auto_take_on)
 
     # Проверка сохранения объекта чекбоксы
-    def save_object_check_box(self, randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5):
+    def save_object_check_box(self, randomCB_1, randomCB_2, randomCB_3, randomCB_4):
         with allure.step(f"Перевод чекбокса - Тревога при потере датчика в положение: '{randomCB_1}'"):
             self.app.method.checkBox(randomCB_1, object_sensor_loss_alarm_click, object_sensor_loss_alarm_status)
         with allure.step(f"Перевод чекбокса - Взятие при потерянных датчиках: '{randomCB_2}'"):
             self.app.method.checkBox(randomCB_2, object_taking_with_lost_sensors_click,
                                      object_taking_with_lost_sensors_status)
-        with allure.step(f"Перевод чекбокса - Взятие при датчиках в тревоге: '{randomCB_3}'"):
-            self.app.method.checkBox(randomCB_3, object_taking_sensors_in_alarm_click,
-                                     object_taking_sensors_in_alarm_status)
-        with allure.step(f"Перевод чекбокса - Взятие при датчиках в неисправности: '{randomCB_4}'"):
-            self.app.method.checkBox(randomCB_4, object_capturing_with_sensors_in_error_click,
+        # with allure.step(f"Перевод чекбокса - Взятие при датчиках в тревоге: '{randomCB_3}'"):
+        #     self.app.method.checkBox(randomCB_3, object_taking_sensors_in_alarm_click,
+        #                              object_taking_sensors_in_alarm_status)
+        with allure.step(f"Перевод чекбокса - Взятие при датчиках в неисправности: '{randomCB_3}'"):
+            self.app.method.checkBox(randomCB_3, object_capturing_with_sensors_in_error_click,
                                      object_capturing_with_sensors_in_error_status)
-        with allure.step(f"Перевод чекбокса - Принудительное взятие из тревоги: '{randomCB_5}'"):
-            self.app.method.checkBox(randomCB_5, object_forced_take_from_alarm_click,
+        with allure.step(f"Перевод чекбокса - Принудительное взятие из тревоги: '{randomCB_4}'"):
+            self.app.method.checkBox(randomCB_4, object_forced_take_from_alarm_click,
                                      object_forced_take_from_alarm_status)
 
     # Проверка сохранения объекта поля ввода
     def save_object_data_limit(self, name, number, delay_take, delay_alarm, time_take_on, randomCB_1,
-                               randomCB_2, randomCB_3, randomCB_4, randomCB_5):
+                               randomCB_2, randomCB_3, randomCB_4):
         with allure.step(f"Ввод данных в поле 'Название объекта: '{name}'"):
             self.app.method.inputValues(value=name, locator=object_name)
         with allure.step(f"Ввод данных в поле Номер объекта: '{number}'"):
@@ -1923,14 +1923,14 @@ class SettingsHelper:
         with allure.step(f"Перевод чекбокса - Взятие при потерянных датчиках: '{randomCB_2}'"):
             self.app.method.checkBox(randomCB_2, object_taking_with_lost_sensors_click,
                                      object_taking_with_lost_sensors_status)
-        with allure.step(f"Перевод чекбокса - Взятие при датчиках в тревоге: '{randomCB_3}'"):
-            self.app.method.checkBox(randomCB_3, object_taking_sensors_in_alarm_click,
-                                     object_taking_sensors_in_alarm_status)
-        with allure.step(f"Перевод чекбокса - Взятие при датчиках в неисправности: '{randomCB_4}'"):
-            self.app.method.checkBox(randomCB_4, object_capturing_with_sensors_in_error_click,
+        # with allure.step(f"Перевод чекбокса - Взятие при датчиках в тревоге: '{randomCB_3}'"):
+        #     self.app.method.checkBox(randomCB_3, object_taking_sensors_in_alarm_click,
+        #                              object_taking_sensors_in_alarm_status)
+        with allure.step(f"Перевод чекбокса - Взятие при датчиках в неисправности: '{randomCB_3}'"):
+            self.app.method.checkBox(randomCB_3, object_capturing_with_sensors_in_error_click,
                                      object_capturing_with_sensors_in_error_status)
-        with allure.step(f"Перевод чекбокса - Принудительное взятие из тревоги: '{randomCB_5}'"):
-            self.app.method.checkBox(randomCB_5, object_forced_take_from_alarm_click,
+        with allure.step(f"Перевод чекбокса - Принудительное взятие из тревоги: '{randomCB_4}'"):
+            self.app.method.checkBox(randomCB_4, object_forced_take_from_alarm_click,
                                      object_forced_take_from_alarm_status)
 
     def save_button_click(self):
@@ -1981,20 +1981,20 @@ class SettingsHelper:
             self.app.method.assertValues(value=_object["Auto_arm_time"], locator=object_time_auto_take_on)
 
     # Проверка сохранения объекта чекбоксы после входа
-    def save_object_check_box_check(self, randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5):
+    def save_object_check_box_check(self, randomCB_1, randomCB_2, randomCB_3, randomCB_4):
         with allure.step("Чекбокс: Тревога при потере датчика в положение"):
             self.app.method.assertCheckBox(randomCB_1, object_sensor_loss_alarm_status)
         with allure.step("Чекбокс: Взятие при потерянных датчиках"):
             self.app.method.assertCheckBox(randomCB_2, object_taking_with_lost_sensors_status)
-        with allure.step("Чекбокс: Взятие при датчиках в тревоге"):
-            self.app.method.assertCheckBox(randomCB_3, object_taking_sensors_in_alarm_status)
+        # with allure.step("Чекбокс: Взятие при датчиках в тревоге"):
+        #     self.app.method.assertCheckBox(randomCB_3, object_taking_sensors_in_alarm_status)
         with allure.step("Чекбокс: Взятие при датчиках в неисправности"):
-            self.app.method.assertCheckBox(randomCB_4, object_capturing_with_sensors_in_error_status)
+            self.app.method.assertCheckBox(randomCB_3, object_capturing_with_sensors_in_error_status)
         with allure.step("Чекбокс: Принудительное взятие из тревоги"):
-            self.app.method.assertCheckBox(randomCB_5, object_forced_take_from_alarm_status)
+            self.app.method.assertCheckBox(randomCB_4, object_forced_take_from_alarm_status)
 
     def save_object_data_limit_check(self, name, number, delay_take, delay_alarm, time_take_on,
-                                     randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5):
+                                     randomCB_1, randomCB_2, randomCB_3, randomCB_4):
         _object = self.app.read_data.data_object()
         with allure.step(f"Название объекта"):
             self.app.method.assertValues(value=name, locator=object_name)
@@ -2011,12 +2011,12 @@ class SettingsHelper:
             self.app.method.assertCheckBox(randomCB_1, object_sensor_loss_alarm_status)
         with allure.step("Чекбокс: Взятие при потерянных датчиках"):
             self.app.method.assertCheckBox(randomCB_2, object_taking_with_lost_sensors_status)
-        with allure.step("Чекбокс: Взятие при датчиках в тревоге"):
-            self.app.method.assertCheckBox(randomCB_3, object_taking_sensors_in_alarm_status)
+        # with allure.step("Чекбокс: Взятие при датчиках в тревоге"):
+        #     self.app.method.assertCheckBox(randomCB_3, object_taking_sensors_in_alarm_status)
         with allure.step("Чекбокс: Взятие при датчиках в неисправности"):
-            self.app.method.assertCheckBox(randomCB_4, object_capturing_with_sensors_in_error_status)
+            self.app.method.assertCheckBox(randomCB_3, object_capturing_with_sensors_in_error_status)
         with allure.step("Чекбокс: Принудительное взятие из тревоги"):
-            self.app.method.assertCheckBox(randomCB_5, object_forced_take_from_alarm_status)
+            self.app.method.assertCheckBox(randomCB_4, object_forced_take_from_alarm_status)
 
     # Проверка сохранения чекбоксов прибора
     def save_device_check_box(self, power_saving_mode, setting_case_closed, path_alarms,
