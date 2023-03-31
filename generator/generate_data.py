@@ -98,7 +98,7 @@ class Ganerate:
         Out_name = (random.choice(rus) * 31)
 
         # Разделы
-        Number_path = random.randint(1, 999)
+        Number_path = random.randint(1, 99)
         Name_path = 'a' * 31
 
         # Направления

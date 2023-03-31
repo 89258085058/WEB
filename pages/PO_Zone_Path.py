@@ -68,8 +68,8 @@ class ZonePathHelper:
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual(0, 0, locator)
             self.app.method.assertEqual(1, 1, locator)
-            self.app.method.assertEqual(65534, 65534, locator)
-            self.app.method.assertEqual(65535, 65535, locator)
+            self.app.method.assertEqual(98, 98, locator)
+            self.app.method.assertEqual(99, 99, locator)
 
     # Проверка ввода поле
     def input_number_65535_negativ(self, locator):
@@ -84,26 +84,26 @@ class ZonePathHelper:
         with allure.step("Проверка ввода спецсимволов"):
             self.app.method.assertEqual("!#$%&'()*+,-./:;<=>?@[]^_`{|}~", "", locator)
         with allure.step("Проверка ввода совместных значений(буквы/цифры/спецсимволы)"):
-            self.app.method.assertEqual('123  АБВABC!@#', '123', locator)
+            self.app.method.assertEqual('12  АБВABC!@#', '12', locator)
         with allure.step("Проверка ввода пробелов"):
             self.app.method.assertEqual('   ', '', locator)
-            self.app.method.assertEqual('123     ', '123', locator)
-            self.app.method.assertEqual('   123', '123', locator)
-            self.app.method.assertEqual('1 2 3', '123', locator)
+            self.app.method.assertEqual('80     ', '80', locator)
+            self.app.method.assertEqual('   80', '80', locator)
+            self.app.method.assertEqual('8 0', '80', locator)
         with allure.step("Проверка ввода дробного числа "):
-            self.app.method.assertEqual('11.11', '1111', locator)
+            self.app.method.assertEqual('9.0', '90', locator)
             self.app.method.assertEqual('000.1', '1', locator)
-            self.app.method.assertEqual('11,11', '1111', locator)
+            self.app.method.assertEqual('1,1', '11', locator)
             self.app.method.assertEqual('000,1', '1', locator)
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода очень большого числа"):
-            self.app.method.assertEqual(9 * 10000000000000, 90000, locator)
+            self.app.method.assertEqual(9 * 10000000000000, 90, locator)
         with allure.step("Проверка ввода отрицательного числа"):
             self.app.method.assertEqual('-1', '1', locator)
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual(999999, 99999, locator)
+            self.app.method.assertEqual(999999, 99, locator)
 
     # Позитивные проверки ввода значений 99.99
     def input_99_99_positiv(self, locator):
