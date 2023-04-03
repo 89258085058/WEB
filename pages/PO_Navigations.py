@@ -98,8 +98,9 @@ class NavigationsHelper:
         except:
             wd.refresh()
             time.sleep(1)
-            self.app.session.login_enter("admin", "admin")
-            self.app.session.login_verification()
+            if self.app.is_element_present_xpath('//*[@id="username"]'):
+                self.app.session.login_enter("admin", "admin")
+                self.app.session.login_verification()
 
 
 
