@@ -21,7 +21,7 @@ class MethodsHelper:
             pass
         else:
             self.click((By.XPATH, locator))
-            time.sleep(0.5)
+            time.sleep(1.5)
             assert str(wd.current_url) == str(host + endpoint), f" \nОшибка перехода на сраницу! " \
                                                                 f"\nОжидаемый адрес:'{host + endpoint}'" \
                                                                 f"\nФактический адрес:'{wd.current_url}'"
