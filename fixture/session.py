@@ -44,7 +44,7 @@ class SessionHelper:
             self.app.method.click((By.XPATH, '//*[@id="app"]/main//span[.="Войти"]'))
             time.sleep(0.5)
             if param == 'only_remote':
-                self.app.method.click((By.XPATH, '//*[@id="app"]//button[.=" Перейти "]'))
+                self.app.method.click((By.XPATH, "//*[.='89504446']/../../..//button[2]"))
             else:
                 self.app.method.click((By.XPATH, "//*[.='80340089']/../../..//button[2]"))
             time.sleep(1)
