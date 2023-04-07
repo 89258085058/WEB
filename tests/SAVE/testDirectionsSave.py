@@ -6,12 +6,13 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 1
+reruns = 0
 
 # directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 
 directions_list = ['1']
-
+type_control_list = ['Звонок', 'SMS пользователю', 'SMS Эгида', 'DC09']
+# type_control_list = [ 'DC09']
 
 @pytest.fixture()
 def close_modal(request, app):
@@ -34,15 +35,20 @@ def destinations(app):
 class TestSaveDestinationTumblers:
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События разделов (Включение)")
-    def test_directions_save_tumblers_section_events_ON(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_section_events_ON(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события разделов"):
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Переключение всех тумблеров в положение ON"):
-            app.PO_Directions.tumblers_event_path_on_save()
+            app.PO_Directions.tumblers_event_path_on_save(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -51,18 +57,23 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_save_tumblers_event_path_on()
+            app.PO_Directions.assert_save_tumblers_event_path_on(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События разделов (Выключение)")
-    def test_directions_save_tumblers_section_events_OFF(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_section_events_OFF(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события разделов"):
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Переключение всех тумблеров в положение OFF"):
-            app.PO_Directions.tumblers_event_path_off_save()
+            app.PO_Directions.tumblers_event_path_off_save(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -71,18 +82,23 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_save_tumblers_event_path_off()
+            app.PO_Directions.assert_save_tumblers_event_path_off(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События разделов (Частичное Включение 1)")
-    def test_directions_save_tumblers_section_events_SOME_1(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_section_events_SOME_1(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события разделов"):
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Частичное переключение тумблеров"):
-            app.PO_Directions.tumblers_event_path_some_save()
+            app.PO_Directions.tumblers_event_path_some_save(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -91,18 +107,23 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_save_tumblers_event_path_some()
+            app.PO_Directions.assert_save_tumblers_event_path_some(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События разделов (Частичное Включение 2)")
-    def test_directions_save_tumblers_section_events_SOME_2(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_section_events_SOME_2(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события разделов"):
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Частичное переключение тумблеров"):
-            app.PO_Directions.tumblers_event_path_some_2_save()
+            app.PO_Directions.tumblers_event_path_some_2_save(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -111,14 +132,19 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_save_tumblers_event_path_some_2()
+            app.PO_Directions.assert_save_tumblers_event_path_some_2(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События разделов (Выбор основного тумблера)")
-    def test_directions_save_tumblers_section_events_main(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_section_events_main(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события разделов"):
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Переключение основного тумблера"):
@@ -131,18 +157,23 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События разделов')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_save_tumblers_event_path_on()
+            app.PO_Directions.assert_save_tumblers_event_path_on(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События зон (Включение)")
-    def test_directions_save_tumblers_zone_events_ON(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_zone_events_ON(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события зон"):
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Переключение всех тумблеров в положение ON"):
-            app.PO_Directions.tumblers_zone_events_save_on()
+            app.PO_Directions.tumblers_zone_events_save_on(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -151,18 +182,23 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_zone_events_save_on()
+            app.PO_Directions.assert_tumblers_zone_events_save_on(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События зон (Выключение)")
-    def test_directions_save_tumblers_zone_events_OFF(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_zone_events_OFF(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события зон"):
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Переключение всех тумблеров в положение OFF"):
-            app.PO_Directions.tumblers_zone_events_save_off()
+            app.PO_Directions.tumblers_zone_events_save_off(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -171,18 +207,23 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_zone_events_save_off()
+            app.PO_Directions.assert_tumblers_zone_events_save_off(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События зон (Частичное Включение 1)")
-    def test_directions_save_tumblers_zone_events_SOME_1(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_zone_events_SOME_1(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события зон"):
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Частичное переключение тумблеров"):
-            app.PO_Directions.tumblers_zone_events_save_some_1()
+            app.PO_Directions.tumblers_zone_events_save_some_1(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -191,18 +232,23 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_zone_events_save_some_1()
+            app.PO_Directions.assert_tumblers_zone_events_save_some_1(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События зон (Частичное Включение 2)")
-    def test_directions_save_tumblers_zone_events_SOME_2(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_zone_events_SOME_2(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события зон"):
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Частичное переключение тумблеров"):
-            app.PO_Directions.tumblers_zone_events_save_some_2()
+            app.PO_Directions.tumblers_zone_events_save_some_2(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -211,14 +257,19 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_zone_events_save_some_2()
+            app.PO_Directions.assert_tumblers_zone_events_save_some_2(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров События зон (Выбор основного тумблера)")
-    def test_directions_save_tumblers_zone_events_main(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_zone_events_main(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек события зон"):
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Переключение основного тумблера"):
@@ -231,18 +282,23 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('События зон')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_zone_events_save_on()
+            app.PO_Directions.assert_tumblers_zone_events_save_on(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Питание прибора (Включение)")
-    def test_directions_save_tumblers_instrument_power_supply_ON(self, app, destinations, close_modal, directions: str):
+    def test_directions_save_tumblers_instrument_power_supply_ON(self, app, destinations, close_modal, directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Питание прибора"):
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Переключение всех тумблеров в положение ON"):
-            app.PO_Directions.tumblers_instrument_power_supply_save_on()
+            app.PO_Directions.tumblers_instrument_power_supply_save_on(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -251,19 +307,24 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_power_supply_save_on()
+            app.PO_Directions.assert_tumblers_instrument_power_supply_save_on(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Питание прибора (Выключение)")
     def test_directions_save_tumblers_instrument_power_supply_OFF(self, app, destinations, close_modal,
-                                                                  directions: str):
+                                                                  directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Питание прибора"):
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Переключение всех тумблеров в положение OFF"):
-            app.PO_Directions.tumblers_instrument_power_supply_save_off()
+            app.PO_Directions.tumblers_instrument_power_supply_save_off(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -272,19 +333,24 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_power_supply_save_off()
+            app.PO_Directions.assert_tumblers_instrument_power_supply_save_off(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Питание прибора (Частичное Включение 1)")
     def test_directions_save_tumblers_instrument_power_supply_ON_some_1(self, app, destinations, close_modal,
-                                                                        directions: str):
+                                                                        directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Питание прибора"):
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Частичное переключение тумблеров"):
-            app.PO_Directions.tumblers_instrument_power_supply_save_on_some_1()
+            app.PO_Directions.tumblers_instrument_power_supply_save_on_some_1(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -293,19 +359,24 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_power_supply_save_on_some_1()
+            app.PO_Directions.assert_tumblers_instrument_power_supply_save_on_some_1(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Питание прибора (Частичное Включение 2)")
     def test_directions_save_tumblers_instrument_power_supply_ON_some_2(self, app, destinations, close_modal,
-                                                                        directions: str):
+                                                                        directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Питание прибора"):
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Частичное переключение тумблеров"):
-            app.PO_Directions.tumblers_instrument_power_supply_save_on_some_2()
+            app.PO_Directions.tumblers_instrument_power_supply_save_on_some_2(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -314,15 +385,20 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_power_supply_save_on_some_2()
+            app.PO_Directions.assert_tumblers_instrument_power_supply_save_on_some_2(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Питание прибора (Выбор основного тумблера)")
     def test_directions_save_tumblers_instrument_power_supply_main(self, app, destinations, close_modal,
-                                                                   directions: str):
+                                                                   directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Питание прибора"):
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Переключение основного тумблера"):
@@ -335,19 +411,24 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Питание прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_power_supply_save_on()
+            app.PO_Directions.assert_tumblers_instrument_power_supply_save_on(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Системные события прибора (Включение)")
     def test_directions_save_tumblers_instrument_system_events_ON(self, app, destinations, close_modal,
-                                                                  directions: str):
+                                                                  directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Системные события прибора"):
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Переключение всех тумблеров в положение ON"):
-            app.PO_Directions.tumblers_instrument_system_events_save_on()
+            app.PO_Directions.tumblers_instrument_system_events_save_on(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -356,19 +437,24 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_system_events_save_on()
+            app.PO_Directions.assert_tumblers_instrument_system_events_save_on(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Системные события прибора (Выключение)")
     def test_directions_save_tumblers_instrument_system_events_OFF(self, app, destinations, close_modal,
-                                                                   directions: str):
+                                                                   directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Системные события прибора"):
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Переключение всех тумблеров в положение OFF"):
-            app.PO_Directions.tumblers_instrument_system_events_save_off()
+            app.PO_Directions.tumblers_instrument_system_events_save_off(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -377,19 +463,24 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_system_events_save_off()
+            app.PO_Directions.assert_tumblers_instrument_system_events_save_off(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Системные события прибора (Частичное Включение 1)")
     def test_directions_save_tumblers_instrument_system_events_ON_some_1(self, app, destinations, close_modal,
-                                                                         directions: str):
+                                                                         directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Системные события прибора"):
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Частичное переключение тумблеров"):
-            app.PO_Directions.tumblers_instrument_system_events_save_on_some_1()
+            app.PO_Directions.tumblers_instrument_system_events_save_on_some_1(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -398,19 +489,24 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_system_events_save_on_some_1()
+            app.PO_Directions.assert_tumblers_instrument_system_events_save_on_some_1(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Системные события прибора (Частичное Включение 2)")
     def test_directions_save_tumblers_instrument_system_events_ON_some_2(self, app, destinations, close_modal,
-                                                                         directions: str):
+                                                                         directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Системные события прибора"):
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Частичное переключение тумблеров"):
-            app.PO_Directions.tumblers_instrument_system_events_save_on_some_2()
+            app.PO_Directions.tumblers_instrument_system_events_save_on_some_2(type_control)
         with allure.step("Сохранение данных"):
             app.PO_Directions.save_button_click()
         with allure.step("Выход и повторный вход"):
@@ -419,15 +515,20 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_system_events_save_on_some_2()
+            app.PO_Directions.assert_tumblers_instrument_system_events_save_on_some_2(type_control)
 
     @pytest.mark.parametrize("directions", directions_list)
+    @pytest.mark.parametrize("type_control", type_control_list)
     @allure.story("Тумблеры")
     @allure.title("Проверка сохранения тумблеров Системные события прибора (Выбор основного тумблера)")
     def test_directions_save_tumblers_instrument_system_events_main(self, app, destinations, close_modal,
-                                                                    directions: str):
+                                                                    directions: str, type_control):
         with allure.step("Открытие направления"):
             app.PO_Directions.openDestination(directions)
+        with allure.step("Раскрытие настроек канала"):
+            app.PO_Directions.openChanel('Основной')
+        with allure.step("Выбор типа управления и минимальное заполнение формы"):
+            app.PO_Directions.choose_type_of_control_and_fill_form(type_control)
         with allure.step("Раскрытие настроек Системные события прибора"):
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Переключение основного тумблера"):
@@ -440,7 +541,7 @@ class TestSaveDestinationTumblers:
             app.PO_Directions.openDestination(directions)
             app.PO_Directions.openSettingsTumblers('Системные события прибора')
         with allure.step("Проверка сохранения выбора тумблеров"):
-            app.PO_Directions.assert_tumblers_instrument_system_events_save_on()
+            app.PO_Directions.assert_tumblers_instrument_system_events_save_on(type_control)
 
 
 @allure.label("owner", 'Александр Горелов')

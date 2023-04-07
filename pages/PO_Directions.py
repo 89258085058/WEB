@@ -1635,139 +1635,180 @@ class DirectionsHelper:
 
         # Включение тумблеров события разделов для сохранения
 
-    def tumblers_event_path_on_save(self):
+    def tumblers_event_path_on_save(self, type_control):
         self.app.method.checkBox("OFF", Take_all_event_path_click, Take_all_event_path_status)
-        self.app.method.checkBox("ON", No_take_click, No_takel_status)
         self.app.method.checkBox("ON", Outfit_mark_click, Outfit_mark_status)
-        self.app.method.checkBox("ON", Fire_click, Fire_status)
         self.app.method.checkBox("ON", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
-        self.app.method.checkBox("ON", No_Fire_click, No_Fire_status)
         self.app.method.checkBox("ON", Forcing_Partition_click, Forcing_Partition_status)
-        self.app.method.checkBox("ON", Water_leak_click, Water_leak_status)
         self.app.method.checkBox("ON", Section_taken_click, Section_taken_status)
-        self.app.method.checkBox("ON", Section_taken_off_click, Section_taken_off_status)
         self.app.method.checkBox("ON", Silent_alarm_click, Silent_alarm_status)
         self.app.method.checkBox("ON", Alarm_click, Alarm_status)
         self.app.method.checkBox("ON", Alarm_enter_click, Alarm_enter_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("ON", No_take_click, No_takel_status)
+            self.app.method.checkBox("ON", Fire_click, Fire_status)
+            self.app.method.checkBox("ON", No_Fire_click, No_Fire_status)
+            self.app.method.checkBox("ON", Water_leak_click, Water_leak_status)
+            self.app.method.checkBox("ON", Section_taken_off_click, Section_taken_off_status)
+
 
         # Проверка включение тумблеров события разделов - сохранение
 
-    def assert_save_tumblers_event_path_on(self):
+    def assert_save_tumblers_event_path_on(self, type_control):
         self.app.method.assertCheckBox("ON", Take_all_event_path_status)
-        self.app.method.assertCheckBox("ON", No_takel_status)
         self.app.method.assertCheckBox("ON", Outfit_mark_status)
-        self.app.method.assertCheckBox("ON", Fire_status)
         self.app.method.assertCheckBox("ON", Fire_by_manual_call_point_status)
-        self.app.method.assertCheckBox("ON", No_Fire_status)
         self.app.method.assertCheckBox("ON", Forcing_Partition_status)
-        self.app.method.assertCheckBox("ON", Water_leak_status)
         self.app.method.assertCheckBox("ON", Section_taken_status)
-        self.app.method.assertCheckBox("ON", Section_taken_off_status)
         self.app.method.assertCheckBox("ON", Silent_alarm_status)
         self.app.method.assertCheckBox("ON", Alarm_status)
         self.app.method.assertCheckBox("ON", Alarm_enter_status)
+        if type_control != 'DC09':
+            self.app.method.assertCheckBox("ON", No_takel_status)
+            self.app.method.assertCheckBox("ON", Fire_status)
+            self.app.method.assertCheckBox("ON", No_Fire_status)
+            self.app.method.assertCheckBox("ON", Water_leak_status)
+            self.app.method.assertCheckBox("ON", Section_taken_off_status)
 
         # Выключение тумблеров события разделов для сохранения
 
-    def tumblers_event_path_off_save(self):
+    def tumblers_event_path_off_save(self, type_control):
         self.app.method.checkBox("OFF", Take_all_event_path_click, Take_all_event_path_status)
-        self.app.method.checkBox("OFF", No_take_click, No_takel_status)
         self.app.method.checkBox("OFF", Outfit_mark_click, Outfit_mark_status)
-        self.app.method.checkBox("OFF", Fire_click, Fire_status)
         self.app.method.checkBox("OFF", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
-        self.app.method.checkBox("OFF", No_Fire_click, No_Fire_status)
         self.app.method.checkBox("OFF", Forcing_Partition_click, Forcing_Partition_status)
-        self.app.method.checkBox("OFF", Water_leak_click, Water_leak_status)
         self.app.method.checkBox("OFF", Section_taken_click, Section_taken_status)
-        self.app.method.checkBox("OFF", Section_taken_off_click, Section_taken_off_status)
         self.app.method.checkBox("OFF", Silent_alarm_click, Silent_alarm_status)
         self.app.method.checkBox("OFF", Alarm_click, Alarm_status)
         self.app.method.checkBox("OFF", Alarm_enter_click, Alarm_enter_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("OFF", No_take_click, No_takel_status)
+            self.app.method.checkBox("OFF", Fire_click, Fire_status)
+            self.app.method.checkBox("OFF", No_Fire_click, No_Fire_status)
+            self.app.method.checkBox("OFF", Water_leak_click, Water_leak_status)
+            self.app.method.checkBox("OFF", Section_taken_off_click, Section_taken_off_status)
 
         # Проверка выключение тумблеров события разделов - сохранение
 
-    def assert_save_tumblers_event_path_off(self):
+    def assert_save_tumblers_event_path_off(self, type_control):
         self.app.method.assertCheckBox("OFF", Take_all_event_path_status)
-        self.app.method.assertCheckBox("OFF", No_takel_status)
         self.app.method.assertCheckBox("OFF", Outfit_mark_status)
-        self.app.method.assertCheckBox("OFF", Fire_status)
         self.app.method.assertCheckBox("OFF", Fire_by_manual_call_point_status)
-        self.app.method.assertCheckBox("OFF", No_Fire_status)
         self.app.method.assertCheckBox("OFF", Forcing_Partition_status)
-        self.app.method.assertCheckBox("OFF", Water_leak_status)
         self.app.method.assertCheckBox("OFF", Section_taken_status)
-        self.app.method.assertCheckBox("OFF", Section_taken_off_status)
         self.app.method.assertCheckBox("OFF", Silent_alarm_status)
         self.app.method.assertCheckBox("OFF", Alarm_status)
         self.app.method.assertCheckBox("OFF", Alarm_enter_status)
+        if type_control != 'DC09':
+            self.app.method.assertCheckBox("OFF", No_takel_status)
+            self.app.method.assertCheckBox("OFF", Fire_status)
+            self.app.method.assertCheckBox("OFF", No_Fire_status)
+            self.app.method.assertCheckBox("OFF", Water_leak_status)
+            self.app.method.assertCheckBox("OFF", Section_taken_off_status)
 
         # Частичное включение тумблеров события разделов для сохранения
 
-    def tumblers_event_path_some_save(self):
+    def tumblers_event_path_some_save(self, type_control):
         self.app.method.checkBox("OFF", Take_all_event_path_click, Take_all_event_path_status)
-        self.app.method.checkBox("ON", No_take_click, No_takel_status)
-        self.app.method.checkBox("OFF", Outfit_mark_click, Outfit_mark_status)
-        self.app.method.checkBox("ON", Fire_click, Fire_status)
-        self.app.method.checkBox("OFF", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
-        self.app.method.checkBox("ON", No_Fire_click, No_Fire_status)
-        self.app.method.checkBox("OFF", Forcing_Partition_click, Forcing_Partition_status)
-        self.app.method.checkBox("ON", Water_leak_click, Water_leak_status)
-        self.app.method.checkBox("OFF", Section_taken_click, Section_taken_status)
-        self.app.method.checkBox("ON", Section_taken_off_click, Section_taken_off_status)
-        self.app.method.checkBox("OFF", Silent_alarm_click, Silent_alarm_status)
-        self.app.method.checkBox("ON", Alarm_click, Alarm_status)
-        self.app.method.checkBox("OFF", Alarm_enter_click, Alarm_enter_status)
+        if type_control == 'DC09':
+            self.app.method.checkBox("ON", Outfit_mark_click, Outfit_mark_status)
+            self.app.method.checkBox("OFF", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
+            self.app.method.checkBox("ON", Forcing_Partition_click, Forcing_Partition_status)
+            self.app.method.checkBox("OFF", Section_taken_click, Section_taken_status)
+            self.app.method.checkBox("ON", Silent_alarm_click, Silent_alarm_status)
+            self.app.method.checkBox("OFF", Alarm_click, Alarm_status)
+            self.app.method.checkBox("ON", Alarm_enter_click, Alarm_enter_status)
+        else:
+            self.app.method.checkBox("ON", No_take_click, No_takel_status)
+            self.app.method.checkBox("OFF", Outfit_mark_click, Outfit_mark_status)
+            self.app.method.checkBox("ON", Fire_click, Fire_status)
+            self.app.method.checkBox("OFF", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
+            self.app.method.checkBox("ON", No_Fire_click, No_Fire_status)
+            self.app.method.checkBox("OFF", Forcing_Partition_click, Forcing_Partition_status)
+            self.app.method.checkBox("ON", Water_leak_click, Water_leak_status)
+            self.app.method.checkBox("OFF", Section_taken_click, Section_taken_status)
+            self.app.method.checkBox("ON", Section_taken_off_click, Section_taken_off_status)
+            self.app.method.checkBox("OFF", Silent_alarm_click, Silent_alarm_status)
+            self.app.method.checkBox("ON", Alarm_click, Alarm_status)
+            self.app.method.checkBox("OFF", Alarm_enter_click, Alarm_enter_status)
 
         # Проверка частичного включение тумблеров события разделов - сохранение
 
-    def assert_save_tumblers_event_path_some(self):
+    def assert_save_tumblers_event_path_some(self, type_control):
         self.app.method.assertCheckBox("OFF", Take_all_event_path_status)
-        self.app.method.assertCheckBox("ON", No_takel_status)
-        self.app.method.assertCheckBox("OFF", Outfit_mark_status)
-        self.app.method.assertCheckBox("ON", Fire_status)
-        self.app.method.assertCheckBox("OFF", Fire_by_manual_call_point_status)
-        self.app.method.assertCheckBox("ON", No_Fire_status)
-        self.app.method.assertCheckBox("OFF", Forcing_Partition_status)
-        self.app.method.assertCheckBox("ON", Water_leak_status)
-        self.app.method.assertCheckBox("OFF", Section_taken_status)
-        self.app.method.assertCheckBox("ON", Section_taken_off_status)
-        self.app.method.assertCheckBox("OFF", Silent_alarm_status)
-        self.app.method.assertCheckBox("ON", Alarm_status)
-        self.app.method.assertCheckBox("OFF", Alarm_enter_status)
+        if type_control == 'DC09':
+            self.app.method.assertCheckBox("ON", Outfit_mark_status)
+            self.app.method.assertCheckBox("OFF", Fire_by_manual_call_point_status)
+            self.app.method.assertCheckBox("ON", Forcing_Partition_status)
+            self.app.method.assertCheckBox("OFF", Section_taken_status)
+            self.app.method.assertCheckBox("ON", Silent_alarm_status)
+            self.app.method.assertCheckBox("OFF", Alarm_status)
+            self.app.method.assertCheckBox("ON", Alarm_enter_status)
+        else:
+            self.app.method.assertCheckBox("ON", No_takel_status)
+            self.app.method.assertCheckBox("OFF", Outfit_mark_status)
+            self.app.method.assertCheckBox("ON", Fire_status)
+            self.app.method.assertCheckBox("OFF", Fire_by_manual_call_point_status)
+            self.app.method.assertCheckBox("ON", No_Fire_status)
+            self.app.method.assertCheckBox("OFF", Forcing_Partition_status)
+            self.app.method.assertCheckBox("ON", Water_leak_status)
+            self.app.method.assertCheckBox("OFF", Section_taken_status)
+            self.app.method.assertCheckBox("ON", Section_taken_off_status)
+            self.app.method.assertCheckBox("OFF", Silent_alarm_status)
+            self.app.method.assertCheckBox("ON", Alarm_status)
+            self.app.method.assertCheckBox("OFF", Alarm_enter_status)
 
         # Частичное включение тумблеров события разделов для сохранения
 
-    def tumblers_event_path_some_2_save(self):
+    def tumblers_event_path_some_2_save(self, type_control):
         self.app.method.checkBox("OFF", Take_all_event_path_click, Take_all_event_path_status)
-        self.app.method.checkBox("OFF", No_take_click, No_takel_status)
-        self.app.method.checkBox("ON", Outfit_mark_click, Outfit_mark_status)
-        self.app.method.checkBox("OFF", Fire_click, Fire_status)
-        self.app.method.checkBox("ON", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
-        self.app.method.checkBox("OFF", No_Fire_click, No_Fire_status)
-        self.app.method.checkBox("ON", Forcing_Partition_click, Forcing_Partition_status)
-        self.app.method.checkBox("OFF", Water_leak_click, Water_leak_status)
-        self.app.method.checkBox("ON", Section_taken_click, Section_taken_status)
-        self.app.method.checkBox("OFF", Section_taken_off_click, Section_taken_off_status)
-        self.app.method.checkBox("ON", Silent_alarm_click, Silent_alarm_status)
-        self.app.method.checkBox("OFF", Alarm_click, Alarm_status)
-        self.app.method.checkBox("ON", Alarm_enter_click, Alarm_enter_status)
+        if type_control == 'DC09':
+            self.app.method.checkBox("OFF", Outfit_mark_click, Outfit_mark_status)
+            self.app.method.checkBox("ON", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
+            self.app.method.checkBox("OFF", Forcing_Partition_click, Forcing_Partition_status)
+            self.app.method.checkBox("ON", Section_taken_click, Section_taken_status)
+            self.app.method.checkBox("OFF", Silent_alarm_click, Silent_alarm_status)
+            self.app.method.checkBox("ON", Alarm_click, Alarm_status)
+            self.app.method.checkBox("OFF", Alarm_enter_click, Alarm_enter_status)
+        else:
+            self.app.method.checkBox("OFF", No_take_click, No_takel_status)
+            self.app.method.checkBox("ON", Outfit_mark_click, Outfit_mark_status)
+            self.app.method.checkBox("OFF", Fire_click, Fire_status)
+            self.app.method.checkBox("ON", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
+            self.app.method.checkBox("OFF", No_Fire_click, No_Fire_status)
+            self.app.method.checkBox("ON", Forcing_Partition_click, Forcing_Partition_status)
+            self.app.method.checkBox("OFF", Water_leak_click, Water_leak_status)
+            self.app.method.checkBox("ON", Section_taken_click, Section_taken_status)
+            self.app.method.checkBox("OFF", Section_taken_off_click, Section_taken_off_status)
+            self.app.method.checkBox("ON", Silent_alarm_click, Silent_alarm_status)
+            self.app.method.checkBox("OFF", Alarm_click, Alarm_status)
+            self.app.method.checkBox("ON", Alarm_enter_click, Alarm_enter_status)
 
         # Проверка частичного включение тумблеров события разделов - сохранение
 
-    def assert_save_tumblers_event_path_some_2(self):
+    def assert_save_tumblers_event_path_some_2(self, type_control):
         self.app.method.assertCheckBox("OFF", Take_all_event_path_status)
-        self.app.method.assertCheckBox("OFF", No_takel_status)
-        self.app.method.assertCheckBox("ON", Outfit_mark_status)
-        self.app.method.assertCheckBox("OFF", Fire_status)
-        self.app.method.assertCheckBox("ON", Fire_by_manual_call_point_status)
-        self.app.method.assertCheckBox("OFF", No_Fire_status)
-        self.app.method.assertCheckBox("ON", Forcing_Partition_status)
-        self.app.method.assertCheckBox("OFF", Water_leak_status)
-        self.app.method.assertCheckBox("ON", Section_taken_status)
-        self.app.method.assertCheckBox("OFF", Section_taken_off_status)
-        self.app.method.assertCheckBox("ON", Silent_alarm_status)
-        self.app.method.assertCheckBox("OFF", Alarm_status)
-        self.app.method.assertCheckBox("ON", Alarm_enter_status)
+        if type_control == 'DC09':
+            self.app.method.assertCheckBox("OFF", Outfit_mark_status)
+            self.app.method.assertCheckBox("ON", Fire_by_manual_call_point_status)
+            self.app.method.assertCheckBox("OFF", Forcing_Partition_status)
+            self.app.method.assertCheckBox("ON", Section_taken_status)
+            self.app.method.assertCheckBox("OFF", Silent_alarm_status)
+            self.app.method.assertCheckBox("ON", Alarm_status)
+            self.app.method.assertCheckBox("OFF", Alarm_enter_status)
+        else:
+            self.app.method.assertCheckBox("OFF", No_takel_status)
+            self.app.method.assertCheckBox("ON", Outfit_mark_status)
+            self.app.method.assertCheckBox("OFF", Fire_status)
+            self.app.method.assertCheckBox("ON", Fire_by_manual_call_point_status)
+            self.app.method.assertCheckBox("OFF", No_Fire_status)
+            self.app.method.assertCheckBox("ON", Forcing_Partition_status)
+            self.app.method.assertCheckBox("OFF", Water_leak_status)
+            self.app.method.assertCheckBox("ON", Section_taken_status)
+            self.app.method.assertCheckBox("OFF", Section_taken_off_status)
+            self.app.method.assertCheckBox("ON", Silent_alarm_status)
+            self.app.method.assertCheckBox("OFF", Alarm_status)
+            self.app.method.assertCheckBox("ON", Alarm_enter_status)
 
         # Включение основного тумблера - события разделов для сохранения
 
@@ -1775,7 +1816,7 @@ class DirectionsHelper:
         self.app.method.checkBox("ON", Take_all_event_path_click, Take_all_event_path_status)
 
     # Включение тумблеров События зон - сохранение
-    def tumblers_zone_events_save_on(self):
+    def tumblers_zone_events_save_on(self, type_control):
         self.app.method.checkBox("OFF", zone_events_device_click, zone_events_device_status)
         self.app.method.checkBox("ON", Battery_OK_zone_events_device_click, Battery_OK_zone_events_device_status)
         self.app.method.checkBox("ON", ready_click, ready_status)
@@ -1786,7 +1827,6 @@ class DirectionsHelper:
         self.app.method.checkBox("ON", Device_error_zone_events_click, Device_error_zone_events_status)
         self.app.method.checkBox("ON", Sensor_reset_zone_events_click, Sensor_reset_zone_events_status)
         self.app.method.checkBox("ON", Lost_zone_events_click, Lost_zone_events_status)
-        self.app.method.checkBox("ON", Check_connection_zone_events_click, Check_connection_zone_events_status)
         self.app.method.checkBox("ON", Backup_battery_is_OK_zone_events_click, Backup_battery_is_OK_zone_events_status)
         self.app.method.checkBox("ON", Sabotage_zone_events_click, Sabotage_zone_events_status)
         self.app.method.checkBox("ON", Communication_restored_zone_events_click,
@@ -1794,14 +1834,20 @@ class DirectionsHelper:
         self.app.method.checkBox("ON", Humidity_event_zone_events_click, Humidity_event_zone_events_status)
         self.app.method.checkBox("ON", CO_sensor_event_zone_events_click, CO_sensor_event_zone_events_status)
         self.app.method.checkBox("ON", Temperature_event_zone_events_click, Temperature_event_zone_events_status)
-        self.app.method.checkBox("ON", Sensor_activation_Bell_mode_zone_events_click,
-                                 Sensor_activation_Bell_mode_zone_events_status)
         self.app.method.checkBox("ON", SS_is_normal_zone_events_click, SS_is_normal_zone_events_status)
         self.app.method.checkBox("ON", AL_is_closed_zone_events_click, AL_is_closed_zone_events_status)
         self.app.method.checkBox("ON", AL_interrupted_zone_events_click, AL_interrupted_zone_events_status)
+        if type_control == 'Звонок' or type_control == 'SMS пользователю' or type_control == 'SMS Эгида':
+            self.app.method.checkBox("ON", Check_connection_zone_events_click, Check_connection_zone_events_status)
+            self.app.method.checkBox("ON", Sensor_activation_Bell_mode_zone_events_click,
+                                     Sensor_activation_Bell_mode_zone_events_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.checkBox("ON", water_sensor_loop_breakage_click, water_sensor_loop_breakage_status)
+        elif type_control == 'DC09':
+            self.app.method.checkBox("ON", water_sensor_loop_breakage_click, water_sensor_loop_breakage_status)
 
     # Проверка Включение тумблеров События зон - сохранение
-    def assert_tumblers_zone_events_save_on(self):
+    def assert_tumblers_zone_events_save_on(self, type_control):
         self.app.method.assertCheckBox("ON", zone_events_device_status)
         self.app.method.assertCheckBox("ON", Battery_OK_zone_events_device_status)
         self.app.method.assertCheckBox("ON", ready_status)
@@ -1812,21 +1858,26 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("ON", Device_error_zone_events_status)
         self.app.method.assertCheckBox("ON", Sensor_reset_zone_events_status)
         self.app.method.assertCheckBox("ON", Lost_zone_events_status)
-        self.app.method.assertCheckBox("ON", Check_connection_zone_events_status)
         self.app.method.assertCheckBox("ON", Backup_battery_is_OK_zone_events_status)
         self.app.method.assertCheckBox("ON", Sabotage_zone_events_status)
         self.app.method.assertCheckBox("ON", Communication_restored_zone_events_status)
         self.app.method.assertCheckBox("ON", Humidity_event_zone_events_status)
         self.app.method.assertCheckBox("ON", CO_sensor_event_zone_events_status)
         self.app.method.assertCheckBox("ON", Temperature_event_zone_events_status)
-        self.app.method.assertCheckBox("ON", Sensor_activation_Bell_mode_zone_events_status)
         self.app.method.assertCheckBox("ON", SS_is_normal_zone_events_status)
         self.app.method.assertCheckBox("ON", AL_is_closed_zone_events_status)
         self.app.method.assertCheckBox("ON", AL_interrupted_zone_events_status)
+        if type_control == 'Звонок' or type_control == 'SMS пользователю' or type_control == 'SMS Эгида':
+            self.app.method.assertCheckBox("ON", Check_connection_zone_events_status)
+            self.app.method.assertCheckBox("ON", Sensor_activation_Bell_mode_zone_events_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.assertCheckBox("ON", water_sensor_loop_breakage_status)
+        elif type_control == 'DC09':
+            self.app.method.assertCheckBox("ON", water_sensor_loop_breakage_status)
 
     # Выключение тумблеров События зон - сохранение
-    def tumblers_zone_events_save_off(self):
-        self.app.method.checkBox("OFF", zone_events_device_click, zone_events_device_status)
+    def tumblers_zone_events_save_off(self, type_control):
+        self.app.method.checkBox("ON", zone_events_device_click, zone_events_device_status)
         self.app.method.checkBox("OFF", Battery_OK_zone_events_device_click, Battery_OK_zone_events_device_status)
         self.app.method.checkBox("OFF", ready_click, ready_status)
         self.app.method.checkBox("OFF", Case_closed_click, Case_closed_status)
@@ -1836,7 +1887,6 @@ class DirectionsHelper:
         self.app.method.checkBox("OFF", Device_error_zone_events_click, Device_error_zone_events_status)
         self.app.method.checkBox("OFF", Sensor_reset_zone_events_click, Sensor_reset_zone_events_status)
         self.app.method.checkBox("OFF", Lost_zone_events_click, Lost_zone_events_status)
-        self.app.method.checkBox("OFF", Check_connection_zone_events_click, Check_connection_zone_events_status)
         self.app.method.checkBox("OFF", Backup_battery_is_OK_zone_events_click, Backup_battery_is_OK_zone_events_status)
         self.app.method.checkBox("OFF", Sabotage_zone_events_click, Sabotage_zone_events_status)
         self.app.method.checkBox("OFF", Communication_restored_zone_events_click,
@@ -1844,14 +1894,20 @@ class DirectionsHelper:
         self.app.method.checkBox("OFF", Humidity_event_zone_events_click, Humidity_event_zone_events_status)
         self.app.method.checkBox("OFF", CO_sensor_event_zone_events_click, CO_sensor_event_zone_events_status)
         self.app.method.checkBox("OFF", Temperature_event_zone_events_click, Temperature_event_zone_events_status)
-        self.app.method.checkBox("OFF", Sensor_activation_Bell_mode_zone_events_click,
-                                 Sensor_activation_Bell_mode_zone_events_status)
         self.app.method.checkBox("OFF", SS_is_normal_zone_events_click, SS_is_normal_zone_events_status)
         self.app.method.checkBox("OFF", AL_is_closed_zone_events_click, AL_is_closed_zone_events_status)
         self.app.method.checkBox("OFF", AL_interrupted_zone_events_click, AL_interrupted_zone_events_status)
+        if type_control == 'Звонок' or type_control == 'SMS пользователю' or type_control == 'SMS Эгида':
+            self.app.method.checkBox("OFF", Check_connection_zone_events_click, Check_connection_zone_events_status)
+            self.app.method.checkBox("OFF", Sensor_activation_Bell_mode_zone_events_click,
+                                     Sensor_activation_Bell_mode_zone_events_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.checkBox("OFF", water_sensor_loop_breakage_click, water_sensor_loop_breakage_status)
+        elif type_control == 'DC09':
+            self.app.method.checkBox("OFF", water_sensor_loop_breakage_click, water_sensor_loop_breakage_status)
 
     # Проверка Выключение тумблеров События зон - сохранение
-    def assert_tumblers_zone_events_save_off(self):
+    def assert_tumblers_zone_events_save_off(self, type_control):
         self.app.method.assertCheckBox("OFF", zone_events_device_status)
         self.app.method.assertCheckBox("OFF", Battery_OK_zone_events_device_status)
         self.app.method.assertCheckBox("OFF", ready_status)
@@ -1862,20 +1918,25 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("OFF", Device_error_zone_events_status)
         self.app.method.assertCheckBox("OFF", Sensor_reset_zone_events_status)
         self.app.method.assertCheckBox("OFF", Lost_zone_events_status)
-        self.app.method.assertCheckBox("OFF", Check_connection_zone_events_status)
         self.app.method.assertCheckBox("OFF", Backup_battery_is_OK_zone_events_status)
         self.app.method.assertCheckBox("OFF", Sabotage_zone_events_status)
         self.app.method.assertCheckBox("OFF", Communication_restored_zone_events_status)
         self.app.method.assertCheckBox("OFF", Humidity_event_zone_events_status)
         self.app.method.assertCheckBox("OFF", CO_sensor_event_zone_events_status)
         self.app.method.assertCheckBox("OFF", Temperature_event_zone_events_status)
-        self.app.method.assertCheckBox("OFF", Sensor_activation_Bell_mode_zone_events_status)
         self.app.method.assertCheckBox("OFF", SS_is_normal_zone_events_status)
         self.app.method.assertCheckBox("OFF", AL_is_closed_zone_events_status)
         self.app.method.assertCheckBox("OFF", AL_interrupted_zone_events_status)
+        if type_control == 'Звонок' or type_control == 'SMS пользователю' or type_control == 'SMS Эгида':
+            self.app.method.assertCheckBox("OFF", Check_connection_zone_events_status)
+            self.app.method.assertCheckBox("OFF", Sensor_activation_Bell_mode_zone_events_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.assertCheckBox("OFF", water_sensor_loop_breakage_status)
+        elif type_control == 'DC09':
+            self.app.method.assertCheckBox("OFF", water_sensor_loop_breakage_status)
 
     # Частичное включение тумблеров События зон - сохранение - 1
-    def tumblers_zone_events_save_some_1(self):
+    def tumblers_zone_events_save_some_1(self, type_control):
         self.app.method.checkBox("OFF", zone_events_device_click, zone_events_device_status)
         self.app.method.checkBox("ON", Battery_OK_zone_events_device_click, Battery_OK_zone_events_device_status)
         self.app.method.checkBox("OFF", ready_click, ready_status)
@@ -1886,7 +1947,6 @@ class DirectionsHelper:
         self.app.method.checkBox("OFF", Device_error_zone_events_click, Device_error_zone_events_status)
         self.app.method.checkBox("ON", Sensor_reset_zone_events_click, Sensor_reset_zone_events_status)
         self.app.method.checkBox("OFF", Lost_zone_events_click, Lost_zone_events_status)
-        self.app.method.checkBox("ON", Check_connection_zone_events_click, Check_connection_zone_events_status)
         self.app.method.checkBox("OFF", Backup_battery_is_OK_zone_events_click, Backup_battery_is_OK_zone_events_status)
         self.app.method.checkBox("ON", Sabotage_zone_events_click, Sabotage_zone_events_status)
         self.app.method.checkBox("OFF", Communication_restored_zone_events_click,
@@ -1894,14 +1954,20 @@ class DirectionsHelper:
         self.app.method.checkBox("ON", Humidity_event_zone_events_click, Humidity_event_zone_events_status)
         self.app.method.checkBox("OFF", CO_sensor_event_zone_events_click, CO_sensor_event_zone_events_status)
         self.app.method.checkBox("ON", Temperature_event_zone_events_click, Temperature_event_zone_events_status)
-        self.app.method.checkBox("OFF", Sensor_activation_Bell_mode_zone_events_click,
-                                 Sensor_activation_Bell_mode_zone_events_status)
         self.app.method.checkBox("ON", SS_is_normal_zone_events_click, SS_is_normal_zone_events_status)
-        self.app.method.checkBox("ON", AL_is_closed_zone_events_click, AL_is_closed_zone_events_status)
+        self.app.method.checkBox("OFF", AL_is_closed_zone_events_click, AL_is_closed_zone_events_status)
         self.app.method.checkBox("ON", AL_interrupted_zone_events_click, AL_interrupted_zone_events_status)
+        if type_control == 'Звонок' or type_control == 'SMS пользователю' or type_control == 'SMS Эгида':
+            self.app.method.checkBox("OFF", Check_connection_zone_events_click, Check_connection_zone_events_status)
+            self.app.method.checkBox("ON", Sensor_activation_Bell_mode_zone_events_click,
+                                     Sensor_activation_Bell_mode_zone_events_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.checkBox("OFF", water_sensor_loop_breakage_click, water_sensor_loop_breakage_status)
+        elif type_control == 'DC09':
+            self.app.method.checkBox("ON", water_sensor_loop_breakage_click, water_sensor_loop_breakage_status)
 
     # Проверка частичного включение тумблеров События зон - сохранение - 1
-    def assert_tumblers_zone_events_save_some_1(self):
+    def assert_tumblers_zone_events_save_some_1(self, type_control):
         self.app.method.assertCheckBox("OFF", zone_events_device_status)
         self.app.method.assertCheckBox("ON", Battery_OK_zone_events_device_status)
         self.app.method.assertCheckBox("OFF", ready_status)
@@ -1912,20 +1978,25 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("OFF", Device_error_zone_events_status)
         self.app.method.assertCheckBox("ON", Sensor_reset_zone_events_status)
         self.app.method.assertCheckBox("OFF", Lost_zone_events_status)
-        self.app.method.assertCheckBox("ON", Check_connection_zone_events_status)
         self.app.method.assertCheckBox("OFF", Backup_battery_is_OK_zone_events_status)
         self.app.method.assertCheckBox("ON", Sabotage_zone_events_status)
         self.app.method.assertCheckBox("OFF", Communication_restored_zone_events_status)
         self.app.method.assertCheckBox("ON", Humidity_event_zone_events_status)
         self.app.method.assertCheckBox("OFF", CO_sensor_event_zone_events_status)
         self.app.method.assertCheckBox("ON", Temperature_event_zone_events_status)
-        self.app.method.assertCheckBox("OFF", Sensor_activation_Bell_mode_zone_events_status)
         self.app.method.assertCheckBox("ON", SS_is_normal_zone_events_status)
-        self.app.method.assertCheckBox("ON", AL_is_closed_zone_events_status)
+        self.app.method.assertCheckBox("OFF", AL_is_closed_zone_events_status)
         self.app.method.assertCheckBox("ON", AL_interrupted_zone_events_status)
+        if type_control == 'Звонок' or type_control == 'SMS пользователю' or type_control == 'SMS Эгида':
+            self.app.method.assertCheckBox("OFF", Check_connection_zone_events_status)
+            self.app.method.assertCheckBox("ON", Sensor_activation_Bell_mode_zone_events_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.assertCheckBox("OFF", water_sensor_loop_breakage_status)
+        elif type_control == 'DC09':
+            self.app.method.assertCheckBox("ON", water_sensor_loop_breakage_status)
 
     # Частичное включение тумблеров События зон - сохранение - 2
-    def tumblers_zone_events_save_some_2(self):
+    def tumblers_zone_events_save_some_2(self, type_control):
         self.app.method.checkBox("OFF", zone_events_device_click, zone_events_device_status)
         self.app.method.checkBox("OFF", Battery_OK_zone_events_device_click, Battery_OK_zone_events_device_status)
         self.app.method.checkBox("ON", ready_click, ready_status)
@@ -1936,7 +2007,6 @@ class DirectionsHelper:
         self.app.method.checkBox("ON", Device_error_zone_events_click, Device_error_zone_events_status)
         self.app.method.checkBox("OFF", Sensor_reset_zone_events_click, Sensor_reset_zone_events_status)
         self.app.method.checkBox("ON", Lost_zone_events_click, Lost_zone_events_status)
-        self.app.method.checkBox("OFF", Check_connection_zone_events_click, Check_connection_zone_events_status)
         self.app.method.checkBox("ON", Backup_battery_is_OK_zone_events_click, Backup_battery_is_OK_zone_events_status)
         self.app.method.checkBox("OFF", Sabotage_zone_events_click, Sabotage_zone_events_status)
         self.app.method.checkBox("ON", Communication_restored_zone_events_click,
@@ -1944,14 +2014,20 @@ class DirectionsHelper:
         self.app.method.checkBox("OFF", Humidity_event_zone_events_click, Humidity_event_zone_events_status)
         self.app.method.checkBox("ON", CO_sensor_event_zone_events_click, CO_sensor_event_zone_events_status)
         self.app.method.checkBox("OFF", Temperature_event_zone_events_click, Temperature_event_zone_events_status)
-        self.app.method.checkBox("ON", Sensor_activation_Bell_mode_zone_events_click,
-                                 Sensor_activation_Bell_mode_zone_events_status)
         self.app.method.checkBox("OFF", SS_is_normal_zone_events_click, SS_is_normal_zone_events_status)
-        self.app.method.checkBox("OFF", AL_is_closed_zone_events_click, AL_is_closed_zone_events_status)
+        self.app.method.checkBox("ON", AL_is_closed_zone_events_click, AL_is_closed_zone_events_status)
         self.app.method.checkBox("OFF", AL_interrupted_zone_events_click, AL_interrupted_zone_events_status)
+        if type_control == 'Звонок' or type_control == 'SMS пользователю' or type_control == 'SMS Эгида':
+            self.app.method.checkBox("ON", Check_connection_zone_events_click, Check_connection_zone_events_status)
+            self.app.method.checkBox("OFF", Sensor_activation_Bell_mode_zone_events_click,
+                                     Sensor_activation_Bell_mode_zone_events_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.checkBox("ON", water_sensor_loop_breakage_click, water_sensor_loop_breakage_status)
+        elif type_control == 'DC09':
+            self.app.method.checkBox("OFF", water_sensor_loop_breakage_click, water_sensor_loop_breakage_status)
 
     # Проверка частичного включение тумблеров События зон - сохранение - 2
-    def assert_tumblers_zone_events_save_some_2(self):
+    def assert_tumblers_zone_events_save_some_2(self, type_control):
         self.app.method.assertCheckBox("OFF", zone_events_device_status)
         self.app.method.assertCheckBox("OFF", Battery_OK_zone_events_device_status)
         self.app.method.assertCheckBox("ON", ready_status)
@@ -1962,24 +2038,29 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("ON", Device_error_zone_events_status)
         self.app.method.assertCheckBox("OFF", Sensor_reset_zone_events_status)
         self.app.method.assertCheckBox("ON", Lost_zone_events_status)
-        self.app.method.assertCheckBox("OFF", Check_connection_zone_events_status)
         self.app.method.assertCheckBox("ON", Backup_battery_is_OK_zone_events_status)
         self.app.method.assertCheckBox("OFF", Sabotage_zone_events_status)
         self.app.method.assertCheckBox("ON", Communication_restored_zone_events_status)
         self.app.method.assertCheckBox("OFF", Humidity_event_zone_events_status)
         self.app.method.assertCheckBox("ON", CO_sensor_event_zone_events_status)
         self.app.method.assertCheckBox("OFF", Temperature_event_zone_events_status)
-        self.app.method.assertCheckBox("ON", Sensor_activation_Bell_mode_zone_events_status)
         self.app.method.assertCheckBox("OFF", SS_is_normal_zone_events_status)
-        self.app.method.assertCheckBox("OFF", AL_is_closed_zone_events_status)
+        self.app.method.assertCheckBox("ON", AL_is_closed_zone_events_status)
         self.app.method.assertCheckBox("OFF", AL_interrupted_zone_events_status)
+        if type_control == 'Звонок' or type_control == 'SMS пользователю' or type_control == 'SMS Эгида':
+            self.app.method.assertCheckBox("ON", Check_connection_zone_events_status)
+            self.app.method.assertCheckBox("OFF", Sensor_activation_Bell_mode_zone_events_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.assertCheckBox("ON", water_sensor_loop_breakage_status)
+        elif type_control == 'DC09':
+            self.app.method.assertCheckBox("OFF", water_sensor_loop_breakage_status)
 
     # Включение основного тумблеров События зон - сохранение
     def tumblers_zone_events_save_on_main(self):
         self.app.method.checkBox("ON", zone_events_device_click, zone_events_device_status)
 
     # Включение тумблеров Питание прибора - сохранение
-    def tumblers_instrument_power_supply_save_on(self):
+    def tumblers_instrument_power_supply_save_on(self, type_control):
         self.app.method.checkBox("OFF", Take_all_power_device_click, Take_all_power_device_status)
         self.app.method.checkBox("ON", Battery_is_OK_click, Battery_is_OK_status)
         self.app.method.checkBox("ON", The_battery_is_charging_click, The_battery_is_charging_status)
@@ -1990,9 +2071,12 @@ class DirectionsHelper:
         self.app.method.checkBox("ON", High_internal_battery_resistance_click, High_internal_battery_resistance_status)
         self.app.method.checkBox("ON", Mains_power_is_OK_click, Mains_power_is_OK_status)
         self.app.method.checkBox("ON", Mains_power_off_click, Mains_power_off_status)
+        if type_control != 'SMS Эгида':
+            self.app.method.checkBox("ON", max_voltage_power_click, max_voltage_power_status)
+            self.app.method.checkBox("ON", min_voltage_power_click, min_voltage_power_status)
 
     # Проверка включение тумблеров Питание прибора - сохранение
-    def assert_tumblers_instrument_power_supply_save_on(self):
+    def assert_tumblers_instrument_power_supply_save_on(self, type_control):
         self.app.method.assertCheckBox("ON", Take_all_power_device_status)
         self.app.method.assertCheckBox("ON", Battery_is_OK_status)
         self.app.method.assertCheckBox("ON", The_battery_is_charging_status)
@@ -2002,10 +2086,13 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("ON", High_internal_battery_resistance_status)
         self.app.method.assertCheckBox("ON", Mains_power_is_OK_status)
         self.app.method.assertCheckBox("ON", Mains_power_off_status)
+        if type_control != 'SMS Эгида':
+            self.app.method.assertCheckBox("ON", max_voltage_power_status)
+            self.app.method.assertCheckBox("ON", min_voltage_power_status)
 
     # Выключение тумблеров Питание прибора - сохранение
-    def tumblers_instrument_power_supply_save_off(self):
-        self.app.method.checkBox("OFF", Take_all_power_device_click, Take_all_power_device_status)
+    def tumblers_instrument_power_supply_save_off(self, type_control):
+        self.app.method.checkBox("ON", Take_all_power_device_click, Take_all_power_device_status)
         self.app.method.checkBox("OFF", Battery_is_OK_click, Battery_is_OK_status)
         self.app.method.checkBox("OFF", The_battery_is_charging_click, The_battery_is_charging_status)
         self.app.method.checkBox("OFF", Battery_is_charged_click, Battery_is_charged_status)
@@ -2015,9 +2102,12 @@ class DirectionsHelper:
         self.app.method.checkBox("OFF", High_internal_battery_resistance_click, High_internal_battery_resistance_status)
         self.app.method.checkBox("OFF", Mains_power_is_OK_click, Mains_power_is_OK_status)
         self.app.method.checkBox("OFF", Mains_power_off_click, Mains_power_off_status)
+        if type_control != 'SMS Эгида':
+            self.app.method.checkBox("OFF", max_voltage_power_click, max_voltage_power_status)
+            self.app.method.checkBox("OFF", min_voltage_power_click, min_voltage_power_status)
 
     # Проверка выключение тумблеров Питание прибора - сохранение
-    def assert_tumblers_instrument_power_supply_save_off(self):
+    def assert_tumblers_instrument_power_supply_save_off(self, type_control):
         self.app.method.assertCheckBox("OFF", Take_all_power_device_status)
         self.app.method.assertCheckBox("OFF", Battery_is_OK_status)
         self.app.method.assertCheckBox("OFF", The_battery_is_charging_status)
@@ -2027,9 +2117,12 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("OFF", High_internal_battery_resistance_status)
         self.app.method.assertCheckBox("OFF", Mains_power_is_OK_status)
         self.app.method.assertCheckBox("OFF", Mains_power_off_status)
+        if type_control != 'SMS Эгида':
+            self.app.method.assertCheckBox("OFF", max_voltage_power_status)
+            self.app.method.assertCheckBox("OFF", min_voltage_power_status)
 
     # Частичное включение тумблеров Питание прибора - сохранение
-    def tumblers_instrument_power_supply_save_on_some_1(self):
+    def tumblers_instrument_power_supply_save_on_some_1(self, type_control):
         self.app.method.checkBox("OFF", Take_all_power_device_click, Take_all_power_device_status)
         self.app.method.checkBox("ON", Battery_is_OK_click, Battery_is_OK_status)
         self.app.method.checkBox("OFF", The_battery_is_charging_click, The_battery_is_charging_status)
@@ -2040,9 +2133,12 @@ class DirectionsHelper:
         self.app.method.checkBox("OFF", High_internal_battery_resistance_click, High_internal_battery_resistance_status)
         self.app.method.checkBox("ON", Mains_power_is_OK_click, Mains_power_is_OK_status)
         self.app.method.checkBox("OFF", Mains_power_off_click, Mains_power_off_status)
+        if type_control != 'SMS Эгида':
+            self.app.method.checkBox("OFF", max_voltage_power_click, max_voltage_power_status)
+            self.app.method.checkBox("ON", min_voltage_power_click, min_voltage_power_status)
 
     # Проверка частичного включение тумблеров Питание прибора - сохранение
-    def assert_tumblers_instrument_power_supply_save_on_some_1(self):
+    def assert_tumblers_instrument_power_supply_save_on_some_1(self, type_control):
         self.app.method.assertCheckBox("OFF", Take_all_power_device_status)
         self.app.method.assertCheckBox("ON", Battery_is_OK_status)
         self.app.method.assertCheckBox("OFF", The_battery_is_charging_status)
@@ -2052,9 +2148,12 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("OFF", High_internal_battery_resistance_status)
         self.app.method.assertCheckBox("ON", Mains_power_is_OK_status)
         self.app.method.assertCheckBox("OFF", Mains_power_off_status)
+        if type_control != 'SMS Эгида':
+            self.app.method.assertCheckBox("OFF", max_voltage_power_status)
+            self.app.method.assertCheckBox("ON", min_voltage_power_status)
 
     # Частичное включение тумблеров Питание прибора - сохранение
-    def tumblers_instrument_power_supply_save_on_some_2(self):
+    def tumblers_instrument_power_supply_save_on_some_2(self, type_control):
         self.app.method.checkBox("OFF", Take_all_power_device_click, Take_all_power_device_status)
         self.app.method.checkBox("OFF", Battery_is_OK_click, Battery_is_OK_status)
         self.app.method.checkBox("ON", The_battery_is_charging_click, The_battery_is_charging_status)
@@ -2065,9 +2164,12 @@ class DirectionsHelper:
         self.app.method.checkBox("ON", High_internal_battery_resistance_click, High_internal_battery_resistance_status)
         self.app.method.checkBox("OFF", Mains_power_is_OK_click, Mains_power_is_OK_status)
         self.app.method.checkBox("ON", Mains_power_off_click, Mains_power_off_status)
+        if type_control != 'SMS Эгида':
+            self.app.method.checkBox("ON", max_voltage_power_click, max_voltage_power_status)
+            self.app.method.checkBox("OFF", min_voltage_power_click, min_voltage_power_status)
 
     # Проверка частичного включение тумблеров Питание прибора - сохранение
-    def assert_tumblers_instrument_power_supply_save_on_some_2(self):
+    def assert_tumblers_instrument_power_supply_save_on_some_2(self, type_control):
         self.app.method.assertCheckBox("OFF", Take_all_power_device_status)
         self.app.method.assertCheckBox("OFF", Battery_is_OK_status)
         self.app.method.assertCheckBox("ON", The_battery_is_charging_status)
@@ -2077,66 +2179,157 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("ON", High_internal_battery_resistance_status)
         self.app.method.assertCheckBox("OFF", Mains_power_is_OK_status)
         self.app.method.assertCheckBox("ON", Mains_power_off_status)
+        if type_control != 'SMS Эгида':
+            self.app.method.assertCheckBox("ON", max_voltage_power_status)
+            self.app.method.assertCheckBox("OFF", min_voltage_power_status)
 
     # Включение тумблера Питание прибора - сохранение
     def tumblers_instrument_power_supply_save_main(self):
         self.app.method.checkBox("ON", Take_all_power_device_click, Take_all_power_device_status)
 
     # Включение тумблеров Системные события прибора - сохранение
-    def tumblers_instrument_system_events_save_on(self):
+    def tumblers_instrument_system_events_save_on(self, type_control):
         self.app.method.checkBox("OFF", instrument_system_events_click, instrument_system_events_status)
         self.app.method.checkBox("ON", Opening_the_case_of_the_device_click, Opening_the_case_of_the_device_status)
         self.app.method.checkBox("ON", Closing_the_instrument_housing_click, Closing_the_instrument_housing_status)
-        self.app.method.checkBox("ON", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("ON", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.checkBox("ON", sim_card_balance_reduced_click, sim_card_balance_reduced_status)
+                self.app.method.checkBox("ON", added_sensor_click, added_sensor_status)
+                self.app.method.checkBox("ON", user_added_or_changed_click, user_added_or_changed_status)
+                self.app.method.checkBox("ON", key_added_click, key_added_status)
+                self.app.method.checkBox("ON", added_or_changed_direction_click, added_or_changed_direction_status)
+                self.app.method.checkBox("ON", key_updated_click, key_updated_status)
+                self.app.method.checkBox("ON", sensor_removed_click, sensor_removed_status)
+                self.app.method.checkBox("ON", key_removed_click, key_removed_status)
+                self.app.method.checkBox("ON", user_removed_click, user_removed_status)
 
     # Проверка включения тумблеров Системные события прибора - сохранение
-    def assert_tumblers_instrument_system_events_save_on(self):
+    def assert_tumblers_instrument_system_events_save_on(self, type_control):
         self.app.method.assertCheckBox("ON", instrument_system_events_status)
         self.app.method.assertCheckBox("ON", Opening_the_case_of_the_device_status)
         self.app.method.assertCheckBox("ON", Closing_the_instrument_housing_status)
-        self.app.method.assertCheckBox("ON", The_device_has_been_rebooted_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("ON", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.assertCheckBox("ON", sim_card_balance_reduced_status)
+                self.app.method.assertCheckBox("ON", added_sensor_status)
+                self.app.method.assertCheckBox("ON", user_added_or_changed_status)
+                self.app.method.assertCheckBox("ON", key_added_status)
+                self.app.method.assertCheckBox("ON", added_or_changed_direction_status)
+                self.app.method.assertCheckBox("ON", key_updated_status)
+                self.app.method.assertCheckBox("ON", sensor_removed_status)
+                self.app.method.assertCheckBox("ON", key_removed_status)
+                self.app.method.assertCheckBox("ON", user_removed_status)
 
     # Выключение тумблеров Системные события прибора - сохранение
-    def tumblers_instrument_system_events_save_off(self):
-        self.app.method.checkBox("OFF", instrument_system_events_click, instrument_system_events_status)
+    def tumblers_instrument_system_events_save_off(self, type_control):
+        self.app.method.checkBox("ON", instrument_system_events_click, instrument_system_events_status)
         self.app.method.checkBox("OFF", Opening_the_case_of_the_device_click, Opening_the_case_of_the_device_status)
         self.app.method.checkBox("OFF", Closing_the_instrument_housing_click, Closing_the_instrument_housing_status)
-        self.app.method.checkBox("OFF", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("OF", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.checkBox("OFF", sim_card_balance_reduced_click, sim_card_balance_reduced_status)
+                self.app.method.checkBox("OFF", added_sensor_click, added_sensor_status)
+                self.app.method.checkBox("OFF", user_added_or_changed_click, user_added_or_changed_status)
+                self.app.method.checkBox("OFF", key_added_click, key_added_status)
+                self.app.method.checkBox("OFF", added_or_changed_direction_click, added_or_changed_direction_status)
+                self.app.method.checkBox("OFF", key_updated_click, key_updated_status)
+                self.app.method.checkBox("OFF", sensor_removed_click, sensor_removed_status)
+                self.app.method.checkBox("OFF", key_removed_click, key_removed_status)
+                self.app.method.checkBox("OFF", user_removed_click, user_removed_status)
 
     # Проверка выключения тумблеров Системные события прибора - сохранение
-    def assert_tumblers_instrument_system_events_save_off(self):
+    def assert_tumblers_instrument_system_events_save_off(self, type_control):
         self.app.method.assertCheckBox("OFF", instrument_system_events_status)
         self.app.method.assertCheckBox("OFF", Opening_the_case_of_the_device_status)
         self.app.method.assertCheckBox("OFF", Closing_the_instrument_housing_status)
-        self.app.method.assertCheckBox("OFF", The_device_has_been_rebooted_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("OF", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.assertCheckBox("OFF", sim_card_balance_reduced_status)
+                self.app.method.assertCheckBox("OFF", added_sensor_status)
+                self.app.method.assertCheckBox("OFF", user_added_or_changed_status)
+                self.app.method.assertCheckBox("OFF", key_added_status)
+                self.app.method.assertCheckBox("OFF", added_or_changed_direction_status)
+                self.app.method.assertCheckBox("OFF", key_updated_status)
+                self.app.method.assertCheckBox("OFF", sensor_removed_status)
+                self.app.method.assertCheckBox("OFF", key_removed_status)
+                self.app.method.assertCheckBox("OFF", user_removed_status)
 
     # Частичное включение тумблеров Системные события прибора - сохранение
-    def tumblers_instrument_system_events_save_on_some_1(self):
+    def tumblers_instrument_system_events_save_on_some_1(self, type_control):
         self.app.method.checkBox("OFF", instrument_system_events_click, instrument_system_events_status)
         self.app.method.checkBox("ON", Opening_the_case_of_the_device_click, Opening_the_case_of_the_device_status)
-        self.app.method.checkBox("ON", Closing_the_instrument_housing_click, Closing_the_instrument_housing_status)
-        self.app.method.checkBox("ON", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+        self.app.method.checkBox("OFF", Closing_the_instrument_housing_click, Closing_the_instrument_housing_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("ON", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.checkBox("ON", sim_card_balance_reduced_click, sim_card_balance_reduced_status)
+                self.app.method.checkBox("OFF", added_sensor_click, added_sensor_status)
+                self.app.method.checkBox("ON", user_added_or_changed_click, user_added_or_changed_status)
+                self.app.method.checkBox("OFF", key_added_click, key_added_status)
+                self.app.method.checkBox("ON", added_or_changed_direction_click, added_or_changed_direction_status)
+                self.app.method.checkBox("OFF", key_updated_click, key_updated_status)
+                self.app.method.checkBox("ON", sensor_removed_click, sensor_removed_status)
+                self.app.method.checkBox("OFF", key_removed_click, key_removed_status)
+                self.app.method.checkBox("ON", user_removed_click, user_removed_status)
 
     # Проверка Частичного включения тумблеров Системные события прибора - сохранение
-    def assert_tumblers_instrument_system_events_save_on_some_1(self):
-        self.app.method.assertCheckBox("ON", instrument_system_events_status)
+    def assert_tumblers_instrument_system_events_save_on_some_1(self, type_control):
+        self.app.method.assertCheckBox("OFF", instrument_system_events_status)
         self.app.method.assertCheckBox("ON", Opening_the_case_of_the_device_status)
-        self.app.method.assertCheckBox("ON", Closing_the_instrument_housing_status)
-        self.app.method.assertCheckBox("ON", The_device_has_been_rebooted_status)
+        self.app.method.assertCheckBox("OFF", Closing_the_instrument_housing_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("ON", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.assertCheckBox("ON", sim_card_balance_reduced_status)
+                self.app.method.assertCheckBox("OFF", added_sensor_status)
+                self.app.method.assertCheckBox("ON", user_added_or_changed_status)
+                self.app.method.assertCheckBox("OFF", key_added_status)
+                self.app.method.assertCheckBox("ON", added_or_changed_direction_status)
+                self.app.method.assertCheckBox("OFF", key_updated_status)
+                self.app.method.assertCheckBox("ON", sensor_removed_status)
+                self.app.method.assertCheckBox("OFF", key_removed_status)
+                self.app.method.assertCheckBox("ON", user_removed_status)
 
     # Частичное включение тумблеров Системные события прибора - сохранение
-    def tumblers_instrument_system_events_save_on_some_2(self):
+    def tumblers_instrument_system_events_save_on_some_2(self, type_control):
         self.app.method.checkBox("OFF", instrument_system_events_click, instrument_system_events_status)
-        self.app.method.checkBox("OFF", Opening_the_case_of_the_device_click, Opening_the_case_of_the_device_status)
+        self.app.method.checkBox("ON", Opening_the_case_of_the_device_click, Opening_the_case_of_the_device_status)
         self.app.method.checkBox("OFF", Closing_the_instrument_housing_click, Closing_the_instrument_housing_status)
-        self.app.method.checkBox("OFF", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("ON", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.checkBox("ON", sim_card_balance_reduced_click, sim_card_balance_reduced_status)
+                self.app.method.checkBox("OFF", added_sensor_click, added_sensor_status)
+                self.app.method.checkBox("ON", user_added_or_changed_click, user_added_or_changed_status)
+                self.app.method.checkBox("OFF", key_added_click, key_added_status)
+                self.app.method.checkBox("ON", added_or_changed_direction_click, added_or_changed_direction_status)
+                self.app.method.checkBox("OFF", key_updated_click, key_updated_status)
+                self.app.method.checkBox("ON", sensor_removed_click, sensor_removed_status)
+                self.app.method.checkBox("OFF", key_removed_click, key_removed_status)
+                self.app.method.checkBox("ON", user_removed_click, user_removed_status)
 
     # Проверка Частичного включения тумблеров Системные события прибора - сохранение
-    def assert_tumblers_instrument_system_events_save_on_some_2(self):
+    def assert_tumblers_instrument_system_events_save_on_some_2(self, type_control):
         self.app.method.assertCheckBox("OFF", instrument_system_events_status)
-        self.app.method.assertCheckBox("OFF", Opening_the_case_of_the_device_status)
+        self.app.method.assertCheckBox("ON", Opening_the_case_of_the_device_status)
         self.app.method.assertCheckBox("OFF", Closing_the_instrument_housing_status)
-        self.app.method.assertCheckBox("OFF", The_device_has_been_rebooted_status)
+        if type_control != 'DC09':
+            self.app.method.checkBox("ON", The_device_has_been_rebooted_click, The_device_has_been_rebooted_status)
+            if type_control != 'SMS Эгида':
+                self.app.method.assertCheckBox("ON", sim_card_balance_reduced_status)
+                self.app.method.assertCheckBox("OFF", added_sensor_status)
+                self.app.method.assertCheckBox("ON", user_added_or_changed_status)
+                self.app.method.assertCheckBox("OFF", key_added_status)
+                self.app.method.assertCheckBox("ON", added_or_changed_direction_status)
+                self.app.method.assertCheckBox("OFF", key_updated_status)
+                self.app.method.assertCheckBox("ON", sensor_removed_status)
+                self.app.method.assertCheckBox("OFF", key_removed_status)
+                self.app.method.assertCheckBox("ON", user_removed_status)
 
     # Включение основного тумблера Системные события прибора - сохранение
     def tumblers_instrument_system_events_save_main(self):
@@ -3782,3 +3975,16 @@ class DirectionsHelper:
                 element), f"\nОжидаемое значение в выпадающем списке: '{day}'\nФактическое: '{element}'"
         with allure.step("Проверка выбора времени"):
             self.app.method.assertTimeBox("ON", _directions['Time'], '3')
+
+    def choose_type_of_control_and_fill_form(self, type_control):
+        self.app.PO_Directions.openType_main(type_control)
+        if type_control != 'DC09':
+            self.app.method.inputValues('+7', TEL_COD_main)
+            self.app.method.inputValues('(111)111-11-11', TEL_NUM_main)
+            if type_control == 'Звонок':
+                self.app.method.inputValues('15', count_reset_main)
+        else:
+            self.app.method.inputValues('http//ya.ru', address_DC09_main)
+            self.app.method.inputValues('5566', port_DC09_main)
+            self.app.method.inputValues('22', confirmation_timeout_DC09_main)
+
