@@ -111,7 +111,7 @@ def exit_enter(app):
 @allure.epic("Тесты НАСТРОЙКИ")
 @allure.feature("Сохранение данных")
 @pytest.mark.flaky(reruns=reruns)
-class TestSaveSettings:
+class TestSaveSettings1:
 
     @allure.story("ОБЪЕКТ")
     @allure.title("Проверка сохранения настроек объекта: параметризованный тест")
@@ -209,6 +209,13 @@ class TestSaveSettings:
         with allure.step("Завершение настроек"):
             app.PO_Settings.finish_setting()
 
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Сохранение данных")
+@pytest.mark.flaky(reruns=reruns)
+class TestSaveSettings2:
+
     @allure.story("СВЕТОВАЯ ИНДИКАЦИЯ")
     @allure.title("Проверка сохранения настроек Световой индикации: параметризованный тест")
     @pytest.mark.parametrize(
@@ -305,6 +312,13 @@ class TestSaveSettings:
             app.PO_Settings.save_radio_data_enter_limit(chanel_list, time_add_sensor, periud_sensor)
         with allure.step("Завершение настроек"):
             app.PO_Settings.finish_setting()
+
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Сохранение данных")
+@pytest.mark.flaky(reruns=reruns)
+class TestSaveSettings3:
 
     @allure.story("ЗВУКОВАЯ ИНДИКАЦИЯ")
     @allure.title("Проверка сохранения настроек звуковой индикации")
@@ -496,6 +510,12 @@ class TestSaveSettings:
         with allure.step("Завершение настроек"):
             app.PO_Settings.finish_setting()
 
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Сохранение данных")
+@pytest.mark.flaky(reruns=reruns)
+class TestSaveSettings4:
 
     @allure.story("GSM")
     @allure.title("Проверка сохранения настроек gsm: параметризованный тест")
