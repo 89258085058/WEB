@@ -1474,6 +1474,10 @@ class ZonePathHelper:
                     self.app.ganerate_data.createData()
                     # _path = self.app.read_data.data_path()
                     self.app.method.click((By.XPATH, add_path_button))
+                    if i == 16:
+                        self.app.method.inputValues(value=55, locator=namber_path)
+                        self.app.method.click((By.XPATH, save_button_path))
+                        break
                     # self.app.method.inputValues(value=_path['Number_path'], locator=namber_path)
                     # self.app.method.inputValues(value=_path['Name_path'], locator=name_path)
                     self.app.method.click((By.XPATH, save_button_path))
