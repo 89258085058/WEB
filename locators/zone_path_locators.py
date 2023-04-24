@@ -8,7 +8,7 @@ path_row = '//*[@id="app"]/main//div[@class="main-info"]'
 
 # ------------КНОПКИ------------
 add_path_button = '//*[@id="app"]//button[@class="BTN-indigo control-btn-desktop"]'
-settings_first_path_button = '(//*[@id="app"]//button[@class="BTN-secondary block BTN-auto-icon"][.="Настройки"])[1]'
+settings_first_path_button = '//div[contains(@class, "partition_1")]//button[.="Настройки"]'
 action_first_path_button = '//div[@class="row-item partition_1"]//button[.="Снять"]'
 settings_2_path_button = '(//*[@id="app"]//button[@class="BTN-secondary block BTN-auto-icon"][.="Настройки"])[2]'
 cancel_button = '(//*[.=" Отменить "]//div)[last()]'
