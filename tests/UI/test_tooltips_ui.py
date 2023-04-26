@@ -285,15 +285,16 @@ class Test01TooltipsMassege:
         with allure.step("Проверка подсказки: Часовой пояс"):
             app.PO_Tooltips.tooltip_settings_date_time_drop_list_hend_time_zone()
 
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Прибор - Включить энергосберегающий режим")
-    def test_settings_device_tooltip_1(self, app):
-        with allure.step("Переход на страницу Настройки"):
-            app.PO_Navigations.goToSettingsPage()
-        with allure.step("Переход на вкладку 'Прибор'"):
-            app.PO_Navigations.goToDevicePage()
-        with allure.step("Проверка подсказки: Включить энергосберегающий режим"):
-            app.PO_Tooltips.tooltip_settings_device_enable_power_saving_mode()
+    # чекбокс выпилен согласно ТЗ
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Прибор - Включить энергосберегающий режим")
+    # def test_settings_device_tooltip_1(self, app):
+    #     with allure.step("Переход на страницу Настройки"):
+    #         app.PO_Navigations.goToSettingsPage()
+    #     with allure.step("Переход на вкладку 'Прибор'"):
+    #         app.PO_Navigations.goToDevicePage()
+    #     with allure.step("Проверка подсказки: Включить энергосберегающий режим"):
+    #         app.PO_Tooltips.tooltip_settings_device_enable_power_saving_mode()
 
 
 @allure.label("owner", 'Александр Горелов')
@@ -1446,11 +1447,12 @@ class Test01TooltipsMassegeUsersKeys():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_user_keys_user_rep_password_sms_input()
 
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Ключи - ID")
-    def test_users_keys_keys_tooltip_1(self, app, keys_settings, close_modal):
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_user_keys_keys_id()
+    # Для данного поля не предусмотрена задача тикет 132871
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Ключи - ID")
+    # def test_users_keys_keys_tooltip_1(self, app, keys_settings, close_modal):
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_user_keys_keys_id()
 
     @allure.story("Проверка подсказок наименования поля")
     @allure.title("Ключи - Пользователь")
@@ -1560,16 +1562,17 @@ class Test01TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_path()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Тип управления")
-    def test_directions_main_tooltip_1(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_control_type()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Тип управления")
+    # def test_directions_main_tooltip_1(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_control_type()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок полей ввода")
@@ -1580,18 +1583,19 @@ class Test01TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_name_input()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Текущий пользователь - Основной канал")
-    def test_directions_main_tooltip_2(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('SMS пользователю')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_current_user()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Текущий пользователь - Основной канал")
+    # def test_directions_main_tooltip_2(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_current_user()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -1619,18 +1623,19 @@ class Test01TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_send_event_date()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Включить тестирование канала - Основной канал")
-    def test_directions_main_tooltip_5(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('SMS пользователю')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_enable_channel_testing()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Включить тестирование канала - Основной канал")
+    # def test_directions_main_tooltip_5(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_enable_channel_testing()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -1662,20 +1667,21 @@ class Test01TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_test_if()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Метод тестирования - Основной канал")
-    def test_directions_main_tooltip_8(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('SMS пользователю')
-        with allure.step("Включить тестирование канала"):
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_test_method()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Метод тестирования - Основной канал")
+    # def test_directions_main_tooltip_8(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #     with allure.step("Включить тестирование канала"):
+    #         app.PO_Directions.enableChannelTesting_main()
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_test_method()
 
 
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
@@ -1683,35 +1689,37 @@ class Test01TooltipsMassegeDirections():
 @pytest.mark.flaky(reruns=reruns)
 class Test02TooltipsMassegeDirections():
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Тестировать - Основной канал")
-    def test_directions_main_tooltip_9(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('SMS пользователю')
-        with allure.step("Включить тестирование канала"):
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_test()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Тестировать - Основной канал")
+    # def test_directions_main_tooltip_9(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #     with allure.step("Включить тестирование канала"):
+    #         app.PO_Directions.enableChannelTesting_main()
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_test()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Дни недели - Основной канал")
-    def test_directions_main_tooltip_10(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('SMS пользователю')
-        with allure.step("Включить тестирование канала"):
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_days_of_th_week()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Дни недели - Основной канал")
+    # def test_directions_main_tooltip_10(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #     with allure.step("Включить тестирование канала"):
+    #         app.PO_Directions.enableChannelTesting_main()
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_days_of_th_week()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -1726,31 +1734,33 @@ class Test02TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_number_of_repetitions()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Адрес - Основной канал")
-    def test_directions_main_tooltip_12(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_address()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Адрес - Основной канал")
+    # def test_directions_main_tooltip_12(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_main('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_address()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Порт - Основной канал")
-    def test_directions_main_tooltip_13(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_port()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Порт - Основной канал")
+    # def test_directions_main_tooltip_13(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_main('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_port()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -1791,32 +1801,33 @@ class Test02TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_number_of_repetitions_DC09()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Шифрование - Основной канал")
-    def test_directions_main_tooltip_17(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_encryption()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Шифрование - Основной канал")
+    # def test_directions_main_tooltip_17(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_main('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_encryption()
 
-    # @pytest.mark.skip("Не реализованно")
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Ключ шифрования - Основной канал")
-    def test_directions_main_tooltip_18(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_main('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_encryption_keyn()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Ключ шифрования - Основной канал")
+    # def test_directions_main_tooltip_18(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_main('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_encryption_keyn()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок полей ввода")
@@ -1930,21 +1941,22 @@ class Test03TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_number_of_repetitions_DC09()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Текущий пользователь - Резервный канал 1")
-    def test_directions_rezerv_1_tooltip_2(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_current_user_rezerv_1()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Текущий пользователь - Резервный канал 1")
+    # def test_directions_rezerv_1_tooltip_2(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_current_user_rezerv_1()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -1978,21 +1990,22 @@ class Test03TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_send_event_date_rezerv_1()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Включить тестирование канала - Резервный канал 1")
-    def test_directions_rezerv_1_tooltip_5(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_enable_channel_testing_rezerv_1()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Включить тестирование канала - Резервный канал 1")
+    # def test_directions_rezerv_1_tooltip_5(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_enable_channel_testing_rezerv_1()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -2032,62 +2045,65 @@ class Test03TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_test_if_rezerv_1()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Метод тестирования - Резервный канал 1")
-    def test_directions_rezerv_1_tooltip_8(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-        with allure.step("Включить тестирование канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_test_method_rezerv_1()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Метод тестирования - Резервный канал 1")
+    # def test_directions_rezerv_1_tooltip_8(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #         app.PO_Directions.enableChannelTesting_main()
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #     with allure.step("Включить тестирование канала"):
+    #         app.PO_Directions.enableChannelTesting_rezerv_1()
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_test_method_rezerv_1()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Тестировать - Резервный канал 1")
-    def test_directions_rezerv_1_tooltip_9(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-        with allure.step("Включить тестирование канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_test_rezerv_1()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Тестировать - Резервный канал 1")
+    # def test_directions_rezerv_1_tooltip_9(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #         app.PO_Directions.enableChannelTesting_main()
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #     with allure.step("Включить тестирование канала"):
+    #         app.PO_Directions.enableChannelTesting_rezerv_1()
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_test_rezerv_1()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Дни недели - Резервный канал 1")
-    def test_directions_rezerv_1_tooltip_10(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-        with allure.step("Включить тестирование канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_days_of_th_week_rezerv_1()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Дни недели - Резервный канал 1")
+    # def test_directions_rezerv_1_tooltip_10(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #         app.PO_Directions.enableChannelTesting_main()
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #     with allure.step("Включить тестирование канала"):
+    #         app.PO_Directions.enableChannelTesting_rezerv_1()
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_days_of_th_week_rezerv_1()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -2105,37 +2121,39 @@ class Test03TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_number_of_repetitions_rezerv_1()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Адрес - Резервный канал 1")
-    def test_directions_rezerv_1_tooltip_12(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_address_rezerv_1()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Адрес - Резервный канал 1")
+    # def test_directions_rezerv_1_tooltip_12(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('DC09')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_1('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_address_rezerv_1()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Порт - Резервный канал 1")
-    def test_directions_rezerv_1_tooltip_13(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_port_rezerv_1()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Порт - Резервный канал 1")
+    # def test_directions_rezerv_1_tooltip_13(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('DC09')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_1('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_port_rezerv_1()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -2185,38 +2203,39 @@ class Test03TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_number_of_repetitions_DC09_rezerv_1()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Шифрование - Резервный канал 1")
-    def test_directions_rezerv_1_tooltip_17(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_encryption_rezerv_1()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Шифрование - Резервный канал 1")
+    # def test_directions_rezerv_1_tooltip_17(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('DC09')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_1('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_encryption_rezerv_1()
 
-    # @pytest.mark.skip("Не реализованно")
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Ключ шифрования - Резервный канал 1")
-    def test_directions_rezerv_1_tooltip_18(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 1')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_1('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_encryption_keyn_rezerv_1()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Ключ шифрования - Резервный канал 1")
+    # def test_directions_rezerv_1_tooltip_18(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('DC09')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_1('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_encryption_keyn_rezerv_1()
 
 
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
@@ -2355,23 +2374,24 @@ class Test04TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_number_of_repetitions_DC09_rezerv_1()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Текущий пользователь - Резервный канал 2")
-    def test_directions_rezerv_2_tooltip_2(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('SMS пользователю')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_current_user_rezerv_2()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Текущий пользователь - Резервный канал 2")
+    # def test_directions_rezerv_2_tooltip_2(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 2')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_2('SMS пользователю')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_current_user_rezerv_2()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -2409,23 +2429,24 @@ class Test04TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_send_event_date_rezerv_2()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Включить тестирование канала - Резервный канал 2")
-    def test_directions_rezerv_2_tooltip_5(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('SMS пользователю')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_enable_channel_testing_rezerv_2()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Включить тестирование канала - Резервный канал 2")
+    # def test_directions_rezerv_2_tooltip_5(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 2')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_2('SMS пользователю')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_enable_channel_testing_rezerv_2()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -2471,49 +2492,51 @@ class Test04TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_test_if_rezerv_2()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Метод тестирования - Резервный канал 2")
-    def test_directions_rezerv_2_tooltip_8(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('SMS пользователю')
-        with allure.step("Включить тестирование канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_2()
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_test_method_rezerv_2()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Метод тестирования - Резервный канал 2")
+    # def test_directions_rezerv_2_tooltip_8(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #         app.PO_Directions.enableChannelTesting_main()
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #         app.PO_Directions.enableChannelTesting_rezerv_1()
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 2')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_2('SMS пользователю')
+    #     with allure.step("Включить тестирование канала"):
+    #         app.PO_Directions.enableChannelTesting_rezerv_2()
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_test_method_rezerv_2()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Тестировать - Резервный канал 2")
-    def test_directions_rezerv_2_tooltip_9(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('SMS пользователю')
-        with allure.step("Включить тестирование канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_2()
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_test_rezerv_2()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Тестировать - Резервный канал 2")
+    # def test_directions_rezerv_2_tooltip_9(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #         app.PO_Directions.enableChannelTesting_main()
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #         app.PO_Directions.enableChannelTesting_rezerv_1()
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 2')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_2('SMS пользователю')
+    #     with allure.step("Включить тестирование канала"):
+    #         app.PO_Directions.enableChannelTesting_rezerv_2()
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_test_rezerv_2()
 
 
 @allure.epic("Тесты ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ")
@@ -2521,27 +2544,28 @@ class Test04TooltipsMassegeDirections():
 @pytest.mark.flaky(reruns=reruns)
 class Test05TooltipsMassegeDirections():
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - Дни недели - Резервный канал 2")
-    def test_directions_rezerv_2_tooltip_10(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_main()
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('SMS пользователю')
-            app.PO_Directions.enableChannelTesting_rezerv_1()
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('SMS пользователю')
-        with allure.step("Включить тестирование канала"):
-            app.PO_Directions.enableChannelTesting_rezerv_2()
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_days_of_th_week_rezerv_2()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - Дни недели - Резервный канал 2")
+    # def test_directions_rezerv_2_tooltip_10(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('SMS пользователю')
+    #         app.PO_Directions.enableChannelTesting_main()
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #         app.PO_Directions.openType_rezerv_1('SMS пользователю')
+    #         app.PO_Directions.enableChannelTesting_rezerv_1()
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 2')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_2('SMS пользователю')
+    #     with allure.step("Включить тестирование канала"):
+    #         app.PO_Directions.enableChannelTesting_rezerv_2()
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_days_of_th_week_rezerv_2()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -2561,41 +2585,43 @@ class Test05TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_number_of_repetitions_rezerv_2()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Адрес - Резервный канал 2")
-    def test_directions_rezerv_2_tooltip_12(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('DC09')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_address_rezerv_2()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Адрес - Резервный канал 2")
+    # def test_directions_rezerv_2_tooltip_12(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('DC09')
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #         app.PO_Directions.openType_rezerv_1('DC09')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 2')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_2('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_address_rezerv_2()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Порт - Резервный канал 2")
-    def test_directions_rezerv_2_tooltip_13(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('DC09')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_port_rezerv_2()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Порт - Резервный канал 2")
+    # def test_directions_rezerv_2_tooltip_13(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('DC09')
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #         app.PO_Directions.openType_rezerv_1('DC09')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 2')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_2('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_port_rezerv_2()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок наименования поля")
@@ -2651,42 +2677,43 @@ class Test05TooltipsMassegeDirections():
         with allure.step("Проверка подсказки"):
             app.PO_Tooltips.tooltip_directions_number_of_repetitions_DC09_rezerv_2()
 
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Шифрование - Резервный канал 2")
-    def test_directions_rezerv_2_tooltip_17(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('DC09')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_encryption_rezerv_2()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Шифрование - Резервный канал 2")
+    # def test_directions_rezerv_2_tooltip_17(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('DC09')
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #         app.PO_Directions.openType_rezerv_1('DC09')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 2')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_2('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_encryption_rezerv_2()
 
-    # @pytest.mark.skip("Не реализованно")
-    @pytest.mark.parametrize("directions", directions_list)
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Направления - DC09 - Ключ шифрования - Резервный канал 2")
-    def test_directions_rezerv_2_tooltip_18(self, app, destination, close_modal, directions):
-        with allure.step("Открытие направления"):
-            app.PO_Directions.openDestination(directions)
-        with allure.step("Предусловия раскрытия настроек канала"):
-            app.PO_Directions.openChanel('Основной')
-            app.PO_Directions.openType_main('DC09')
-            app.PO_Directions.openChanel('Резерв 1')
-            app.PO_Directions.openType_rezerv_1('DC09')
-        with allure.step("Раскрытие настроек канала"):
-            app.PO_Directions.openChanel('Резерв 2')
-        with allure.step("Выбор типа управления"):
-            app.PO_Directions.openType_rezerv_2('DC09')
-        with allure.step("Проверка подсказки"):
-            app.PO_Tooltips.tooltip_directions_encryption_keyn_rezerv_2()
+    # Не актуально 132879
+    # @pytest.mark.parametrize("directions", directions_list)
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Направления - DC09 - Ключ шифрования - Резервный канал 2")
+    # def test_directions_rezerv_2_tooltip_18(self, app, destination, close_modal, directions):
+    #     with allure.step("Открытие направления"):
+    #         app.PO_Directions.openDestination(directions)
+    #     with allure.step("Предусловия раскрытия настроек канала"):
+    #         app.PO_Directions.openChanel('Основной')
+    #         app.PO_Directions.openType_main('DC09')
+    #         app.PO_Directions.openChanel('Резерв 1')
+    #         app.PO_Directions.openType_rezerv_1('DC09')
+    #     with allure.step("Раскрытие настроек канала"):
+    #         app.PO_Directions.openChanel('Резерв 2')
+    #     with allure.step("Выбор типа управления"):
+    #         app.PO_Directions.openType_rezerv_2('DC09')
+    #     with allure.step("Проверка подсказки"):
+    #         app.PO_Tooltips.tooltip_directions_encryption_keyn_rezerv_2()
 
     @pytest.mark.parametrize("directions", directions_list)
     @allure.story("Проверка подсказок полей ввода")

@@ -644,7 +644,7 @@ class TooltipsHelper:
         self.assert_tooltip_messege(locator=path_number, text=text_path_number)
 
     def tooltip_path_number_input(self):
-        self.assert_tooltip_messege(locator=path_number_input, text=input_numbers_0_9999)
+        self.assert_tooltip_messege(locator=path_number_input, text=input_numbers_1_99)
 
     # Зоны/Разделы/Разделы - Название
     def tooltip_path_name(self):
