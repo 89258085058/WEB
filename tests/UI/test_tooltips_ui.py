@@ -129,15 +129,16 @@ class Test01TooltipsMassege:
         with allure.step("Проверка подсказки: Взятие при потерянных датчиках"):
             app.PO_Tooltips.tooltip_settings_object_taking_with_lost_sensors()
 
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Объект - Взятие при датчиках в тревоге")
-    def test_settings_object_tooltip_8(self, app):
-        with allure.step("Переход на страницу Настройки"):
-            app.PO_Navigations.goToSettingsPage()
-        with allure.step("Переход на вкладку 'Объект'"):
-            app.PO_Navigations.goToObjectPage()
-        with allure.step("Проверка подсказки: Взятие при датчиках в тревоге"):
-            app.PO_Tooltips.tooltip_settings_object_taking_with_sensors_in_alarm()
+    # Данный пункт выпилен 26.04.2023
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Объект - Взятие при датчиках в тревоге")
+    # def test_settings_object_tooltip_8(self, app):
+    #     with allure.step("Переход на страницу Настройки"):
+    #         app.PO_Navigations.goToSettingsPage()
+    #     with allure.step("Переход на вкладку 'Объект'"):
+    #         app.PO_Navigations.goToObjectPage()
+    #     with allure.step("Проверка подсказки: Взятие при датчиках в тревоге"):
+    #         app.PO_Tooltips.tooltip_settings_object_taking_with_sensors_in_alarm()
 
     @allure.story("Проверка подсказок наименования поля")
     @allure.title("Объект - Взятие при датчиках в неисправности")
