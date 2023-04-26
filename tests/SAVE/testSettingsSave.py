@@ -178,21 +178,21 @@ class TestSaveSettings1:
 
     @allure.story("ПРИБОР")
     @allure.title("Проверка сохранения настроек прибор: параметризованный тест")
-    @pytest.mark.parametrize("power_saving_mode, setting_case_closed, path_alarms, sensor_alarms,"
+    @pytest.mark.parametrize("setting_case_closed, path_alarms, sensor_alarms,"
                              " fire_path_alarms, fire_sensor_alarms, repeat_events, manage_outputs",
                              [
-                                 ('ON', 'ON', 'ON', 'ON', 'ON', 'ON', 'ON', 'ON'),
-                                 ('ON', 'ON', 'ON', 'OFF', 'ON', 'OFF', 'ON', 'OFF'),
-                                 ('ON', 'ON', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF'),
-                                 ('ON', 'ON', 'ON', 'ON', 'OFF', 'OFF', 'OFF', 'OFF'),
-                                 ('ON', 'ON', 'OFF', 'OFF', 'ON', 'ON', 'OFF', 'OFF'),
-                                 ('ON', 'ON', 'OFF', 'OFF', 'OFF', 'OFF', 'ON', 'ON'),
-                                 ('OFF', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF')
+                                 ('ON', 'ON', 'ON', 'ON', 'ON', 'ON', 'ON'),
+                                 ('ON', 'ON', 'OFF', 'ON', 'OFF', 'ON', 'OFF'),
+                                 ('ON', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF'),
+                                 ('ON', 'ON', 'ON', 'OFF', 'OFF', 'OFF', 'OFF'),
+                                 ('ON', 'OFF', 'OFF', 'ON', 'ON', 'OFF', 'OFF'),
+                                 ('ON', 'OFF', 'OFF', 'OFF', 'OFF', 'ON', 'ON'),
+                                 ('OFF', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF')
                              ])
-    def test_data_save_device(self, app, device, power_saving_mode, setting_case_closed, path_alarms,
+    def test_data_save_device(self, app, device, setting_case_closed, path_alarms,
                               sensor_alarms, fire_path_alarms, fire_sensor_alarms, repeat_events, manage_outputs):
         with allure.step("Выбор чек-боксов"):
-            app.PO_Settings.save_device_check_box(power_saving_mode, setting_case_closed, path_alarms,
+            app.PO_Settings.save_device_check_box(setting_case_closed, path_alarms,
                                                   sensor_alarms, fire_path_alarms, fire_sensor_alarms, repeat_events,
                                                   manage_outputs)
         with allure.step("Сохранение данных"):
@@ -203,7 +203,7 @@ class TestSaveSettings1:
             app.PO_Navigations.goToDevicePage()
             app.PO_Settings.edit_button_click()
         with allure.step("Проверка сохранения чек-боксов"):
-            app.PO_Settings.save_device_check_box_data(power_saving_mode, setting_case_closed, path_alarms,
+            app.PO_Settings.save_device_check_box_data(setting_case_closed, path_alarms,
                                                        sensor_alarms, fire_path_alarms, fire_sensor_alarms,
                                                        repeat_events, manage_outputs)
         with allure.step("Завершение настроек"):

@@ -2023,11 +2023,11 @@ class SettingsHelper:
             self.app.method.assertCheckBox(randomCB_4, object_forced_take_from_alarm_status)
 
     # Проверка сохранения чекбоксов прибора
-    def save_device_check_box(self, power_saving_mode, setting_case_closed, path_alarms,
+    def save_device_check_box(self, setting_case_closed, path_alarms,
                               sensor_alarms, fire_path_alarms, fire_sensor_alarms, repeat_events, manage_outputs):
-        with allure.step(f"Перевод чекбокса - 'Включить энергосберегающий режим' в положение: '{power_saving_mode}'"):
-            self.app.method.checkBox(power_saving_mode, enable_power_saving_mode_click,
-                                     enable_power_saving_mode_status)
+        # with allure.step(f"Перевод чекбокса - 'Включить энергосберегающий режим' в положение: '{power_saving_mode}'"):
+        #     self.app.method.checkBox(power_saving_mode, enable_power_saving_mode_click,
+        #                              enable_power_saving_mode_status)
         with allure.step(
                 f"Перевод чекбокса - 'Разрешить настройку при закрытом корпусе' в положение: '{setting_case_closed}'"):
             self.app.method.checkBox(setting_case_closed, allow_configuration_when_the_case_is_closed_click,
@@ -2056,10 +2056,10 @@ class SettingsHelper:
                                      control_exits_when_re_arming_disarming_status)
 
     # Проверка сохранения чекбоесов прибора после входа
-    def save_device_check_box_data(self, power_saving_mode, setting_case_closed, path_alarms,
+    def save_device_check_box_data(self, setting_case_closed, path_alarms,
                                    sensor_alarms, fire_path_alarms, fire_sensor_alarms, repeat_events, manage_outputs):
-        with allure.step("Чекбокс: Включить энергосберегающий режим"):
-            self.app.method.assertCheckBox(power_saving_mode, enable_power_saving_mode_status)
+        # with allure.step("Чекбокс: Включить энергосберегающий режим"):
+        #     self.app.method.assertCheckBox(power_saving_mode, enable_power_saving_mode_status)
         with allure.step("Чекбокс: Разрешить настройку при закрытом корпусе"):
             self.app.method.assertCheckBox(setting_case_closed, allow_configuration_when_the_case_is_closed_status)
         with allure.step("Чекбокс: Фиксировать повторные тревоги раздела"):
