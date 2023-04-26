@@ -608,7 +608,7 @@ class UsersKeysHelper:
 
     # Добавление пользователя
     def add_user(self):
-        random_data = random.randint(1111, 9999)
+        random_data = random.randint(11111, 99999)
         random_data_phone = random.randint(1111111111, 9999999999)
 
         self.PushAddUserButton()
