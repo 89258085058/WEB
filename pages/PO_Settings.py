@@ -1516,8 +1516,9 @@ class SettingsHelper:
 
     # Включение чекбоксов прибора
     def check_box_device_on(self):
-        self.app.method.checkBox("ON", enable_power_saving_mode_click, enable_power_saving_mode_status)
-        self.app.method.assertCheckBox("ON", enable_power_saving_mode_status)
+        # Выпилено с устройства
+        # self.app.method.checkBox("ON", enable_power_saving_mode_click, enable_power_saving_mode_status)
+        # self.app.method.assertCheckBox("ON", enable_power_saving_mode_status)
         self.app.method.checkBox("ON", allow_configuration_when_the_case_is_closed_click,
                                  allow_configuration_when_the_case_is_closed_status)
         self.app.method.assertCheckBox("ON", allow_configuration_when_the_case_is_closed_status)
@@ -1540,8 +1541,9 @@ class SettingsHelper:
 
     # Выключение чекбоксов прибора
     def check_box_device_off(self):
-        self.app.method.checkBox("OFF", enable_power_saving_mode_click, enable_power_saving_mode_status)
-        self.app.method.assertCheckBox("OFF", enable_power_saving_mode_status)
+        # Выпилено с устройства
+        # self.app.method.checkBox("OFF", enable_power_saving_mode_click, enable_power_saving_mode_status)
+        # self.app.method.assertCheckBox("OFF", enable_power_saving_mode_status)
         self.app.method.checkBox("OFF", allow_configuration_when_the_case_is_closed_click,
                                  allow_configuration_when_the_case_is_closed_status)
         self.app.method.assertCheckBox("OFF", allow_configuration_when_the_case_is_closed_status)
@@ -1564,8 +1566,9 @@ class SettingsHelper:
 
     # Некликабельные чекбоксы
     def check_box_device_some(self):
-        self.app.method.checkBox("ON", enable_power_saving_mode_click, enable_power_saving_mode_status)
-        self.app.method.assertCheckBox("ON", enable_power_saving_mode_status)
+        # выпилено с устройства
+        # self.app.method.checkBox("ON", enable_power_saving_mode_click, enable_power_saving_mode_status)
+        # self.app.method.assertCheckBox("ON", enable_power_saving_mode_status)
         self.app.method.checkBox("ON", allow_configuration_when_the_case_is_closed_click,
                                  allow_configuration_when_the_case_is_closed_status)
         self.app.method.assertCheckBox("ON", allow_configuration_when_the_case_is_closed_status)
@@ -1588,8 +1591,9 @@ class SettingsHelper:
 
     # Частичное включение чекбоксов прибора
     def check_box_device_some_2(self):
-        self.app.method.checkBox("ON", enable_power_saving_mode_click, enable_power_saving_mode_status)
-        self.app.method.assertCheckBox("ON", enable_power_saving_mode_status)
+        # выпилено с устройства
+        # self.app.method.checkBox("ON", enable_power_saving_mode_click, enable_power_saving_mode_status)
+        # self.app.method.assertCheckBox("ON", enable_power_saving_mode_status)
         self.app.method.checkBox("OFF", allow_configuration_when_the_case_is_closed_click,
                                  allow_configuration_when_the_case_is_closed_status)
         self.app.method.assertCheckBox("OFF", allow_configuration_when_the_case_is_closed_status)

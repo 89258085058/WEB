@@ -260,12 +260,6 @@ class TestUiSettings:
             app.PO_Settings.text_device_page()
 
     @allure.story("ПРИБОР")
-    @allure.title("Проверка названий полей на странице")
-    def test_main_title_device(self, app, device):
-        with allure.step("Проверка названий полей"):
-            app.PO_Settings.text_device_page()
-
-    @allure.story("ПРИБОР")
     @allure.title("Проверка чекбоксов прибора")
     def test_checkbox_device(self, app, device):
         with allure.step("Проверка включения чекбоксов"):
