@@ -2532,6 +2532,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -2570,6 +2571,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -2607,6 +2609,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -3048,6 +3051,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -3079,6 +3083,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -3112,6 +3117,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -3144,6 +3150,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -3178,6 +3185,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -3211,6 +3219,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -3246,6 +3255,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_main)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_main))
         with allure.step("Выбор времени"):
@@ -3932,6 +3942,7 @@ class DirectionsHelper:
         with allure.step("Выбор из выпадающего списка Дни недели"):
             day = _directions['Days_of_the_week']
             self.app.method.close_cross(days_of_the_week_rezerv_2)
+            self.app.method.go_to_element(f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]', 'true')
             self.app.method.click((By.XPATH, f'/html/body//div[@class="b-multiselect-item"]/span[.="{day}"]'))
             self.app.method.click((By.XPATH, days_of_the_week_rezerv_2))
         with allure.step("Выбор времени"):
