@@ -18,7 +18,7 @@ save_button_path = '(//*[.="Сохранить"]/div)[1]'
 
 # ------------ПОЛЯ ВВОДА------------
 Search = '//*[@id="app"]/main//div/input'
-namber_path = '//*[.="Номер АРМ Орион"]//input[1]'
+namber_path = '//*[.="Номер раздела"]//input[1]'
 name_path = '//*[.="Название"]//input[1]'
 
 namber_path_on_page = '(//*[@id="app"]//div[@class="number"]/span)[2]'
