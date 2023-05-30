@@ -253,8 +253,8 @@ keys_path = '//*[@id="modalSettings"]//span[.="Разделы"]'
 # Зоны/Разделы
 # ------------------------Разделы--------------------------
 # Номер
-path_number = '//*[@id="modalSettings"]//span[.="Номер АРМ Орион"]'
-path_number_input = '//*[@id="modalSettings"]//*[.="Номер АРМ Орион"]/following::input[1]'
+path_number = '//*[@id="modalSettings"]//span[.="Номер раздела"]'
+path_number_input = '//*[@id="modalSettings"]//*[.="Номер раздела"]/following::input[1]'
 # Название
 path_name = '//*[@id="modalSettings"]//span[.="Название"]'
 path_name_input = '//*[@id="modalSettings"]//*[.="Название"]/following::input[1]'
