@@ -1,7 +1,7 @@
 {
   "web": {
-    "baseUrl": "http://192.168.22.182/#",
-    "host": "http://192.168.22.182"
+    "baseUrl": "http://192.168.22.152/#",
+    "host": "http://192.168.22.152"
   },
   "web_remote": {
     "baseUrl_remote_signal": "http://84.201.143.9:5000/signal",
@@ -9,9 +9,9 @@
     "host_remote": "http://84.201.143.9:5000/signal"
   },
   "emulator": {
-    "baseUrl_emulator_signal": "http://192.168.22.169/signal",
-    "baseUrl_emulator": "http://192.168.22.169/",
-    "host_emulator": "http://192.168.22.169/signal"
+    "baseUrl_emulator_signal": "http://84.201.143.9:5000/signal",
+    "baseUrl_emulator": "http://84.201.143.9:5000/",
+    "host_emulator": "http://84.201.143.9:5000/signal"
   },
   "webadmin": {
     "username": "admin",

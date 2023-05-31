@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+import time
+
 import requests
 from dataclasses import dataclass
 
-base_url = "http://192.168.22.169/signal/"
-
+base_url = "http://84.201.143.9:5000/signal/"
+proxy = {"http": "http://santalov:hard86db41@proxy.bolid.ru:3128"}
 
 @dataclass
 class EndpointHelper:
@@ -49,12 +51,12 @@ class EndpointHelper:
 
     def create_event(self, data):
         wd = self.app.wd
-        requests.post(f'{base_url}journal/80340089/generate/', json=data)
+        requests.post(f'{base_url}journal/80340089/generate/', json=data, proxies=proxy)
         wd.refresh()
 
     def delete_all_events(self):
         wd = self.app.wd
-        requests.delete(f'{base_url}journal/80340089/delete/')
+        requests.delete(f'{base_url}journal/80340089/delete/', proxies=proxy)
         wd.refresh()
 
     def generate_json_for_evt_from_key(self, p_event):
@@ -294,7 +296,7 @@ class EndpointHelper:
 
     def create_event_for_filters(self, p_event, z_event, event_type, time, name):
         data = self.generate_json_for_assert_filters(p_event, z_event, event_type, time, name)
-        requests.post(f'{base_url}journal/80340089/generate/', json=data)
+        requests.post(f'{base_url}journal/80340089/generate/', json=data, proxies=proxy)
 
     def generate_json_for_test(self, value_test_type, value_state, value_channel):
         data = {
@@ -314,12 +316,27 @@ class EndpointHelper:
     # Добавление раздела с заданным статусом
 
     def add_partition_with_status(self, value_status):
-        if value_status in [13, 14]:
-            security = 2
+        lost = 0
+        fail = 0
+        if value_status in [24, 25]:
+            security = 6
             state = value_status
+        elif value_status in [50, 51, 52, 60, 61, 62]:
+            security = 8
+            if value_status < 55:
+                state = 22
+            else:
+                state = 23
+            if value_status in [50, 60]:
+                lost = 1
+            elif value_status in [51, 61]:
+                fail = 1
+            else:
+                lost = 1
+                fail = 1
         else:
             security = value_status
-            state = 2
+            state = 22
         data = {
             "Partition": {
                 "id": 3,
@@ -332,19 +349,21 @@ class EndpointHelper:
                 "PartExtNumber": 3,
                 "SecurityState": security,
                 "FireAlarmState": state,
-                "ConfigAllowed": 1
+                "ConfigAllowed": 1,
+                "lostSensors": lost,
+                "failSensors": fail
             }
         }
         return data
 
     def add_partition_status(self, data):
         wd = self.app.wd
-        requests.post(f'{base_url}partition/80340089/generate/', json=data)
+        requests.post(f'{base_url}partition/80340089/generate/', json=data, proxies=proxy)
         wd.refresh()
 
     def add_sensor_status(self, data):
         wd = self.app.wd
-        requests.post(f'{base_url}sensor/80340089/generate/', json=data)
+        requests.post(f'{base_url}sensor/80340089/generate/', json=data, proxies=proxy)
         wd.refresh()
 
     def add_sensor_with_status(self, z_event):
@@ -383,15 +402,14 @@ class EndpointHelper:
 
     def add_device(self, cokies):
         headers = {"Authorization": f"JWT {cokies}"}
-
-        requests.post('http://192.168.22.169/devices/', json={"id_dev": "0", "name": "fake_signal", "status": 2,
-                                                              "type_num": 3, "is_active": True}, headers=headers)
+        requests.post('http://84.201.143.9:5000/devices/', json={"id_dev": "0", "name": "fake_signal", "status": 2,
+                                                                 "type_num": 3, "is_active": True},
+                      headers=headers, proxies=proxy)
 
     def change_status_device(self, status):
-        wd = self.app.wd
         data = {
             "id_dev": "0",
             "status": status,
             "is_active": True
         }
-        requests.patch('http://192.168.22.169/devices/0/local/', json=data)
+        requests.patch('http://84.201.143.9:5000/devices/0/local/', json=data, proxies=proxy)

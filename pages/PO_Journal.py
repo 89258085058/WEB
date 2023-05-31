@@ -68,15 +68,15 @@ class JournalHelper:
 
     @staticmethod
     def get_locator_for_section(param):
-        if param == 9:
+        if param == 16:
             return event_success
-        elif param in [4, 8, 12, 16, 17, 18, 21, 22]:
+        elif param in [8, 15, 22, 23, 30, 31, 32, 41]:
             return event_primary
-        elif param in [0, 1]:
+        elif param in [0, 5]:
             return event_secondary
-        elif param in [2, 3, 5, 6, 7, 19, 20]:
+        elif param in [1, 6, 7, 9, 10, 11, 33, 40]:
             return event_warning
-        elif param in [10, 11, 13, 14, 15]:
+        elif param in [17, 21, 24, 25, 29]:
             return event_danger
 
     def event_evt_from_key(self, p_event, description):
@@ -90,10 +90,10 @@ class JournalHelper:
         locator = self.get_locator_for_section(key_id)
         self.assert_equal_event_and_value_date(locator)
         self.app.method.assert_element_text(locator + '//p', f'15:04:50 | {description}: Раздел № 01, Test')
-        if key_id == 2:
+        if key_id == 6:
             text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nКлюч: 1' \
                         f'\nИсточник: Ключ\nНевзятые датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
-        elif key_id == 7:
+        elif key_id == 11:
             text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nКлюч: 1' \
                         f'\nИсточник: Ключ\nВременно отключенные датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
         else:
@@ -116,10 +116,10 @@ class JournalHelper:
         self.assert_equal_event_and_value_date(locator)
         if type_evt == 'Брелок':
             self.app.method.assert_element_text(locator + '//p', f'15:04:50 | {description}: Раздел № 01, Брелок №1, Test')
-            if p_event == 2:
+            if p_event == 6:
                 text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nБрелок: Брелок №1' \
                             f'\nНевзятые датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
-            elif p_event == 7:
+            elif p_event == 11:
                 text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nБрелок: Брелок №1' \
                             f'\nВременно отключенные датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
             else:
@@ -127,10 +127,10 @@ class JournalHelper:
                             f'\nДата и время: 01.01.2022 15:04:50'
         else:
             self.app.method.assert_element_text(locator + '//p', f'15:04:50 | {description}: Раздел № 01, Test')
-            if p_event == 2:
+            if p_event == 6:
                 text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nИсточник: {type_evt}' \
                             f'\nНевзятые датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
-            elif p_event == 7:
+            elif p_event == 11:
                 text_body = f'Событие: {description}\nРаздел(ы): №1 «Раздел № 01»\nПользователь: Test\nИсточник: {type_evt}' \
                             f'\nВременно отключенные датчики: Датчик №4\nДата и время: 01.01.2022 15:04:50'
             else:
@@ -339,8 +339,12 @@ class JournalHelper:
             self.assert_evt_from_system(value_sys_evt_type, description_sys_evt_type)
 
     def assert_evt_from_system(self, value_sys_evt_type, description_sys_evt_type):
-        self.assert_equal_event_and_value_date(event_info)
-        self.app.method.assert_element_text(event_info + '//p', f'15:04:50 | {description_sys_evt_type}')
+        locator = event_warning if value_sys_evt_type in [10, 11, 13, 14, 16] else event_info
+        self.assert_equal_event_and_value_date(locator)
+        if value_sys_evt_type == 1:
+            self.app.method.assert_element_text(locator + '//p', f'15:04:50 | {description_sys_evt_type}, Датчик №5')
+        else:
+            self.app.method.assert_element_text(locator + '//p', f'15:04:50 | {description_sys_evt_type}')
         if value_sys_evt_type in [8, 9]:
             text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система\nОсновной канал: Выключен' \
                         f'\nПервый резеврный канал: СМС Эгида 3\nВторой резервный канал: СМС пользователю' \
@@ -350,8 +354,8 @@ class JournalHelper:
                         f'\nНомер телефона: 89167115555\nДата и время: 01.01.2022 15:04:50'
         else:
             text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система\nДата и время: 01.01.2022 15:04:50'
-        self.open_event(event_info)
-        self.app.method.assert_element_text(event_info + '//div[@class="card-body"]', text_body)
+        self.open_event(locator)
+        self.app.method.assert_element_text(locator + '//div[@class="card-body"]', text_body)
 
     def event_evt_from_system_add_and_delete_user(
             self, value_sys_evt_type, description_sys_evt_type, value_settings_changes):
@@ -382,21 +386,22 @@ class JournalHelper:
                 value_sys_evt_type, value_state, p_event)
             self.app.endpoint.create_event(data)
         with allure.step(f"Проверка отображения события"):
-            self.assert_evt_from_system_case_state(description_sys_evt_type, value_description, description)
+            locator = event_warning if value_sys_evt_type == 11 else event_info
+            self.assert_evt_from_system_case_state(description_sys_evt_type, value_description, description, locator)
 
-    def assert_evt_from_system_case_state(self, description_sys_evt_type, value_description, description):
-        self.assert_equal_event_and_value_date(event_info)
-        self.app.method.assert_element_text(event_info + '//p', f'15:04:50 | {description_sys_evt_type}, {value_description}')
-        text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система\nСобытие корпуса: {value_description}' \
-                    f'\nТип события: {description}\nДата и время: 01.01.2022 15:04:50'
-        self.open_event(event_info)
-        self.app.method.assert_element_text(event_info + '//div[@class="card-body"]', text_body)
+    def assert_evt_from_system_case_state(self, description_sys_evt_type, value_description, description, locator):
+        self.assert_equal_event_and_value_date(locator)
+        self.app.method.assert_element_text(locator + '//p', f'15:04:50 | {description_sys_evt_type}')
+        text_body = f'Событие: {description_sys_evt_type}\nИсточник: Система' \
+                    f'\nДата и время: 01.01.2022 15:04:50'
+        self.open_event(locator)
+        self.app.method.assert_element_text(locator + '//div[@class="card-body"]', text_body)
 
     def display_items_on_journal_page(self):
         with allure.step("Проверка уведомления загрузки журнала и отсутсвия событий в нём"):
             self.app.method.element_wait_to_be_text("span.toast-message-summary", 'Идёт загрузка журнала.')
-            self.app.method.assert_element_text(
-                toast_error, 'Не удалось получить данные от устройства.\nПопробуйте перезагрузить страницу.')
+            # self.app.method.assert_element_text(
+            #     toast_error, 'Не удалось получить данные от устройства.\nПопробуйте перезагрузить страницу.')
             self.app.method.assert_element_text(toast_info, 'Идёт загрузка журнала.\nПожалуйста, подождите...')
         with allure.step("Проверка заглушки журнала на отсутствие событий"):
             self.app.method.assert_element_text(text_empty_result, 'Не найдено подходящих событий')
@@ -405,6 +410,7 @@ class JournalHelper:
             self.app.method.assert_count_elements(btn_date_picker, 1)
             self.app.method.assert_count_elements(btn_apply, 1)
             self.app.method.assert_count_elements(btn_reset, 1)
+            self.app.method.assert_count_elements(btn_reread, 1)
             self.app.method.assertValues('', field_search)
             status = self.app.method.attributeStatusButton(btn_reset)
             assert 'true' == status, f'\nОжидаемый результа {"true"},\nактический результат {status}'

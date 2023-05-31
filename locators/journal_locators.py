@@ -14,6 +14,7 @@ text_empty_result = '//h3[@class="journal__list-title"]'
 btn_date_picker = '//div[contains(@class, "icon--filter")]'
 btn_apply = "//button[.='Применить']"
 btn_reset = "//button[.='Сбросить']"
+btn_reread = "//button[.='Перечитать']"
 toast_error = "//div[contains(@class , 'toast-message-error')]"
 toast_info = "//div[contains(@class , 'toast-message-info')]"
 field_date = "//div[@class='date-picker']"

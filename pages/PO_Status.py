@@ -64,7 +64,7 @@ class StatusHelper:
         time.sleep(0.5)
         self.app.method.click((By.XPATH, sim_2_button))
 
-    #Блок проверки эмулируемых статусов разделов
+    # Блок проверки эмулируемых статусов разделов
     def assert_status_partition(self, value_status, description_status):
         with allure.step("Эмуляция статуса раздела"):
             self.app.endpoint.add_partition_status(self.app.endpoint.add_partition_with_status(value_status))
@@ -73,39 +73,41 @@ class StatusHelper:
             locator = f"//div[.='fake_part']/..//span[contains(@class, '{status}')]"
             assert 1 == self.app.method.elements_count(locator), \
                 f"\nОжидаемый результат {1}\nФактический результат {self.app.method.elements_count(locator)}"
-            self.app.method.assert_element_text(locator, description_status)
+            if value_status in [24, 25]:
+                self.app.method.assert_element_text(locator, description_status + ', Невзятие')
+            else:
+                self.app.method.assert_element_text(locator, description_status)
         with allure.step("Проверка отображения статуса раздела {description_status} на вкладке 'Зоны/Разделы'"):
             self.app.PO_Navigations.goToZonePathPage()
-            status = 'successful' if value_status == 9 else status
+            status = 'successful' if value_status == 16 else status
             locator = f"//div[.='fake_part']/..//span[@class ='status {status}']"
             assert 1 == self.app.method.elements_count(locator), \
                 f"\nОжидаемый результат {1}\nФактический результат {self.app.method.elements_count(locator)}"
             btn_locator = "//div[.='fake_part']/../..//button[contains(.,'ять')]"
-            if value_status in [2, 10, 11, 13, 14, 15]:
+            if value_status in [6, 17, 21, 24, 25, 29]:
                 assert 2 == self.app.method.elements_count(btn_locator), f'ОР {2}, ФР {self.app.method.elements_count(btn_locator)}'
             else:
                 assert 1 == self.app.method.elements_count(btn_locator)
-            if value_status in [13, 14]:
+            if value_status in [24, 25]:
                 self.app.method.assert_element_text(locator, description_status + ', Невзятие')
             else:
                 self.app.method.assert_element_text(locator, description_status)
 
     def get_locator_for_tab_status(self, param):
-        if param == 9:
+        if param == 16:
             return 'success'
-        elif param in [4, 8, 12, 16, 17, 18, 21, 22]:
+        elif param in [8, 15, 22, 23, 30, 31, 32, 41]:
             return 'primary'
-        elif param in [0, 1]:
+        elif param in [0, 5]:
             return 'secondary'
-        elif param in [2, 3, 5, 6, 7, 19, 20]:
+        elif param in [1, 6, 7, 9, 10, 11, 33, 40, 50, 51, 52, 60, 61, 62]:
             return 'warning'
-        elif param in [10, 11, 13, 14, 15]:
+        elif param in [17, 21, 24, 25, 29]:
             return 'error'
 
     def delete_fake_partition(self):
         self.app.endpoint.add_partition_status(self.app.endpoint.add_partition_with_status(1))
         self.app.PO_Navigations.ExitAndEnter()
-
 
     def assert_status_sensor(self, z_event, description):
         with allure.step("Эмуляция статуса датчика"):
@@ -134,7 +136,7 @@ class StatusHelper:
             return 'primary'
 
     def assert_status_device(self, status, description):
-        with allure.step("Эмуляция статуса устроуства"):
+        with allure.step("Эмуляция статуса устройства"):
             self.app.endpoint.change_status_device(status)
         with allure.step("Проверка отображения статуса датчика"):
             if description == 'НЕИЗВЕСТНО':
@@ -156,9 +158,9 @@ class StatusHelper:
     def get_locator_for_device(self, status_device):
         if status_device in [2, 11]:
             return 'success'
-        elif status_device in [3, 5, 7, 8, 9]:
+        elif status_device in [5, 7, 8, 9]:
             return 'warning'
-        elif status_device in [4, 6]:
+        elif status_device in [3, 4, 6]:
             return 'error'
         elif status_device in [10]:
             return 'second'
