@@ -519,6 +519,7 @@ class TestSaveSettings4:
 
     @allure.story("GSM")
     @allure.title("Проверка сохранения настроек gsm: параметризованный тест")
+    @pytest.mark.skip(reason='Не хватает прибору питания при включенном модуле')
     @pytest.mark.parametrize("modul_on, use_gprs, use_reserv_sim, use_ussd, balans_not, translations_events",
 
                              [
