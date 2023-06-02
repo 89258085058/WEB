@@ -652,6 +652,10 @@ class Test03TooltipsMassege:
             app.PO_Navigations.goToSettingsPage()
         with allure.step("Переход на вкладку 'GSM'"):
             app.PO_Navigations.goToGSMPage()
+        with allure.step("Клик по кнопке 'Редактировать'"):
+            app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Использовать GPRS"):
             app.PO_Tooltips.tooltip_settings_gsm_Use_GPRS()
 
@@ -662,6 +666,10 @@ class Test03TooltipsMassege:
             app.PO_Navigations.goToSettingsPage()
         with allure.step("Переход на вкладку 'GSM'"):
             app.PO_Navigations.goToGSMPage()
+        with allure.step("Клик по кнопке 'Редактировать'"):
+            app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Использовать резервную SIM"):
             app.PO_Tooltips.tooltip_settings_gsm_Use_backup_SIM()
 
@@ -672,6 +680,10 @@ class Test03TooltipsMassege:
             app.PO_Navigations.goToSettingsPage()
         with allure.step("Переход на вкладку 'GSM'"):
             app.PO_Navigations.goToGSMPage()
+        with allure.step("Клик по кнопке 'Редактировать'"):
+            app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Разрешить USSD"):
             app.PO_Tooltips.tooltip_settings_gsm_Allow_USSD()
 
@@ -682,6 +694,10 @@ class Test03TooltipsMassege:
             app.PO_Navigations.goToSettingsPage()
         with allure.step("Переход на вкладку 'GSM'"):
             app.PO_Navigations.goToGSMPage()
+        with allure.step("Клик по кнопке 'Редактировать'"):
+            app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Число знаков номера для проверки"):
             app.PO_Tooltips.tooltip_settings_gsm_Number_digits_number_to_check()
 
@@ -692,6 +708,10 @@ class Test03TooltipsMassege:
             app.PO_Navigations.goToSettingsPage()
         with allure.step("Переход на вкладку 'GSM'"):
             app.PO_Navigations.goToGSMPage()
+        with allure.step("Клик по кнопке 'Редактировать'"):
+            app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Порог уведомления о балансе"):
             app.PO_Tooltips.tooltip_settings_gsm_Balance_Notification_Threshold()
 
@@ -702,6 +722,10 @@ class Test03TooltipsMassege:
             app.PO_Navigations.goToSettingsPage()
         with allure.step("Переход на вкладку 'GSM'"):
             app.PO_Navigations.goToGSMPage()
+        with allure.step("Клик по кнопке 'Редактировать'"):
+            app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Разрешить трансляцию событий"):
             app.PO_Tooltips.tooltip_settings_gsm_Allow_Event_Broadcast()
 
@@ -1022,6 +1046,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Число знаков номера для проверки"):
             app.PO_Tooltips.tooltip_settings_gsm_Number_digits_number_to_check_input()
 
@@ -1034,6 +1060,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Порог уведомления о балансе"):
             app.PO_Tooltips.tooltip_settings_gsm_Balance_Notification_Threshold_input()
 
@@ -1046,6 +1074,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: PIN"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_1_pin_input()
 
@@ -1058,6 +1088,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: PIN"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_2_pin_input()
 
@@ -1070,6 +1102,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: USSD-код запроса баланса"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_1_ussd_input()
 
@@ -1082,6 +1116,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: USSD-код запроса баланса"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_2_ussd_input()
 
@@ -1094,6 +1130,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: APN"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_1_apn_input()
 
@@ -1106,6 +1144,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: APN"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_2_apn_input()
 
@@ -1118,6 +1158,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Пользователь"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_1_user_input()
 
@@ -1130,6 +1172,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Пользователь"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_2_user_input()
 
@@ -1142,6 +1186,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Пароль"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_1_password_input()
 
@@ -1154,6 +1200,8 @@ class Test05TooltipsMassege:
             app.PO_Navigations.goToGSMPage()
         with allure.step("Клик по кнопке 'Редактировать'"):
             app.PO_Settings.edit_button_click()
+        with allure.step(f"Установка чекбокса - Включить модуль GSM"):
+            app.PO_Settings.set_checkbox_gsm()
         with allure.step("Проверка подсказки: Пароль"):
             app.PO_Tooltips.tooltip_settings_gsm_sim_2_password_input()
 

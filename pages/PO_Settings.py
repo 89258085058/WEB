@@ -1956,6 +1956,9 @@ class SettingsHelper:
                 self.app.method.click((By.XPATH, edit_button))
                 time.sleep(0.1)
 
+    def set_checkbox_gsm(self):
+        self.app.method.checkBox('ON', gsm_Enable_GSM_module_click, gsm_Enable_GSM_module_status)
+
     def reset_button_click(self):
         with allure.step("Клик по кнопке Редактировать"):
             time.sleep(0.1)
