@@ -19,28 +19,22 @@ def StatusPage(app):
 class TestStatusUI:
 
     @allure.story("Проверка названий полей на странице")
-    @allure.title("Разделы")
-    def test_title_status_path(self, app, StatusPage):
+    @allure.title("Радио устройства")
+    def test_title_status_radio_device(self, app, StatusPage):
         with allure.step("Проверка названий полей"):
-            app.PO_Status.text_status_path()
+            app.PO_Status.text_status_radio_device()
 
     @allure.story("Проверка названий полей на странице")
-    @allure.title("Батареи")
-    def test_title_status_batteries(self, app, StatusPage):
+    @allure.title("Прибор")
+    def test_title_status_device_option(self, app, StatusPage):
         with allure.step("Проверка названий полей"):
-            app.PO_Status.text_status_batteries()
+            app.PO_Status.text_status_device_option()
 
     @allure.story("Проверка названий полей на странице")
-    @allure.title("Состояние GSM модуля")
-    def test_title_status_gsm(self, app, StatusPage):
+    @allure.title("Прочее")
+    def test_title_cloud_server(self, app, StatusPage):
         with allure.step("Проверка названий полей"):
-            app.PO_Status.text_status_gsm()
-
-    @allure.story("Проверка названий полей на странице")
-    @allure.title("Источник питания")
-    def test_title_status_power(self, app, StatusPage):
-        with allure.step("Проверка названий полей"):
-            app.PO_Status.text_status_power()
+            app.PO_Status.text_status_cloud_server()
 
     @allure.story("Проверка названий полей на странице")
     @allure.title("Сеть")
@@ -49,20 +43,15 @@ class TestStatusUI:
             app.PO_Status.text_status_ethernet()
 
     @allure.story("Проверка названий полей на странице")
-    @allure.title("Состояние прибора")
-    def test_title_status_device(self, app, StatusPage):
+    @allure.title("Состояние GSM модуля")
+    def test_title_status_gsm(self, app, StatusPage):
         with allure.step("Проверка названий полей"):
-            app.PO_Status.text_status_device()
+            app.PO_Status.text_status_gsm()
 
-    @allure.story("Проверка названий полей на странице")
-    @allure.title("Прочее")
-    def test_title_status_others(self, app, StatusPage):
-        with allure.step("Проверка названий полей"):
-            app.PO_Status.text_status_others()
 
-    @allure.story("Проверка названий полей на странице")
-    @allure.title("Прибор")
-    def test_title_status_device_option(self, app, StatusPage):
-        with allure.step("Проверка названий полей"):
-            app.PO_Status.text_status_device_option()
+
+
+
+
+
 

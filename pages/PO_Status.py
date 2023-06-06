@@ -14,9 +14,9 @@ from locators.status_locators import *
 class StatusHelper:
     app: any
 
-    # Проверка полей на странице Разделы
-    def text_status_path(self):
-        self.app.method.assertTextOnPage(path_data_status_text, path_status_text_content)
+    # Проверка полей на странице Радио устройства
+    def text_status_radio_device(self):
+        self.app.method.assertTextOnPage(radio_device_status_text, radio_device_text_content)
 
     # Проверка полей на странице Батареи
     def text_status_batteries(self):
@@ -43,8 +43,8 @@ class StatusHelper:
         self.app.method.assertTextOnPage(device_option_data_status_text, device_option_status_text_content)
 
     # Проверка полей на странице Прочее
-    def text_status_others(self):
-        self.app.method.assertTextOnPage(others_data_status_text, others_status_text_content)
+    def text_status_cloud_server(self):
+        self.app.method.assertTextOnPage(cloud_server_status_text, cloud_server_text_content)
 
     # Проверка полей на странице gsm sim1
     def text_status_gsm_sim_1(self):
