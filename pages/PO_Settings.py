@@ -18,13 +18,14 @@ class SettingsHelper:
     # Ограничение 9999
     def input_number_9999(self, locator):
         with allure.step("Проверка ввода цифр"):
-            for i in range(10):
+            for i in range(1, 10):
                 self.app.method.assertEqual(i, i, locator)
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual(0, 0, locator)
+            # self.app.method.assertEqual(0, 0, locator)
             self.app.method.assertEqual(1, 1, locator)
-            self.app.method.assertEqual(9998, 9998, locator)
-            self.app.method.assertEqual(9999, 9999, locator)
+            self.app.method.assertEqual(2, 2, locator)
+            self.app.method.assertEqual(999998, 999998, locator)
+            self.app.method.assertEqual(999999, 999999, locator)
 
     # Ограничение 9999
     def input_number_9999_negativ(self, locator):
@@ -53,11 +54,13 @@ class SettingsHelper:
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода очень большого числа"):
-            self.app.method.assertEqual(9 * 10000000000000, 9000, locator)
+            self.app.method.assertEqual(9 * 10000000000000, 900000, locator)
         with allure.step("Проверка ввода отрицательного числа"):
             self.app.method.assertEqual('-1', '1', locator)
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual(99999, 9999, locator)
+            self.app.method.assertEqual(1000000, 100000, locator)
+            self.app.method.inputValues(0, locator)
+            self.app.method.assertValues(0, "//*[.='Номер объекта']/following::input[1][@class='base-input error']")
 
     # Проверка ввода поле
     def input_number_65535(self, locator):

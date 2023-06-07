@@ -18,25 +18,13 @@ class StatusHelper:
     def text_status_radio_device(self):
         self.app.method.assertTextOnPage(radio_device_status_text, radio_device_text_content)
 
-    # Проверка полей на странице Батареи
-    def text_status_batteries(self):
-        self.app.method.assertTextOnPage(batteries_data_status_text, batteries_status_text_content)
-
     # Проверка полей на странице gsm
     def text_status_gsm(self):
         self.app.method.assertTextOnPage(gsm_data_status_text, gsm_status_text_content)
 
-    # Проверка полей на странице Источник питания
-    def text_status_power(self):
-        self.app.method.assertTextOnPage(power_data_status_text, power_status_text_content)
-
     # Проверка полей на странице Источник Сеть
     def text_status_ethernet(self):
         self.app.method.assertTextOnPage(ethernet_data_status_text, ethernet_status_text_content)
-
-    # Проверка полей на странице Источник Состояние прибора
-    def text_status_device(self):
-        self.app.method.assertTextOnPage(device_data_status_text, device_status_text_content)
 
     # Проверка полей на странице: блок 'Прибор'
     def text_status_device_option(self):
@@ -45,24 +33,6 @@ class StatusHelper:
     # Проверка полей на странице Прочее
     def text_status_cloud_server(self):
         self.app.method.assertTextOnPage(cloud_server_status_text, cloud_server_text_content)
-
-    # Проверка полей на странице gsm sim1
-    def text_status_gsm_sim_1(self):
-        self.app.method.assertTextOnPage(gsm_data_status_text_sim_1, gsm_status_text_content_SIM)
-
-    # Проверка полей на странице gsm sim2
-    def text_status_gsm_sim_2(self):
-        self.app.method.assertTextOnPage(gsm_data_status_text_sim_2, gsm_status_text_content_SIM)
-
-    # Раскрытие настроек сим 1
-    def open_sim_1(self):
-        time.sleep(0.5)
-        self.app.method.click((By.XPATH, sim_1_button))
-
-    # Раскрытие настроек сим 2
-    def open_sim_2(self):
-        time.sleep(0.5)
-        self.app.method.click((By.XPATH, sim_2_button))
 
     # Блок проверки эмулируемых статусов разделов
     def assert_status_partition(self, value_status, description_status):
