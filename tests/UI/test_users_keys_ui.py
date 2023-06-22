@@ -53,7 +53,7 @@ def keys_settings(app):
 def close_modal(request, app):
     def fin():
         # app.method.click((By.XPATH, '(//*[.=" Отменить "]//div)[last()]'))
-        app.method.check_hide_element('modal-title', '(//*[.=" Отменить "]//div)[last()]')
+        app.method.check_hide_element('div.modal-title', '(//*[.=" Отменить "]//div)[last()]')
 
     request.addfinalizer(fin)
 
