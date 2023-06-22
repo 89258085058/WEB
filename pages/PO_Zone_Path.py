@@ -1434,8 +1434,8 @@ class ZonePathHelper:
                     _path = self.app.read_data.data_path()
                     old_path_list = self.app.method.getElementsLen(path_row)
                     self.app.method.click((By.XPATH, add_path_button))
-                    self.app.method.click((By.XPATH, save_button_path))
-                    time.sleep(2)
+                    self.app.method.check_hide_element('div.modal.card button.BTN-indigo', save_button_path)
+                    self.app.method.click((By.CSS_SELECTOR, 'button.close-icon'))
                     new_path_list = self.app.method.getElementsLen(path_row)
                     assert str(old_path_list + 1) == str(new_path_list), \
                         f"Раздел не добавлен!\n" \
