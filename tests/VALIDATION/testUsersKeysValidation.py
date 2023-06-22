@@ -4,7 +4,7 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 1
+reruns = 2
 
 
 @pytest.fixture
@@ -52,7 +52,7 @@ def keys_settings(app):
 @pytest.fixture()
 def close_modal(request, app):
     def fin():
-        app.method.click((By.XPATH, '(//*[.=" Отменить "]//div)[last()]'))
+        app.method.check_hide_element('modal-title', '(//*[.=" Отменить "]//div)[last()]')
 
     request.addfinalizer(fin)
 
