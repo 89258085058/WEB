@@ -1677,18 +1677,19 @@ class SettingsHelper:
     def drop_list_light_indication_reader_operation_mode(self, button=Reader_operation_mode, possition=options):
         self.app.method.selectDropdownList(button, possition + '[1]')
         self.app.method.assertSelectionDropdownList(
-            '1 светодиод, 1-ое касание - статус, последующие управляющие', button)
+            '1 светодиод, 1-ое касание - статус, последующие - взятие/снятие', button)
         self.app.method.selectDropdownList(button, possition + '[2]')
         self.app.method.assertSelectionDropdownList(
-            '1 светодиод, 1-ое касание - статус, 2-ое - управляющее', button)
+            '1 светодиод, 1-ое касание - статус, 2-ое - взятие/снятие', button)
         self.app.method.selectDropdownList(button, possition + '[3]')
         self.app.method.assertSelectionDropdownList(
-            '2 светодиода, 1-ое касание - статус, последующие управляющие', button)
+            '2 светодиода, 1-ое касание - статус, последующие - взятие/снятие', button)
         self.app.method.selectDropdownList(button, possition + '[4]')
         self.app.method.assertSelectionDropdownList(
-            '2 светодиода, 1-ое касание - статус, второе - управляющее', button)
+            '2 светодиода, 1-ое касание - статус, 2-ое - взятие/снятие', button)
         self.app.method.selectDropdownList(button, possition + '[5]')
-        self.app.method.assertSelectionDropdownList('2 светодиода, любое касание - управляющее', button)
+        self.app.method.assertSelectionDropdownList(
+            '2 светодиода, вывод статуса постоянно, касание - взятие/снятие', button)
 
     def open_volum_indication_events(self):
         self.app.method.click((By.XPATH, button_related_events))

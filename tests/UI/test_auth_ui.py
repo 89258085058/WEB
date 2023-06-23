@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import time
 
 import allure
 import pytest
@@ -10,6 +11,7 @@ reruns = 1
 def go_to_auth_page(app):
     with allure.step("переход на страницу авторизации"):
         app.session.logout()
+        time.sleep(1.5)
 
 
 @allure.label("owner", 'Александр Горелов')
