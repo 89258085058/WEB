@@ -165,7 +165,7 @@ class TestZonePathOutsSave:
                                  ('Невзятие'),
                                  ('Пожар'),
                                  ('Тревога'),
-                                 ('Протечка воды')
+                                 ('Протечка')
                              ])
     def test_out_1_save_operating_mode_event(self, app,  outs, event):
         with allure.step("Генерирование тестовых данных"):
@@ -194,7 +194,7 @@ class TestZonePathOutsSave:
                                  ('Невзятие'),
                                  ('Пожар'),
                                  ('Тревога'),
-                                 ('Протечка воды')
+                                 ('Протечка')
                              ])
     def test_out_2_save_operating_mode_event(self, app,  outs, event):
         with allure.step("Генерирование тестовых данных"):

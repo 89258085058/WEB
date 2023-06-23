@@ -20,6 +20,7 @@ save_button_path = '(//*[.="Сохранить"]/div)[1]'
 Search = '//*[@id="app"]/main//div/input'
 namber_path = '//*[.="Номер раздела"]//input[1]'
 name_path = '//*[.="Название"]//input[1]'
+name_path_error = "//*[.='Название']//input[contains(@class, 'error')]"
 
 namber_path_on_page = '(//*[@id="app"]//div[@class="number"]/span)[2]'
 name_path_on_page = '//*[@id="app"]//div[@class="name"]/span'
@@ -57,7 +58,9 @@ option_key = '(/html/body//div[@class="option"])'
 
 # ------------ПОЛЯ ВВОДА------------
 name_out_1 = '(//*[.="Название"]//input[1])[1]'
+name_out_1_error = '//div[@class ="main-section"][1]//*[.="Название"]//input[contains(@class, "error")]'
 name_out_2 = '(//*[.="Название"]//input[1])[2]'
+name_out_2_error = '//div[@class ="main-section"][2]//*[.="Название"]//input[contains(@class, "error")]'
 hysteresis_out = '//*[.="Гистерезис"]/following::input[1]'
 control_sensor_out = '(//*[.="Внутренний сигнал задания *"]//input[1])[1]'
 

@@ -31,6 +31,10 @@ class MethodsHelper:
         self.inputValues(input, locator)
         self.assertValues(expected, locator)
 
+    def assert_field(self, value, actual_locator, expected_locator):
+        self.inputValues(value, actual_locator)
+        self.assertValues(value, expected_locator)
+
     # Ввод значений в поле xpath
     def inputValues(self, value, locator):
         try:

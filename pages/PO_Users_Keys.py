@@ -126,6 +126,7 @@ class UsersKeysHelper:
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual('1' * 64, '1' * 63, locator)
 
+
     # Проверка ЛОГИН/ПАРОЛЬ/ПОДТВЕРЖДЕНИЕ ПАРОЛЯ
     def input_data_63(self, locator):
         with allure.step("Проверка ввода цифр"):

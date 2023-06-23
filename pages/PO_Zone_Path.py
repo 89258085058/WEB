@@ -340,13 +340,15 @@ class ZonePathHelper:
         self.input_all(locator)
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual(1, 1, locator)
-            self.app.method.assertEqual('1' * 30, '1' * 30, locator)
-            self.app.method.assertEqual('1' * 31, '1' * 31, locator)
+            self.app.method.assertEqual('1' * 62, '1' * 62, locator)
+            self.app.method.assertEqual('1' * 63, '1' * 63, locator)
+            self.app.method.assertEqual('г' * 31 + "1", 'г' * 31 + "1", locator)
 
     # Название - Разделы
-    def input_data_name_path_negativ(self, locator=name_path):
+    def input_data_name_path_negativ(self, locator_actual=name_path, locator_expected=name_path_error):
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual('1' * 32, '1' * 31, locator)
+            self.app.method.assert_field('1' * 64, locator_actual, locator_expected)
+            self.app.method.assert_field('г' * 32, locator_actual, locator_expected)
 
     # ---------------------- ВЫХОДЫ ----------------------------------------------------------------------
 
@@ -437,21 +439,24 @@ class ZonePathHelper:
         self.input_all(locator)
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual(1, 1, locator)
-            self.app.method.assertEqual('1' * 30, '1' * 30, locator)
-            self.app.method.assertEqual('1' * 31, '1' * 31, locator)
+            self.app.method.assertEqual('1' * 62, '1' * 62, locator)
+            self.app.method.assertEqual('1' * 63, '1' * 63, locator)
+            self.app.method.assertEqual('г' * 31 + "1", 'г' * 31 + "1", locator)
 
     # Название - Выходы1
-    def input_data_name_out_1_negativ(self, locator=name_out_1):
+    def input_data_name_out_1_negativ(self, locator_actual=name_out_1, locator_expected=name_out_1_error):
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual('1' * 32, '1' * 31, locator)
+            self.app.method.assert_field('1' * 64, locator_actual, locator_expected)
+            self.app.method.assert_field('г' * 32, locator_actual, locator_expected)
 
     # Название - Выходы2
     def input_data_name_out_2_positv(self, locator=name_out_2):
         self.input_all(locator)
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual(1, 1, locator)
-            self.app.method.assertEqual('1' * 30, '1' * 30, locator)
-            self.app.method.assertEqual('1' * 31, '1' * 31, locator)
+            self.app.method.assertEqual('1' * 62, '1' * 62, locator)
+            self.app.method.assertEqual('1' * 63, '1' * 63, locator)
+            self.app.method.assertEqual('г' * 31 + "1", 'г' * 31 + "1", locator)
 
     def save_button_click(self):
         with allure.step("Клик по кнопке СОХРАНИТЬ"):
@@ -466,9 +471,10 @@ class ZonePathHelper:
             self.app.method.click((By.XPATH, '/html/body//button[@class="toast-message-btn-close close-icon"]'))
 
     # Название - Выходы2
-    def input_data_name_out_2_negativ(self, locator=name_out_2):
+    def input_data_name_out_2_negativ(self, locator_actual=name_out_2, locator_expected=name_out_2_error):
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual('1' * 32, '1' * 31, locator)
+            self.app.method.assert_field('1' * 64, locator_actual, locator_expected)
+            self.app.method.assert_field('г' * 32, locator_actual, locator_expected)
 
     # Гистерезис
     def input_hysteresis_positiv(self, locator=hysteresis_out):
