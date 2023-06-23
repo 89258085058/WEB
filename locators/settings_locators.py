@@ -4,6 +4,7 @@
 # ------------ПОЛЯ ВВОДА------------
 # Название объекта
 object_name = '//*[.="Название объекта"]/following::input[1]'
+object_name_error = '//*[.="Название объекта"]//input[contains(@class, "error")]'
 # Номер объекта
 object_number = '//*[.="Номер объекта"]/following::input[1]'
 # Задержка взятия

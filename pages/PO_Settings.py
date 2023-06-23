@@ -228,15 +228,17 @@ class SettingsHelper:
             self.app.method.assertEqual('1 2 3', '1 2 3', locator)
         with allure.step("Проверка ввода граничных значений внутри диапазона"):
             self.app.method.assertEqual(1, 1, locator)
-            self.app.method.assertEqual('1' * 30, '1' * 30, locator)
-            self.app.method.assertEqual('1' * 31, '1' * 31, locator)
+            self.app.method.assertEqual('1' * 62, '1' * 62, locator)
+            self.app.method.assertEqual('1' * 63, '1' * 63, locator)
+            self.app.method.assertEqual('г' * 31 + '1', 'г' * 31 + '1', locator)
 
     # Проверка ввода поле Название объекта
-    def input_object_name_negativ(self, locator=object_name):
+    def input_object_name_negativ(self, locator_actual=object_name, locator_expected=object_name_error):
         with allure.step("Проверка ввода пустого значения"):
-            self.app.method.assertEqual('', '', locator)
+            self.app.method.assertEqual('', '', locator_actual)
         with allure.step("Проверка ввода граничных значений внутри диапазона"):
-            self.app.method.assertEqual('1' * 33, '1' * 31, locator)
+            self.app.method.assert_field('1' * 64, locator_actual, locator_expected)
+            self.app.method.assert_field('г' * 32, locator_actual, locator_expected)
 
     # Проверка ввода поле Название сервера
     def input_server_name(self, locator):
@@ -1026,7 +1028,7 @@ class SettingsHelper:
             self.app.method.assertEqual(1111, 1111, locator)
             self.app.method.assertEqual(11111, 11111, locator)
             self.app.method.assertEqual('1' * 8, '1' * 8, locator)
-            self.app.method.assertEqual('1' * 9, '1' * 9, locator)
+            self.app.method.assertEqual('1' * 7, '1' * 7, locator)
 
     # PIN negativ
     def input_pin_negativ(self, locator):
@@ -1055,11 +1057,11 @@ class SettingsHelper:
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода очень большого числа"):
-            self.app.method.assertEqual(9 * 10000000000000, 900000000, locator)
+            self.app.method.assertEqual(9 * 10000000000000, 90000000, locator)
         with allure.step("Проверка ввода отрицательного числа"):
             self.app.method.assertEqual('-1', '1', locator)
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual('1' * 10, '1' * 9, locator)
+            self.app.method.assertEqual('1' * 10, '1' * 8, locator)
 
     # PIN - SIM_1 - GSM
     def input_data_sim_1_pin(self, locator=PIN_SIM_1):
@@ -1142,7 +1144,10 @@ class SettingsHelper:
         with allure.step("Проверка ввода Русских букв в верхнем регистре"):
             self.app.method.assertEqual("АПРОЛДЖЭЯЧСМИТЬБЮЁЙЦУКЕНГШЩЗХЪФЫВ", "", locator)
         with allure.step("Проверка ввода спецсимволов"):
-            self.app.method.assertEqual("!#$%&'()*+,-./:;<=>?@[]^_`{|}~", "", locator)
+            if locator in [APN_SIM_1, APN_SIM_2]:
+                self.app.method.assertEqual("!#$%&'()*+,/:;<=>?@[]^_`{|}~", "", locator)
+            else:
+                self.app.method.assertEqual("!#$%&'()*+,-./:;<=>?@[]^_`{|}~", "", locator)
         with allure.step("Проверка ввода совместных значений(буквы/цифры/спецсимволы)"):
             self.app.method.assertEqual('123  АБВABC!@#', '123ABC', locator)
         with allure.step("Проверка ввода пробелов"):
@@ -1151,8 +1156,12 @@ class SettingsHelper:
             self.app.method.assertEqual('   123', '123', locator)
             self.app.method.assertEqual('1 2 3', '123', locator)
         with allure.step("Проверка ввода дробного числа "):
-            self.app.method.assertEqual('11.1', '111', locator)
-            self.app.method.assertEqual('00.1', '001', locator)
+            if locator in [APN_SIM_1, APN_SIM_2]:
+                self.app.method.assertEqual('11.1', '11.1', locator)
+                self.app.method.assertEqual('00.1', '00.1', locator)
+            else:
+                self.app.method.assertEqual('11.1', '111', locator)
+                self.app.method.assertEqual('00.1', '001', locator)
             self.app.method.assertEqual('11,1', '111', locator)
             self.app.method.assertEqual('00,1', '001', locator)
         with allure.step("Проверка ввода пустого значения"):
@@ -1160,7 +1169,10 @@ class SettingsHelper:
         with allure.step("Проверка ввода очень большого числа"):
             self.app.method.assertEqual('1' * 1000, '1' * 63, locator)
         with allure.step("Проверка ввода отрицательного числа"):
-            self.app.method.assertEqual('-1', '1', locator)
+            if locator in [APN_SIM_1, APN_SIM_2]:
+                self.app.method.assertEqual('-1', '-1', locator)
+            else:
+                self.app.method.assertEqual('-1', '1', locator)
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual('1' * 64, '1' * 63, locator)
 
@@ -1322,6 +1334,8 @@ class SettingsHelper:
     # APN - SIM_1 - GSM
     def input_data_sim_1_APN(self, locator=APN_SIM_1):
         self.input_all_63_positiv(locator)
+        with allure.step("Проверка ввода допустимых спецсимволов"):
+            self.app.method.assertEqual('-.', '-.', locator)
 
     # APN - SIM_1 - GSM
     def input_data_sim_1_APN_negativ(self, locator=APN_SIM_1):
@@ -1330,6 +1344,8 @@ class SettingsHelper:
     # APN - SIM_2 - GSM
     def input_data_sim_2_APN(self, locator=APN_SIM_2):
         self.input_all_63_positiv(locator)
+        with allure.step("Проверка ввода допустимых спецсимволов"):
+            self.app.method.assertEqual('-.', '-.', locator)
 
     # APN - SIM_2 - GSM
     def input_data_sim_2_APN_negativ(self, locator=APN_SIM_2):
