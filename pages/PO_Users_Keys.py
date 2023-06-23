@@ -116,15 +116,15 @@ class UsersKeysHelper:
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual('0', '0', locator)
             self.app.method.assertEqual('1', '1', locator)
-            self.app.method.assertEqual('1' * 62, '1' * 62, locator)
-            self.app.method.assertEqual('1' * 63, '1' * 63, locator)
+            self.app.method.assertEqual('1' * 94, '1' * 94, locator)
+            self.app.method.assertEqual('1' * 95, '1' * 95, locator)
+            self.app.method.assertEqual('г' * 47 + '1', 'г' * 47 + '1', locator)
 
     # Проверка имя пользователя негативные тесты
-    def input_name_user_negativ(self, locator=name_user):
-        with allure.step("Проверка ввода очень большого числа"):
-            self.app.method.assertEqual('1' * 10000, '1' * 63, locator)
+    def input_name_user_negativ(self, locator_actual=name_user, locator_expected=name_user_error):
         with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual('1' * 64, '1' * 63, locator)
+            self.app.method.assert_field('1' * 96, locator_actual, locator_expected)
+            self.app.method.assert_field('г' * 48, locator_actual, locator_expected)
 
 
     # Проверка ЛОГИН/ПАРОЛЬ/ПОДТВЕРЖДЕНИЕ ПАРОЛЯ
@@ -359,7 +359,7 @@ class UsersKeysHelper:
             for i in range(10):
                 self.app.method.assertEqual(i, i, locator)
         with allure.step("Проверка ввода латинских букв в нижнем регистре"):
-            self.app.method.assertEqual('abcdef', 'abcdef', locator)
+            self.app.method.assertEqual('abcdef', 'ABCDEF', locator)
         with allure.step("Проверка ввода латинских букв в врхнем регистре"):
             self.app.method.assertEqual('ABCDEF', 'ABCDEF', locator)
         with allure.step("Проверка ввода граничных значений"):
@@ -373,7 +373,7 @@ class UsersKeysHelper:
             for i in range(10):
                 self.app.method.assertEqual(i, i, locator)
         with allure.step("Проверка ввода латинских букв в нижнем регистре"):
-            self.app.method.assertEqual('abcdefghijklmnopqrstuvwxyz', 'abcdef', locator)
+            self.app.method.assertEqual('abcdefghijklmnopqrstuvwxyz', 'ABCDEF', locator)
         with allure.step("Проверка ввода латинских букв в врхнем регистре"):
             self.app.method.assertEqual('ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'ABCDEF', locator)
         with allure.step("Проверка ввода Русских букв в нижнем регистре"):

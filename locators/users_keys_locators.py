@@ -16,6 +16,7 @@ status_drop_list_check_box = '(//*[@class="b-multiselect-items-wrapper scrollabl
 Search = '//*[@id="app"]/main//div/input'
 # Имя пользователя
 name_user = '//*[.="Имя пользователя"]/following::input[1]'
+name_user_error = '//*[.="Имя пользователя"]/following::input[contains(@class, "error")][1]'
 # Логин
 login_user = '//*[.="Логин"]/following::input[1]'
 # Пароль
