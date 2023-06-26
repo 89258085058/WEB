@@ -865,10 +865,10 @@ class TooltipsHelper:
         self.assert_tooltip_messege(locator=directions_port_input, text=input_1_65535_not_necessary)
 
     def tooltip_directions_port_input_rezerv_1(self):
-        self.assert_tooltip_messege(locator=directions_port_input_rezerv_1, text=input_0_65535_not_necessary)
+        self.assert_tooltip_messege(locator=directions_port_input_rezerv_1, text=input_1_65535_not_necessary)
 
     def tooltip_directions_port_input_rezerv_2(self):
-        self.assert_tooltip_messege(locator=directions_port_input_rezerv_2, text=input_0_65535_not_necessary)
+        self.assert_tooltip_messege(locator=directions_port_input_rezerv_2, text=input_1_65535_not_necessary)
 
     # Направления - Канал соединения
     def tooltip_directions_connection_channel(self):

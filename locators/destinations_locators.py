@@ -4,6 +4,7 @@
 # ------------ПОЛЯ ВВОДА------------
 # Настройки
 destination_name = '//*[.="Название"]//input[1]'
+destination_name_error = "//*[.='Название']//input[1][contains(@class, 'error')]"
 # TELEPHONE
 TEL_COD_main = '(//div[@class="channel-settings"])[1]//input[@placeholder="Код"]'
 TEL_NUM_main = '((//div[@class="channel-settings"])[1]//input[2])'
@@ -251,8 +252,8 @@ water_sensor_loop_breakage_click = '(//*[.="Обрыв шлейфа датчик
 water_sensor_loop_breakage_status = '(//*[.="Обрыв шлейфа датчика воды"]//label/input)[1]'
 Battery_OK_zone_events_device_click = '(//*[.="Основной источник питания в норме"]//label/span)[1]'
 Battery_OK_zone_events_device_status = '(//*[.="Основной источник питания в норме"]//label/input)[1]'
-Backup_battery_error_zone_events_click = '(//*[.="Ошибка резервного источника питания"]//label/span)[1]'
-Backup_battery_error_zone_events_status = '(//*[.="Ошибка резервного источника питания"]//label/input)[1]'
+Backup_battery_error_zone_events_click = '(//*[.="Низкий заряд резервного источника питания"]//label/span)[1]'
+Backup_battery_error_zone_events_status = '(//*[.="Низкий заряд резервного источника питания"]//label/input)[1]'
 Device_error_zone_events_click = '(//*[.="Ошибка устройства"]//label/span)[1]'
 Device_error_zone_events_status = '(//*[.="Ошибка устройства"]//label/input)[1]'
 Sensor_reset_zone_events_click = '(//*[.="Перезагрузка датчика"]//label/span)[1]'

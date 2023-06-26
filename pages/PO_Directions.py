@@ -41,15 +41,17 @@ class DirectionsHelper:
             self.app.method.assertEqual('1 2 3', '1 2 3', locator)
         with allure.step("Проверка ввода граничных значений внутри диапазона"):
             self.app.method.assertEqual(1, 1, locator)
-            self.app.method.assertEqual('1' * 30, '1' * 30, locator)
-            self.app.method.assertEqual('1' * 31, '1' * 31, locator)
+            self.app.method.assertEqual('1' * 62, '1' * 62, locator)
+            self.app.method.assertEqual('1' * 63, '1' * 63, locator)
+            self.app.method.assertEqual('г' * 31 + '1', 'г' * 31 + '1', locator)
 
     # Проверка ввода поле Название
     def input_destination_name_negativ(self, locator=destination_name):
         with allure.step("Проверка ввода пустого значения"):
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода граничных значений внутри диапазона"):
-            self.app.method.assertEqual('1' * 32, '1' * 31, locator)
+            self.app.method.assert_field('1' * 64, locator, destination_name_error)
+            self.app.method.assert_field('г' * 32, locator, destination_name_error)
 
     # Проверка ввода Код настройки
     def input_cod_posutiv(self, locator):
