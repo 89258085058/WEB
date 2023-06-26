@@ -309,6 +309,13 @@ class TestUiSettings:
         with allure.step("Проверка выбора позиций из выпадающего списка"):
             app.PO_Settings.drop_list_light_indication_reader_operation_mode()
 
+
+@allure.label("owner", 'Александр Горелов')
+@allure.epic("Тесты НАСТРОЙКИ")
+@allure.feature("Проверки UI")
+@pytest.mark.flaky(reruns=reruns)
+class TestUiSettings2:
+
     @allure.story("РАДИО")
     @allure.title("Проверка чекбокса радио")
     def test_check_box_radio(self, app, radio):
