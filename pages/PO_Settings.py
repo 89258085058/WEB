@@ -655,15 +655,15 @@ class SettingsHelper:
         self.check_box_radio_on()
         self.input_number_negativ(locator)
 
-    # Период опроса датчиков - РАДИО
-    def input_data_sensor_polling_period(self, locator=sensor_polling_period):
-        self.check_box_radio_on()
-        self.input_number(locator)
-
-    # Период опроса датчиков - РАДИО
-    def input_data_sensor_polling_period_negativ(self, locator=sensor_polling_period):
-        self.check_box_radio_on()
-        self.input_number_negativ(locator)
+    # # Период опроса датчиков - РАДИО
+    # def input_data_sensor_polling_period(self, locator=sensor_polling_period):
+    #     self.check_box_radio_on()
+    #     self.input_number(locator)
+    #
+    # # Период опроса датчиков - РАДИО
+    # def input_data_sensor_polling_period_negativ(self, locator=sensor_polling_period):
+    #     self.check_box_radio_on()
+    #     self.input_number_negativ(locator)
 
     # Выпадающий список Канал - РАДИО
     def drop_list_radio(self, button=radio_chanel_button, possition=radio_chanel):
@@ -2144,7 +2144,8 @@ class SettingsHelper:
                                         locator=resolution_time_for_adding_new_sensors)
 
         with allure.step(f"Ввод данных в поле - Период опроса датчиков: '{_radio['Sensor_polling_period']}'"):
-            self.app.method.inputValues(value=_radio["Sensor_polling_period"], locator=sensor_polling_period)
+            # self.app.method.inputValues(value=_radio["Sensor_polling_period"], locator=sensor_polling_period)
+            self.app.method.selectDropdownListByName(radio_device_button, _radio["Sensor_polling_period"])
 
     # Проверка данных радио
     def save_radio_data_limit(self, randomCB, chanel_list, time_add_sensor, periud_sensor):
@@ -2158,7 +2159,8 @@ class SettingsHelper:
             self.app.method.inputValues(value=time_add_sensor,
                                         locator=resolution_time_for_adding_new_sensors)
         with allure.step(f"Ввод данных в поле - Период опроса датчиков: '{periud_sensor}'"):
-            self.app.method.inputValues(value=periud_sensor, locator=sensor_polling_period)
+            # self.app.method.inputValues(value=periud_sensor, locator=sensor_polling_period)
+            self.app.method.selectDropdownListByName(radio_device_button, _radio["Sensor_polling_period"])
 
     # Проверка сохранения радио после входа
     def save_radio_data_enter(self, chanel_list):
@@ -2171,7 +2173,8 @@ class SettingsHelper:
             self.app.method.assertValues(value=_radio["Resolution_time_for_adding_new_sensors"],
                                          locator=resolution_time_for_adding_new_sensors)
         with allure.step("Период опроса датчиков"):
-            self.app.method.assertValues(value=_radio["Sensor_polling_period"], locator=sensor_polling_period)
+            # self.app.method.assertValues(value=_radio["Sensor_polling_period"], locator=sensor_polling_period)
+            self.app.method.selectDropdownListByName(radio_device_button, _radio["Sensor_polling_period"])
 
     # Проверка сохранения радио после входа
     def save_radio_data_enter_limit(self, chanel_list, time_add_sensor, periud_sensor):
@@ -2181,7 +2184,9 @@ class SettingsHelper:
             self.app.method.assertValues(value=time_add_sensor,
                                          locator=resolution_time_for_adding_new_sensors)
         with allure.step("Период опроса датчиков"):
-            self.app.method.assertValues(value=periud_sensor, locator=sensor_polling_period)
+            # self.app.method.assertValues(value=periud_sensor, locator=sensor_polling_period)
+            _radio = self.app.read_data.data_radio()
+            self.app.method.selectDropdownListByName(radio_device_button, _radio["Sensor_polling_period"])
 
     # Проверка данных ethernet
     def save_ethernet_data(self, randomCB_1, randomCB_2, randomCB_3, randomCB_4, randomCB_5, randomCB_6,

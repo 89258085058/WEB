@@ -40,7 +40,7 @@ class Ganerate:
 
         # Настройки/Радио
         Resolution_time_for_adding_new_sensors = random.randint(60, 900)
-        Sensor_polling_period = random.randint(60, 120)
+        Sensor_polling_period = random.choice([60, 90, 120, 180, 240, 300])
 
         # Настройки/GSM
         Number_of_digits_of_the_number_to_check = random.randint(3, 11)

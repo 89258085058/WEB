@@ -50,7 +50,7 @@ class NavigationsHelper:
         self.app.method.pageEndpoint(self.app.base_url_for_check, f'/device-settings/beeper', VolumIndicationButton)
 
     def goToRadioPage(self):
-        self.app.method.pageEndpoint(self.app.base_url_for_check, f'/device-settings/wirelles', RadioButton)
+        self.app.method.pageEndpoint(self.app.base_url_for_check, f'/device-settings/wireless', RadioButton)
 
     def goToGSMPage(self):
         self.app.method.pageEndpoint(self.app.base_url_for_check, f'/device-settings/gsm', GSMButton)

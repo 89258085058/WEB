@@ -191,17 +191,17 @@ class Test02ValidationSettings:
         with allure.step("Проверка валидации поля"):
             app.PO_Settings.input_data_resolution_time_for_adding_new_sensors_negativ()
 
-    @allure.story("РАДИО")
-    @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Период опроса датчиков'")
-    def test_input_data_sensor_polling_period(self, app, extend_time, radio):
-        with allure.step("Проверка валидации поля"):
-            app.PO_Settings.input_data_sensor_polling_period()
-
-    @allure.story("РАДИО")
-    @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Период опроса датчиков'")
-    def test_input_data_sensor_polling_period_negativ(self, app, extend_time, radio):
-        with allure.step("Проверка валидации поля"):
-            app.PO_Settings.input_data_sensor_polling_period_negativ()
+    # @allure.story("РАДИО")
+    # @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Период опроса датчиков'")
+    # def test_input_data_sensor_polling_period(self, app, extend_time, radio):
+    #     with allure.step("Проверка валидации поля"):
+    #         app.PO_Settings.input_data_sensor_polling_period()
+    #
+    # @allure.story("РАДИО")
+    # @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Период опроса датчиков'")
+    # def test_input_data_sensor_polling_period_negativ(self, app, extend_time, radio):
+    #     with allure.step("Проверка валидации поля"):
+    #         app.PO_Settings.input_data_sensor_polling_period_negativ()
 
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты НАСТРОЙКИ")

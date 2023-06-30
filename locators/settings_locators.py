@@ -121,14 +121,15 @@ radio_text = '//div[@class="device-settings-wrapper card"]'
 # Время разрешения добавления новых датчиков
 resolution_time_for_adding_new_sensors = '(//*[.="Время разрешения добавления новых датчиков"]/following::input[1])[1]'
 # Период опроса датчиков
-sensor_polling_period = '//*[.="Период опроса датчиков"]/following::input[1]'
+# sensor_polling_period = '//*[.="Период опроса датчиков"]/following::input[1]'
 # ------------ЧЕКБОКСЫ-------------
 # Включить радиомодуль
 radio_modul_on_click = '(//*[@id="app"]//label/span)[1]'
 radio_modul_on_status = '(//*[@id="app"]//label/input)[1]'
 # ------------ВЫПАДАЮЩИЙ СПИСОК-----
 # Кнопка выпадающего списка Канал
-radio_chanel_button = '//*[@id="app"]//span[@class="label"]'
+radio_chanel_button = '(//*[@id="app"]//span[@class="label"])[1]'
+radio_device_button = '(//*[@id="app"]//span[@class="label"])[2]'
 # Канал
 radio_chanel = '(/html/body//div[@class="option"])'
 
