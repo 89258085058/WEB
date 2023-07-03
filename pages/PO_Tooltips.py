@@ -120,7 +120,7 @@ class TooltipsHelper:
 
     # НАСТРОЙКИ/ДАТА И ВРЕМЯ - Синхронизация по NTP/HTP - Часовой пояс
     def tooltip_settings_date_time_drop_list_ntp_server_time_zone(self):
-        self.assert_tooltip_messege(locator=date_time_time_zone, text=Settings_date_time_tooltip_messege_ntp_time_zon)
+        self.assert_tooltip_messege(locator=date_time_time_zone, text=Settings_date_time_tooltip_message_manual_date_time)
 
     # НАСТРОЙКИ/ДАТА И ВРЕМЯ - Вручную
     def tooltip_settings_date_time_drop_list_hend(self):
@@ -128,11 +128,11 @@ class TooltipsHelper:
 
     # НАСТРОЙКИ/ДАТА И ВРЕМЯ - Вручную - Дата и время
     def tooltip_settings_date_time_drop_list_hend_date_time(self):
-        self.assert_tooltip_messege(locator=date_time_locator, text=Settings_date_time_tooltip_messege_hend_date_time)
+        self.assert_tooltip_messege(locator=date_time_locator, text=Settings_date_time_tooltip_message_manual_date_and_time)
 
     # НАСТРОЙКИ/ДАТА И ВРЕМЯ - Вручную - Часовой пояс
     def tooltip_settings_date_time_drop_list_hend_time_zone(self):
-        self.assert_tooltip_messege(locator=date_time_time_zone, text=Settings_date_time_tooltip_messege_ntp_time_zon)
+        self.assert_tooltip_messege(locator=date_time_time_zone, text=Settings_date_time_tooltip_message_time_zone)
 
     # НАСТРОЙКИ/Прибор - Включить энергосберегающий режим
     def tooltip_settings_device_enable_power_saving_mode(self):

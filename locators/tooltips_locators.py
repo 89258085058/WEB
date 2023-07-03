@@ -118,7 +118,7 @@ Radio_Resolution_time_adding_new_sensors_input = '//*[.="Время разреш
 Radio_Channel = '//*[@id="app"]/main//span[.="Канал"]'
 # Период опроса датчиков
 Radio_Sensor_polling_period = '//*[@id="app"]/main//span[.="Период опроса датчиков"]'
-Radio_Sensor_polling_period_input = '//*[.="Период опроса датчиков"]/following::input[1]'
+Radio_Sensor_polling_period_input = '(//*[@id="app"]//span[@class="label"])[2]'
 
 # ------------------------GSM--------------------------
 # Включить модуль GSM
