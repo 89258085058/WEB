@@ -6,13 +6,13 @@ import allure
 import pytest
 from selenium.webdriver.common.by import By
 
-reruns = 2
+reruns = 1
 
 # directions_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
 
 directions_list = ['1']
 type_control_list = ['Звонок', 'SMS пользователю', 'SMS Эгида', 'DC09']
-# type_control_list = [ 'DC09']
+# type_control_list = ['DC09']
 
 @pytest.fixture()
 def close_modal(request, app):

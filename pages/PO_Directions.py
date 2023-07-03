@@ -1646,12 +1646,11 @@ class DirectionsHelper:
         self.app.method.checkBox("ON", Silent_alarm_click, Silent_alarm_status)
         self.app.method.checkBox("ON", Alarm_click, Alarm_status)
         self.app.method.checkBox("ON", Alarm_enter_click, Alarm_enter_status)
-        if type_control != 'DC09':
-            self.app.method.checkBox("ON", No_take_click, No_takel_status)
-            self.app.method.checkBox("ON", Fire_click, Fire_status)
-            self.app.method.checkBox("ON", No_Fire_click, No_Fire_status)
-            self.app.method.checkBox("ON", Water_leak_click, Water_leak_status)
-            self.app.method.checkBox("ON", Section_taken_off_click, Section_taken_off_status)
+        self.app.method.checkBox("ON", No_take_click, No_takel_status)
+        self.app.method.checkBox("ON", Fire_click, Fire_status)
+        self.app.method.checkBox("ON", No_Fire_click, No_Fire_status)
+        self.app.method.checkBox("ON", Water_leak_click, Water_leak_status)
+        self.app.method.checkBox("ON", Section_taken_off_click, Section_taken_off_status)
 
 
         # Проверка включение тумблеров события разделов - сохранение
@@ -1665,12 +1664,11 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("ON", Silent_alarm_status)
         self.app.method.assertCheckBox("ON", Alarm_status)
         self.app.method.assertCheckBox("ON", Alarm_enter_status)
-        if type_control != 'DC09':
-            self.app.method.assertCheckBox("ON", No_takel_status)
-            self.app.method.assertCheckBox("ON", Fire_status)
-            self.app.method.assertCheckBox("ON", No_Fire_status)
-            self.app.method.assertCheckBox("ON", Water_leak_status)
-            self.app.method.assertCheckBox("ON", Section_taken_off_status)
+        self.app.method.assertCheckBox("ON", No_takel_status)
+        self.app.method.assertCheckBox("ON", Fire_status)
+        self.app.method.assertCheckBox("ON", No_Fire_status)
+        self.app.method.assertCheckBox("ON", Water_leak_status)
+        self.app.method.assertCheckBox("ON", Section_taken_off_status)
 
         # Выключение тумблеров события разделов для сохранения
 
@@ -1683,12 +1681,11 @@ class DirectionsHelper:
         self.app.method.checkBox("OFF", Silent_alarm_click, Silent_alarm_status)
         self.app.method.checkBox("OFF", Alarm_click, Alarm_status)
         self.app.method.checkBox("OFF", Alarm_enter_click, Alarm_enter_status)
-        if type_control != 'DC09':
-            self.app.method.checkBox("OFF", No_take_click, No_takel_status)
-            self.app.method.checkBox("OFF", Fire_click, Fire_status)
-            self.app.method.checkBox("OFF", No_Fire_click, No_Fire_status)
-            self.app.method.checkBox("OFF", Water_leak_click, Water_leak_status)
-            self.app.method.checkBox("OFF", Section_taken_off_click, Section_taken_off_status)
+        self.app.method.checkBox("OFF", No_take_click, No_takel_status)
+        self.app.method.checkBox("OFF", Fire_click, Fire_status)
+        self.app.method.checkBox("OFF", No_Fire_click, No_Fire_status)
+        self.app.method.checkBox("OFF", Water_leak_click, Water_leak_status)
+        self.app.method.checkBox("OFF", Section_taken_off_click, Section_taken_off_status)
 
         # Проверка выключение тумблеров события разделов - сохранение
 
@@ -1701,116 +1698,79 @@ class DirectionsHelper:
         self.app.method.assertCheckBox("OFF", Silent_alarm_status)
         self.app.method.assertCheckBox("OFF", Alarm_status)
         self.app.method.assertCheckBox("OFF", Alarm_enter_status)
-        if type_control != 'DC09':
-            self.app.method.assertCheckBox("OFF", No_takel_status)
-            self.app.method.assertCheckBox("OFF", Fire_status)
-            self.app.method.assertCheckBox("OFF", No_Fire_status)
-            self.app.method.assertCheckBox("OFF", Water_leak_status)
-            self.app.method.assertCheckBox("OFF", Section_taken_off_status)
+        self.app.method.assertCheckBox("OFF", No_takel_status)
+        self.app.method.assertCheckBox("OFF", Fire_status)
+        self.app.method.assertCheckBox("OFF", No_Fire_status)
+        self.app.method.assertCheckBox("OFF", Water_leak_status)
+        self.app.method.assertCheckBox("OFF", Section_taken_off_status)
 
         # Частичное включение тумблеров события разделов для сохранения
 
     def tumblers_event_path_some_save(self, type_control):
         self.app.method.checkBox("OFF", Take_all_event_path_click, Take_all_event_path_status)
-        if type_control == 'DC09':
-            self.app.method.checkBox("ON", Outfit_mark_click, Outfit_mark_status)
-            self.app.method.checkBox("OFF", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
-            self.app.method.checkBox("ON", Forcing_Partition_click, Forcing_Partition_status)
-            self.app.method.checkBox("OFF", Section_taken_click, Section_taken_status)
-            self.app.method.checkBox("ON", Silent_alarm_click, Silent_alarm_status)
-            self.app.method.checkBox("OFF", Alarm_click, Alarm_status)
-            self.app.method.checkBox("ON", Alarm_enter_click, Alarm_enter_status)
-        else:
-            self.app.method.checkBox("ON", No_take_click, No_takel_status)
-            self.app.method.checkBox("OFF", Outfit_mark_click, Outfit_mark_status)
-            self.app.method.checkBox("ON", Fire_click, Fire_status)
-            self.app.method.checkBox("OFF", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
-            self.app.method.checkBox("ON", No_Fire_click, No_Fire_status)
-            self.app.method.checkBox("OFF", Forcing_Partition_click, Forcing_Partition_status)
-            self.app.method.checkBox("ON", Water_leak_click, Water_leak_status)
-            self.app.method.checkBox("OFF", Section_taken_click, Section_taken_status)
-            self.app.method.checkBox("ON", Section_taken_off_click, Section_taken_off_status)
-            self.app.method.checkBox("OFF", Silent_alarm_click, Silent_alarm_status)
-            self.app.method.checkBox("ON", Alarm_click, Alarm_status)
-            self.app.method.checkBox("OFF", Alarm_enter_click, Alarm_enter_status)
+        self.app.method.checkBox("ON", Outfit_mark_click, Outfit_mark_status)
+        self.app.method.checkBox("OFF", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
+        self.app.method.checkBox("ON", Forcing_Partition_click, Forcing_Partition_status)
+        self.app.method.checkBox("OFF", Section_taken_click, Section_taken_status)
+        self.app.method.checkBox("ON", Silent_alarm_click, Silent_alarm_status)
+        self.app.method.checkBox("OFF", Alarm_click, Alarm_status)
+        self.app.method.checkBox("ON", Alarm_enter_click, Alarm_enter_status)
+        self.app.method.checkBox("OFF", No_take_click, No_takel_status)
+        self.app.method.checkBox("ON", Fire_click, Fire_status)
+        self.app.method.checkBox("OFF", No_Fire_click, No_Fire_status)
+        self.app.method.checkBox("ON", Water_leak_click, Water_leak_status)
+        self.app.method.checkBox("OFF", Section_taken_off_click, Section_taken_off_status)
 
         # Проверка частичного включение тумблеров события разделов - сохранение
 
     def assert_save_tumblers_event_path_some(self, type_control):
         self.app.method.assertCheckBox("OFF", Take_all_event_path_status)
-        if type_control == 'DC09':
-            self.app.method.assertCheckBox("ON", Outfit_mark_status)
-            self.app.method.assertCheckBox("OFF", Fire_by_manual_call_point_status)
-            self.app.method.assertCheckBox("ON", Forcing_Partition_status)
-            self.app.method.assertCheckBox("OFF", Section_taken_status)
-            self.app.method.assertCheckBox("ON", Silent_alarm_status)
-            self.app.method.assertCheckBox("OFF", Alarm_status)
-            self.app.method.assertCheckBox("ON", Alarm_enter_status)
-        else:
-            self.app.method.assertCheckBox("ON", No_takel_status)
-            self.app.method.assertCheckBox("OFF", Outfit_mark_status)
-            self.app.method.assertCheckBox("ON", Fire_status)
-            self.app.method.assertCheckBox("OFF", Fire_by_manual_call_point_status)
-            self.app.method.assertCheckBox("ON", No_Fire_status)
-            self.app.method.assertCheckBox("OFF", Forcing_Partition_status)
-            self.app.method.assertCheckBox("ON", Water_leak_status)
-            self.app.method.assertCheckBox("OFF", Section_taken_status)
-            self.app.method.assertCheckBox("ON", Section_taken_off_status)
-            self.app.method.assertCheckBox("OFF", Silent_alarm_status)
-            self.app.method.assertCheckBox("ON", Alarm_status)
-            self.app.method.assertCheckBox("OFF", Alarm_enter_status)
+        self.app.method.assertCheckBox("ON", Outfit_mark_status)
+        self.app.method.assertCheckBox("OFF", Fire_by_manual_call_point_status)
+        self.app.method.assertCheckBox("ON", Forcing_Partition_status)
+        self.app.method.assertCheckBox("OFF", Section_taken_status)
+        self.app.method.assertCheckBox("ON", Silent_alarm_status)
+        self.app.method.assertCheckBox("OFF", Alarm_status)
+        self.app.method.assertCheckBox("ON", Alarm_enter_status)
+        self.app.method.assertCheckBox("OFF", No_takel_status)
+        self.app.method.assertCheckBox("ON", Fire_status)
+        self.app.method.assertCheckBox("OFF", No_Fire_status)
+        self.app.method.assertCheckBox("ON", Water_leak_status)
+        self.app.method.assertCheckBox("OFF", Section_taken_off_status)
 
         # Частичное включение тумблеров события разделов для сохранения
 
     def tumblers_event_path_some_2_save(self, type_control):
         self.app.method.checkBox("OFF", Take_all_event_path_click, Take_all_event_path_status)
-        if type_control == 'DC09':
-            self.app.method.checkBox("OFF", Outfit_mark_click, Outfit_mark_status)
-            self.app.method.checkBox("ON", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
-            self.app.method.checkBox("OFF", Forcing_Partition_click, Forcing_Partition_status)
-            self.app.method.checkBox("ON", Section_taken_click, Section_taken_status)
-            self.app.method.checkBox("OFF", Silent_alarm_click, Silent_alarm_status)
-            self.app.method.checkBox("ON", Alarm_click, Alarm_status)
-            self.app.method.checkBox("OFF", Alarm_enter_click, Alarm_enter_status)
-        else:
-            self.app.method.checkBox("OFF", No_take_click, No_takel_status)
-            self.app.method.checkBox("ON", Outfit_mark_click, Outfit_mark_status)
-            self.app.method.checkBox("OFF", Fire_click, Fire_status)
-            self.app.method.checkBox("ON", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
-            self.app.method.checkBox("OFF", No_Fire_click, No_Fire_status)
-            self.app.method.checkBox("ON", Forcing_Partition_click, Forcing_Partition_status)
-            self.app.method.checkBox("OFF", Water_leak_click, Water_leak_status)
-            self.app.method.checkBox("ON", Section_taken_click, Section_taken_status)
-            self.app.method.checkBox("OFF", Section_taken_off_click, Section_taken_off_status)
-            self.app.method.checkBox("ON", Silent_alarm_click, Silent_alarm_status)
-            self.app.method.checkBox("OFF", Alarm_click, Alarm_status)
-            self.app.method.checkBox("ON", Alarm_enter_click, Alarm_enter_status)
+        self.app.method.checkBox("OFF", Outfit_mark_click, Outfit_mark_status)
+        self.app.method.checkBox("ON", Fire_by_manual_call_point_click, Fire_by_manual_call_point_status)
+        self.app.method.checkBox("OFF", Forcing_Partition_click, Forcing_Partition_status)
+        self.app.method.checkBox("ON", Section_taken_click, Section_taken_status)
+        self.app.method.checkBox("OFF", Silent_alarm_click, Silent_alarm_status)
+        self.app.method.checkBox("ON", Alarm_click, Alarm_status)
+        self.app.method.checkBox("OFF", Alarm_enter_click, Alarm_enter_status)
+        self.app.method.checkBox("ON", No_take_click, No_takel_status)
+        self.app.method.checkBox("OFF", Fire_click, Fire_status)
+        self.app.method.checkBox("ON", No_Fire_click, No_Fire_status)
+        self.app.method.checkBox("OFF", Water_leak_click, Water_leak_status)
+        self.app.method.checkBox("ON", Section_taken_off_click, Section_taken_off_status)
 
         # Проверка частичного включение тумблеров события разделов - сохранение
 
     def assert_save_tumblers_event_path_some_2(self, type_control):
         self.app.method.assertCheckBox("OFF", Take_all_event_path_status)
-        if type_control == 'DC09':
-            self.app.method.assertCheckBox("OFF", Outfit_mark_status)
-            self.app.method.assertCheckBox("ON", Fire_by_manual_call_point_status)
-            self.app.method.assertCheckBox("OFF", Forcing_Partition_status)
-            self.app.method.assertCheckBox("ON", Section_taken_status)
-            self.app.method.assertCheckBox("OFF", Silent_alarm_status)
-            self.app.method.assertCheckBox("ON", Alarm_status)
-            self.app.method.assertCheckBox("OFF", Alarm_enter_status)
-        else:
-            self.app.method.assertCheckBox("OFF", No_takel_status)
-            self.app.method.assertCheckBox("ON", Outfit_mark_status)
-            self.app.method.assertCheckBox("OFF", Fire_status)
-            self.app.method.assertCheckBox("ON", Fire_by_manual_call_point_status)
-            self.app.method.assertCheckBox("OFF", No_Fire_status)
-            self.app.method.assertCheckBox("ON", Forcing_Partition_status)
-            self.app.method.assertCheckBox("OFF", Water_leak_status)
-            self.app.method.assertCheckBox("ON", Section_taken_status)
-            self.app.method.assertCheckBox("OFF", Section_taken_off_status)
-            self.app.method.assertCheckBox("ON", Silent_alarm_status)
-            self.app.method.assertCheckBox("OFF", Alarm_status)
-            self.app.method.assertCheckBox("ON", Alarm_enter_status)
+        self.app.method.assertCheckBox("OFF", Outfit_mark_status)
+        self.app.method.assertCheckBox("ON", Fire_by_manual_call_point_status)
+        self.app.method.assertCheckBox("OFF", Forcing_Partition_status)
+        self.app.method.assertCheckBox("ON", Section_taken_status)
+        self.app.method.assertCheckBox("OFF", Silent_alarm_status)
+        self.app.method.assertCheckBox("ON", Alarm_status)
+        self.app.method.assertCheckBox("OFF", Alarm_enter_status)
+        self.app.method.assertCheckBox("ON", No_takel_status)
+        self.app.method.assertCheckBox("OFF", Fire_status)
+        self.app.method.assertCheckBox("ON", No_Fire_status)
+        self.app.method.assertCheckBox("OFF", Water_leak_status)
+        self.app.method.assertCheckBox("ON", Section_taken_off_status)
 
         # Включение основного тумблера - события разделов для сохранения
 
