@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-import time
-
 import allure
 import pytest
+
+from locators.auth_locators import title_form
 
 reruns = 1
 
@@ -11,7 +11,7 @@ reruns = 1
 def go_to_auth_page(app):
     with allure.step("переход на страницу авторизации"):
         app.session.logout()
-        time.sleep(1.5)
+        app.method.element_wait_to_be_text(title_form, 'Добро пожаловать')
 
 
 @allure.label("owner", 'Александр Горелов')

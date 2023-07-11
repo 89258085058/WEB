@@ -1023,19 +1023,20 @@ class Test05TooltipsMassege:
         with allure.step("Проверка подсказки: Время разрешения добавления новых датчиков"):
             app.PO_Tooltips.tooltip_settings_radio_Resolution_time_adding_new_sensor_input()
 
-    @allure.story("Проверка подсказок полей ввода")
-    @allure.title("Радио - Период опроса датчиков")
-    def test_settings_wireless_tooltip_input_2(self, app):
-        with allure.step("Переход на страницу Настройки"):
-            app.PO_Navigations.goToSettingsPage()
-        with allure.step("Переход на вкладку 'Радио'"):
-            app.PO_Navigations.goToRadioPage()
-        with allure.step("Клик по кнопке 'Редактировать'"):
-            app.PO_Settings.edit_button_click()
-        with allure.step("Включение радиомодуля"):
-            app.PO_Settings.check_box_radio_on()
-        with allure.step("Проверка подсказки: Период опроса датчиков"):
-            app.PO_Tooltips.tooltip_settings_radio_Sensor_polling_period_input()
+    # Тест потерял актуальность, для данного поля не ожидается подсказка
+    # @allure.story("Проверка подсказок полей ввода")
+    # @allure.title("Радио - Период опроса датчиков")
+    # def test_settings_wireless_tooltip_input_2(self, app):
+    #     with allure.step("Переход на страницу Настройки"):
+    #         app.PO_Navigations.goToSettingsPage()
+    #     with allure.step("Переход на вкладку 'Радио'"):
+    #         app.PO_Navigations.goToRadioPage()
+    #     with allure.step("Клик по кнопке 'Редактировать'"):
+    #         app.PO_Settings.edit_button_click()
+    #     with allure.step("Включение радиомодуля"):
+    #         app.PO_Settings.check_box_radio_on()
+    #     with allure.step("Проверка подсказки: Период опроса датчиков"):
+    #         app.PO_Tooltips.tooltip_settings_radio_Sensor_polling_period_input()
 
     @allure.story("Проверка подсказок полей ввода")
     @allure.title("GSM - Число знаков номера для проверки")
