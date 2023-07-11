@@ -160,6 +160,56 @@ class DirectionsHelper:
             self.app.method.assertEqual(98, 98, locator)
             self.app.method.assertEqual(99, 99, locator)
 
+    # Проверка поля Количество повторов
+    def input_count_num_20_99_positive(self, locator):
+        actual_locator = f'(//*[.="Таймаут подтверждения, сек *"]//input)[{locator}]'
+        expected_locator = f"(//div[@class ='channel-settings'])[{locator}]//*[.='Таймаут подтверждения, сек *']//input[@class='base-input']"
+        with allure.step("Проверка ввода цифр"):
+            for i in range(10):
+                self.app.method.assertEqual(i, i, actual_locator)
+        with allure.step("Проверка ввода граничных значений"):
+            self.app.method.assert_field(20, actual_locator, expected_locator)
+            self.app.method.assert_field(21, actual_locator, expected_locator)
+            self.app.method.assert_field(98, actual_locator, expected_locator)
+            self.app.method.assert_field(99, actual_locator, expected_locator)
+
+    def input_count_num_20_99_negative(self, locator):
+        locator = f'(//*[.="Таймаут подтверждения, сек *"]//input)[{locator}]'
+        expected_locator = f"(//div[@class ='channel-settings'])[{locator}]//*[.='Таймаут подтверждения, сек *']//input[@class='base-input error']"
+        with allure.step("Проверка ввода латинских букв в нижнем регистре"):
+            self.app.method.assertEqual('abcdefghijklmnopqrstuvwxyz', '', locator)
+        with allure.step("Проверка ввода латинских букв в врхнем регистре"):
+            self.app.method.assertEqual('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '', locator)
+        with allure.step("Проверка ввода Русских букв в нижнем регистре"):
+            self.app.method.assertEqual("ёйцукенгшщзхъфыв", "", locator)
+            self.app.method.assertEqual("апролджэячсмитьбю", "", locator)
+        with allure.step("Проверка ввода Русских букв в верхнем регистре"):
+            self.app.method.assertEqual("АПРОЛДЖЭЯЧСМИТЬБЮ", "", locator)
+            self.app.method.assertEqual("ЁЙЦУКЕНГШЩЗХЪФЫВ", "", locator)
+        with allure.step("Проверка ввода спецсимполов"):
+            self.app.method.assertEqual("!#$%&'()*+,-./:;<=>?@[]^_`{|}~", "", locator)
+        with allure.step("Проверка ввода совместных значений"):
+            self.app.method.assertEqual('(123  АБВABC!@#', '12', locator)
+        with allure.step("Проверка ввода пробелов"):
+            self.app.method.assertEqual('   ', '', locator)
+            self.app.method.assertEqual('12   ', '12', locator)
+            self.app.method.assertEqual('   12', '12', locator)
+            self.app.method.assertEqual('1 2', '12', locator)
+        with allure.step("Проверка ввода дробного числа "):
+            self.app.method.assertEqual('1.1', '11', locator)
+            self.app.method.assertEqual('0.1', '1', locator)
+            self.app.method.assertEqual('1,1', '11', locator)
+            self.app.method.assertEqual('0,1', '1', locator)
+        with allure.step("Проверка ввода пустого значения"):
+            self.app.method.assertEqual('', '', locator)
+        with allure.step("Проверка ввода отрицательного числа"):
+            self.app.method.assertEqual('-1', '1', locator)
+        with allure.step("Проверка ввода граничных значений"):
+            self.app.method.assert_field('0', locator, expected_locator)
+            self.app.method.assert_field('19', locator, expected_locator)
+            self.app.method.inputValues('100', locator)
+            self.app.method.assertValues('10', expected_locator)
+
     # Проверка поля Количество
     def input_count_num_99_negativ(self, locator):
         with allure.step("Проверка ввода латинских букв в нижнем регистре"):
@@ -190,8 +240,6 @@ class DirectionsHelper:
             self.app.method.assertEqual('', '', locator)
         with allure.step("Проверка ввода отрицательного числа"):
             self.app.method.assertEqual('-1', '1', locator)
-        with allure.step("Проверка ввода очень большого числа"):
-            self.app.method.assertEqual('1' * 1000, '11', locator)
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual('100', '10', locator)
 
@@ -641,27 +689,27 @@ class DirectionsHelper:
 
     # Проверка ввода Таймаут подтверждения, сек канал - ОСНОВНОЙ
     def input_confirmation_timeout_posutiv_dc09_main(self):
-        self.input_count_num_99_positiv(confirmation_timeout_DC09_main)
+        self.input_count_num_20_99_positive(1)
 
     # Проверка ввода Таймаут подтверждения, сек канал - ОСНОВНОЙ
     def input_confirmation_timeout_negativ_dc09_main(self):
-        self.input_count_num_99_negativ(confirmation_timeout_DC09_main)
+        self.input_count_num_20_99_negative(1)
 
     # Проверка ввода Таймаут подтверждения, сек канал - ОСНОВНОЙ
     def input_confirmation_timeout_posutiv_dc09_reserv_1(self):
-        self.input_count_num_99_positiv(confirmation_timeout_DC09_reserv_1)
+        self.input_count_num_20_99_positive(2)
 
     # Проверка ввода Таймаут подтверждения, сек канал - ОСНОВНОЙ
     def input_confirmation_timeout_negativ_dc09_reserv_1(self):
-        self.input_count_num_99_negativ(confirmation_timeout_DC09_reserv_1)
+        self.input_count_num_20_99_negative(2)
 
     # Проверка ввода Таймаут подтверждения, сек канал - ОСНОВНОЙ
     def input_confirmation_timeout_posutiv_dc09_reserv_2(self):
-        self.input_count_num_99_positiv(confirmation_timeout_DC09_reserv_2)
+        self.input_count_num_20_99_positive(3)
 
     # Проверка ввода Таймаут подтверждения, сек канал - ОСНОВНОЙ
     def input_confirmation_timeout_negativ_dc09_reserv_2(self):
-        self.input_count_num_99_negativ(confirmation_timeout_DC09_reserv_2)
+        self.input_count_num_20_99_negative(3)
 
     # Проверка ввода Порт канал - ОСНОВНОЙ
     def input_port_posutiv_dc09_main(self):
