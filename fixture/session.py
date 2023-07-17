@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 from locators.session_locators import *
+import locators.journal_locators as journal_loc 
 
 
 @dataclass
@@ -103,5 +104,5 @@ class SessionHelper:
 
     def login_verification(self):
         wd = self.app.wd
-        time.sleep(3)
+        WebDriverWait(wd, 5).until(EC.visibility_of_element_located(journal_loc.btn_apply))
         assert str(wd.current_url) == str(self.app.base_url + f'/journal'), f" \n***Ошибка Входа! "
