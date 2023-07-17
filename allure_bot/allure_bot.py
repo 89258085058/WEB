@@ -93,7 +93,7 @@ class CreateAllure:
                         autopct='%1.1f%%', startangle=180, textprops={'size': 'large'}, wedgeprops=dict(width=0.4, edgecolor='w'))
         plt.axis('equal')
         plt.legend(labels=labels, loc="lower right", bbox_to_anchor=(0.2, -0.1, 0, 0))
-        plt.savefig('allure.png')
+        plt.savefig('allure_bot/allure.png')
 
     def send_messege(self):
         try:
