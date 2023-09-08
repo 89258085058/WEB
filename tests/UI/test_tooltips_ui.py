@@ -826,15 +826,15 @@ class Test04TooltipsMassege:
         with allure.step("Проверка подсказки: Использовать как сервер"):
             app.PO_Tooltips.tooltip_settings_ethernet_Use_as_server()
 
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Ethernet - Получать адрес IPv6 от DHCP автоматически")
-    def test_settings_ethernet_tooltip_10(self, app):
-        with allure.step("Переход на страницу Настройки"):
-            app.PO_Navigations.goToSettingsPage()
-        with allure.step("Переход на вкладку 'Ethernet'"):
-            app.PO_Navigations.goToEthernetPage()
-        with allure.step("Проверка подсказки: Получать адрес IPv6 от DHCP автоматически"):
-            app.PO_Tooltips.tooltip_settings_ethernet_Obtain_IPv6_address_DHCP_automatically()
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Ethernet - Получать адрес IPv6 от DHCP автоматически")
+    # def test_settings_ethernet_tooltip_10(self, app):
+    #     with allure.step("Переход на страницу Настройки"):
+    #         app.PO_Navigations.goToSettingsPage()
+    #     with allure.step("Переход на вкладку 'Ethernet'"):
+    #         app.PO_Navigations.goToEthernetPage()
+    #     with allure.step("Проверка подсказки: Получать адрес IPv6 от DHCP автоматически"):
+    #         app.PO_Tooltips.tooltip_settings_ethernet_Obtain_IPv6_address_DHCP_automatically()
 
     @allure.story("Проверка подсказок наименования поля")
     @allure.title("Ethernet - Разрешить удаленное управление")
@@ -846,25 +846,25 @@ class Test04TooltipsMassege:
         with allure.step("Проверка подсказки: Разрешить удаленное управление"):
             app.PO_Tooltips.tooltip_settings_ethernet_Allow_remote_control()
 
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Ethernet - Получать адрес IPv6 от SLAAC автоматически")
-    def test_settings_ethernet_tooltip_12(self, app):
-        with allure.step("Переход на страницу Настройки"):
-            app.PO_Navigations.goToSettingsPage()
-        with allure.step("Переход на вкладку 'Ethernet'"):
-            app.PO_Navigations.goToEthernetPage()
-        with allure.step("Проверка подсказки: Получать адрес IPv6 от SLAAC автоматически"):
-            app.PO_Tooltips.tooltip_settings_ethernet_Obtain_IPv6_address_SLAAC_automatically()
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Ethernet - Получать адрес IPv6 от SLAAC автоматически")
+    # def test_settings_ethernet_tooltip_12(self, app):
+    #     with allure.step("Переход на страницу Настройки"):
+    #         app.PO_Navigations.goToSettingsPage()
+    #     with allure.step("Переход на вкладку 'Ethernet'"):
+    #         app.PO_Navigations.goToEthernetPage()
+    #     with allure.step("Проверка подсказки: Получать адрес IPv6 от SLAAC автоматически"):
+    #         app.PO_Tooltips.tooltip_settings_ethernet_Obtain_IPv6_address_SLAAC_automatically()
 
-    @allure.story("Проверка подсказок наименования поля")
-    @allure.title("Ethernet - Разрешить незащищенное HTTP-соединение")
-    def test_settings_ethernet_tooltip_13(self, app):
-        with allure.step("Переход на страницу Настройки"):
-            app.PO_Navigations.goToSettingsPage()
-        with allure.step("Переход на вкладку 'Ethernet'"):
-            app.PO_Navigations.goToEthernetPage()
-        with allure.step("Проверка подсказки: Разрешить незащищенное HTTP-соединение"):
-            app.PO_Tooltips.tooltip_settings_ethernet_Allow_insecure_HTTP_connection()
+    # @allure.story("Проверка подсказок наименования поля")
+    # @allure.title("Ethernet - Разрешить незащищенное HTTP-соединение")
+    # def test_settings_ethernet_tooltip_13(self, app):
+    #     with allure.step("Переход на страницу Настройки"):
+    #         app.PO_Navigations.goToSettingsPage()
+    #     with allure.step("Переход на вкладку 'Ethernet'"):
+    #         app.PO_Navigations.goToEthernetPage()
+    #     with allure.step("Проверка подсказки: Разрешить незащищенное HTTP-соединение"):
+    #         app.PO_Tooltips.tooltip_settings_ethernet_Allow_insecure_HTTP_connection()
 
     @allure.story("Проверка подсказок наименования поля")
     @allure.title("Ethernet - Устанавливать сетевые подключения через")

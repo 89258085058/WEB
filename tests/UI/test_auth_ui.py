@@ -11,7 +11,7 @@ reruns = 1
 def go_to_auth_page(app):
     with allure.step("переход на страницу авторизации"):
         app.session.logout()
-        app.method.element_wait_to_be_text(title_form, 'Добро пожаловать')
+        app.method.element_wait_to_be_text(title_form, 'Авторизация на приборе')
 
 
 @allure.label("owner", 'Александр Горелов')

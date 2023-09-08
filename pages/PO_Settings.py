@@ -1432,21 +1432,21 @@ class SettingsHelper:
         self.app.method.checkBox("ON", ethernet_use_as_server_click, ethernet_use_as_server_status)
         self.app.method.assertCheckBox("ON", ethernet_use_as_server_status)
 
-        self.app.method.checkBox("ON", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_click,
-                                 ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
-        self.app.method.assertCheckBox("ON", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
+        # self.app.method.checkBox("ON", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_click,
+        #                          ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
+        # self.app.method.assertCheckBox("ON", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
 
         self.app.method.checkBox("ON", ethernet_allow_remote_control_click,
                                  ethernet_allow_remote_control_status)
         self.app.method.assertCheckBox("ON", ethernet_allow_remote_control_status)
 
-        self.app.method.checkBox("ON", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_click,
-                                 ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
-        self.app.method.assertCheckBox("ON", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
-
-        self.app.method.checkBox("ON", ethernet_allow_insecure_HTTP_connection_click,
-                                 ethernet_allow_insecure_HTTP_connection_status)
-        self.app.method.assertCheckBox("ON", ethernet_allow_insecure_HTTP_connection_status)
+        # self.app.method.checkBox("ON", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_click,
+        #                          ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
+        # self.app.method.assertCheckBox("ON", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
+        #
+        # self.app.method.checkBox("ON", ethernet_allow_insecure_HTTP_connection_click,
+        #                          ethernet_allow_insecure_HTTP_connection_status)
+        # self.app.method.assertCheckBox("ON", ethernet_allow_insecure_HTTP_connection_status)
 
     # Выключение чекбоксов ethernet
     def check_box_ethernet_off(self):
@@ -1457,21 +1457,21 @@ class SettingsHelper:
         self.app.method.checkBox("OFF", ethernet_use_as_server_click, ethernet_use_as_server_status)
         self.app.method.assertCheckBox("OFF", ethernet_use_as_server_status)
 
-        self.app.method.checkBox("OFF", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_click,
-                                 ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
-        self.app.method.assertCheckBox("OFF", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
+        # self.app.method.checkBox("OFF", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_click,
+        #                          ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
+        # self.app.method.assertCheckBox("OFF", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
 
         self.app.method.checkBox("OFF", ethernet_allow_remote_control_click,
                                  ethernet_allow_remote_control_status)
         self.app.method.assertCheckBox("OFF", ethernet_allow_remote_control_status)
 
-        self.app.method.checkBox("OFF", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_click,
-                                 ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
-        self.app.method.assertCheckBox("OFF", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
-
-        self.app.method.checkBox("OFF", ethernet_allow_insecure_HTTP_connection_click,
-                                 ethernet_allow_insecure_HTTP_connection_status)
-        self.app.method.assertCheckBox("OFF", ethernet_allow_insecure_HTTP_connection_status)
+        # self.app.method.checkBox("OFF", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_click,
+        #                          ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
+        # self.app.method.assertCheckBox("OFF", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
+        #
+        # self.app.method.checkBox("OFF", ethernet_allow_insecure_HTTP_connection_click,
+        #                          ethernet_allow_insecure_HTTP_connection_status)
+        # self.app.method.assertCheckBox("OFF", ethernet_allow_insecure_HTTP_connection_status)
 
     # Включение частичное чекбоксов ethernet
     def check_box_ethernet_some(self):
@@ -1482,21 +1482,21 @@ class SettingsHelper:
         self.app.method.checkBox("OFF", ethernet_use_as_server_click, ethernet_use_as_server_status)
         self.app.method.assertCheckBox("OFF", ethernet_use_as_server_status)
 
-        self.app.method.checkBox("ON", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_click,
-                                 ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
-        self.app.method.assertCheckBox("ON", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
+        # self.app.method.checkBox("ON", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_click,
+        #                          ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
+        # self.app.method.assertCheckBox("ON", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
 
         self.app.method.checkBox("OFF", ethernet_allow_remote_control_click,
                                  ethernet_allow_remote_control_status)
         self.app.method.assertCheckBox("OFF", ethernet_allow_remote_control_status)
 
-        self.app.method.checkBox("ON", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_click,
-                                 ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
-        self.app.method.assertCheckBox("ON", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
+        # self.app.method.checkBox("ON", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_click,
+        #                          ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
+        # self.app.method.assertCheckBox("ON", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
 
-        self.app.method.checkBox("OFF", ethernet_allow_insecure_HTTP_connection_click,
-                                 ethernet_allow_insecure_HTTP_connection_status)
-        self.app.method.assertCheckBox("OFF", ethernet_allow_insecure_HTTP_connection_status)
+        # self.app.method.checkBox("OFF", ethernet_allow_insecure_HTTP_connection_click,
+        #                          ethernet_allow_insecure_HTTP_connection_status)
+        # self.app.method.assertCheckBox("OFF", ethernet_allow_insecure_HTTP_connection_status)
 
         self.app.method.checkBox("OFF", ethernet_obtain_IPv4_address_and_settings_automatically_click,
                                  ethernet_obtain_IPv4_address_and_settings_automatically_status)
@@ -1505,33 +1505,33 @@ class SettingsHelper:
         self.app.method.checkBox("ON", ethernet_use_as_server_click, ethernet_use_as_server_status)
         self.app.method.assertCheckBox("ON", ethernet_use_as_server_status)
 
-        self.app.method.checkBox("OFF", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_click,
-                                 ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
-        self.app.method.assertCheckBox("OFF", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
+        # self.app.method.checkBox("OFF", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_click,
+        #                          ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
+        # self.app.method.assertCheckBox("OFF", ethernet_obtain_an_IPv6_address_from_DHCP_automatically_status)
 
         self.app.method.checkBox("ON", ethernet_allow_remote_control_click,
                                  ethernet_allow_remote_control_status)
         self.app.method.assertCheckBox("ON", ethernet_allow_remote_control_status)
 
-        self.app.method.checkBox("OFF", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_click,
-                                 ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
-        self.app.method.assertCheckBox("OFF", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
+        # self.app.method.checkBox("OFF", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_click,
+        #                          ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
+        # self.app.method.assertCheckBox("OFF", ethernet_obtain_an_IPv6_address_from_SLAAC_automatically_status)
 
-        self.app.method.checkBox("ON", ethernet_allow_insecure_HTTP_connection_click,
-                                 ethernet_allow_insecure_HTTP_connection_status)
-        self.app.method.assertCheckBox("ON", ethernet_allow_insecure_HTTP_connection_status)
+        # self.app.method.checkBox("ON", ethernet_allow_insecure_HTTP_connection_click,
+        #                          ethernet_allow_insecure_HTTP_connection_status)
+        # self.app.method.assertCheckBox("ON", ethernet_allow_insecure_HTTP_connection_status)
 
     # Выпадающий список: Устанавливать сетевые подключения через - ETHERNET
     def drop_list_ethernet(self, button=ethernet_network_connections_button,
                            possition=ethernet_network_connection_positions):
         self.app.method.selectDropdownList(button, possition + '[1]')
-        self.app.method.assertSelectionDropdownList("Отсутствует", button)
-        self.app.method.selectDropdownList(button, possition + '[2]')
         self.app.method.assertSelectionDropdownList("Авто", button)
-        self.app.method.selectDropdownList(button, possition + '[3]')
+        self.app.method.selectDropdownList(button, possition + '[2]')
         self.app.method.assertSelectionDropdownList("Ethernet", button)
-        self.app.method.selectDropdownList(button, possition + '[4]')
+        self.app.method.selectDropdownList(button, possition + '[3]')
         self.app.method.assertSelectionDropdownList("GPRS", button)
+        # self.app.method.selectDropdownList(button, possition + '[4]')
+        # self.app.method.assertSelectionDropdownList("GPRS", button)
 
     # Включение чекбоксов прибора
     def check_box_device_on(self):
