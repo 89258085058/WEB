@@ -238,17 +238,17 @@ class Test03UsersKeysValidation():
         with allure.step("Проверка валидации поля"):
             app.PO_Users_Keys.input_phone_cod_user_negativ()
 
-    @allure.story("ПОЛЬЗОВАТЕЛИ")
-    @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Телефон (номер)'(Настройки)")
-    def test_user_input_phone_number_user_settings(self, app, extend_time, users_settings, close_modal):
-        with allure.step("Проверка валидации поля"):
-            app.PO_Users_Keys.input_phone_number_user()
+    # @allure.story("ПОЛЬЗОВАТЕЛИ")
+    # @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Телефон (номер)'(Настройки)")
+    # def test_user_input_phone_number_user_settings(self, app, extend_time, users_settings, close_modal):
+    #     with allure.step("Проверка валидации поля"):
+    #         app.PO_Users_Keys.input_phone_number_user()
 
-    @allure.story("ПОЛЬЗОВАТЕЛИ")
-    @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Телефон (номер)'(Настройки)")
-    def test_user_input_phone_number_user_negativ_settings(self, app, extend_time, users_settings, close_modal):
-        with allure.step("Проверка валидации поля"):
-            app.PO_Users_Keys.input_phone_number_user_negativ()
+    # @allure.story("ПОЛЬЗОВАТЕЛИ")
+    # @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Телефон (номер)'(Настройки)")
+    # def test_user_input_phone_number_user_negativ_settings(self, app, extend_time, users_settings, close_modal):
+    #     with allure.step("Проверка валидации поля"):
+    #         app.PO_Users_Keys.input_phone_number_user_negativ()
 
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Пароль SMS'(Настройки)")

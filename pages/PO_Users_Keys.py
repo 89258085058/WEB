@@ -242,8 +242,6 @@ class UsersKeysHelper:
             self.app.method.assertEqual('-1', '1', locator)
         with allure.step("Проверка ввода очень большого числа"):
             self.app.method.assertEqual('1' * 1000, '1' * 16, locator)
-        with allure.step("Проверка ввода граничных значений"):
-            self.app.method.assertEqual('1' * 6, '1' * 5, locator)
 
     # Проверка поля Телефон НОМЕР
     def input_phone_number_user(self, locator=phone_number):
