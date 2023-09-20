@@ -547,7 +547,7 @@ class UsersKeysHelper:
         self.app.method.inputValues(value=input_user_password, locator=password)
         self.app.method.inputValues(value=input_user_password_rep, locator=re_password)
         self.app.method.inputValues(value=input_phone_cod, locator=phone_cod)
-        self.app.method.inputValues(value=input_phone_number, locator=phone_number)
+        # self.app.method.inputValues(value=input_phone_number, locator=phone_number)
         self.app.method.inputValues(value=input_sms_password, locator=password_sms_user)
         self.app.method.inputValues(value=input_sms_password_rep, locator=re_password_sms_user)
 
@@ -617,8 +617,7 @@ class UsersKeysHelper:
                        input_user_login=random_data,
                        input_user_password=random_data,
                        input_user_password_rep=random_data,
-                       input_phone_cod='+7',
-                       input_phone_number=random_data_phone,
+                       input_phone_cod='+7' + str(random_data_phone),
                        input_sms_password=random_data,
                        input_sms_password_rep=random_data
                        )
@@ -636,8 +635,7 @@ class UsersKeysHelper:
                        input_user_login=_user['user_name_no_admin'],
                        input_user_password=_user['user_name_no_admin'],
                        input_user_password_rep=_user['user_name_no_admin'],
-                       input_phone_cod='+7',
-                       input_phone_number=random.randint(1111111111,9999999999),
+                       input_phone_cod='+7' + str(random.randint(1111111111,9999999999)),
                        input_sms_password='12345',
                        input_sms_password_rep='12345'
                        )
@@ -666,8 +664,7 @@ class UsersKeysHelper:
                        input_user_login=random_data,
                        input_user_password=random_data,
                        input_user_password_rep=random_data,
-                       input_phone_cod='+7',
-                       input_phone_number=random_data_phone,
+                       input_phone_cod='+7' + str(random_data_phone),
                        input_sms_password=random_data,
                        input_sms_password_rep=random_data
                        )
@@ -703,10 +700,10 @@ class UsersKeysHelper:
             self.app.method.inputValues(_user['user_password'], password)
         with allure.step("Ввод значений в поле Повторите пароль  "):
             self.app.method.inputValues(_user['user_password'], re_password)
-        with allure.step("Ввод значений в поле Телефон - код"):
-            self.app.method.inputValues(_user['user_phone_cod'], phone_cod)
-        with allure.step("Ввод значений в поле Телефон - номер"):
-            self.app.method.inputValues(_user['user_phone_number'], phone_number)
+        with allure.step("Ввод значений в поле Телефон"):
+            self.app.method.inputValues(_user['user_phone_cod'] + _user['user_phone_number'], phone_cod)
+        # with allure.step("Ввод значений в поле Телефон - номер"):
+        #     self.app.method.inputValues(_user['user_phone_number'], phone_number)
         with allure.step("Выбор чекбокса Перенаправление сообщений оператора"):
             self.app.method.checkBox(_user['CB_Operator_message_forwarding'], Operator_message_forwarding_click,
                                      Operator_message_forwarding_status)
