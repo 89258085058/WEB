@@ -241,7 +241,7 @@ class UsersKeysHelper:
         with allure.step("Проверка ввода отрицательного числа"):
             self.app.method.assertEqual('-1', '1', locator)
         with allure.step("Проверка ввода очень большого числа"):
-            self.app.method.assertEqual('1' * 1000, '11111', locator)
+            self.app.method.assertEqual('1' * 1000, '1' * 16, locator)
         with allure.step("Проверка ввода граничных значений"):
             self.app.method.assertEqual('1' * 6, '1' * 5, locator)
 
@@ -822,9 +822,9 @@ class UsersKeysHelper:
             self.app.method.checkBox(_user['CB_Allow_Pickup_by_SMS_2'], Allow_take_by_SMS_click,
                                      Allow_take_by_SMS_status)
         with allure.step("Ввод значений в поле Телефон - код"):
-            self.app.method.inputValues(_user['user_phone_cod_2'], phone_cod)
-        with allure.step("Ввод значений в поле Телефон - номер"):
-            self.app.method.inputValues(_user['user_phone_number_2'], phone_number)
+            self.app.method.inputValues(_user['user_phone_cod_2'] + _user['user_phone_number_2'], phone_cod)
+        # with allure.step("Ввод значений в поле Телефон - номер"):
+        #     self.app.method.inputValues(_user['user_phone_number_2'], phone_number)
         with allure.step("Ввод значений в поле Пароль SMS"):
             self.app.method.inputValues(_user['user_sms_password_2'], password_sms_user)
         with allure.step("Ввод значений в поле Повторите пароль SMS"):
@@ -873,9 +873,9 @@ class UsersKeysHelper:
         with allure.step("Проверка выбора чекбокса Разрешить взятие по SMS"):
             self.app.method.assertCheckBox(_user['CB_Allow_Pickup_by_SMS_2'], Allow_take_by_SMS_status)
         with allure.step("Проверка ввода значений в поле Телефон - код"):
-            self.app.method.assertValues(_user['user_phone_cod_2'], phone_cod)
-        with allure.step("Проверка ввода значений в поле Телефон - номер"):
-            self.app.method.assertValuesPhoneNum(_user['user_phone_number_2'], phone_number)
+            self.app.method.assertValues(_user['user_phone_cod_2'] + _user['user_phone_number_2'], phone_cod)
+        # with allure.step("Проверка ввода значений в поле Телефон - номер"):
+        #     self.app.method.assertValuesPhoneNum(_user['user_phone_number_2'], phone_number)
         with allure.step("Проверка ввода значений в поле Пароль SMS"):
             self.app.method.assertValues('', password_sms_user)
         with allure.step("Проверка ввода значений в поле Повторите пароль SMS"):

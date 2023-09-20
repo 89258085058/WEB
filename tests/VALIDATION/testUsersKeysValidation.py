@@ -130,11 +130,11 @@ class Test01UsersKeysValidation():
         with allure.step("Проверка валидации поля"):
             app.PO_Users_Keys.input_phone_cod_user_negativ()
 
-    @allure.story("ПОЛЬЗОВАТЕЛИ")
-    @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Телефон (номер)'(Добавить пользователя)")
-    def test_user_input_phone_number_user(self, app, extend_time, users, close_modal):
-        with allure.step("Проверка валидации поля"):
-            app.PO_Users_Keys.input_phone_number_user()
+    # @allure.story("ПОЛЬЗОВАТЕЛИ")
+    # @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Телефон (номер)'(Добавить пользователя)")
+    # def test_user_input_phone_number_user(self, app, extend_time, users, close_modal):
+    #     with allure.step("Проверка валидации поля"):
+    #         app.PO_Users_Keys.input_phone_number_user()
 
 @allure.label("owner", 'Александр Горелов')
 @allure.epic("Тесты ПОЛЬЗОВАТЕЛИ И КЛЮЧИ")
@@ -142,11 +142,11 @@ class Test01UsersKeysValidation():
 @pytest.mark.flaky(reruns=reruns)
 class Test02UsersKeysValidation():
 
-    @allure.story("ПОЛЬЗОВАТЕЛИ")
-    @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Телефон (номер)'(Добавить пользователя)")
-    def test_user_input_phone_number_user_negativ(self, app, extend_time, users, close_modal):
-        with allure.step("Проверка валидации поля"):
-            app.PO_Users_Keys.input_phone_number_user_negativ()
+    # @allure.story("ПОЛЬЗОВАТЕЛИ")
+    # @allure.title("Негативные сценарии: Проверка ввода значений в поле 'Телефон (номер)'(Добавить пользователя)")
+    # def test_user_input_phone_number_user_negativ(self, app, extend_time, users, close_modal):
+    #     with allure.step("Проверка валидации поля"):
+    #         app.PO_Users_Keys.input_phone_number_user_negativ()
 
     @allure.story("ПОЛЬЗОВАТЕЛИ")
     @allure.title("Позитивные сценарии: Проверка ввода значений в поле 'Пароль SMS'(Добавить пользователя)")
