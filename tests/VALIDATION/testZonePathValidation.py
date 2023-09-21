@@ -23,7 +23,6 @@ def add_path(app):
     with allure.step("Нажать на кнопку 'Добавить раздел'"):
         app.PO_Zone_Path.add_path()
 
-
 @pytest.fixture
 def settings_path(app):
     with allure.step("Переход на страницу Зоны Разделы"):
@@ -177,7 +176,7 @@ class TestZonePathValidationOuts:
 
     @allure.story("ВЫХОДЫ")
     @allure.title(
-        "Позитивные сценарии: Проверка ввода значений в поле 'Внутренний сигнал задания' ВЫХОД № 1, Режим работы: Температурный")
+        "Позитивные сценарии: Проверка ввода значений в поле 'Сигнал задания' ВЫХОД № 1, Режим работы: Температурный")
     def test_out_1_input_temperature_control_sensor_positiv(self, app, extend_time, outs):
         with allure.step("Выбор режима работы: Температурный"):
             app.PO_Zone_Path.select_temperature_mode_out_1()

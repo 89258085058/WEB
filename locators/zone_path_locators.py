@@ -62,7 +62,7 @@ name_out_1_error = '//div[@class ="main-section"][1]//*[.="Название"]//i
 name_out_2 = '(//*[.="Название"]//input[1])[2]'
 name_out_2_error = '//div[@class ="main-section"][2]//*[.="Название"]//input[contains(@class, "error")]'
 hysteresis_out = '//*[.="Гистерезис"]/following::input[1]'
-control_sensor_out = '(//*[.="Внутренний сигнал задания *"]//input[1])[1]'
+control_sensor_out = '(//*[.="Сигнал задания *"]//input[1])[1]'
 
 # Код настройки
 code_setting_out_1 = '(//*[.="Код настройки"]//input[1])[1]'
