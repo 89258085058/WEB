@@ -30,7 +30,7 @@ def app(request):
     global fixture
 
     if request.config.getoption("--device") == 'remote':
-        browser = request.config.getoption("--browser")
+        browser = request.config.getoption("--br")
         web_config = load_config(request.config.getoption("--target"))["web_remote"]
         logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
 
@@ -40,7 +40,7 @@ def app(request):
         return fixture
 
     if request.config.getoption("--device") == 'local':
-        browser = request.config.getoption("--browser")
+        browser = request.config.getoption("--br")
         web_config = load_config(request.config.getoption("--target"))["web"]
         logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
         if fixture is None or not fixture.is_valid():
@@ -50,7 +50,7 @@ def app(request):
         return fixture
 
     if request.config.getoption("--device") == 'emulator':
-        browser = request.config.getoption("--browser")
+        browser = request.config.getoption("--br")
         web_config = load_config(request.config.getoption("--target"))["emulator"]
         logAndPas = load_config(request.config.getoption("--target"))["webadmin"]
 
@@ -70,9 +70,9 @@ def stop(request):
 
 
 def pytest_addoption(parser):
-    # parser.addoption("--browser", action='store', default="selenoid")
-    parser.addoption("--browser", action='store', default="chrome")
-    # parser.addoption("--browser", action='store', default="Firefox")
+    # parser.addoption("--br", action='store', default="selenoid")
+    parser.addoption("--br", action='store', default="chrome")
+    # parser.addoption("--br", action='store', default="Firefox")
     parser.addoption("--target", action='store', default="target.json")
     # parser.addoption("--device", action='store', default="local")
     parser.addoption("--device", action='store', default="emulator")
